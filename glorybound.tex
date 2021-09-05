@@ -1,0 +1,172 @@
+% !TeX program = lualatex
+
+\documentclass{article}
+% \documentclass{minimal}
+\usepackage[
+    paperwidth=63mm, 
+    paperheight=88mm,
+    margin=0mm,
+]{geometry}
+\setlength\parindent{0pt}
+\setlength{\parskip}{2mm}
+
+% \usepackage{xcolor}
+
+% makes lua stuff easier
+\usepackage{luacode}
+
+% for \NewDocumentCommand
+\usepackage{xparse}
+
+% for rendering the SVG frame
+\usepackage{svg}
+
+% for filler text
+\usepackage{lipsum}
+
+% for textboxes
+\usepackage[fitting, skins]{tcolorbox}
+
+\usepackage{calc}
+
+% for fonts
+\usepackage{fontspec}
+\newfontfamily\bodyfont{CrimsonPro-Regular}[
+    Path           = "fonts/Crimson_Pro/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    BoldFont       = CrimsonPro-Bold,
+    ItalicFont     = CrimsonPro-Italic,
+    BoldItalicFont = CrimsonPro-BoldItalic,
+]
+\newfontfamily\titlefont{Grenze-Regular}[
+    Path           = "fonts/Grenze/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    BoldFont       = Grenze-Bold,
+    ItalicFont     = Grenze-Italic,
+    BoldItalicFont = Grenze-BoldItalic,
+    FontFace       = {sb}{n}{Grenze-SemiBold},
+]
+
+\DeclareOldFontCommand{\sbseries}{\fontseries{sb}\selectfont}{\mathbf}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+
+
+\begin{document}
+
+\bodyfont
+
+% build different frames
+\directlua{frames = require("frames")}
+\directlua{frames.build()}
+
+% render frame
+% the tikz stuff makes sure it's rendered in the background and not
+% as part of the document flow
+\tikz[overlay, remember picture] 
+\node[
+    anchor=north, 
+    inner ysep=0pt
+] at (current page.north) {
+    \includesvg[width = 63mm]{frames/frame-berserker.svg}
+};
+
+
+\newlength{\boxmargin}\setlength{\boxmargin}{1mm}
+
+\NewDocumentCommand{\textbox}{ O{} O{} +m }{
+% \newcommand{\textbox}[2][]{
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north, 
+        yshift=0cm,
+        xshift=0cm,
+        inner ysep=0pt,
+        #1
+    ] at (current page.north) {
+        \begin{tcolorbox}[
+            % show bounding box=blue,
+            fit,
+            fit basedim=10pt,
+            blank,
+            parbox=false, %makes parskip work
+            halign=flush left,
+            boxsep=\boxmargin,
+            % fontupper=\fontsize{10pt}{10pt}\selectfont,
+            #2
+        ]%%
+        #3
+        \end{tcolorbox}
+    };
+}
+
+
+\NewDocumentCommand{\textboxcenter}{ m O{} O{} +m }{
+    \textbox[#2][#3, height=#1]{%%
+        \raisebox{(\heightof{E})/(-2) - (#1-2\boxmargin)/2}[0pt]{%%
+            #4
+        }
+    }
+}
+
+
+% \textbox[yshift=-4.5mm][%%
+%     width=54mm, height=7mm, halign=center, valign=center,
+% % ]{\textbf{Battle Rage}}
+% ]{Battle Rage}
+
+\textboxcenter{7mm}[yshift=-4.5mm][%%
+    width=54mm, halign=center, %valign=center,
+    fit basedim=14pt,
+]{\titlefont\textbf{Battle Rage}}
+% ]{Battle Rage}
+
+% \textbox[yshift=-12mm][%%
+%     width=54mm, height=5mm, %valign=center,
+% ]{%%
+%     % \raisebox{(\heightof{E}-.5\height)/2}{Basigc}
+%     % \raisebox{.5\height-(\heightof{x})/2}{Basic Permanent}
+%     \raisebox{(\heightof{E})/(-2)-2.5mm}[0pt]{%
+%         Basic Permanent
+%     }
+% }
+
+\textboxcenter{5mm}[yshift=-12mm][%%
+    width=54mm,
+]{%%
+    \titlefont \sbseries Basic Permanent
+    % \titlefont Basic Permanent
+}
+
+\textbox[yshift=-17.5mm][%%
+    width=54mm, height=64mm, valign=center,
+]{
+    \textbf{Permanent:} Stays in play.
+
+    At the start of each turn, if your opponent has scored at least two points you may play an additional action this turn.
+}
+
+% using luacode* because there are percentage signs
+% declare the sqrt function in Lua
+% \begin{luacode*}
+%     function compute_sqrt(v)
+%         local s = math.sqrt(tonumber(v))
+%         local s_f = math.floor(s)
+%         local o
+%         if (math.abs(s_f * s_f - v) < 1.0e-5) then
+%             o = string.format("%.1f", s)
+%         else
+%             o = string.format("%.6f", s)
+%         end
+%         tex.print(o)
+%     end
+% \end{luacode*}
+
+% % declare a wrapper in TeX
+% \newcommand{\luasqrt}[1]{\directlua{compute_sqrt(#1)}}
+
+% \luasqrt{5}
+
+
+\end{document} 
