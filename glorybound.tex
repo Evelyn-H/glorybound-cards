@@ -10,7 +10,7 @@
 \setlength\parindent{0pt}
 \setlength{\parskip}{2mm}
 
-% \usepackage{xcolor}
+\usepackage{xcolor}
 
 % makes lua stuff easier
 \usepackage{luacode}
@@ -24,10 +24,45 @@
 % for filler text
 \usepackage{lipsum}
 
+% for getting the current date
+\usepackage[datesep=/]{datetime2}
+\DTMsetdatestyle{mmddyy}
+
 % for textboxes
+% this also pulls in tikz as a dependency
 \usepackage[fitting, skins]{tcolorbox}
 
+% for length maths shenanigans
 \usepackage{calc}
+
+% Some tcolorbox hackery to add "proper" one-line vertical centering
+\newlength{\Eheight}
+\makeatletter
+\def\tcb@dbox@top#1#2#3#4#5{\pgftext[x=#1,y=#2+#3,left,top]{#5}}
+% define new valign type
+\def\tcb@dbox@centerline#1#2#3#4#5{%
+    % based on valign=top 
+    \pgftext[x=#1,y=#2+#3,left,top]{%
+        % make sure we have the correct front set for measuring 
+        \pgfkeysvalueof{/textbox/font}%
+        \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
+        % measure cap height
+        \setlength{\Eheight}{\heightof{E}}%
+        % \the\Eheight
+        % and then raise (actually lower) the text based on that
+        \raisebox{%
+            0pt-0.5\Eheight-(\pgfkeysvalueof{/textbox/height}-\pgfkeysvalueof{/textbox/margin}-\pgfkeysvalueof{/textbox/margin})/2
+        }{#5}
+    }
+}
+\def\tcb@dbox@center#1#2#3#4#5{\pgftext[x=#1,y=#2+#3/2,left]{#5}}
+\def\tcb@dbox@bottom#1#2#3#4#5{\pgftext[x=#1,y=#2,left,bottom]{#5}}
+
+\tcbset{
+    % add new valign type to the list of valid options
+    valign/centerline/.code={\def\kvtcb@valignupper{centerline}}
+}
+\makeatother
 
 % for fonts
 \usepackage{fontspec}
@@ -73,78 +108,93 @@
 };
 
 
-\newlength{\boxmargin}\setlength{\boxmargin}{1mm}
+\pgfkeys{/textbox/.cd,% set the initial path
+    anchor/.initial=north,
+    x/.initial=0mm,
+    y/.initial=0mm,
+    width/.initial=54mm,
+    height/.initial=4mm,
+    margin/.initial=1mm,
+    fontsize/.initial=10pt,
+    font/.initial=\bodyfont,
+}
 
-\NewDocumentCommand{\textbox}{ O{} O{} +m }{
-% \newcommand{\textbox}[2][]{
+\makeatletter
+% first argument (optional): key-value options
+% second argument (optional): extra stuff passed to tcolorbox
+%third argument: textbox contents
+\NewDocumentCommand{\bettertextbox}{ O{} O{} +m }{
+    \begingroup
+    % handle key-value arguments
+    \pgfkeys{/textbox/.cd, #1}
+
     \tikz[overlay, remember picture] 
     \node[
-        anchor=north, 
-        yshift=0cm,
-        xshift=0cm,
+        anchor=\pgfkeysvalueof{/textbox/anchor}, 
+        xshift=\pgfkeysvalueof{/textbox/x},
+        yshift= -1 * \pgfkeysvalueof{/textbox/y},
         inner ysep=0pt,
-        #1
+        inner xsep=0pt,
     ] at (current page.north) {
         \begin{tcolorbox}[
-            % show bounding box=blue,
+            % show bounding box=green,
+            width=\pgfkeysvalueof{/textbox/width},
+            height=\pgfkeysvalueof{/textbox/height},
             fit,
-            fit basedim=10pt,
+            fit basedim=\pgfkeysvalueof{/textbox/fontsize},
             blank,
             parbox=false, %makes parskip work
             halign=flush left,
-            boxsep=\boxmargin,
-            % fontupper=\fontsize{10pt}{10pt}\selectfont,
+            boxsep=\pgfkeysvalueof{/textbox/margin},
+            % fontupper=\fontsize{\pgfkeysvalueof{/textbox/fontsize}}{\pgfkeysvalueof{/textbox/fontsize}}\selectfont,
             #2
         ]%%
-        #3
+            \pgfkeysvalueof{/textbox/font}%
+            #3
         \end{tcolorbox}
     };
+    \endgroup
+}
+\makeatother
+
+
+% \newlength{\boxmargin}\setlength{\boxmargin}{0mm}
+
+\bettertextbox
+    [y=4.5mm, width=54mm, height=7mm, fontsize=14pt, font=\titlefont\bfseries]
+    [halign=center, valign=centerline]
+{%
+    Battle Rage
 }
 
-
-\NewDocumentCommand{\textboxcenter}{ m O{} O{} +m }{
-    \textbox[#2][#3, height=#1]{%%
-        \raisebox{(\heightof{E})/(-2) - (#1-2\boxmargin)/2}[0pt]{%%
-            #4
-        }
-    }
+\bettertextbox
+    [y=12mm, width=54mm, height=5mm, font=\titlefont\sbseries]
+    [valign=centerline]
+{%
+    Basic Permanent
 }
 
-
-% \textbox[yshift=-4.5mm][%%
-%     width=54mm, height=7mm, halign=center, valign=center,
-% % ]{\textbf{Battle Rage}}
-% ]{Battle Rage}
-
-\textboxcenter{7mm}[yshift=-4.5mm][%%
-    width=54mm, halign=center, %valign=center,
-    fit basedim=14pt,
-]{\titlefont\textbf{Battle Rage}}
-% ]{Battle Rage}
-
-% \textbox[yshift=-12mm][%%
-%     width=54mm, height=5mm, %valign=center,
-% ]{%%
-%     % \raisebox{(\heightof{E}-.5\height)/2}{Basigc}
-%     % \raisebox{.5\height-(\heightof{x})/2}{Basic Permanent}
-%     \raisebox{(\heightof{E})/(-2)-2.5mm}[0pt]{%
-%         Basic Permanent
-%     }
-% }
-
-\textboxcenter{5mm}[yshift=-12mm][%%
-    width=54mm,
-]{%%
-    \titlefont \sbseries Basic Permanent
-    % \titlefont Basic Permanent
-}
-
-\textbox[yshift=-17.5mm][%%
-    width=54mm, height=64mm, valign=center,
-]{
+\bettertextbox
+    [y=17.5mm, width=54mm, height=64mm]
+    [valign=center, bottom=0.25mm] % the bottom=... just adds some extra spacing there
+{%
     \textbf{Permanent:} Stays in play.
 
     At the start of each turn, if your opponent has scored at least two points you may play an additional action this turn.
+}
+
+\bettertextbox
+    [y=81.5mm, width=27mm, height=4mm, anchor=north east, font=\titlefont\color{white}, fontsize=7pt, margin=0.5mm]
+    [valign=centerline, left=-0.5mm]
+{%
+    Berserker
+}
+
+\bettertextbox
+    [y=81.5mm, x=0mm, width=27mm, height=4mm, anchor=north west, font=\titlefont\color{white}, fontsize=7pt, margin=0.5mm]
+    [valign=centerline, right=-0.5mm, halign=flush right]
+{%
+    \today\ \ --\ \ Glorybound
 }
 
 % using luacode* because there are percentage signs
