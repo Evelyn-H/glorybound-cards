@@ -10,6 +10,9 @@
 \setlength\parindent{0pt}
 \setlength{\parskip}{2mm}
 
+% the cmyk option makes it convert rgb color to cmyk space
+% this makes the pdf output look more "realistic", but less vibrant
+% \usepackage[cmyk]{xcolor}
 \usepackage{xcolor}
 
 % makes lua stuff easier
@@ -17,9 +20,6 @@
 
 % for \NewDocumentCommand
 \usepackage{xparse}
-
-% for rendering the SVG frame
-% \usepackage{svg}
 
 % for filler text
 \usepackage{lipsum}
@@ -35,41 +35,17 @@
 % for length maths shenanigans
 \usepackage{calc}
 
-% Some tcolorbox hackery to add "proper" one-line vertical centering
-\newlength{\Eheight}
-\makeatletter
-\def\tcb@dbox@top#1#2#3#4#5{\pgftext[x=#1,y=#2+#3,left,top]{#5}}
-% define new valign type
-\def\tcb@dbox@centerline#1#2#3#4#5{%
-    % based on valign=top 
-    \pgftext[x=#1,y=#2+#3,left,top]{%
-        % make sure we have the correct front set for measuring 
-        \pgfkeysvalueof{/textbox/font}%
-        \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
-        % measure cap height
-        \setlength{\Eheight}{\heightof{E}}%
-        % \the\Eheight
-        % and then raise (actually lower) the text based on that
-        \raisebox{%
-            0pt-0.5\Eheight-(\pgfkeysvalueof{/textbox/height}-\pgfkeysvalueof{/textbox/margin}-\pgfkeysvalueof{/textbox/margin})/2
-        }{#5}
-    }
-}
-\def\tcb@dbox@center#1#2#3#4#5{\pgftext[x=#1,y=#2+#3/2,left]{#5}}
-\def\tcb@dbox@bottom#1#2#3#4#5{\pgftext[x=#1,y=#2,left,bottom]{#5}}
+% for tables stuff
+\usepackage{tabularx}
+\usepackage{array}
 
-\tcbset{
-    % add new valign type to the list of valid options
-    valign/centerline/.code={\def\kvtcb@valignupper{centerline}}
-}
-\makeatother
-
-% for fonts
+% load fonts
 \usepackage{fontspec}
 \newfontfamily\bodyfont{CrimsonPro-Regular}[
     Path           = "fonts/Crimson_Pro/",
     Extension      = .ttf,
     Ligatures      = TeX,
+    Numbers        = Monospaced,
     BoldFont       = CrimsonPro-Bold,
     ItalicFont     = CrimsonPro-Italic,
     BoldItalicFont = CrimsonPro-BoldItalic,
@@ -89,150 +65,194 @@
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
 
+% my custom textbox command
+\include{textbox.tex}
+
+% card rendering code
+\include{card.tex}
+
 \begin{document}
 
-\bodyfont
+\setpath{Berserker}{000000}{C8000F}
+\card[%
+    name={Battle Rage},
+    type={Permanent},
+    cost={},
+    text={%
+        At the start of each turn, if your opponent has scored at least two 
+        points you may play an additional action this turn.
+    },
+    % path={Berserker},
+    % color-left=000000,
+    % color-right=C8000F,
+]
 
-% build different frames
-\directlua{frames = require("frames")}
-\directlua{frames.build()}
+\setpath{Druid}{00DB1D}{BF00FF}
+\card[%
+    name={Bind in Thorns},
+    type={},
+    cost={WA},
+    text={%
+        \block
+        \attack{1}
+    },
+]
 
-% render frame
-% the tikz stuff makes sure it's rendered in the background and not
-% as part of the document flow
+\setpath{Fireheart}{F44B02}{F9028A}
+\newcommand{\burn}[1]{\textcolor[HTML]{F22643}{\textbf{#1}}}
 
-% background gradient:
-\definecolor{left} {HTML}{FFA500}
-\definecolor{right} {HTML}{AF0301}
-\tikz[overlay, remember picture] 
-\node[
-    anchor=north,
-    yshift=-1.5mm,
-    rectangle, 
-    minimum width=\paperwidth-3mm, 
-    minimum height=\paperheight-3mm,
-    left color=left, 
-    right color=right,
-    shading = axis,
-    shading angle=135, 
-] at (current page.north) {};
+\card[%
+    name={Insatiable Flame},
+    type={},
+    cost={W},
+    text={%
+        \attack{1}
+        I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze)}
+    },
+]
 
-% frame (with transparency):
-\tikz[overlay, remember picture] 
-\node[
-    anchor=north, 
-    inner ysep=0pt,
-    inner xsep=0pt,
-    outer ysep=0pt,
-    outer xsep=0pt,
-] at (current page.north) {
-    % \includesvg[width = 63mm]{frames/frame-berserker.svg}
-    \includegraphics[width=63mm]{frame2.png}
-};
+\card[%
+    name={Set Ablaze},
+    type={},
+    cost={WWA},
+    text={%
+        \attack{4}
+        I cost no resources once your opponent has been \burn{burned} twice.
+        I can't be blocked.
+    },
+    oneshot,
+]
 
+\card[%
+    name={Inferno Circle},
+    type={Sequence},
+    cost={},
+    text={%
+        \sequence
+        [If your opponent attacked this turn, I \burn{burn} them.]
+        [If your opponent attacked this turn, I \burn{burn} them.]
+    },
+]
 
-\pgfkeys{/textbox/.cd,% set the initial path
-    anchor/.initial=north,
-    anchorpos/.initial=north,
-    x/.initial=0mm,
-    y/.initial=0mm,
-    width/.initial=54mm,
-    height/.initial=4mm,
-    margin/.initial=1mm,
-    fontsize/.initial=10pt,
-    font/.initial=\bodyfont,
-}
+\card[%
+    name={Kindled Flame},
+    type={Innate Permanent},
+    cost={},
+    text={%
+        When your opponent is \burn{burned} for the third time play Set Ablaze immediately as a special action. If it is banished or forgotten, recall it first.
+    },
+]
 
-\makeatletter
-% first argument (optional): key-value options
-% second argument (optional): extra stuff passed to tcolorbox
-%third argument: textbox contents
-\NewDocumentCommand{\bettertextbox}{ O{} O{} +m }{
-    \begingroup
-    % handle key-value arguments
-    \pgfkeys{/textbox/.cd, #1}
+\card[%
+    name={Pyre Offering},
+    type={Sequence},
+    cost={},
+    text={%
+        \sequence
+        [Banish a non-Fireheart card from your hand to recall Consumed by Flame.]
+        [You may play an additional action]
+    },
+    oneshot,
+]
 
-    \tikz[overlay, remember picture] 
-    \node[
-        anchor=\pgfkeysvalueof{/textbox/anchor}, 
-        xshift=\pgfkeysvalueof{/textbox/x},
-        yshift= -1 * \pgfkeysvalueof{/textbox/y},
-        inner ysep=0pt,
-        inner xsep=0pt,
-        outer ysep=0pt,
-        outer xsep=0pt,
-    ] at (current page.\pgfkeysvalueof{/textbox/anchorpos}) {%
-        \begin{tcolorbox}[
-            % show bounding box=green,
-            width=\pgfkeysvalueof{/textbox/width},
-            height=\pgfkeysvalueof{/textbox/height},
-            fit,
-            fit basedim=\pgfkeysvalueof{/textbox/fontsize},
-            fit skip=1.2, % baselineskip
-            blank,
-            parbox=false, % makes parskip work
-            halign=flush left,
-            boxsep=\pgfkeysvalueof{/textbox/margin},
-            % fontupper=\fontsize{\pgfkeysvalueof{/textbox/fontsize}}{\pgfkeysvalueof{/textbox/fontsize}}\selectfont,
-            % tikz={opacity=0.5,transparency group},
-            #2
-        ]%%
-            \pgfkeysvalueof{/textbox/font}%
-            #3
-        \end{tcolorbox}%
-    };
-    \endgroup
-}
-\makeatother
+\card[%
+    name={Consumed by Flame},
+    type={Extra},
+    cost={},
+    text={%
+        \textit{This card begins the match forgotten and is recalled by Pyre Offering}
+
+        Consumed by Flame is a copy of the card that was banished by Pyre Offering, except that it \burn{burns} your opponent when it hits and when it blocks their attacks.
+     },
+]
 
 
-% \newlength{\boxmargin}\setlength{\boxmargin}{0mm}
+\setpath{Legionnaire}{FFA500}{AF0301}
 
-\bettertextbox
-    [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
-    [halign=center, valign=centerline]
-{%
-    Battle Rage
-    % Shelter at the Crossroads
-}
- 
-\bettertextbox
-    [y=11mm, width=36mm, height=4mm, margin=0mm, fontsize=9pt, font=\titlefont\sbseries\itshape]
-    [halign=center, valign=centerline]
-{%
-    Innate Permanent
-}
+\card[%
+    name={Balanced Blade},
+    type={},
+    cost={A},
+    text={%
+        \attack{2}
+        Recall Parry.
+    },
+]
 
-\bettertextbox
-    [y=81.5mm, width=54mm, height=32mm, anchor=south, margin=2mm]
-    [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
-        underlay={
-            \begin{tcbclipinterior}
-                \node[anchor=center, opacity=0.1] at (frame.center) {
-                    \includegraphics[height=14mm]{permanent-watermark.png}
-                };
-            \end{tcbclipinterior}
-        }
-    ] 
-{%
-    % \textbf{Permanent:} Stays in play.
-    % 
-    At the start of each turn, if your opponent has scored at least two points you may play an additional action this turn.
-}
+\card[%
+    name={Parry},
+    type={Extra},
+    cost={A},
+    text={%
+        \textit{This card begins the match forgotten and is recalled by Balanced Blade.}
+        
+        I cost one resource less if you played Balanced Blade last turn.
+        
+        \block
+    },
+    oneshot,
+]
 
-\bettertextbox
-    [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
-    [valign=centerline, left=-0.5mm]
-{%
-    Berserker
-}
+\card[%
+    name={Arrow Volley},
+    type={},
+    cost={SF},
+    text={%
+        Repeat the following twice:
+        \attack{1}
 
-\bettertextbox
-    [y=81.5mm, x=27mm, width=24mm, height=4mm, anchor=north east, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
-    [valign=centerline, right=-0.5mm, halign=flush right]
-{%
-    \today\ \ --\ \ Glorybound
-}
+        \textit{(One block can only stop one attack.)}
+    },
+]
+
+\card[%
+    name={Decisive Strike},
+    type={},
+    cost={SAA},
+    text={%
+        I cost one resource less for each two points you've scored this match.
+        \attack{3}
+    },
+]
+
+\card[%
+    name={Battle Tactics},
+    type={Innate Permanent},
+    cost={F},
+    text={%
+        Choose a strategy:
+
+        \textit{Skirmish} -- You may play an additional action on the second turn.
+
+        \textit{Ambush} -- The first time you attack, give an attack +2 attack power.
+
+        \textit{Besiege} -- Your opponent pays {Any}.
+    },
+]
+
+\card[%
+    name={Shield Wall},
+    type={Permanent},
+    cost={S},
+    text={%
+        First turn:
+        \block
+
+        Whenever you play an attack, block an attack with less attack power.
+    },
+]
+
+
+% \setpath{XXX}{aa00aa}{0000aa}
+% \card[%
+%     name={},
+%     type={},
+%     cost={},
+%     text={%
+%         
+%     },
+% ]
+
 
 % using luacode* because there are percentage signs
 % declare the sqrt function in Lua

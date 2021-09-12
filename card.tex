@@ -1,0 +1,236 @@
+%%% Commands to be used in card definitions
+
+\newcommand{\block}{{\par\centering\textbf{Block} an attack.\par}}
+
+\newcommand{\attack}[1]{{\par\centering\textbf{Attack} #1.\par}}
+
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+\renewcommand{\arraystretch}{1.5}
+\NewDocumentCommand{\sequence}{+o +o +o}{%
+    \begin{tabularx}{\textwidth}{ m{3mm}>{\raggedright\arraybackslash}X }
+        [1] & #1 \\
+        \IfValueT{#2}
+        {%
+            [2] & #2 \\
+            \IfValueT{#3}
+            {%
+                [3] & #3 \\
+            }
+        }
+    \end{tabularx}
+}
+
+%%%
+
+\begin{luacode*}
+    function underlay(typeline)
+        if typeline:lower():find("permanent") then
+            tex.print("\\permanentunderlay")
+        else
+            tex.print("{}")
+        end
+    end
+\end{luacode*}
+
+\newcommand{\setpath}[3]{
+    \pgfkeys{/card/.cd,
+        path=#1,
+        color-left=#2,
+        color-right=#3,
+    }
+}
+
+% \begin{luacode*}
+    
+% \end{luacode*}
+
+\newcommand{\rendermanasymbol}[2]{
+    \directlua{
+        function get_mana_filename(s)
+            symbols = {}
+            symbols["A"] = "any"
+            symbols["F"] = "focus"
+            symbols["S"] = "strength"
+            symbols["W"] = "will"
+            % symbols["S"] = "spirit"
+            return symbols[s] or s
+        end
+    }
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north west, 
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+        xshift=5.5mm,
+        yshift=-\directlua{tex.print(5.5 + 6 * (#1 - 1))}mm,
+    ] at (current page.north west) {
+        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
+        \includegraphics[width=5mm]{icons/mana/\directlua{tex.print(get_mana_filename(\luastringN{#2}))}.png}
+    };
+}
+
+\begin{luacode*}
+    function render_mana(s)
+        for i = 1, #s do
+            tex.print("\\rendermanasymbol{"..i.."}{"..s:sub(i,i).."}")
+        end
+    end
+\end{luacode*}
+\newcommand{\rendermana}[1]{\directlua{render_mana(\luastring{#1})}}
+
+
+\pgfkeys{/card/.cd,% set the initial path
+    name/.initial={},
+    type/.initial={},
+    cost/.initial={},
+    text/.initial={},
+    path/.initial={},
+    color-left/.initial=FF00FF,
+    color-right/.initial=0000FF,
+    oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}\pgfkeysgetvalue{oneshot}{\oneshot}},
+}
+
+\NewDocumentCommand{\card}{ +O{} }{
+
+    % start a new page if we have to
+    \clearpage
+
+    % to make sure no arguments "leak" between different \card calls
+    \begingroup
+    % handle key-value arguments
+    \pgfkeys{/card/.cd, #1}
+    
+    % render frame
+    % the tikz stuff makes sure it's rendered in the background and not
+    % as part of the document flow
+    
+    % background gradient:
+    \definecolor{left}  {HTML}{\pgfkeysvalueof{/card/color-left}}
+    \definecolor{right} {HTML}{\pgfkeysvalueof{/card/color-right}}
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north,
+        yshift=-1.5mm,
+        rectangle, 
+        minimum width=\paperwidth-3mm, 
+        minimum height=\paperheight-3mm,
+        left color=left, 
+        right color=right,
+        shading = axis,
+        shading angle=135, 
+    ] at (current page.north) {};
+    
+    % frame (with transparency):
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north, 
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+    ] at (current page.north) {
+        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
+        \includegraphics[width=63mm]{frame2.png}
+    };
+
+    % art:
+    % (just a placeholder rectangle currently)
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north,
+        yshift=-17mm,
+        rectangle, 
+        minimum width=36mm, 
+        minimum height=30mm,
+        left color=left, 
+        right color=right,
+        shading = axis,
+        shading angle=135, 
+        opacity = 0.3,
+    ] at (current page.north) {};
+
+
+    % cost
+    \rendermana{\pgfkeysvalueof{/card/cost}}
+    % \rendermanasymbol{1}{W}
+    % \rendermanasymbol{2}{S}
+    % \rendermanasymbol{3}{A}
+    
+    % make sure we have the right font ny default
+    \bodyfont
+    
+    % name
+    \bettertextbox
+        [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
+        [halign=center, valign=centerline]
+    {%
+        \pgfkeysvalueof{/card/name}
+    }
+     
+    % type
+    \bettertextbox
+        [y=11mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries\itshape]
+        [halign=center, valign=centerline]
+    {%
+        \pgfkeysvalueof{/card/type}
+    }
+    
+    % this uses some lua string code to check if the card type
+    % containts "permanent" or not (case insensitive)
+    \newcommand{\underlay}[1]{\directlua{underlay(\luastringN{#1})}}
+    \newcommand{\permanentunderlay}{%
+        \begin{tcbclipinterior}
+            \node[anchor=center, opacity=0.15] at (frame.center) {
+                \includegraphics[height=14mm]{permanent-watermark.png}
+            };
+        \end{tcbclipinterior}
+    }
+
+    % oneshot?
+    \pgfkeysifdefined{oneshot}{%
+        % defined 
+        \tikz[overlay, remember picture] 
+        \node[
+            anchor=south, 
+            inner ysep=0pt,
+            inner xsep=0pt,
+            outer ysep=0pt,
+            outer xsep=0pt,
+            yshift=7.5mm,
+        ] at (current page.south) {
+            \includegraphics[width=36mm]{oneshot-banner.png}
+        };
+    }{%
+        % not defined
+    }
+
+    % text
+    \bettertextbox
+        [y=\pgfkeysifdefined{oneshot}{73 .5mm}{81.5mm}, width=54mm, height=\pgfkeysifdefined{oneshot}{24mm}{32mm}, anchor=south, margin=2mm]
+        [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
+            underlay={\underlay{\pgfkeysvalueof{/card/type}}}
+        ] 
+    {%
+        \pgfkeysvalueof{/card/text}
+    }
+    
+    % path
+    \bettertextbox
+        [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+        [valign=centerline, left=-0.5mm]
+    {%
+        \pgfkeysvalueof{/card/path}
+    }
+    
+    % date - glorybound
+    \bettertextbox
+        [y=81.5mm, x=27mm, width=24mm, height=4mm, anchor=north east, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+        [valign=centerline, right=-0.5mm, halign=flush right]
+    {%
+        \today\ \ --\ \ Glorybound
+    }
+
+    \endgroup
+}
