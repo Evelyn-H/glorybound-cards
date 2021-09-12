@@ -19,7 +19,7 @@
 \usepackage{xparse}
 
 % for rendering the SVG frame
-\usepackage{svg}
+% \usepackage{svg}
 
 % for filler text
 \usepackage{lipsum}
@@ -82,6 +82,7 @@
     ItalicFont     = Grenze-Italic,
     BoldItalicFont = Grenze-BoldItalic,
     FontFace       = {sb}{n}{Grenze-SemiBold},
+    FontFace       = {sb}{it}{Grenze-SemiBoldItalic},
 ]
 
 \DeclareOldFontCommand{\sbseries}{\fontseries{sb}\selectfont}{\mathbf}
@@ -99,17 +100,40 @@
 % render frame
 % the tikz stuff makes sure it's rendered in the background and not
 % as part of the document flow
+
+% background gradient:
+\definecolor{left} {HTML}{FFA500}
+\definecolor{right} {HTML}{AF0301}
+\tikz[overlay, remember picture] 
+\node[
+    anchor=north,
+    yshift=-1.5mm,
+    rectangle, 
+    minimum width=\paperwidth-3mm, 
+    minimum height=\paperheight-3mm,
+    left color=left, 
+    right color=right,
+    shading = axis,
+    shading angle=135, 
+] at (current page.north) {};
+
+% frame (with transparency):
 \tikz[overlay, remember picture] 
 \node[
     anchor=north, 
-    inner ysep=0pt
+    inner ysep=0pt,
+    inner xsep=0pt,
+    outer ysep=0pt,
+    outer xsep=0pt,
 ] at (current page.north) {
-    \includesvg[width = 63mm]{frames/frame-berserker.svg}
+    % \includesvg[width = 63mm]{frames/frame-berserker.svg}
+    \includegraphics[width=63mm]{frame2.png}
 };
 
 
 \pgfkeys{/textbox/.cd,% set the initial path
     anchor/.initial=north,
+    anchorpos/.initial=north,
     x/.initial=0mm,
     y/.initial=0mm,
     width/.initial=54mm,
@@ -135,23 +159,27 @@
         yshift= -1 * \pgfkeysvalueof{/textbox/y},
         inner ysep=0pt,
         inner xsep=0pt,
-    ] at (current page.north) {
+        outer ysep=0pt,
+        outer xsep=0pt,
+    ] at (current page.\pgfkeysvalueof{/textbox/anchorpos}) {%
         \begin{tcolorbox}[
             % show bounding box=green,
             width=\pgfkeysvalueof{/textbox/width},
             height=\pgfkeysvalueof{/textbox/height},
             fit,
             fit basedim=\pgfkeysvalueof{/textbox/fontsize},
+            fit skip=1.2, % baselineskip
             blank,
-            parbox=false, %makes parskip work
+            parbox=false, % makes parskip work
             halign=flush left,
             boxsep=\pgfkeysvalueof{/textbox/margin},
             % fontupper=\fontsize{\pgfkeysvalueof{/textbox/fontsize}}{\pgfkeysvalueof{/textbox/fontsize}}\selectfont,
+            % tikz={opacity=0.5,transparency group},
             #2
         ]%%
             \pgfkeysvalueof{/textbox/font}%
             #3
-        \end{tcolorbox}
+        \end{tcolorbox}%
     };
     \endgroup
 }
@@ -161,37 +189,46 @@
 % \newlength{\boxmargin}\setlength{\boxmargin}{0mm}
 
 \bettertextbox
-    [y=4.5mm, width=54mm, height=7mm, fontsize=14pt, font=\titlefont\bfseries]
+    [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
     [halign=center, valign=centerline]
 {%
     Battle Rage
+    % Shelter at the Crossroads
+}
+ 
+\bettertextbox
+    [y=11mm, width=36mm, height=4mm, margin=0mm, fontsize=9pt, font=\titlefont\sbseries\itshape]
+    [halign=center, valign=centerline]
+{%
+    Innate Permanent
 }
 
 \bettertextbox
-    [y=12mm, width=54mm, height=5mm, font=\titlefont\sbseries]
-    [valign=centerline]
+    [y=81.5mm, width=54mm, height=32mm, anchor=south, margin=2mm]
+    [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
+        underlay={
+            \begin{tcbclipinterior}
+                \node[anchor=center, opacity=0.1] at (frame.center) {
+                    \includegraphics[height=14mm]{permanent-watermark.png}
+                };
+            \end{tcbclipinterior}
+        }
+    ] 
 {%
-    Basic Permanent
-}
-
-\bettertextbox
-    [y=17.5mm, width=54mm, height=64mm]
-    [valign=center, bottom=0.25mm] % the bottom=... just adds some extra spacing there
-{%
-    \textbf{Permanent:} Stays in play.
-
+    % \textbf{Permanent:} Stays in play.
+    % 
     At the start of each turn, if your opponent has scored at least two points you may play an additional action this turn.
 }
 
 \bettertextbox
-    [y=81.5mm, width=27mm, height=4mm, anchor=north east, font=\titlefont\color{white}, fontsize=7pt, margin=0.5mm]
+    [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
     [valign=centerline, left=-0.5mm]
 {%
     Berserker
 }
 
 \bettertextbox
-    [y=81.5mm, x=0mm, width=27mm, height=4mm, anchor=north west, font=\titlefont\color{white}, fontsize=7pt, margin=0.5mm]
+    [y=81.5mm, x=27mm, width=24mm, height=4mm, anchor=north east, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
     [valign=centerline, right=-0.5mm, halign=flush right]
 {%
     \today\ \ --\ \ Glorybound
