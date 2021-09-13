@@ -76,8 +76,8 @@
 \setpath{Berserker}{000000}{C8000F}
 \card[%
     name={Battle Rage},
-    type={Permanent},
     cost={},
+    permanent,
     text={%
         At the start of each turn, if your opponent has scored at least two 
         points you may play an additional action this turn.
@@ -90,7 +90,6 @@
 \setpath{Druid}{00DB1D}{BF00FF}
 \card[%
     name={Bind in Thorns},
-    type={},
     cost={WA},
     text={%
         \block
@@ -103,7 +102,6 @@
 
 \card[%
     name={Insatiable Flame},
-    type={},
     cost={W},
     text={%
         \attack{1}
@@ -113,20 +111,19 @@
 
 \card[%
     name={Set Ablaze},
-    type={},
     cost={WWA},
+    oneshot,
     text={%
         \attack{4}
         I cost no resources once your opponent has been \burn{burned} twice.
         I can't be blocked.
     },
-    oneshot,
 ]
 
 \card[%
     name={Inferno Circle},
-    type={Sequence},
     cost={},
+    sequence,
     text={%
         \sequence
         [If your opponent attacked this turn, I \burn{burn} them.]
@@ -136,8 +133,9 @@
 
 \card[%
     name={Kindled Flame},
-    type={Innate Permanent},
     cost={},
+    innate,
+    permanent,
     text={%
         When your opponent is \burn{burned} for the third time play Set Ablaze immediately as a special action. If it is banished or forgotten, recall it first.
     },
@@ -145,25 +143,25 @@
 
 \card[%
     name={Pyre Offering},
-    type={Sequence},
     cost={},
+    sequence,
+    oneshot,
     text={%
         \sequence
         [Banish a non-Fireheart card from your hand to recall Consumed by Flame.]
         [You may play an additional action]
     },
-    oneshot,
 ]
 
 \card[%
     name={Consumed by Flame},
-    type={Extra},
     cost={},
+    extra,
     text={%
         \textit{This card begins the match forgotten and is recalled by Pyre Offering}
 
         Consumed by Flame is a copy of the card that was banished by Pyre Offering, except that it \burn{burns} your opponent when it hits and when it blocks their attacks.
-     },
+    },
 ]
 
 
@@ -171,7 +169,6 @@
 
 \card[%
     name={Balanced Blade},
-    type={},
     cost={A},
     text={%
         \attack{2}
@@ -181,21 +178,20 @@
 
 \card[%
     name={Parry},
-    type={Extra},
     cost={A},
+    extra,
+    oneshot,
     text={%
         \textit{This card begins the match forgotten and is recalled by Balanced Blade.}
-        
+
         I cost one resource less if you played Balanced Blade last turn.
         
         \block
     },
-    oneshot,
 ]
 
 \card[%
     name={Arrow Volley},
-    type={},
     cost={SF},
     text={%
         Repeat the following twice:
@@ -207,7 +203,6 @@
 
 \card[%
     name={Decisive Strike},
-    type={},
     cost={SAA},
     text={%
         I cost one resource less for each two points you've scored this match.
@@ -217,8 +212,9 @@
 
 \card[%
     name={Battle Tactics},
-    type={Innate Permanent},
     cost={F},
+    innate,
+    permanent,
     text={%
         Choose a strategy:
 
@@ -232,8 +228,8 @@
 
 \card[%
     name={Shield Wall},
-    type={Permanent},
     cost={S},
+    permanent,
     text={%
         First turn:
         \block

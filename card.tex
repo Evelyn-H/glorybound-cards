@@ -22,16 +22,6 @@
 
 %%%
 
-\begin{luacode*}
-    function underlay(typeline)
-        if typeline:lower():find("permanent") then
-            tex.print("\\permanentunderlay")
-        else
-            tex.print("{}")
-        end
-    end
-\end{luacode*}
-
 \newcommand{\setpath}[3]{
     \pgfkeys{/card/.cd,
         path=#1,
@@ -83,13 +73,26 @@
 
 \pgfkeys{/card/.cd,% set the initial path
     name/.initial={},
-    type/.initial={},
+    % type/.initial={},
     cost/.initial={},
     text/.initial={},
     path/.initial={},
     color-left/.initial=FF00FF,
     color-right/.initial=0000FF,
-    oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}\pgfkeysgetvalue{oneshot}{\oneshot}},
+    permanent/.code={\pgfkeyssetvalue{permanent}{#1}},
+    sequence/.code={\pgfkeyssetvalue{sequence}{#1}},
+    oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}},
+    innate/.code={\pgfkeyssetvalue{innate}{#1}},
+    extra/.code={\pgfkeyssetvalue{extra}{#1}},
+    % read-only key to get the printed type line
+    type/.initial={%
+        % supertypes
+        \pgfkeysifdefined{innate}{Innate }{}%
+        \pgfkeysifdefined{extra}{Extra }{}%
+        % base types
+        \pgfkeysifdefined{permanent}{Permanent }{}%
+        \pgfkeysifdefined{sequence}{Sequence }{}%
+    }
 }
 
 \NewDocumentCommand{\card}{ +O{} }{
@@ -176,17 +179,6 @@
     {%
         \pgfkeysvalueof{/card/type}
     }
-    
-    % this uses some lua string code to check if the card type
-    % containts "permanent" or not (case insensitive)
-    \newcommand{\underlay}[1]{\directlua{underlay(\luastringN{#1})}}
-    \newcommand{\permanentunderlay}{%
-        \begin{tcbclipinterior}
-            \node[anchor=center, opacity=0.15] at (frame.center) {
-                \includegraphics[height=14mm]{permanent-watermark.png}
-            };
-        \end{tcbclipinterior}
-    }
 
     % oneshot?
     \pgfkeysifdefined{oneshot}{%
@@ -207,10 +199,17 @@
     }
 
     % text
+
     \bettertextbox
         [y=\pgfkeysifdefined{oneshot}{73 .5mm}{81.5mm}, width=54mm, height=\pgfkeysifdefined{oneshot}{24mm}{32mm}, anchor=south, margin=2mm]
         [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
-            underlay={\underlay{\pgfkeysvalueof{/card/type}}}
+            underlay=\pgfkeysifdefined{permanent}{%
+                \begin{tcbclipinterior}
+                    \node[anchor=center, opacity=0.15] at (frame.center) {
+                        \includegraphics[height=14mm]{permanent-watermark.png}
+                    };
+                \end{tcbclipinterior}
+            }{}
         ] 
     {%
         \pgfkeysvalueof{/card/text}
