@@ -39,6 +39,9 @@
 \usepackage{tabularx}
 \usepackage{array}
 
+% for outlined text
+\usepackage{pdfrender}
+
 % load fonts
 \usepackage{fontspec}
 \newfontfamily\bodyfont{CrimsonPro-Regular}[
@@ -73,7 +76,19 @@
 
 \begin{document}
 
+
 \setpath{Berserker}{000000}{C8000F}
+
+\card[%
+    name={Bloodthirsty Axe},
+    cost={SA},
+    text={%
+        \attack{2}
+
+        I get +2 attack power if you are being attacked.
+    },
+]
+
 \card[%
     name={Battle Rage},
     cost={},
@@ -87,12 +102,48 @@
     % color-right=C8000F,
 ]
 
+\card[%
+    name={Rite of Scars},
+    cost={},
+    text={%
+        \attack{2}
+
+        In addition, you also attack yourself for the same amount.
+        \textit{(Your opponent scores the points.)}
+
+        Gain two Spirit.
+    },
+]
+
+\card[%
+    name={Pillage},
+    cost={},
+    text={%
+        Banish a card your opponent played this turn.
+    },
+]
+
+
+\card[%
+    name={Retribution},
+    cost={SAA},
+    text={%
+        \attack{2}
+
+        I get +1 attack power for each two points your opponent has scored this match.
+
+        I can't be blocked unless your opponent pays Any.
+    },
+]
+
+
 \setpath{Druid}{00DB1D}{BF00FF}
 \card[%
     name={Bind in Thorns},
     cost={WA},
     text={%
         \block
+
         \attack{1}
     },
 ]
@@ -105,6 +156,7 @@
     cost={W},
     text={%
         \attack{1}
+
         I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze)}
     },
 ]
@@ -115,8 +167,8 @@
     oneshot,
     text={%
         \attack{4}
+
         I cost no resources once your opponent has been \burn{burned} twice.
-        I can't be blocked.
     },
 ]
 
@@ -172,6 +224,7 @@
     cost={A},
     text={%
         \attack{2}
+
         Recall Parry.
     },
 ]
@@ -196,7 +249,7 @@
     text={%
         Repeat the following twice:
         \attack{1}
-
+        
         \textit{(One block can only stop one attack.)}
     },
 ]
@@ -206,6 +259,7 @@
     cost={SAA},
     text={%
         I cost one resource less for each two points you've scored this match.
+        
         \attack{3}
     },
 ]
@@ -242,7 +296,6 @@
 % \setpath{XXX}{aa00aa}{0000aa}
 % \card[%
 %     name={},
-%     type={},
 %     cost={},
 %     text={%
 %         
