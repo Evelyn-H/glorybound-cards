@@ -1,0 +1,409 @@
+\setpath{Berserker}{000000}{C8000F}
+
+\card[%
+    name={Bloodthirsty Axe},
+    cost={SA},
+    text={%
+        \attack{2}
+
+        I get +2 attack power if you are being attacked.
+    },
+]
+
+\card[%
+    name={Battle Rage},
+    cost={},
+    permanent,
+    text={%
+        At the start of each turn, if your opponent has scored at least two 
+        points you may play an additional action this turn.
+    },
+    % path={Berserker},
+    % color-left=000000,
+    % color-right=C8000F,
+]
+
+\card[%
+    name={Rite of Scars},
+    cost={},
+    text={%
+        \attack{2}
+
+        In addition, you also attack yourself for the same amount.
+        \textit{(Your opponent scores the points.)}
+
+        Gain two Spirit.
+    },
+]
+
+\card[%
+    name={Pillage},
+    cost={},
+    text={%
+        Banish a card your opponent played this turn.
+    },
+]
+
+
+\card[%
+    name={Retribution},
+    cost={SAA},
+    text={%
+        \attack{2}
+
+        I get +1 attack power for each two points your opponent has scored this match.
+
+        I can't be blocked unless your opponent pays Any.
+    },
+]
+
+
+\setpath{Druid}{00DB1D}{BF00FF}
+\card[%
+    name={Bind in Thorns},
+    cost={WA},
+    text={%
+        \attack{1}
+
+        \block
+    },
+]
+
+\setpath{Fireheart}{F44B02}{F9028A}
+\newcommand{\burn}[1]{\textcolor[HTML]{F22643}{\textbf{#1}}}
+
+\card[%
+    name={Insatiable Flame},
+    cost={W},
+    text={%
+        \attack{1}
+
+        I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze)}
+    },
+]
+
+\card[%
+    name={Set Ablaze},
+    cost={WWA},
+    oneshot,
+    text={%
+        I cost no resources once your opponent has been \burn{burned} twice.
+    
+        \attack{4}
+    },
+]
+
+\card[%
+    name={Inferno Circle},
+    cost={},
+    sequence,
+    text={%
+        \sequence
+        [If your opponent attacked this turn, I \burn{burn} them.]
+        [If your opponent attacked this turn, I \burn{burn} them.]
+    },
+]
+
+\card[%
+    name={Kindled Flame},
+    cost={},
+    innate,
+    permanent,
+    text={%
+        When your opponent is \burn{burned} for the third time play Set Ablaze immediately as a special action. If it is banished or forgotten, recall it first.
+    },
+]
+
+\card[%
+    name={Pyre Offering},
+    cost={},
+    sequence,
+    oneshot,
+    text={%
+        \sequence
+        [Banish a non-Fireheart card from your hand to recall Consumed by Flame.]
+        [You may play an additional action]
+    },
+]
+
+\card[%
+    name={Consumed by Flame},
+    cost={},
+    extra,
+    text={%
+        \textit{This card begins the match forgotten and is recalled by Pyre Offering}
+
+        Consumed by Flame is a copy of the card that was banished by Pyre Offering, except that it \burn{burns} your opponent when it hits and when it blocks their attacks.
+    },
+]
+
+
+\setpath{Legionnaire}{FFA500}{AF0301}
+
+\card[%
+    name={Balanced Blade},
+    cost={A},
+    text={%
+        \attack{2}
+
+        Recall Parry.
+    },
+]
+
+\card[%
+    name={Parry},
+    cost={A},
+    extra,
+    oneshot,
+    text={%
+        \textit{This card begins the match forgotten and is recalled by Balanced Blade.}
+
+        I cost one resource less if you played Balanced Blade last turn.
+        
+        \block
+    },
+]
+
+\card[%
+    name={Arrow Volley},
+    cost={SF},
+    text={%
+        Repeat the following twice:
+        \attack{1}
+        
+        \textit{(One block can only stop one attack.)}
+    },
+]
+
+\card[%
+    name={Decisive Strike},
+    cost={SAA},
+    text={%
+        I cost one resource less for each two points you've scored this match.
+        
+        \attack{3}
+    },
+]
+
+\card[%
+    name={Battle Tactics},
+    cost={F},
+    innate,
+    permanent,
+    text={%
+        Choose a strategy:
+
+        \textit{Skirmish} -- You may play an additional action on the second turn.
+
+        \textit{Ambush} -- The first time you attack, give an attack +2 attack power.
+
+        \textit{Besiege} -- Your opponent pays {Any}.
+    },
+]
+
+\card[%
+    name={Shield Wall},
+    cost={S},
+    permanent,
+    text={%
+        First turn:
+        \block
+
+        Whenever you play an attack, block an attack with less attack power.
+    },
+]
+
+
+\setpath{Dancer}{5EF285}{F48DD2}
+
+\card[%
+    name={Elegant Reversal},
+    cost={SF},
+    text={%
+        \block
+
+        When I block an attack, I attack back with equal attack power.
+    },
+]
+
+\card[%
+    name={Mesmerize},
+    cost={},
+    sequence,
+    text={%
+        \sequence
+            [No effect]
+            [Your opponent's actions cost twice as many resources. \textit{(For example, an action that would cost {S}{A} costs {S}{S}{A}{A}.)}]
+    },
+]
+
+\card[%
+    name={Dizzying Spin},
+    cost={F},
+    sequence,
+    text={%
+        \sequence
+            [\attack{1}\par If I hit, name a card.]
+            [Your opponent can't play the named card(s).]
+    },
+]
+
+\card[%
+    name={Just Out of Reach},
+    cost={A},
+    text={%
+        Your opponent's attacks get -2 attack power this turn.
+    },
+]
+
+\card[%
+    name={Entice to Dance},
+    cost={A},
+    innate,
+    permanent,
+    text={%
+        Your opponent recalls Try to Keep Up.
+        
+        When the match ends, score three points unless your opponent has played Try to Keep Up.
+    },
+]
+
+\card[%
+    name={Try to Keep Up},
+    cost={},
+    extra,
+    text={%
+        \textit{This card begins the match forgotten and is given to your opponent by Entice to Dance.}
+
+        Banish Try to Keep Up on top of Entice to Dance.
+    },
+]
+
+
+\setpath{Arcanist}{E100FF}{5300EF}
+
+\card[%
+    name={Arcane Research},
+    cost={F},
+    text={%
+        Choose two random advanced cards you have not yet learned and recall them. If you recall an innate card, play it immediately.
+    },
+]
+
+\card[%
+    name={Forcefield},
+    cost={W},
+    text={%
+        \block
+
+        For the rest of the match, Forcefield costs no resources.
+    },
+]
+
+\card[%
+    name={Meteor Invocation},
+    cost={WA},
+    sequence,
+    text={%
+        \sequence
+            [No effect.]
+            [\attack{4}]
+    },
+]
+
+\card[%
+    name={Shrinking Ray},
+    cost={WA},
+    oneshot,
+    text={%
+        Your opponent pays {Any}{Any} if able, or {Any} if that's all they have. They must undo an action they played this turn if doing so would make them more able to pay. \textit{(Undone actions are recalled and refunded and have no effect.)}
+    },
+]
+
+\card[%
+    name={Spellweaving},
+    cost={},
+    innate,
+    permanent,
+    text={%
+        Reveal an Arcanist card and a non-Arcanist card from your hand. When you play one of those cards, play the other as a special action if able.
+    },
+]
+
+\card[%
+    name={All-Consuming Void},
+    cost={A},
+    extra,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+
+        At end of turn, end the match. \textit{(The player with more points wins)}
+    },
+]
+
+\card[%
+    name={True Reincarnation},
+    cost={},
+    extra,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+
+        If your opponent would score points this turn, instead they score no points and your resources are restored to your starting resources.
+    },
+]
+
+\card[%
+    name={Awaken the Old Gods},
+    cost={AAA},
+    extra,
+    sequence,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+
+        \sequence
+            [\attack{4}]
+            [\attack{4}]
+    },
+]
+
+\card[%
+    name={FAKE TEST CARD},
+    cost={AAA},
+    extra,
+    oneshot,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+
+        \attack{4}
+
+        \attack{4}
+    },
+]
+
+\card[%
+    name={FAKE TEST CARD},
+    cost={AAA},
+    extra,
+    oneshot,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+        
+        \sequence
+            [\block]
+            [\attack{4}]
+    },
+]
+
+
+
+
+
+
+% \setpath{XXX}{aa00aa}{0000aa}
+% \card[%
+%     name={},
+%     cost={},
+%     text={%
+%         
+%     },
+% ]

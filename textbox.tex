@@ -74,6 +74,10 @@
             #2
         ]%%
             \pgfkeysvalueof{/textbox/font}%
+            % this lets the parskip adapt to scaling text, 
+            % it makes the whitespace look more natural 
+            % and leaves more space for text
+            \setlength{\parskip}{0.5\tcbfitdim}%
             #3
         \end{tcolorbox}%
     };

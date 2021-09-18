@@ -1,0 +1,260 @@
+%%% Commands to be used in card definitions
+
+% \newcommand{\block}{{\par\centering\textbf{Block} an attack.\par}}
+
+% \newcommand{\attack}[1]{{\par\centering\textbf{Attack} #1.\par}}
+
+\pgfkeys{/fancyrenderer/.cd,% set the initial path
+    text/.initial={},
+    icon/.initial={},
+    icontext/.code={\pgfkeyssetvalue{/fancyrenderer/icontext}{#1}},
+    fillcolor/.initial={white},
+    textcolor/.initial={black},
+    scale/.initial={0.8},
+    % scale/.initial={0.8},
+}
+
+% helper lengths
+\newlength\cornersize
+\newlength\iconwidth
+\newlength\tempfontsize
+\newlength\outlinewidth
+
+% https://tex.stackexchange.com/a/6424
+\makeatletter
+\newcommand*{\DivideLengths}[2]{%
+  \strip@pt\dimexpr\number\numexpr\number\dimexpr#1\relax*65536/\number\dimexpr#2\relax\relax sp\relax
+}
+\makeatother
+
+\NewDocumentCommand{\fancyrenderer}{ +O{} }{%
+    % some magic for autoscaling
+    \pgfkeyssetvalue{/fancyrenderer/scale}{%
+        \directlua{%
+            ratio = \DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}
+            % tex.print(ratio)
+            if ratio > 0.9 then
+                tex.print("1.0")
+            % elseif ratio < 0.7 then
+            %     tex.print("0.6")
+            else
+                tex.print("0.8")
+            end
+        }
+    }
+    % \pgfkeyssetvalue{/fancyrenderer/scale}{\DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}}
+    % horizontal centering (relative to the parent parbox)
+    \centering    
+    % to make sure no arguments "leak" between different calls
+    \begingroup
+    % handle key-value arguments
+    \pgfkeys{/fancyrenderer/.cd, #1}
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center,
+            rectangle,
+            % minimum width=0.8\linewidth, 
+            minimum width=36mm, 
+            minimum height=6mm*\pgfkeysvalueof{/fancyrenderer/scale},
+            % fill=gray, 
+        ] (bb) {};
+
+
+        \setlength\cornersize{1.5mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+        \path[
+            draw=black, line width=0.5mm, 
+            fill=\pgfkeysvalueof{/fancyrenderer/fillcolor}
+        ] 
+            ([xshift=-\cornersize, yshift=-0.25mm] bb.north east) coordinate (start)
+            --
+            ([xshift=\cornersize, yshift=-0.25mm] bb.north west)
+            --
+            ([xshift=0.25mm, yshift=-\cornersize] bb.north west)
+            -- 
+            ([xshift=0.25mm, yshift=\cornersize] bb.south west)
+            --
+            ([xshift=\cornersize, yshift=0.25mm] bb.south west)
+            -- 
+            ([xshift=-\cornersize, yshift=0.25mm] bb.south east)
+            -- 
+            (start);
+
+        \setlength\tempfontsize{10pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        \node[
+            anchor=west,
+            % anchor=mid west,
+            % minimum width=0.8\linewidth-8mm,
+            minimum width=36mm-8mm,
+        ] at (bb.west) {
+            \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+            \textcolor{\pgfkeysvalueof{/fancyrenderer/textcolor}}{\pgfkeysvalueof{/fancyrenderer/text}}
+        };
+
+        \setlength\iconwidth{10mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        % attack icon
+        \node[
+            anchor=east, 
+            inner ysep=0pt,
+            inner xsep=0pt,
+            outer ysep=0pt,
+            outer xsep=0pt,
+        ] (icon) at (bb.east) {
+            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}
+        };
+
+        % and the white-ish semi-transparent overlay to make the colors a bit more wahsed out
+        \node[
+            anchor=east, 
+            inner ysep=0pt,
+            inner xsep=0pt,
+            outer ysep=0pt,
+            outer xsep=0pt,
+            opacity = 0.5,
+        ] at (bb.east) {
+            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}
+        };
+
+        \setlength\tempfontsize{24pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+        \setlength\outlinewidth{0.75mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        \pgfkeysifdefined{/fancyrenderer/icontext}{
+            % https://tex.stackexchange.com/questions/400296/outline-text-characters
+            \node[
+                anchor=center,
+                minimum width=\iconwidth, 
+                minimum height=\iconwidth,
+            ] at (icon.center) {%
+                \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+                \bfseries
+                \textpdfrender{
+                    TextRenderingMode=FillStrokeClip,
+                    LineWidth=\outlinewidth,
+                    FillColor=white,
+                    StrokeColor=black, 
+                    MiterLimit=1,
+                }{\pgfkeysvalueof{/fancyrenderer/icontext}}
+            };
+            \node[
+                anchor=center,
+                minimum width=\iconwidth, 
+                minimum height=\iconwidth,
+            ] at (icon.center) {%
+                \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+                \bfseries
+                \textcolor{white}{\pgfkeysvalueof{/fancyrenderer/icontext}}
+            };
+        }{}
+        
+    \end{tikzpicture}%
+    \endgroup
+}
+
+\newcommand{\block}{%
+    \fancyrenderer[%
+        text={\textbf{Block} an attack.},
+        icon=block,
+        fillcolor=black,
+        textcolor=white,
+    ]
+}
+\newcommand{\attack}[1]{%
+    \fancyrenderer[%
+        text={\textbf{Attack}},
+        icon=attack,
+        icontext={#1},
+    ]
+}
+
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+\renewcommand{\arraystretch}{1.5}
+\NewDocumentCommand{\sequence}{+o +o +o}{%
+    \begin{tabularx}{\textwidth}{ m{3mm}>{\raggedright\arraybackslash}X }
+        [1] & {#1} \\
+        \IfValueT{#2}
+        {%
+            [2] & {#2} \\
+            \IfValueT{#3}
+            {%
+                [3] & {#3} \\
+            }
+        }
+    \end{tabularx}
+}
+
+%%%
+
+
+%%% Misc rendering helper functions
+
+\newcommand{\rendermanasymbol}[2]{
+    \directlua{
+        function get_mana_filename(s)
+            symbols = {}
+            symbols["A"] = "any"
+            symbols["F"] = "focus"
+            symbols["S"] = "strength"
+            symbols["W"] = "will"
+            % symbols["S"] = "spirit"
+            return symbols[s] or s
+        end
+    }
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north west, 
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+        xshift=5.5mm,
+        yshift=-\directlua{tex.print(5.5 + 6 * (#1 - 1))}mm,
+    ] at (current page.north west) {
+        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
+        \includegraphics[width=5mm]{icons/mana/\directlua{tex.print(get_mana_filename(\luastringN{#2}))}.png}
+    };
+}
+
+\begin{luacode*}
+    function render_mana(s)
+        for i = 1, #s do
+            tex.print("\\rendermanasymbol{"..i.."}{"..s:sub(i,i).."}")
+        end
+    end
+\end{luacode*}
+\newcommand{\rendermana}[1]{\directlua{render_mana(\luastring{#1})}}
+
+
+% building the attack and block icons
+% generate gradient png
+% magick -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" gradient.png
+
+% two commands for the overlaying
+% convert gradient.png attack.png -composite resulta.png
+% convert resulta.png attack-mask-2.png  -compose copy_opacity -composite result.png
+
+% and this just combines both of them into one
+% convert gradient.png attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
+
+% and then this combines all three into one:
+% convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
+
+
+\begin{luacode*}
+    function generate_icon(name, col1, col2)
+        io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+    end
+    function get_icon(name, col1, col2)
+        filename = "icons/"..name.."-"..col1.."-"..col2..".png"
+        -- check if it already exists
+        local f = io.open(filename, "r")
+        if f~=nil then 
+            io.close(f) 
+            return filename
+        else 
+            generate_icon(name, col1, col2)
+            return filename  
+        end
+    end
+\end{luacode*}
+\newcommand{\geticon}[3]{\directlua{tex.print(get_icon(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}

@@ -1,224 +1,3 @@
-%%% Commands to be used in card definitions
-
-% \newcommand{\block}{{\par\centering\textbf{Block} an attack.\par}}
-
-% \newcommand{\attack}[1]{{\par\centering\textbf{Attack} #1.\par}}
-
-\newcommand{\block}{%
-    \begin{tikzpicture}[x=1mm, y=1mm]
-        \node[
-            anchor=center,
-            rectangle,
-            minimum width=\linewidth, 
-            minimum height=6mm,
-            % fill=gray, 
-        ] (bb) {};
-
-        \path[
-            draw=black, line width=0.5mm, 
-            fill=black
-        ] 
-            ([xshift=-1.5mm, yshift=-0.25mm] bb.north east) coordinate (start)
-            --
-            ([xshift=1.5mm, yshift=-0.25mm] bb.north west)
-            --
-            ([xshift=0.25mm, yshift=-1.5mm] bb.north west)
-            -- 
-            ([xshift=0.25mm, yshift=1.5mm] bb.south west)
-            --
-            ([xshift=1.5mm, yshift=0.25mm] bb.south west)
-            -- 
-            ([xshift=-1.5mm, yshift=0.25mm] bb.south east)
-            -- 
-            (start);
-
-        \node[
-            anchor=west,
-            minimum width=\linewidth-8mm,
-        ] at (bb.west) {
-            \fontsize{10pt}{10pt}\selectfont
-            \textcolor{white}{\textbf{Block} an attack.}
-        };
-
-        % block icon
-        \node[
-            anchor=east, 
-            inner ysep=0pt,
-            inner xsep=0pt,
-            outer ysep=0pt,
-            outer xsep=0pt,
-        ] (icon) at (bb.east) {
-            \includegraphics[width=10mm]{\geticon{block}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}
-        };
-
-        % and the white-ish semi-transparent overlay to make the colors a bit more wahsed out
-        \node[
-            anchor=east, 
-            inner ysep=0pt,
-            inner xsep=0pt,
-            outer ysep=0pt,
-            outer xsep=0pt,
-            opacity = 0.5,
-        ] at (bb.east) {
-            \includegraphics[width=10mm]{\geticon{block}{FFFFFF}{FFFFFF}}
-        };
-    \end{tikzpicture}%
-}
-
-\newcommand{\attack}[1]{%
-    \begin{tikzpicture}[x=1mm, y=1mm]
-        \node[
-            anchor=center,
-            rectangle,
-            minimum width=\linewidth, 
-            minimum height=6mm,
-            % fill=gray, 
-        ] (bb) {};
-
-        \path[
-            draw=black, line width=0.5mm, 
-            % fill=black
-        ] 
-            ([xshift=-1.5mm, yshift=-0.25mm] bb.north east) coordinate (start)
-            --
-            ([xshift=1.5mm, yshift=-0.25mm] bb.north west)
-            --
-            ([xshift=0.25mm, yshift=-1.5mm] bb.north west)
-            -- 
-            ([xshift=0.25mm, yshift=1.5mm] bb.south west)
-            --
-            ([xshift=1.5mm, yshift=0.25mm] bb.south west)
-            -- 
-            ([xshift=-1.5mm, yshift=0.25mm] bb.south east)
-            -- 
-            (start);
-
-        \node[
-            anchor=west,
-            minimum width=\linewidth-8mm,
-        ] at (bb.west) {
-            \fontsize{10pt}{10pt}\selectfont
-            \textcolor{black}{\textbf{Attack}}
-        };
-
-        % attack icon
-        \node[
-            anchor=east, 
-            inner ysep=0pt,
-            inner xsep=0pt,
-            outer ysep=0pt,
-            outer xsep=0pt,
-        ] (icon) at (bb.east) {
-            \includegraphics[width=10mm]{\geticon{attack}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}
-        };
-
-        % and the white-ish semi-transparent overlay to make the colors a bit more wahsed out
-        \node[
-            anchor=east, 
-            inner ysep=0pt,
-            inner xsep=0pt,
-            outer ysep=0pt,
-            outer xsep=0pt,
-            opacity = 0.5,
-        ] at (bb.east) {
-            \includegraphics[width=10mm]{\geticon{attack}{FFFFFF}{FFFFFF}}
-        };
-
-        % https://tex.stackexchange.com/questions/400296/outline-text-characters
-        \node[
-            anchor=center,
-            minimum width=10mm, 
-            minimum height=10mm,
-        ] at (icon.center) {%
-            \fontsize{24pt}{24pt}\selectfont
-            \bfseries
-            \textpdfrender{
-                TextRenderingMode=FillStrokeClip,
-                LineWidth=0.5mm,
-                FillColor=white,
-                StrokeColor=black, 
-                MiterLimit=1,
-            }{#1}
-        };
-        \node[
-            anchor=center,
-            minimum width=10mm, 
-            minimum height=10mm,
-        ] at (icon.center) {%
-            \fontsize{24pt}{24pt}\selectfont
-            \bfseries
-            \textcolor{white}{#1}
-        };
-    \end{tikzpicture}%
-}
-
-\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
-\renewcommand{\arraystretch}{1.5}
-\NewDocumentCommand{\sequence}{+o +o +o}{%
-    \begin{tabularx}{\textwidth}{ m{3mm}>{\raggedright\arraybackslash}X }
-        [1] & #1 \\
-        \IfValueT{#2}
-        {%
-            [2] & #2 \\
-            \IfValueT{#3}
-            {%
-                [3] & #3 \\
-            }
-        }
-    \end{tabularx}
-}
-
-%%%
-
-\newcommand{\setpath}[3]{
-    \pgfkeys{/card/.cd,
-        path=#1,
-        color-left=#2,
-        color-right=#3,
-    }
-}
-
-% \begin{luacode*}
-    
-% \end{luacode*}
-
-\newcommand{\rendermanasymbol}[2]{
-    \directlua{
-        function get_mana_filename(s)
-            symbols = {}
-            symbols["A"] = "any"
-            symbols["F"] = "focus"
-            symbols["S"] = "strength"
-            symbols["W"] = "will"
-            % symbols["S"] = "spirit"
-            return symbols[s] or s
-        end
-    }
-    \tikz[overlay, remember picture] 
-    \node[
-        anchor=north west, 
-        inner ysep=0pt,
-        inner xsep=0pt,
-        outer ysep=0pt,
-        outer xsep=0pt,
-        xshift=5.5mm,
-        yshift=-\directlua{tex.print(5.5 + 6 * (#1 - 1))}mm,
-    ] at (current page.north west) {
-        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
-        \includegraphics[width=5mm]{icons/mana/\directlua{tex.print(get_mana_filename(\luastringN{#2}))}.png}
-    };
-}
-
-\begin{luacode*}
-    function render_mana(s)
-        for i = 1, #s do
-            tex.print("\\rendermanasymbol{"..i.."}{"..s:sub(i,i).."}")
-        end
-    end
-\end{luacode*}
-\newcommand{\rendermana}[1]{\directlua{render_mana(\luastring{#1})}}
-
-
 \pgfkeys{/card/.cd,% set the initial path
     name/.initial={},
     % type/.initial={},
@@ -243,39 +22,13 @@
     }
 }
 
-% building the attack and block icons
-% generate gradient png
-% magick -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" gradient.png
-
-% two commands for the overlaying
-% convert gradient.png attack.png -composite resulta.png
-% convert resulta.png attack-mask-2.png  -compose copy_opacity -composite result.png
-
-% and this just combines both of them into one
-% convert gradient.png attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
-
-% and then this combines all three into one:
-% convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
-
-
-\begin{luacode*}
-    function generate_icon(name, col1, col2)
-        io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
-    end
-    function get_icon(name, col1, col2)
-        filename = "icons/"..name.."-"..col1.."-"..col2..".png"
-        -- check if it already exists
-        local f = io.open(filename, "r")
-        if f~=nil then 
-            io.close(f) 
-            return filename
-        else 
-            generate_icon(name, col1, col2)
-            return filename  
-        end
-    end
-\end{luacode*}
-\newcommand{\geticon}[3]{\directlua{tex.print(get_icon(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}
+\newcommand{\setpath}[3]{
+    \pgfkeys{/card/.cd,
+        path=#1,
+        color-left=#2,
+        color-right=#3,
+    }
+}
 
 \NewDocumentCommand{\card}{ +O{} }{
 
@@ -360,6 +113,7 @@
         [halign=center, valign=centerline]
     {%
         \pgfkeysvalueof{/card/type}
+        % Basic -- \pgfkeysvalueof{/card/type}
     }
 
     % oneshot?
@@ -372,9 +126,11 @@
             inner xsep=0pt,
             outer ysep=0pt,
             outer xsep=0pt,
-            yshift=7.5mm,
+            % yshift=7.5mm,
+            yshift=7mm,
         ] at (current page.south) {
-            \includegraphics[width=36mm]{oneshot-banner.png}
+            % \includegraphics[width=36mm]{oneshot-banner.png}
+            \includegraphics[width=30mm]{oneshot-banner.png}
         };
     }{%
         % not defined
