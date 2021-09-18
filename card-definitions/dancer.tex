@@ -1,0 +1,64 @@
+\setpath{Dancer}{5EF285}{F48DD2}
+
+\card[%
+    name={Elegant Reversal},
+    cost={SF},
+    text={%
+        \block
+
+        When I block an attack, I attack back with equal attack power.
+    },
+]
+
+\card[%
+    name={Mesmerize},
+    cost={},
+    sequence,
+    text={%
+        \sequence
+            [No effect]
+            [Your opponent's actions cost twice as many resources. \textit{(For example, an action that would cost {S}{A} costs {S}{S}{A}{A}.)}]
+    },
+]
+
+\card[%
+    name={Dizzying Spin},
+    cost={F},
+    sequence,
+    text={%
+        \sequence
+            [\attack{1}\par If I hit, name a card.]
+            [Your opponent can't play the named card(s).]
+    },
+]
+
+\card[%
+    name={Just Out of Reach},
+    cost={A},
+    text={%
+        Your opponent's attacks get -2 attack power this turn.
+    },
+]
+
+\card[%
+    name={Entice to Dance},
+    cost={A},
+    innate,
+    permanent,
+    text={%
+        Your opponent recalls Try to Keep Up.
+        
+        When the match ends, score three points unless your opponent has played Try to Keep Up.
+    },
+]
+
+\card[%
+    name={Try to Keep Up},
+    cost={},
+    extra,
+    text={%
+        \textit{This card begins the match forgotten and is given to your opponent by Entice to Dance.}
+
+        Banish Try to Keep Up on top of Entice to Dance.
+    },
+]

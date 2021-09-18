@@ -1,0 +1,39 @@
+% \setpath{XXX}{aa00aa}{0000aa}
+% \card[%
+%     name={},
+%     cost={},
+%     text={%
+%         
+%     },
+% ]
+
+
+\setpath{TEST CARD}{aa00aa}{aaaa00}
+
+\card[%
+    name={FAKE TEST CARD},
+    cost={AAA},
+    extra,
+    oneshot,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+
+        \attack{4}
+
+        \attack{4}
+    },
+]
+
+\card[%
+    name={FAKE TEST CARD},
+    cost={AAA},
+    extra,
+    oneshot,
+    text={%
+        \textit{Forbidden Magic - This card begins the match forgotten and can be recalled by an upgraded Arcane Research.}
+        
+        \sequence
+            [\block]
+            [\attack{4}]
+    },
+]
