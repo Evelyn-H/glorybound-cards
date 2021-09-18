@@ -69,8 +69,11 @@
         outer ysep=0pt,
         outer xsep=0pt,
     ] at (current page.north) {
-        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
-        \includegraphics[width=63mm]{frame2.png}
+        % \includegraphics[width=63mm]{frame2.png}
+        \includegraphics[width=63mm]{%
+            \pgfkeysifdefined{extra}{frame2-gray.png}{frame2.png}
+        }
+        
     };
 
     % art:
