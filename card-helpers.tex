@@ -10,11 +10,12 @@
     icontext/.code={\pgfkeyssetvalue{/fancyrenderer/icontext}{#1}},
     fillcolor/.initial={white},
     textcolor/.initial={black},
-    scale/.initial={0.8},
+    scale/.initial={1.0},
     % scale/.initial={0.8},
 }
 
 % helper lengths
+\newlength\boxwidth
 \newlength\cornersize
 \newlength\iconwidth
 \newlength\tempfontsize
@@ -29,6 +30,7 @@
 
 \NewDocumentCommand{\fancyrenderer}{ +O{} }{%
     % some magic for autoscaling
+    % \pgfkeyssetvalue{/fancyrenderer/scale}{\DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}}%
     \pgfkeyssetvalue{/fancyrenderer/scale}{%
         \directlua{%
             ratio = \DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}
@@ -41,20 +43,25 @@
                 tex.print("0.8")
             end
         }
-    }
-    % \pgfkeyssetvalue{/fancyrenderer/scale}{\DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}}
+    }%
+    \setlength\boxwidth{36mm}%
     % horizontal centering (relative to the parent parbox)
-    \centering    
+    \ifdefined\insidesequence
+        \pgfkeyssetvalue{/fancyrenderer/scale}{0.8}%
+        \setlength\boxwidth{32mm}%
+    \else
+        \centering%
+    \fi
     % to make sure no arguments "leak" between different calls
-    \begingroup
+    \begingroup%
     % handle key-value arguments
-    \pgfkeys{/fancyrenderer/.cd, #1}
+    \pgfkeys{/fancyrenderer/.cd, #1}%
     \begin{tikzpicture}[x=1mm, y=1mm]
         \node[
             anchor=center,
             rectangle,
             % minimum width=0.8\linewidth, 
-            minimum width=36mm, 
+            minimum width=\boxwidth, 
             minimum height=6mm*\pgfkeysvalueof{/fancyrenderer/scale},
             % fill=gray, 
         ] (bb) {};
@@ -85,7 +92,7 @@
             anchor=west,
             % anchor=mid west,
             % minimum width=0.8\linewidth-8mm,
-            minimum width=36mm-8mm,
+            minimum width=\boxwidth-8mm,
         ] at (bb.west) {
             \fontsize{\tempfontsize}{\tempfontsize}\selectfont
             \textcolor{\pgfkeysvalueof{/fancyrenderer/textcolor}}{\pgfkeysvalueof{/fancyrenderer/text}}
@@ -148,7 +155,7 @@
         }{}
         
     \end{tikzpicture}%
-    \endgroup
+    \endgroup%
 }
 
 \newcommand{\block}{%
@@ -167,21 +174,137 @@
     ]
 }
 
-\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
-\renewcommand{\arraystretch}{1.5}
-\NewDocumentCommand{\sequence}{+o +o +o}{%
-    \begin{tabularx}{\textwidth}{ m{3mm}>{\raggedright\arraybackslash}X }
-        [1] & {#1} \\
+\newlength{\turncountersize}
+\setlength{\turncountersize}{4.8mm}
+
+\newcommand{\sequencerowsep}{%
+    \node[
+        anchor=north east,
+        inner sep=0pt,
+        minimum width=\linewidth, 
+        minimum height=2mm,
+    ] (end) at (text.south east) {};
+
+    % \path[
+    %     draw=gray, line width=0.25mm, 
+    % ]
+    % ([xshift=9mm] end.west) -- ([xshift=-9mm] end.east);
+}
+\newcommand{\sequencerow}[2][]{%
+    % rules text
+    \node[
+        anchor=north east,
+        % anchor=mid west,
+        text width=\linewidth-6mm-3mm,
+        minimum height=\turncountersize,
+        inner sep=0pt,
+        % fill=gray,
+    ] (text) at (end.south east) {%
+        \def\insidesequence{}%
+        \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
+        % \color{white}
+        #2
+    };
+
+    % turn counter 
+    \node[
+        anchor=east,
+        rectangle,
+        inner sep=0pt,
+        minimum width=\turncountersize, 
+        minimum height=\turncountersize,
+        xshift=-3mm,
+        % fill=gray, 
+    ] (turn) at (text.west) {};
+
+    \path[
+        draw=gray, line width=0.5mm, 
+        fill=gray,
+    ] 
+        ([xshift=-1.2mm, yshift=-0.25mm] turn.north east)
+        --
+        ([xshift=1.2mm, yshift=-0.25mm] turn.north west)
+        --
+        ([xshift=0.25mm, yshift=-1.2mm] turn.north west)
+        -- 
+        ([xshift=0.25mm, yshift=1.2mm] turn.south west)
+        --
+        ([xshift=1.2mm, yshift=0.25mm] turn.south west)
+        -- 
+        ([xshift=-1.2mm, yshift=0.25mm] turn.south east)
+        -- 
+        ([xshift=-0.25mm, yshift=1.2mm] turn.south east)
+        -- 
+        ([xshift=-0.25mm, yshift=-1.2mm] turn.north east)
+        --
+        cycle;
+
+    \node[
+        anchor=center,
+    ] at (turn.center) {%
+        \fontsize{10pt}{10pt}\selectfont
+        \textcolor{white}{\textbf{#1}}%
+    };
+}
+
+\NewDocumentCommand{\sequence}{+o +o +o +o}{%
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            inner sep=0pt,
+            minimum width=0mm, 
+            minimum height=0mm,
+            fill=gray, 
+        ] (end) {};
+
+        \sequencerow[I]{#1}
+        % this node just saves the location of the first turn counter
+        % so we can use it for drawing the timeline
+        \node[
+            anchor=north west,
+            inner sep=0pt,
+            minimum width=\turncountersize, 
+            minimum height=0mm,
+            fill=gray, 
+            ] (topturn) at (turn.north west){};
+        % add as many rows as we need
         \IfValueT{#2}
         {%
-            [2] & {#2} \\
+            \sequencerowsep
+            \sequencerow[II]{#2}
             \IfValueT{#3}
             {%
-                [3] & {#3} \\
+            \sequencerowsep
+                \sequencerow[III]{#3}
+                \IfValueT{#4}
+                {%
+                    \sequencerowsep
+                    \sequencerow[IV]{#4}
+                }
             }
         }
-    \end{tabularx}
+
+    \begin{scope}[on background layer]
+        \path[
+            fill=gray,
+        ] 
+            ([xshift=-0.75mm, yshift=1mm] topturn.north)
+            --
+            ([yshift=1.75mm] topturn.north)
+            --
+            ([xshift=0.75mm, yshift=1mm] topturn.north)
+            --
+            ([xshift=0.75mm, yshift=-1mm] turn.south)
+            --
+            ([yshift=-1.75mm] turn.south)
+            --
+            ([xshift=-0.75mm, yshift=-1mm] turn.south)
+            --
+            cycle;
+    \end{scope}
+
+    \end{tikzpicture}%
 }
+
 
 %%%
 
