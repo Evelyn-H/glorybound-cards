@@ -45,6 +45,8 @@
         }
     }%
     \setlength\boxwidth{36mm}%
+    % to make sure no arguments "leak" between different calls
+    \begingroup%
     % horizontal centering (relative to the parent parbox)
     \ifdefined\insidesequence
         \pgfkeyssetvalue{/fancyrenderer/scale}{0.8}%
@@ -52,8 +54,6 @@
     \else
         \centering%
     \fi
-    % to make sure no arguments "leak" between different calls
-    \begingroup%
     % handle key-value arguments
     \pgfkeys{/fancyrenderer/.cd, #1}%
     \begin{tikzpicture}[x=1mm, y=1mm]
@@ -155,6 +155,7 @@
         }{}
         
     \end{tikzpicture}%
+    \par
     \endgroup%
 }
 
@@ -208,13 +209,14 @@
 
     % turn counter 
     \node[
+        fit={(text.north west) (text.south west)},
         anchor=east,
         rectangle,
         inner sep=0pt,
         minimum width=\turncountersize, 
         minimum height=\turncountersize,
         xshift=-3mm,
-        % fill=gray, 
+        % fill=black,
     ] (turn) at (text.west) {};
 
     \path[
