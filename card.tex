@@ -30,6 +30,13 @@
     }
 }
 
+\newsavebox{\rulestextbox}
+\newlength{\savedfontsize}
+\newlength{\savedheight}
+\newlength{\extraheight}
+\newcommand{\buildbox}[1][0mm]{}
+
+\makeatletter
 \NewDocumentCommand{\card}{ +O{} }{
 
     % start a new page if we have to
@@ -75,23 +82,6 @@
         }
         
     };
-
-    % art:
-    % (just a placeholder rectangle currently)
-    \tikz[overlay, remember picture] 
-    \node[
-        anchor=north,
-        yshift=-17mm,
-        rectangle, 
-        minimum width=36mm, 
-        minimum height=30mm,
-        left color=left, 
-        right color=right,
-        shading = axis,
-        shading angle=135, 
-        opacity = 0.3,
-    ] at (current page.north) {};
-
 
     % cost
     \rendermana{\pgfkeysvalueof{/card/cost}}
@@ -140,32 +130,72 @@
     }
 
     % text
-    \bettertextbox
-        [%
-            y=\pgfkeysifdefined{oneshot}{76.5mm}{81.5mm}, 
-            width=54mm, 
-            % height=\pgfkeysifdefined{oneshot}{24mm}{32mm}, 
-            height=\pgfkeysifdefined{oneshot}{28mm}{34mm}, 
-            anchor=south, 
-            margin=2mm,
-        ]
-        [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
-            % top=-2mm,
-            underlay=\pgfkeysifdefined{permanent}{%
-                \begin{tcbclipinterior}
-                    \node[
-                        anchor=center, 
-                        opacity=0.15,
-                        % yshift=1mm
-                    ] at (frame.center) {
-                        \includegraphics[height=14mm]{permanent-watermark.png}
-                    };
-                \end{tcbclipinterior}
-            }{}
-        ] 
-    {%
-        \pgfkeysvalueof{/card/text}
+    \renewcommand{\buildbox}{%
+        \sbox{\rulestextbox}{
+            \setlength{\savedheight}{\pgfkeysifdefined{oneshot}{29mm}{34mm}}
+            \setlength{\savedheight}{\savedheight + \extraheight}
+            \bettertextbox
+                [%
+                    y=\pgfkeysifdefined{oneshot}{76.5mm}{81.5mm}, 
+                    width=54mm, 
+                    % height=\pgfkeysifdefined{oneshot}{24mm}{32mm}, 
+                    height=\savedheight, 
+                    anchor=south, 
+                    margin=2mm,
+                ]
+                [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
+                    % top=-2mm,
+                    underlay=\pgfkeysifdefined{permanent}{%
+                        \begin{tcbclipinterior}
+                            \node[
+                                anchor=center, 
+                                opacity=0.15,
+                                % yshift=1mm
+                            ] at (frame.center) {
+                                \includegraphics[height=14mm]{permanent-watermark.png}
+                            };
+                        \end{tcbclipinterior}
+                    }{}
+                ] 
+            {%
+                \pgfkeysvalueof{/card/text}%
+                \global\setlength{\savedfontsize}{\tcbfitdim}
+                \global\savedfontsize=\savedfontsize
+            }%
+        }
     }
+    \setlength{\extraheight}{0mm}
+    \buildbox
+    \loop
+    \ifdim\savedfontsize<7pt
+        \setlength{\extraheight}{\extraheight + 2mm}
+        \global\extraheight=\extraheight
+        \buildbox
+    \repeat
+    % \ifdim\savedfontsize<7pt
+    %     \setlength{\extraheight}{6mm}
+    %     \buildbox
+    % \else
+    % \fi
+
+    \usebox{\rulestextbox}
+    % \the\savedfontsize
+
+    % art:
+    % (just a placeholder rectangle currently)
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north,
+        yshift=-17mm,
+        rectangle, 
+        minimum width=36mm, 
+        minimum height=30mm-\extraheight,
+        left color=left, 
+        right color=right,
+        shading = axis,
+        shading angle=135, 
+        opacity = 0.3,
+    ] at (current page.north) {};
     
     % path
     \bettertextbox
@@ -185,3 +215,4 @@
 
     \endgroup
 }
+\makeatother

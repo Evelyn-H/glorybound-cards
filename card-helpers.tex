@@ -321,7 +321,7 @@
             symbols["F"] = "focus"
             symbols["S"] = "strength"
             symbols["W"] = "will"
-            % symbols["S"] = "spirit"
+            symbols["X"] = "spirit"
             return symbols[s] or s
         end
     }
@@ -348,6 +348,20 @@
     end
 \end{luacode*}
 \newcommand{\rendermana}[1]{\directlua{render_mana(\luastring{#1})}}
+
+
+% this one is for use inside the card text
+\newcommand{\manatext}[1]{%
+    \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{\strut}}%
+}
+\begin{luacode*}
+    function render_mana_text(s)
+        for i = 1, #s do
+            tex.print("\\manatext{"..get_mana_filename(s:sub(i,i)).."}")
+        end
+    end
+\end{luacode*}
+\newcommand{\mana}[1]{\directlua{render_mana_text(\luastring{#1})}}
 
 
 % building the attack and block icons
