@@ -199,6 +199,7 @@
         text width=\linewidth-6mm-3mm,
         minimum height=\turncountersize,
         inner sep=0pt,
+        align=flush left,
         % fill=gray,
     ] (text) at (end.south east) {%
         \def\insidesequence{}%
@@ -353,11 +354,17 @@
 % this one is for use inside the card text
 \newcommand{\manatext}[1]{%
     \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{\strut}}%
+    % \includegraphics[width=1mm]{icons/mana/#1.png}%
 }
 \begin{luacode*}
     function render_mana_text(s)
         for i = 1, #s do
-            tex.print("\\manatext{"..get_mana_filename(s:sub(i,i)).."}")
+            tex.sprint("\\manatext{"..get_mana_filename(s:sub(i,i)).."}")
+            if i ~= #s then 
+                -- the \, space is technically a kern, 
+                -- which stops latex from breaking it with a newline
+                tex.sprint("\\,")
+            end
         end
     end
 \end{luacode*}
