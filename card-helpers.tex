@@ -72,7 +72,7 @@
             draw=black, line width=0.5mm, 
             fill=\pgfkeysvalueof{/fancyrenderer/fillcolor}
         ] 
-            ([xshift=-\cornersize, yshift=-0.25mm] bb.north east) coordinate (start)
+            ([xshift=-2mm, yshift=-0.25mm] bb.north east)
             --
             ([xshift=\cornersize, yshift=-0.25mm] bb.north west)
             --
@@ -82,9 +82,9 @@
             --
             ([xshift=\cornersize, yshift=0.25mm] bb.south west)
             -- 
-            ([xshift=-\cornersize, yshift=0.25mm] bb.south east)
+            ([xshift=-2mm, yshift=0.25mm] bb.south east)
             -- 
-            (start);
+            cycle;
 
         \setlength\tempfontsize{10pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
 
@@ -107,8 +107,8 @@
             inner xsep=0pt,
             outer ysep=0pt,
             outer xsep=0pt,
-        ] (icon) at (bb.east) {
-            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}
+        ] (icon) at (bb.east) {%
+            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
         };
 
         % and the white-ish semi-transparent overlay to make the colors a bit more wahsed out
@@ -119,8 +119,8 @@
             outer ysep=0pt,
             outer xsep=0pt,
             opacity = 0.5,
-        ] at (bb.east) {
-            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}
+        ] at (bb.east) {%
+            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}%
         };
 
         \setlength\tempfontsize{24pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
