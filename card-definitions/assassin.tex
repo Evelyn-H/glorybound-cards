@@ -1,0 +1,88 @@
+\setpath{Assassin}{000000}{FF00AF}
+
+\card[%
+    name={Backstab},
+    cost={F},
+    text={%
+        If your opponent isn't attacking: 
+
+        \attack{3}
+    },
+]
+
+\card[%
+    name={Shadowstep},
+    cost={},
+    text={%
+        \block
+        
+        Banish me unless you pay \mana{F}.
+    },
+]
+
+\card[%
+    name={Trap Setting},
+    cost={F},
+    text={%
+        Secretly choose a Trap and put it into play face down.
+        You can turn that card face up to play it as a special action any time after this turn ends.
+    },
+]
+
+\newcommand{\traptext}{\textit{Trap - This card begins the match forgotten and is put into play by Trap Setting.}}
+
+\card[%
+    name={Poisoned Dagger},
+    cost={},
+    extra,
+    text={%
+        \traptext
+
+        If you hit with an attack this turn, I become permanent and at the start of each turn, you score one point. Otherwise, banish me.
+    },
+]
+
+\card[%
+    name={Smoke Shroud},
+    cost={},
+    extra,
+    oneshot,
+    text={%
+        \traptext
+        
+        If your opponent didn't attack last turn, they can't score points this turn.
+    },
+]
+
+\card[%
+    name={Feign Defeat},
+    cost={},
+    extra,
+    oneshot,
+    text={%
+        \traptext
+
+        If your opponent has more points than you, they can't block this turn.
+    },
+]
+
+\card[%
+    name={Always More Knives},
+    cost={FAA},
+    sequence,
+    text={%
+        \sequence
+            [\attack{3}]
+            [\attack{1}]
+    },
+]
+
+\card[%
+    name={Hidden in Plain Sight},
+    cost={},
+    innate,
+    permanent,
+    text={%
+        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and no points can be scored.
+    },
+]

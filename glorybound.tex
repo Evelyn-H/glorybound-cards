@@ -47,6 +47,10 @@
 % for scaling things
 \usepackage{scalerel}
 
+% this gets rid of a bunch of font scaling warnings 
+% by replacing the standard fonts with scalable versions
+\usepackage{lmodern}
+
 % load fonts
 \usepackage{fontspec}
 \newfontfamily\bodyfont{CrimsonPro-Regular}[
@@ -90,6 +94,8 @@
 \include{card-definitions/legionnaire.tex}
 \include{card-definitions/dancer.tex}
 \include{card-definitions/arcanist.tex}
+\include{card-definitions/assassin.tex}
+\include{card-definitions/windwalker.tex}
 \include{card-definitions/test.tex}
 
 \end{document} 

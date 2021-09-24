@@ -1,0 +1,64 @@
+\setpath{Windwalker}{044CF4}{3EF60D}
+
+\card[%
+    name={Tempest Blade},
+    cost={AA},
+    text={%
+        \attack{2}
+
+        If Storm-Infused Blade is blocked, you may pay \mana{WA} to score two points.
+    },
+]
+
+\card[%
+    name={Leap Skyward},
+    cost={F},
+    sequence,
+    text={%
+        \sequence
+            [\block]
+            [Your attacks get +1 attack power.]
+    },
+]
+
+\card[%
+    name={Storm Surge},
+    cost={},
+    text={%
+        Gain \mana{X} until you have more resources than your opponent.
+    },
+]
+
+\card[%
+    name={Wind's Favor},
+    cost={A},
+    innate,
+    permanent,
+    text={%
+        As long as both players are attacking, your attacks get +1 attack power.
+    },
+]
+
+\card[%
+    name={Bring the Lightning},
+    cost={},
+    innate,
+    permanent,
+    text={%
+        Your first attack of the match  gets +1 attack power. Then note its attack power and recall Echoing Thunder.
+    },
+]
+
+\card[%
+    name={Echoing Thunder},
+    cost={},
+    extra,
+    oneshot,
+    text={%
+        \textit{I begin the match forgotten and am recalled by Bring the Lightning.}
+
+        My base attack power X is the number you noted for Bring the Lightning.
+
+        \attack{X}
+    },
+]
