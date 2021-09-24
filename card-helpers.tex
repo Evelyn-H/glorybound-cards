@@ -29,6 +29,8 @@
 \makeatother
 
 \NewDocumentCommand{\fancyrenderer}{ +O{} }{%
+    % to make sure no arguments "leak" between different calls
+    \begingroup%
     % some magic for autoscaling
     % \pgfkeyssetvalue{/fancyrenderer/scale}{\DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}}%
     \pgfkeyssetvalue{/fancyrenderer/scale}{%
@@ -45,8 +47,6 @@
         }
     }%
     \setlength\boxwidth{36mm}%
-    % to make sure no arguments "leak" between different calls
-    \begingroup%
     % horizontal centering (relative to the parent parbox)
     \ifdefined\insidesequence
         \pgfkeyssetvalue{/fancyrenderer/scale}{0.8}%
@@ -130,8 +130,9 @@
             % https://tex.stackexchange.com/questions/400296/outline-text-characters
             \node[
                 anchor=center,
-                minimum width=\iconwidth, 
-                minimum height=\iconwidth,
+                % minimum width=\iconwidth, 
+                % minimum height=\iconwidth,
+                % fill=gray,
             ] at (icon.center) {%
                 \fontsize{\tempfontsize}{\tempfontsize}\selectfont
                 \bfseries
@@ -141,16 +142,16 @@
                     FillColor=white,
                     StrokeColor=black, 
                     MiterLimit=1,
-                }{\pgfkeysvalueof{/fancyrenderer/icontext}}
+                }{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
             \node[
                 anchor=center,
-                minimum width=\iconwidth, 
-                minimum height=\iconwidth,
+                % minimum width=\iconwidth, 
+                % minimum height=\iconwidth,
             ] at (icon.center) {%
                 \fontsize{\tempfontsize}{\tempfontsize}\selectfont
                 \bfseries
-                \textcolor{white}{\pgfkeysvalueof{/fancyrenderer/icontext}}
+                \textcolor{white}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
         }{}
         
