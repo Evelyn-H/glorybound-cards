@@ -6,11 +6,15 @@
     path/.initial={},
     color-left/.initial=FF00FF,
     color-right/.initial=0000FF,
+    % types
     permanent/.code={\pgfkeyssetvalue{permanent}{#1}},
     sequence/.code={\pgfkeyssetvalue{sequence}{#1}},
     oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}},
     innate/.code={\pgfkeyssetvalue{innate}{#1}},
     extra/.code={\pgfkeyssetvalue{extra}{#1}},
+    % upgrade stuff
+    upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
+    upgrade cost/.code={\pgfkeyssetvalue{upgrade cost}{#1}},
     % read-only key to get the printed type line
     type/.initial={%
         % supertypes
@@ -35,6 +39,11 @@
 \newlength{\savedheight}
 \newlength{\extraheight}
 \newcommand{\buildbox}[1][0mm]{}
+
+\newlength{\textboxbottomoffset}
+\setlength{\textboxbottomoffset}{0mm}
+
+\newlength{\templen}
 
 \makeatletter
 \NewDocumentCommand{\card}{ +O{} }{
@@ -109,6 +118,74 @@
         % Basic -- \pgfkeysvalueof{/card/type}
     }
 
+    % upgrade?
+    \newcommand{\upgradeunderlay}{%
+        \begin{tcbclipinterior}
+            \node[
+                fit={(frame.north west) (frame.south east)},
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                inner sep=0pt,
+                fill=black!25,
+            ] at (frame.center) {};
+        \end{tcbclipinterior}
+    }
+    \pgfkeysifdefined{upgrade}{%
+        \bettertextbox
+            [%
+                y=81.5mm, x=27mm,
+                width=42mm, height=6mm, margin=1mm, 
+                anchor=south east,
+                fontsize=8pt,
+            ]
+            [%
+                halign=center, valign=centerline, left=1mm, right=1mm,
+                underlay={\upgradeunderlay},
+            ]
+        {%
+            \pgfkeysvalueof{upgrade}%
+        }
+        \setlength{\templen}{%
+            \directlua{%
+                if string.len(\luastring{\pgfkeysvalueof{upgrade cost}}) > 1 then
+                    tex.sprint("12pt")
+                else
+                    tex.sprint("14pt")
+                end
+            }
+        }
+        \bettertextbox
+            [%
+                y=81.5mm, x=-27mm,
+                width=11mm, height=6mm, margin=1mm, 
+                anchor=south west,
+                fontsize=\templen,
+                font=\bfseries,
+            ]
+            [%
+                halign=center, valign=centerline,
+                underlay={\upgradeunderlay},
+                underlay={
+                    \begin{tcbclipframe}
+                        \node[
+                            anchor=west,
+                            inner sep=0pt,
+                            xshift=1mm,
+                            % opacity=0.5,
+                        ] at (frame.west) {\includegraphics[height=4mm]{icons/upgrade.png}};
+                    \end{tcbclipframe}
+                },
+                left=4.5mm,
+            ]
+        {%
+            \pgfkeysvalueof{upgrade cost}%
+        }
+        \addtolength{\textboxbottomoffset}{6mm}
+    }{%
+        % not defined
+    }
+
     % oneshot?
     \pgfkeysifdefined{oneshot}{%
         % defined 
@@ -120,11 +197,12 @@
             outer ysep=0pt,
             outer xsep=0pt,
             % yshift=7.5mm,
-            yshift=7mm,
+            yshift=7mm+\textboxbottomoffset,
         ] at (current page.south) {
             % \includegraphics[width=36mm]{oneshot-banner.png}
             \includegraphics[width=30mm]{oneshot-banner.png}
         };
+        \addtolength{\textboxbottomoffset}{5mm}
     }{%
         % not defined
     }
@@ -132,11 +210,10 @@
     % text
     \renewcommand{\buildbox}{%
         \sbox{\rulestextbox}{
-            \setlength{\savedheight}{\pgfkeysifdefined{oneshot}{29mm}{34mm}}
-            \setlength{\savedheight}{\savedheight + \extraheight}
+            \setlength{\savedheight}{34mm - \textboxbottomoffset + \extraheight}
             \bettertextbox
                 [%
-                    y=\pgfkeysifdefined{oneshot}{76.5mm}{81.5mm}, 
+                    y={81.5mm+\textboxbottomoffset}, 
                     width=54mm, 
                     % height=\pgfkeysifdefined{oneshot}{24mm}{32mm}, 
                     height=\savedheight, 
@@ -158,6 +235,11 @@
                     }{}
                 ] 
             {%
+                \pgfkeysifdefined{innate}{%
+                    % {\centering\includegraphics[width=36mm]{innate-banner.png}\par}
+                    \textit{Innate -- Play before the match starts.}\par%
+                    % \textbf{Innate:} \textit{Play before the match starts.}\par%
+                }{}%
                 \pgfkeysvalueof{/card/text}%
                 \global\setlength{\savedfontsize}{\tcbfitdim}
                 \global\savedfontsize=\savedfontsize
