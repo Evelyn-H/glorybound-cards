@@ -1,3 +1,13 @@
+\newcommand{\printsepifnotempty}[2]{%
+    \directlua{
+        s = \luastring{#2}
+        if s:len() > 0 then
+            tex.sprint(\luastring{#1})
+        end
+        tex.sprint(s)
+    }%
+}
+
 \pgfkeys{/card/.cd,% set the initial path
     name/.initial={},
     % type/.initial={},
@@ -19,12 +29,15 @@
     upgrade cost/.code={\pgfkeyssetvalue{upgrade cost}{#1}},
     % read-only key to get the printed type line
     type/.initial={%
-        % supertypes
-        \pgfkeysifdefined{innate}{Innate }{}%
-        \pgfkeysifdefined{extra}{Forgotten }{}%
-        % base types
-        \pgfkeysifdefined{permanent}{Permanent }{}%
-        \pgfkeysifdefined{sequence}{Sequence }{}%
+        \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+        \printsepifnotempty{\ --\ }{%
+            % supertypes
+            \pgfkeysifdefined{innate}{Innate }{}%
+            \pgfkeysifdefined{extra}{Forgotten }{}%
+            % base types
+            \pgfkeysifdefined{permanent}{Permanent }{}%
+            \pgfkeysifdefined{sequence}{Sequence }{}%
+        }
     },
     % art path
     art path/.initial={%
