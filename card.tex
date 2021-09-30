@@ -25,7 +25,11 @@
         % base types
         \pgfkeysifdefined{permanent}{Permanent }{}%
         \pgfkeysifdefined{sequence}{Sequence }{}%
-    }
+    },
+    % art path
+    art path/.initial={%
+        art/\pgfkeysvalueof{/card/path}/\pgfkeysvalueof{/card/name}.png%
+    },
 }
 
 \newcommand{\setpath}[3]{
@@ -46,6 +50,34 @@
 \setlength{\textboxbottomoffset}{0mm}
 
 \newlength{\templen}
+
+% to trim art images to the size of the content:
+% mogrify -trim +repage *.png
+
+% to fill art with the path's gradient:
+% convert -size $(identify -format %Wx%H Retribution.png) -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" Retribution.png -compose copy_opacity -composite result.png
+
+\begin{luacode*}
+    function generate_art(folder, name, col1, col2)
+        io.popen("cd '"..folder.."' && convert -size $(identify -format %Wx%H '"..name..".png') -define gradient:direction=Northeast gradient:'#"..col1.."'-'#"..col2.."' '"..name..".png' -compose copy_opacity -composite '"..name.."-"..col1.."-"..col2..".png'")
+    end
+    function get_art(path, col1, col2)
+        name = path:match("^.*/([^/]*).png$")
+        folder = path:match("^(.*)/[^/]*$")
+        filename = folder.."/"..name.."-"..col1.."-"..col2..".png"
+        texio.write("artname: "..filename)
+        -- check if it already exists
+        local f = io.open(""..filename.."", "r")
+        if f~=nil then 
+            io.close(f) 
+            return filename
+        else 
+            generate_art(folder, name, col1, col2)
+            return filename  
+        end
+    end
+\end{luacode*}
+\newcommand{\getart}[3]{\directlua{tex.print(get_art(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}
 
 \makeatletter
 \NewDocumentCommand{\card}{ +O{} }{
@@ -311,19 +343,35 @@
 
     % art:
     % (just a placeholder rectangle currently)
-    \tikz[overlay, remember picture] 
-    \node[
-        anchor=north,
-        yshift=-17mm,
-        rectangle, 
-        minimum width=36mm, 
-        minimum height=30mm-\extraheight,
-        left color=left, 
-        right color=right,
-        shading = axis,
-        shading angle=135, 
-        opacity = 0.3,
-    ] at (current page.north) {};
+    \IfFileExists{\pgfkeysvalueof{/card/art path}}{
+        \tikz[overlay, remember picture] 
+        \node[
+            anchor=north,
+            yshift=-17mm,
+            rectangle, 
+            minimum width=36mm, 
+            minimum height=30mm-\extraheight,
+        ] at (current page.north) {%
+            \includegraphics
+                [width=36mm, height={30mm-\extraheight}, keepaspectratio]
+                {\getart{\pgfkeysvalueof{/card/art path}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
+        };
+    }{%
+        \tikz[overlay, remember picture] 
+        \node[
+            anchor=north,
+            yshift=-17mm,
+            rectangle, 
+            minimum width=36mm, 
+            minimum height=30mm-\extraheight,
+            left color=left, 
+            right color=right,
+            shading = axis,
+            shading angle=135, 
+            opacity = 0.3,
+        ] at (current page.north) {%
+        };
+    }
     
     % path
     \bettertextbox
