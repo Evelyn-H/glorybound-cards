@@ -16,11 +16,13 @@
     sequence,
     text={%
         \sequence
-            [No effect]
+            [\upgrade{No effect}]
             [Your opponent's actions cost twice as many resources. 
             
             \textit{(For example, an action that would cost \mana{FAA} costs \mana{FFAA}.)}]
     },
+    upgrade cost={4},
+    upgrade={\{Gain \mana{X}.\}},
 ]
 
 \card[%
@@ -29,9 +31,11 @@
     sequence,
     text={%
         \sequence
-            [\attack{1}\par If I hit, name a card.]
+            [\attack{1}\par \upgrade{If I hit}, name a card.]
             [Your opponent can't play the named card(s).]
     },
+    upgrade cost={3},
+    upgrade={\{Whether or not I hit\}},
 ]
 
 \card[%
@@ -40,6 +44,8 @@
     text={%
         Your opponent's attacks get -2 attack power this turn.
     },
+    upgrade cost={6},
+    upgrade={Once per match you may play me any time as a special action. If you do, banish me after use.},
 ]
 
 \card[%
@@ -52,6 +58,8 @@
         
         When the match ends, score three points unless your opponent has played Try to Keep Up.
     },
+    upgrade cost={3},
+    upgrade={Try to Keep Up costs \mana{A}.},
 ]
 
 \card[%
@@ -62,5 +70,7 @@
         \textit{This card begins the match forgotten and is given to your opponent by Entice to Dance.}
 
         Banish Try to Keep Up on top of Entice to Dance.
+
+        \textit{(If Entice to Dance is upgraded, this card costs \mana{A}.)}
     },
 ]
