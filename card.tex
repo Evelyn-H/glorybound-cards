@@ -12,6 +12,8 @@
     oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}},
     innate/.code={\pgfkeyssetvalue{innate}{#1}},
     extra/.code={\pgfkeyssetvalue{extra}{#1}},
+    % purchase stuff
+    purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade stuff
     upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
     upgrade cost/.code={\pgfkeyssetvalue{upgrade cost}{#1}},
@@ -116,6 +118,50 @@
     {%
         \pgfkeysvalueof{/card/type}
         % Basic -- \pgfkeysvalueof{/card/type}
+    }
+
+    % purchase cost?
+    \newcommand{\purchaseunderlay}{%
+    \begin{tcbclipinterior}
+        \node[
+            fit={(frame.north west) (frame.south east)},
+            anchor=center,
+            rectangle,
+            rounded corners=1mm,
+            inner sep=0pt,
+            fill=black!25,
+        ] at (frame.center) {};
+    \end{tcbclipinterior}
+    }
+    \pgfkeysifdefined{purchase}{%
+        \bettertextbox
+            [%
+                y=5mm, x=26.5mm,
+                width=6mm, height=10.5mm, margin=1mm, 
+                anchor=north east,
+                fontsize=14pt, 
+                font=\bfseries,
+            ]
+            [%
+                halign=center, valign=center,
+                underlay={\purchaseunderlay},
+                underlay={
+                    \begin{tcbclipframe}
+                        \node[
+                            anchor=north,
+                            inner sep=0pt,
+                            yshift=-1mm,
+                            % opacity=0.5,
+                        ] at (frame.north) {\includegraphics[height=3.5mm]{icons/padlock.png}};
+                    \end{tcbclipframe}
+                },
+                top=5.5mm,
+            ]
+        {%
+            \pgfkeysvalueof{purchase}%
+        }
+    }{%
+        % not defined
     }
 
     % upgrade?

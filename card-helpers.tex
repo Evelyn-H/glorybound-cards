@@ -199,6 +199,8 @@
 \newlength{\turncountersize}
 \setlength{\turncountersize}{4.8mm}
 
+\colorlet{sequencecolor}{black!70}
+
 \newcommand{\sequencerowsep}{%
     \node[
         anchor=north east,
@@ -208,7 +210,7 @@
     ] (end) at (text.south east) {};
 
     % \path[
-    %     draw=gray, line width=0.25mm, 
+    %     draw=sequencecolor, line width=0.25mm, 
     % ]
     % ([xshift=9mm] end.west) -- ([xshift=-9mm] end.east);
 }
@@ -221,7 +223,7 @@
         minimum height=\turncountersize,
         inner sep=0pt,
         align=flush left,
-        % fill=gray,
+        % fill=sequencecolor,
     ] (text) at (end.south east) {%
         \def\insidesequence{}%
         \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
@@ -238,12 +240,12 @@
         minimum width=\turncountersize, 
         minimum height=\turncountersize,
         xshift=-3mm,
-        % fill=black,
+        % fill=sequencecolor,
     ] (turn) at (text.west) {};
 
     \path[
-        draw=gray, line width=0.5mm, 
-        fill=gray,
+        draw=sequencecolor, line width=0.5mm, 
+        fill=sequencecolor,
     ] 
         ([xshift=-1.2mm, yshift=-0.25mm] turn.north east)
         --
@@ -277,7 +279,7 @@
             inner sep=0pt,
             minimum width=0mm, 
             minimum height=0mm,
-            fill=gray, 
+            fill=sequencecolor, 
         ] (end) {};
 
         \sequencerow[I]{#1}
@@ -288,7 +290,7 @@
             inner sep=0pt,
             minimum width=\turncountersize, 
             minimum height=0mm,
-            fill=gray, 
+            fill=sequencecolor, 
             ] (topturn) at (turn.north west){};
         % add as many rows as we need
         \IfValueT{#2}
@@ -309,7 +311,7 @@
 
     \begin{scope}[on background layer]
         \path[
-            fill=gray,
+            fill=sequencecolor,
         ] 
             ([xshift=-0.75mm, yshift=1mm] topturn.north)
             --
