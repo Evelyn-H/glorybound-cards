@@ -16,13 +16,13 @@
     sequence,
     text={%
         \sequence
-            [\upgrade{No effect}]
+            [\upgrade{No effect}{Gain \mana{X}.}]
             [Your opponent's actions cost twice as many resources. 
             
             \textit{(For example, an action that would cost \mana{FAA} costs \mana{FFAA}.)}]
     },
     upgrade cost={4},
-    upgrade={\{Gain \mana{X}.\}},
+    % upgrade={},
 ]
 
 \card[%
@@ -31,12 +31,12 @@
     sequence,
     text={%
         \sequence
-            [\attack{1}\par \upgrade{If I hit}, name a card.]
+            [\attack{1}\par \upgrade{If I hit}{Whether or not I hit}, name a card.]
             [Your opponent can't play the named card(s).]
     },
     purchase={0},
     upgrade cost={3},
-    upgrade={\{Whether or not I hit\}},
+    % upgrade={},
 ]
 
 \card[%

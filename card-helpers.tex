@@ -4,7 +4,22 @@
 % \newcommand{\upgrade}[1]{\sethlcolor{ugradegray}\hl{{#1}}}
 % \newcommand{\upgrade}[1]{\colorbox{ugradegray}{ugradegray}{#1}}
 
-\newcommand{\upgrade}[1]{%
+% \newcommand{\upgrade}[1]{%
+% % #1%
+%     \setlength{\fboxsep}{0pt}%
+%     \colorbox{ugradegray}{%
+%         % \vphantom{Blg}%
+%         \strut%
+%         #1%
+%         % \makebox{something}%
+%         % \makebox{
+%         %     \strut#1
+%         % }
+%     }%
+% }
+
+\makeatletter
+\newcommand{\upgrade}[2]{%
 % #1%
     \setlength{\fboxsep}{0pt}%
     \colorbox{ugradegray}{%
@@ -16,7 +31,13 @@
         %     \strut#1
         % }
     }%
+    \ifx\upgradereplacement\empty
+    \else
+        \g@addto@macro{\upgradereplacement}{;\ }
+    \fi
+    \g@addto@macro{\upgradereplacement}{\{#2\}}
 }
+\makeatother
 
 % \newcommand{\upgrade}{\bgroup\markoverwith{\textcolor{ugradegray}{\rule[-.5ex]{.5pt}{2.5ex}}}\ULon}
 

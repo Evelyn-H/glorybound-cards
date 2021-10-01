@@ -64,6 +64,10 @@
 
 \newlength{\templen}
 
+\makeatletter
+\let\upgradereplacement\@empty
+\makeatother
+
 % to trim art images to the size of the content:
 % mogrify -trim +repage *.png
 
@@ -222,7 +226,7 @@
             ] at (frame.center) {};
         \end{tcbclipinterior}
     }
-    \pgfkeysifdefined{upgrade}{%
+    \pgfkeysifdefined{upgrade cost}{%
         \bettertextbox
             [%
                 y=81.5mm, x=27mm,
@@ -235,6 +239,11 @@
                 underlay={\upgradeunderlay},
             ]
         {%
+            % this is purely to "evaluate" /card/text,
+            % so we can forge all the \upgrade{}{} commands to be executed
+            \sbox\rulestextbox{\parbox{54mm}{\pgfkeysvalueof{/card/text}}}%
+            \upgradereplacement%
+            \global\let\upgradereplacement\@empty
             \pgfkeysvalueof{upgrade}%
         }
         \setlength{\templen}{%
