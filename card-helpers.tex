@@ -25,17 +25,17 @@
     \colorbox{ugradegray}{%
         % \vphantom{Blg}%
         \strut%
-        #1%
+        \,#1\,%
         % \makebox{something}%
         % \makebox{
         %     \strut#1
         % }
     }%
-    \ifx\upgradereplacement\empty
-    \else
-        \g@addto@macro{\upgradereplacement}{;\ }
-    \fi
-    \g@addto@macro{\upgradereplacement}{\{#2\}}
+    \ifx\upgradereplacement\empty%
+    \else%
+        \g@addto@macro{\upgradereplacement}{;\ }%
+    \fi%
+    \g@addto@macro{\upgradereplacement}{\{#2\}}%
 }
 \makeatother
 
