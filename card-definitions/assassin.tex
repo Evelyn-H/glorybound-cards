@@ -32,15 +32,12 @@
     purchase={0},
 ]
 
-\newcommand{\traptext}{\textit{Trap -- This card begins the match forgotten and is put into play by Trap Setting.}}
-
 \card[%
     name={Poisoned Dagger},
     cost={},
-    extra,
+    linked={Trap Setting},
+    linked type={Trap},
     text={%
-        \traptext
-
         If you hit with an attack this turn, I become permanent and at the start of each turn, you score one point. Otherwise, banish me.
     },
 ]
@@ -48,11 +45,10 @@
 \card[%
     name={Smoke Shroud},
     cost={},
-    extra,
+    linked={Trap Setting},
+    linked type={Trap},
     oneshot,
     text={%
-        \traptext
-        
         If your opponent didn't attack last turn, they can't score points this turn.
     },
 ]
@@ -60,11 +56,10 @@
 \card[%
     name={Feign Defeat},
     cost={},
-    extra,
+    linked={Trap Setting},
+    linked type={Trap},
     oneshot,
     text={%
-        \traptext
-
         If your opponent has more points than you, they can't block this turn.
     },
 ]

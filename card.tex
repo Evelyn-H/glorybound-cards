@@ -1,10 +1,27 @@
-\newcommand{\printsepifnotempty}[2]{%
+\newcommand{\printsepifnotempty}[3]{%
     \directlua{
-        s = \luastring{#2}
-        if s:len() > 0 then
-            tex.sprint(\luastring{#1})
+        s1 = \luastring{#1}
+        sep = \luastring{#2}
+        s3 = \luastring{#3}
+
+        tex.sprint(s1)
+        if s1:len() > 0 and s3:len() > 0 then
+            tex.sprint(sep)
         end
-        tex.sprint(s)
+        tex.sprint(s3)
+    }%
+}
+\newcommand{\printsepifnotemptyor}[3]{%
+    \directlua{
+        s1 = \luastring{#1}
+        sep = \luastring{#2}
+        s3 = \luastring{#3}
+
+        tex.sprint(s1)
+        if s1:len() > 0 or s3:len() > 0 then
+            tex.sprint(sep)
+        end
+        tex.sprint(s3)
     }%
 }
 
@@ -21,7 +38,8 @@
     sequence/.code={\pgfkeyssetvalue{sequence}{#1}},
     oneshot/.code={\pgfkeyssetvalue{oneshot}{#1}},
     innate/.code={\pgfkeyssetvalue{innate}{#1}},
-    extra/.code={\pgfkeyssetvalue{extra}{#1}},
+    linked/.code={\pgfkeyssetvalue{linked}{#1}},
+    linked type/.initial={},
     % purchase stuff
     purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade stuff
@@ -29,11 +47,14 @@
     upgrade cost/.code={\pgfkeyssetvalue{upgrade cost}{#1}},
     % read-only key to get the printed type line
     type/.initial={%
-        \pgfkeysifdefined{purchase}{Advanced}{Starter}%
-        \printsepifnotempty{\ --\ }{%
+        \printsepifnotempty{%
+            \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+        }
+        {\ --\ }
+        {%
             % supertypes
             \pgfkeysifdefined{innate}{Innate }{}%
-            \pgfkeysifdefined{extra}{Forgotten }{}%
+            \pgfkeysifdefined{linked}{Linked }{}%
             % base types
             \pgfkeysifdefined{permanent}{Permanent }{}%
             \pgfkeysifdefined{sequence}{Sequence }{}%
@@ -138,9 +159,9 @@
     ] at (current page.north) {
         % \includegraphics[width=63mm]{frame2.png}
         \includegraphics[width=63mm]{%
-            \pgfkeysifdefined{extra}{frame2-gray.png}{frame2.png}
+            % \pgfkeysifdefined{linked}{frame2-gray.png}{frame2.png}
+            frame2.png
         }
-        
     };
 
     % cost
@@ -337,8 +358,15 @@
             {%
                 \pgfkeysifdefined{innate}{%
                     % {\centering\includegraphics[width=36mm]{innate-banner.png}\par}
-                    \textit{Innate -- Play before the match starts.}\par%
+                    \textit{\textsb{Innate} (Play before the match starts.)}\par%
                     % \textbf{Innate:} \textit{Play before the match starts.}\par%
+                }{}%
+                \pgfkeysifdefined{linked}{%
+                    \textit{\printsepifnotemptyor{%
+                        \pgfkeysvalueof{/card/linked type}%
+                    }{\ --\ }{}%
+                    \textsb{Linked} (This card begins the match forgotten and is recalled by \pgfkeysvalueof{linked}.)%
+                    }\par%
                 }{}%
                 \pgfkeysvalueof{/card/text}%
                 \global\setlength{\savedfontsize}{\tcbfitdim}
