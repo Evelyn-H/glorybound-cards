@@ -21,22 +21,22 @@ jobs:
           apk add make
           apk add imagemagick
           make
+          
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
   
     - name: Zip artifact
       uses: actions/upload-artifact@v2
       with:
-        name: GLORYBOUND
+        name: GLORYBOUND_${{ steps.date.outputs.date }}
         path: glorybound.pdf
         
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-        
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      with:
-        name: ${{ steps.date.outputs.date }}
-        files: |
-          glorybound.pdf
+#     - name: Release
+#       uses: softprops/action-gh-release@v1
+#       with:
+#         name: ${{ steps.date.outputs.date }}
+#         files: |
+#           glorybound.pdf
         
 
