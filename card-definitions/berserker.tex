@@ -15,23 +15,22 @@
     cost={},
     permanent,
     text={%
-        At the start of each turn, if your opponent has scored at least two 
+        At the start of each turn, if your opponent has scored at least three 
         points you may play an additional action this turn.
     },
-    upgrade cost={7},
-    upgrade={Gains: \textit{Innate -- Play before the match starts.}}
+    upgrade cost={6},
+    upgrade={Gains: \textit{\textsb{Innate} \linebreak(Play before the match starts.)}}
 ]
 
 \card[%
     name={Rite of Scars},
     cost={},
     text={%
-        \attack{2}
-        
-        I attack you, not your opponent.
-        \textit{(You are both attacking and being attacked, and your opponent scores the points.)}
-        
         Gain \mana{XX}.
+
+        Attack yourself \attackicon{} with an attack power of 2.
+        
+        \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the points.)}
     },
     purchase={0},
     upgrade cost={6},
@@ -57,9 +56,9 @@
 
         I get +1 attack power for each two points your opponent has scored this match.
 
-        I can't be blocked unless your opponent pays \mana{A}.
+        I can't be blocked unless your \upgrade{opponent pays \mana{A}}{opponent pays \mana{AA}}.
     },
     purchase={4},
     upgrade cost={4},
-    upgrade={Your opponent must pay \mana{AA} instead.},
+    % upgrade={Your opponent must pay \mana{AA} instead.},
 ]

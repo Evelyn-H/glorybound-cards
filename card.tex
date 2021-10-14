@@ -235,6 +235,7 @@
     }
 
     % upgrade?
+    \setlength{\extraheight}{0mm}
     \newcommand{\upgradeunderlay}{%
         \begin{tcbclipinterior}
             \node[
@@ -256,17 +257,26 @@
                 fontsize=8pt,
             ]
             [%
-                halign=center, valign=centerline, left=1mm, right=1mm,
-                underlay={\upgradeunderlay},
+                halign=flush center, valign=center, left=1mm, right=1mm,
+                fit height plus=4mm,
+                underlay={%
+                    \upgradeunderlay%
+                    \setlength{\extraheight}{\tcbtextheight}
+                    \global\extraheight=\extraheight
+                },
             ]
         {%
             % this is purely to "evaluate" /card/text,
             % so we can forge all the \upgrade{}{} commands to be executed
+            \global\let\upgradereplacement\@empty%
             \sbox\rulestextbox{\parbox{54mm}{\pgfkeysvalueof{/card/text}}}%
             \upgradereplacement%
-            \global\let\upgradereplacement\@empty
             \pgfkeysvalueof{upgrade}%
         }
+        % add the margin back in
+        \setlength{\extraheight}{\extraheight + 2mm}
+        % \the\extraheight
+
         \setlength{\templen}{%
             \directlua{%
                 if string.len(\luastring{\pgfkeysvalueof{upgrade cost}}) > 1 then
@@ -279,7 +289,7 @@
         \bettertextbox
             [%
                 y=81.5mm, x=-27mm,
-                width=11mm, height=6mm, margin=1mm, 
+                width=11mm, height=\extraheight, margin=1mm, 
                 anchor=south west,
                 fontsize=\templen,
                 font=\bfseries,
@@ -302,7 +312,7 @@
         {%
             \pgfkeysvalueof{upgrade cost}%
         }
-        \addtolength{\textboxbottomoffset}{6mm}
+        \addtolength{\textboxbottomoffset}{\extraheight}
     }{%
         % not defined
     }
@@ -344,15 +354,15 @@
                 [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
                     % top=-2mm,
                     underlay=\pgfkeysifdefined{permanent}{%
-                        \begin{tcbclipinterior}
-                            \node[
-                                anchor=center, 
-                                opacity=0.15,
-                                % yshift=1mm
-                            ] at (frame.center) {
-                                \includegraphics[height=14mm]{permanent-watermark.png}
-                            };
-                        \end{tcbclipinterior}
+                        % \begin{tcbclipinterior}
+                        %     \node[
+                        %         anchor=center, 
+                        %         opacity=0.15,
+                        %         % yshift=1mm
+                        %     ] at (frame.center) {
+                        %         \includegraphics[height=14mm]{permanent-watermark.png}
+                        %     };
+                        % \end{tcbclipinterior}
                     }{}
                 ] 
             {%
@@ -377,7 +387,7 @@
     \setlength{\extraheight}{0mm}
     \buildbox
     \loop
-    \ifdim\savedfontsize<7pt
+    \ifdim\savedfontsize<8pt
         \setlength{\extraheight}{\extraheight + 2mm}
         \global\extraheight=\extraheight
         \buildbox

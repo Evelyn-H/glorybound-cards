@@ -447,3 +447,27 @@
     end
 \end{luacode*}
 \newcommand{\geticon}[3]{\directlua{tex.print(get_icon(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}
+
+
+
+% this one is for use inside the card text
+\newcommand{\attackicon}{%
+    \smash{\scalerel*{%
+        \begin{tikzpicture}[x=5mm, y=5mm]
+            \node[
+                % anchor=east, 
+                inner sep=0pt,
+            ] (icon) {%
+                \includegraphics{\geticon{attack}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
+            };
+            \node[
+                anchor=center, 
+                inner sep=0pt,
+                opacity = 0.5,
+            ] at (icon.center) {%
+                \includegraphics{\geticon{attack}{FFFFFF}{FFFFFF}}%
+            };
+        \end{tikzpicture}%
+    }{\strut}}%
+    % \includegraphics[width=1mm]{icons/mana/#1.png}%
+}

@@ -1,4 +1,7 @@
-\setpath{Druid}{00DB1D}{BF00FF}
+\setpath{Druid}{AA0CFF}{00D025}
+% \setpath{Druid}{00DB1D}{BF00FF}
+% \setpath{Druid}{BF00FF}{00DB1D}
+
 \card[%
     name={Bind in Thorns},
     cost={WA},
@@ -7,4 +10,81 @@
 
         \block
     },
+    upgrade cost={4},
+    upgrade={+1 attack power.},
+]
+
+\card[%
+    name={Lifebloom},
+    cost={},
+    sequence,
+    text={%
+        \sequence
+            [Gain \mana{X}.]
+            [Gain \mana{X}.]
+    },
+    upgrade cost={6},
+    upgrade={Gain \mana{XX} each turn instead.},
+]
+
+\card[%
+    name={Wildshape},
+    cost={},
+    text={%
+        Choose, reveal and recall an Animal Form.
+    },
+    purchase={0},
+    upgrade cost={4},
+    upgrade={Gains: \textit{\textsb{Innate} \linebreak(Play before the match starts.)}}
+]
+
+\card[%
+    name={Tooth and Claw},
+    cost={S},
+    linked={Wildshape},
+    linked type={Animal Form},
+    oneshot,
+    text={%
+        \attack{3}
+
+        I can't be blocked unless your opponent pays \mana{A}.
+    },
+]
+
+\card[%
+    name={Take Wing},
+    cost={S},
+    linked={Wildshape},
+    linked type={Animal Form},
+    sequence,
+    oneshot,
+    text={%
+        \sequence
+            [\block]
+            [\block]
+    },
+]
+
+\card[%
+    name={Fierce Seedling},
+    cost={A},
+    permanent,
+    text={%
+        Each turn, I grow. Then, if I have grown at least three times:
+
+        \attack{1}
+    },
+    purchase={3},
+]
+
+\card[%
+    name={Sheltering Ancient},
+    cost={},
+    innate,
+    permanent,
+    text={%
+        When you are attacked, banish me to block that attack.
+        At the end of the second turn of the match, banish me.
+    },
+    purchase={5},
 ]
