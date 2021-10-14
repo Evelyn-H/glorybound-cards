@@ -431,7 +431,9 @@
 
 \begin{luacode*}
     function generate_icon(name, col1, col2)
-        io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+        local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+        local output = file:read('*all')
+        file:close()
     end
     function get_icon(name, col1, col2)
         filename = "icons/"..name.."-"..col1.."-"..col2..".png"

@@ -97,7 +97,9 @@
 
 \begin{luacode*}
     function generate_art(folder, name, col1, col2)
-        io.popen("cd '"..folder.."' && convert -size $(identify -format %Wx%H '"..name..".png') -define gradient:direction=Northeast gradient:'#"..col1.."'-'#"..col2.."' '"..name..".png' -compose copy_opacity -composite '"..name.."-"..col1.."-"..col2..".png'")
+        local file = io.popen("cd '"..folder.."' && convert -size $(identify -format %Wx%H '"..name..".png') -define gradient:direction=Northeast gradient:'#"..col1.."'-'#"..col2.."' '"..name..".png' -compose copy_opacity -composite '"..name.."-"..col1.."-"..col2..".png'")
+        local output = file:read('*all')
+        file:close()
     end
     function get_art(path, col1, col2)
         name = path:match("^.*/([^/]*).png$")
