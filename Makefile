@@ -18,4 +18,4 @@ copy:
 	cp glorybound.pdf output/cards.pdf
 
 postprocess:
-	python postprocess.py
+	python3 postprocess.py
