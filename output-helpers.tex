@@ -1,0 +1,40 @@
+\begin{luacode*}
+    start_page = 0
+    end_page = 0
+    file_name = nil
+    -- the "w" open mode erases old content
+    page_file = io.open("page-numbers-paths.log", "w") 
+    card_file = io.open("page-numbers-cards.log", "w") 
+    current_page = 0
+\end{luacode*}
+
+
+\newcommand{\countpage}{%
+    \directlua{
+        current_page = current_page + 1
+    }
+}
+
+\newcommand{\registercard}[2]{%
+    \directlua{
+        path_name = \luastring{#1}
+        card_name = \luastring{#2}
+        card_file:write(path_name..' - '..card_name..' - '..current_page..'\string\n')
+    }
+}
+
+% \newcommand{\beginpathfile}[1]{%
+%     \directlua{
+%         file_name = \luastring{#1}
+%         start_page = current_page + 1
+%     }
+% }
+
+% \newcommand{\finishpathfile}{%
+%     \directlua{
+%         end_page = current_page
+%         if file_name then
+%             page_file:write(file_name..' '..start_page..' '..end_page..'\string\n')
+%         end
+%     }
+% }

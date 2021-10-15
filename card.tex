@@ -67,11 +67,13 @@
 }
 
 \newcommand{\setpath}[3]{
+    % \finishpathfile
     \pgfkeys{/card/.cd,
         path=#1,
         color-left=#2,
         color-right=#3,
     }
+    % \beginpathfile{#1}
 }
 
 \newsavebox{\rulestextbox}
@@ -130,6 +132,10 @@
     % handle key-value arguments
     \pgfkeys{/card/.cd, #1}
     
+    % increase our page counter and track card
+    \countpage
+    \registercard{\pgfkeysvalueof{/card/path}}{\pgfkeysvalueof{/card/name}}
+
     % render frame
     % the tikz stuff makes sure it's rendered in the background and not
     % as part of the document flow
