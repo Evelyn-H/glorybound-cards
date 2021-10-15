@@ -14,6 +14,7 @@ pdf:
 output: copy postprocess
 
 copy:
+	mkdir output
 	cp glorybound.pdf output/cards.pdf
 
 postprocess:
