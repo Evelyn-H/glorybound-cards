@@ -1,0 +1,42 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Compile LaTeX
+      uses: xu-cheng/texlive-action/full@v1
+      with:
+        run: |
+          apk add make
+          apk add imagemagick
+          make
+          
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+  
+    - name: Zip artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: GLORYBOUND_${{ steps.date.outputs.date }}
+        path: glorybound.pdf
+        
+#     - name: Release
+#       uses: softprops/action-gh-release@v1
+#       with:
+#         name: ${{ steps.date.outputs.date }}
+#         files: |
+#           glorybound.pdf
+        
+
