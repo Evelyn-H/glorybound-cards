@@ -20,7 +20,8 @@ jobs:
         run: |
           apk add make
           apk add imagemagick
-          make
+          apk add poppler-utils
+          make all
           
     - name: Get current date
       id: date
@@ -30,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: GLORYBOUND_${{ steps.date.outputs.date }}
-        path: glorybound.pdf
+        path: output/
         
 #     - name: Release
 #       uses: softprops/action-gh-release@v1
@@ -39,4 +40,3 @@ jobs:
 #         files: |
 #           glorybound.pdf
         
-
