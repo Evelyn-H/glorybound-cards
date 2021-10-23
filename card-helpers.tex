@@ -207,6 +207,33 @@
                 \textcolor{light}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
         }{}
+
+        % this just draws a little line over the left edge of the icon
+        % to try and hide the transparancy issues there
+            
+        \ifthenelse{\equal{\directlua{
+            icon = \luastring{\pgfkeysvalueof{/fancyrenderer/icon}}
+            texio.write('asdf'..icon)
+            if icon:find('^block') == nil then
+                tex.sprint('true')
+            else
+                tex.sprint('false')
+            end
+        }}{false}}{
+            \path[
+                draw=dark, line width=0.5mm, 
+            ] 
+                ([xshift=-\iconwidth*0.9, yshift=-0.0mm] bb.north east)
+                --    
+                ([xshift=-\iconwidth*0.9, yshift=-0.1mm] bb.north east)
+                --    
+                ([xshift=-\iconwidth] bb.east)
+                --
+                ([xshift=-\iconwidth*0.9, yshift=0.1mm] bb.south east)
+                --
+                ([xshift=-\iconwidth*0.9, yshift=0.0mm] bb.south east);
+        }{}
+
         
     \end{tikzpicture}%
     \par
