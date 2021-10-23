@@ -441,9 +441,13 @@
 % convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
 
 
+% better version that fixes the "colored edge" issue
+% convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack-mask.png -compose copy_opacity -composite -channel a -threshold 99% attack.png -channel rgba -compose src-over -composite result.png
+
 \begin{luacode*}
     function generate_icon(name, col1, col2)
-        local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+        -- local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+        local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name.."-mask.png -compose copy_opacity -composite -channel a -threshold 99% "..name..".png -channel rgba -compose src-over -composite "..name.."-"..col1.."-"..col2..".png")
         local output = file:read('*all')
         file:close()
     end
