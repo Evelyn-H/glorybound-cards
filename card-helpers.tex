@@ -1,6 +1,14 @@
+\colorlet{dark}{black}
+\colorlet{light}{white}
+% \colorlet{dark}{red}
+% \colorlet{light}{green}
+% \colorlet{dark}{white}
+% \colorlet{light}{black!90}
+
+
 %%% Commands to be used in card definitions
 
-\colorlet{ugradegray}{black!25}
+\colorlet{ugradegray}{dark!25!light!75}
 % \newcommand{\upgrade}[1]{\sethlcolor{ugradegray}\hl{{#1}}}
 % \newcommand{\upgrade}[1]{\colorbox{ugradegray}{ugradegray}{#1}}
 
@@ -49,8 +57,8 @@
     text/.initial={},
     icon/.initial={},
     icontext/.code={\pgfkeyssetvalue{/fancyrenderer/icontext}{#1}},
-    fillcolor/.initial={white},
-    textcolor/.initial={black},
+    fillcolor/.initial={light},
+    textcolor/.initial={dark},
     scale/.initial={1.0},
     % scale/.initial={0.8},
 }
@@ -110,7 +118,7 @@
 
         \setlength\cornersize{1.5mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
         \path[
-            draw=black, line width=0.5mm, 
+            draw=dark, line width=0.5mm, 
             fill=\pgfkeysvalueof{/fancyrenderer/fillcolor}
         ] 
             ([xshift=-2mm, yshift=-0.25mm] bb.north east)
@@ -161,7 +169,11 @@
             outer xsep=0pt,
             opacity = 0.5,
         ] at (bb.east) {%
-            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}%
+            \pgfkeysifdefined{night}{%
+                \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{000000}{000000}}%
+            }{%
+                \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}%
+            }%
         };
 
         \setlength\tempfontsize{24pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
@@ -180,8 +192,8 @@
                 \textpdfrender{
                     TextRenderingMode=FillStrokeClip,
                     LineWidth=\outlinewidth,
-                    FillColor=white,
-                    StrokeColor=black, 
+                    FillColor=light,
+                    StrokeColor=dark, 
                     MiterLimit=1,
                 }{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
@@ -192,7 +204,7 @@
             ] at (icon.center) {%
                 \fontsize{\tempfontsize}{\tempfontsize}\selectfont
                 \bfseries
-                \textcolor{white}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
+                \textcolor{light}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
         }{}
         
@@ -204,15 +216,15 @@
 \newcommand{\block}{%
     \fancyrenderer[%
         text={\textbf{Block} an attack.},
-        icon=block,
-        fillcolor=black,
-        textcolor=white,
+        icon=\pgfkeysifdefined{night}{block-night}{block},
+        fillcolor=dark,
+        textcolor=light,
     ]
 }
 \newcommand{\attack}[1]{%
     \fancyrenderer[%
         text={\textbf{Attack}},
-        icon=attack,
+        icon=\pgfkeysifdefined{night}{attack-night}{attack},
         icontext={#1},
     ]
 }
@@ -220,7 +232,7 @@
 \newlength{\turncountersize}
 \setlength{\turncountersize}{4.8mm}
 
-\colorlet{sequencecolor}{black!70}
+\colorlet{sequencecolor}{dark!70}
 
 \newcommand{\sequencerowsep}{%
     \node[
@@ -248,7 +260,7 @@
     ] (text) at (end.south east) {%
         \def\insidesequence{}%
         \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
-        % \color{white}
+        % \color{light}
         #2
     };
 
@@ -290,7 +302,7 @@
         anchor=center,
     ] at (turn.center) {%
         \fontsize{10pt}{10pt}\selectfont
-        \textcolor{white}{\textbf{#1}}%
+        \textcolor{light}{\textbf{#1}}%
     };
 }
 

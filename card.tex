@@ -64,6 +64,8 @@
     art path/.initial={%
         art/\pgfkeysvalueof{/card/path}/\pgfkeysvalueof{/card/name}.png%
     },
+    % night mode toggle, not meant to be used directly in card definitions
+    night/.code={\pgfkeyssetvalue{night}{#1}},%
 }
 
 \newcommand{\setpath}[3]{
@@ -136,6 +138,27 @@
     \countpage
     \registercard{\pgfkeysvalueof{/card/path}}{\pgfkeysvalueof{/card/name}}
 
+    % handle night-mode cards
+    % \pgfkeyssetvalue{night}{}%
+    \pgfkeysifdefined{linked}{%
+        \pgfkeyssetvalue{night}{}%
+    }{}
+    
+    % set night mode colors
+    \pgfkeysifdefined{night}{%
+        % \colorlet{dark}{red}
+        % \colorlet{light}{green}
+        \colorlet{dark}{white}
+        \colorlet{light}{black!90}
+        \colorlet{sequencecolor}{dark!70!light!30}
+        \colorlet{ugradegray}{dark!25!light!75}
+    }{%
+        \colorlet{dark}{black}
+        \colorlet{light}{white}
+        \colorlet{sequencecolor}{dark!70}
+        \colorlet{ugradegray}{dark!25!light!75}
+    }
+
     % render frame
     % the tikz stuff makes sure it's rendered in the background and not
     % as part of the document flow
@@ -168,7 +191,9 @@
         % \includegraphics[width=63mm]{frame2.png}
         \includegraphics[width=63mm]{%
             % \pgfkeysifdefined{linked}{frame2-gray.png}{frame2.png}
-            frame2.png
+            % frame2.png
+            \pgfkeysifdefined{night}{frame2-night.png}{frame2.png}
+            % frame2-dark.png
         }
     };
 
@@ -207,7 +232,7 @@
             rectangle,
             rounded corners=1mm,
             inner sep=0pt,
-            fill=black!25,
+            fill=dark!25!light!75,
         ] at (frame.center) {};
     \end{tcbclipinterior}
     }
@@ -230,7 +255,7 @@
                             inner sep=0pt,
                             yshift=-1mm,
                             % opacity=0.5,
-                        ] at (frame.north) {\includegraphics[height=3.5mm]{icons/padlock.png}};
+                        ] at (frame.north) {\includegraphics[height=3.5mm]{icons/padlock\pgfkeysifdefined{night}{-night}{}.png}};
                     \end{tcbclipframe}
                 },
                 top=5.5mm,
@@ -252,7 +277,7 @@
                 rectangle,
                 rounded corners=1mm,
                 inner sep=0pt,
-                fill=black!25,
+                fill=dark!25!light!75,
             ] at (frame.center) {};
         \end{tcbclipinterior}
     }
@@ -312,7 +337,7 @@
                             inner sep=0pt,
                             xshift=1mm,
                             % opacity=0.5,
-                        ] at (frame.west) {\includegraphics[height=4mm]{icons/upgrade.png}};
+                        ] at (frame.west) {\includegraphics[height=4mm]{icons/upgrade\pgfkeysifdefined{night}{-night}{}.png}};
                     \end{tcbclipframe}
                 },
                 left=4.5mm,
@@ -339,7 +364,7 @@
             yshift=7mm+\textboxbottomoffset,
         ] at (current page.south) {
             % \includegraphics[width=36mm]{oneshot-banner.png}
-            \includegraphics[width=30mm]{oneshot-banner.png}
+            \includegraphics[width=30mm]{oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
         };
         \addtolength{\textboxbottomoffset}{5mm}
     }{%
