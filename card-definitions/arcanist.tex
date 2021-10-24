@@ -4,9 +4,9 @@
     name={Arcane Research},
     cost={F},
     text={%
-        Choose \upgrade{two random advanced cards}{one random forbidden magic and one random advanced card} you have not yet learned and recall them. If you recall an innate card, play it immediately.
+        Choose \upgrade{two random advanced}{one random forbidden magic and one random advanced card} \upgrade{cards}{} you have not yet learned and recall them. If you recall an innate card, play it immediately.
     },
-    upgrade cost={7},
+    upgrade cost={5},
     % upgrade={},
 ]
 
@@ -50,7 +50,9 @@
     innate,
     permanent,
     text={%
-        Reveal an Arcanist card and a non-Arcanist card from your hand. When you play one of those cards, play the other as a special action if able.
+        Reveal an Arcanist card and a non-Arcanist card from your hand. 
+        
+        For the rest of the match, when you play one of those cards, play the other as a special action if able.
     },
     purchase={8},
 ]
@@ -70,6 +72,7 @@
     cost={},
     linked={an upgraded Arcane Research},
     linked type={Forbidden Magic},
+    oneshot,
     text={%
         If your opponent would score points this turn, instead they score no points and your resources are restored to your starting resources.
     },

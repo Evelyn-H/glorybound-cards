@@ -39,11 +39,13 @@
         %     \strut#1
         % }
     }%
-    \ifx\upgradereplacement\empty%
-    \else%
-        \g@addto@macro{\upgradereplacement}{;\ }%
-    \fi%
-    \g@addto@macro{\upgradereplacement}{\{#2\}}%
+    \ifstrempty{#2}{}{%
+        \ifx\upgradereplacement\empty%
+        \else%
+            \g@addto@macro{\upgradereplacement}{;\ }%
+        \fi%
+        \g@addto@macro{\upgradereplacement}{\{#2\}}%
+    }
 }
 \makeatother
 
