@@ -50,7 +50,7 @@ def process_card(path, card, page):
     # make image with bleed area for printing
     print(f"Adding bleed to {path} - {card}")
     subprocess.run(f"mkdir -p \"output/{path}/print\"", shell=True)
-    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 bleed-overlay.png -composite \"output/{path}/print/{card}.png\"", shell=True)
+    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 icons/bleed-overlay.png -composite \"output/{path}/print/{card}.png\"", shell=True)
 
 # make images per card
 for path, card, page in cards:

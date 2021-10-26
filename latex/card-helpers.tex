@@ -476,12 +476,12 @@
 \begin{luacode*}
     function generate_icon(name, col1, col2)
         -- local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
-        local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name.."-mask.png -compose copy_opacity -composite -channel a -threshold 99% "..name..".png -channel rgba -compose src-over -composite "..name.."-"..col1.."-"..col2..".png")
+        local file = io.popen("mkdir -p icons/processed && cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name.."-mask.png -compose copy_opacity -composite -channel a -threshold 99% "..name..".png -channel rgba -compose src-over -composite processed/"..name.."-"..col1.."-"..col2..".png")
         local output = file:read('*all')
         file:close()
     end
     function get_icon(name, col1, col2)
-        filename = "icons/"..name.."-"..col1.."-"..col2..".png"
+        filename = "icons/processed/"..name.."-"..col1.."-"..col2..".png"
         -- check if it already exists
         local f = io.open(filename, "r")
         if f~=nil then 

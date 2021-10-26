@@ -190,12 +190,12 @@
         outer ysep=0pt,
         outer xsep=0pt,
     ] at (current page.north) {
-        % \includegraphics[width=63mm]{frame2.png}
+        % \includegraphics[width=63mm]{icons/frame2.png}
         \includegraphics[width=63mm]{%
-            % \pgfkeysifdefined{linked}{frame2-gray.png}{frame2.png}
-            % frame2.png
-            \pgfkeysifdefined{night}{frame2-night.png}{frame2.png}
-            % frame2-dark.png
+            % \pgfkeysifdefined{linked}{icons/frame2-gray.png}{icons/frame2.png}
+            % icons/frame2.png
+            \pgfkeysifdefined{night}{icons/frame2-night.png}{icons/frame2.png}
+            % icons/frame2-dark.png
         }
     };
 
@@ -365,8 +365,8 @@
             % yshift=7.5mm,
             yshift=7mm+\textboxbottomoffset,
         ] at (current page.south) {
-            % \includegraphics[width=36mm]{oneshot-banner.png}
-            \includegraphics[width=30mm]{oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
+            % \includegraphics[width=36mm]{icons/oneshot-banner.png}
+            \includegraphics[width=30mm]{icons/oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
         };
         \addtolength{\textboxbottomoffset}{5mm}
     }{%
@@ -402,7 +402,7 @@
                 ] 
             {%
                 \pgfkeysifdefined{innate}{%
-                    % {\centering\includegraphics[width=36mm]{innate-banner.png}\par}
+                    % {\centering\includegraphics[width=36mm]{icons/innate-banner.png}\par}
                     \textit{\textsb{Innate} (Play before the match starts.)}\par%
                     % \textbf{Innate:} \textit{Play before the match starts.}\par%
                 }{}%

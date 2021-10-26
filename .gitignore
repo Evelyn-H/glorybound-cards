@@ -5,11 +5,16 @@
 
 svg-inkscape/
 
-icons/attack-*-*.png
-icons/block-*-*.png
-!icons/block-night-mask.png
-!icons/attack-night-mask.png
+# icons/attack-*-*.png
+# icons/block-*-*.png
+# !icons/block-night-mask.png
+# !icons/attack-night-mask.png
+icons/processed/*
 
 art/*/*-*-*.png
 
 output/*
+
+
+# python stuff
+.venv
