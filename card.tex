@@ -48,13 +48,15 @@
     % read-only key to get the printed type line
     type/.initial={%
         \printsepifnotempty{%
-            \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+            \pgfkeysifdefined{linked}{Linked}{%
+                \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+            }%
         }
         {\ --\ }
         {%
             % supertypes
             \pgfkeysifdefined{innate}{Innate }{}%
-            \pgfkeysifdefined{linked}{Linked }{}%
+            % \pgfkeysifdefined{linked}{Linked }{}%
             % base types
             \pgfkeysifdefined{permanent}{Permanent }{}%
             \pgfkeysifdefined{sequence}{Sequence }{}%
