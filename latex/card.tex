@@ -25,6 +25,16 @@
     }%
 }
 
+\begin{luacode*}
+    function remove_apostrophe(path)
+        new = path:gsub("'", "_")
+        -- texio.write("TEST:"..new)
+        return new
+    end
+\end{luacode*}
+\newcommand{\fixpath}[1]{\directlua{tex.sprint(remove_apostrophe(\luastring{#1}))}}
+
+
 \pgfkeys{/card/.cd,% set the initial path
     name/.initial={},
     % type/.initial={},
@@ -64,7 +74,7 @@
     },
     % art path
     art path/.initial={%
-        art/\pgfkeysvalueof{/card/path}/\pgfkeysvalueof{/card/name}.png%
+        art/\pgfkeysvalueof{/card/path}/\fixpath{\pgfkeysvalueof{/card/name}}.png%
     },
     % night mode toggle, not meant to be used directly in card definitions
     night/.code={\pgfkeyssetvalue{night}{#1}},%
@@ -438,6 +448,7 @@
 
     % art:
     % (just a placeholder rectangle currently)
+    % \typeout{ART: \pgfkeysvalueof{/card/art path}}
     \IfFileExists{\pgfkeysvalueof{/card/art path}}{
         \tikz[overlay, remember picture] 
         \node[

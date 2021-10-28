@@ -23,7 +23,8 @@
         \attack{4}
     },
     upgrade cost={7},
-    upgrade={Costs \mana{WWA} instead of \mana{WWAAA}.},
+    % upgrade={Costs \mana{WWA} instead of \mana{WWAAA}.},
+    upgrade={Only costs \mana{WWA} to play.},
 ]
 
 \card[%
@@ -37,7 +38,7 @@
     },
     purchase={0},
     upgrade cost={4},
-    upgrade={Repeats the same effect for a third turn.},
+    upgrade={Stays in play for a third turn; repeats the same effect.},
 ]
 
 \card[%
@@ -46,11 +47,11 @@
     innate,
     permanent,
     text={%
-        When your opponent is \burn{burned} for the third time play Set Ablaze immediately as a special action. If it is forgotten, recall it first.
+        When your opponent is \burn{burned} for \upgrade{the third time}{the second time} play Set Ablaze immediately as a special action. If it is forgotten, recall it first.
     },
     purchase={3},
     upgrade cost={3},
-    upgrade={Your opponent only needs to be burned twice instead of three times.},
+    % upgrade={Your opponent only needs to be burned twice instead of three times.},
 ]
 
 \card[%
