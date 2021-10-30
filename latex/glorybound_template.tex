@@ -1,0 +1,133 @@
+% !TeX program = lualatex
+
+\documentclass{article}
+% \documentclass{minimal}
+\usepackage[
+    paperwidth=63mm, 
+    paperheight=88mm,
+    margin=0mm,
+]{geometry}
+\setlength\parindent{0pt}
+\setlength{\parskip}{2mm}
+
+% the cmyk option makes it convert rgb color to cmyk space
+% this makes the pdf output look more "realistic", but less vibrant
+% \usepackage[cmyk]{xcolor}
+\usepackage{xcolor}
+
+% makes lua stuff easier
+\usepackage{luacode}
+
+% for \NewDocumentCommand
+\usepackage{xparse}
+
+% for filler text
+\usepackage{lipsum}
+
+% for getting the current date
+\usepackage[datesep=/]{datetime2}
+\DTMsetdatestyle{mmddyy}
+
+% for textboxes
+% this also pulls in tikz as a dependency
+\usepackage[fitting, skins]{tcolorbox}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+
+% for length maths shenanigans
+\usepackage{calc}
+
+% for tables stuff
+\usepackage{tabularx}
+\usepackage{array}
+
+% for outlined text
+\usepackage{pdfrender}
+
+% for scaling things
+\usepackage{scalerel}
+
+% this gets rid of a bunch of font scaling warnings 
+% by replacing the standard fonts with scalable versions
+\usepackage{lmodern}
+
+% for better conditionals
+\usepackage{ifthen}
+\usepackage{etoolbox}
+
+% for landscape pages
+\usepackage{pdflscape}
+
+% load fonts
+\usepackage{fontspec}
+\newfontfamily\bodyfont{CrimsonPro-Regular}[
+    Path           = "fonts/Crimson_Pro/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    Numbers        = Monospaced,
+    BoldFont       = CrimsonPro-Bold,
+    ItalicFont     = CrimsonPro-Italic,
+    BoldItalicFont = CrimsonPro-BoldItalic,
+    FontFace       = {sb}{n}{CrimsonPro-SemiBold},
+    FontFace       = {sb}{it}{CrimsonPro-SemiBoldItalic},
+]
+\newfontfamily\titlefont{Grenze-Regular}[
+    Path           = "fonts/Grenze/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    BoldFont       = Grenze-Bold,
+    ItalicFont     = Grenze-Italic,
+    BoldItalicFont = Grenze-BoldItalic,
+    FontFace       = {sb}{n}{Grenze-SemiBold},
+    FontFace       = {sb}{it}{Grenze-SemiBoldItalic},
+]
+
+% semibold commands
+\DeclareOldFontCommand{\sbseries}{\fontseries{sb}\selectfont}{\mathbf}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+
+
+% my custom textbox command
+\include{latex/textbox.tex}
+
+% helpers for file splitting / output shenanigans
+\include{latex/output-helpers.tex}
+
+% card rendering code
+\include{latex/card-helpers.tex}
+\include{latex/card.tex}
+
+
+\begin{document}
+
+\BLOCK{ for path in paths }
+    \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}
+
+    \BLOCK{ for card in path.cards }
+        \card[%
+            name={\VAR{card.name}},
+            cost={\VAR{card.cost}},
+            \BLOCK{ for type in card.types }
+            \VAR{type},
+            \BLOCK{ endfor }
+            text={%
+                \VAR{card.text | indent(4*4)}%
+            },
+            \BLOCK{ if card.purchase != None }
+            purchase={\VAR{card.purchase}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.upgrade_cost != None }
+            upgrade cost={\VAR{card.upgrade_cost}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.upgrade != None }
+            upgrade={%
+                \VAR{card.upgrade | indent(4*4)}%
+            },
+            \BLOCK{ endif }
+        ]
+    \BLOCK{ endfor }
+
+    
+\BLOCK{ endfor }
+
+\end{document} 

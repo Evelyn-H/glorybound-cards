@@ -18,3 +18,5 @@ output/*
 
 # python stuff
 .venv
+launch.json
+settings.json

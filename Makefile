@@ -6,13 +6,13 @@ all: clear pdf output
 
 clear:
 	rm -rf output/*
-	rm -f glorybound.pdf
-	# rm -f latex/glorybound.pdf
+	rm -f glorybound1.pdf
+	rm -f latex/glorybound1.pdf
 
 pdf:
 	# lualatex  -synctex=1 -interaction=nonstopmode -file-line-error --shell-escape glorybound
-	latexmk -lualatex --shell-escape -interaction=nonstopmode latex/glorybound
-	cp glorybound.pdf latex/glorybound.pdf
+	latexmk -lualatex --shell-escape -interaction=nonstopmode latex/glorybound1
+	cp glorybound1.pdf latex/glorybound1.pdf
 
 output: copy postprocess
 
