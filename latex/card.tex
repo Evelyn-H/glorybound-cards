@@ -78,6 +78,7 @@
     },
     % night mode toggle, not meant to be used directly in card definitions
     night/.code={\pgfkeyssetvalue{night}{#1}},%
+    big art/.code={\pgfkeyssetvalue{big art}{#1}},%
 }
 
 \newcommand{\setpath}[3]{
@@ -430,6 +431,9 @@
         }
     }
     \setlength{\extraheight}{0mm}
+    \pgfkeysifdefined{big art}{
+        \setlength{\extraheight}{-14mm}
+    }{}
     \buildbox
     \loop
     \ifdim\savedfontsize<8pt

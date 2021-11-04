@@ -1,9 +1,10 @@
+import os
+import sys
+import glob
 import re
 import strictyaml as yaml
-from strictyaml import Map, MapPattern, EmptyDict, Str, Seq, Int, Any, Optional, CommaSeparated, Regex, load
+from strictyaml import Map, MapPattern, EmptyDict, Str, Seq, Int, Bool, Any, Optional, CommaSeparated, Regex, load
 import jinja2
-import os
-import glob
 from jinja2 import Template
 
 
@@ -15,11 +16,12 @@ schema = Map({
             Str(), Map({
                 'cost': Regex(r'[SWFAX]*'), 
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate')),
+                Optional('linked'): Str(),
                 'text': Str(), 
                 Optional('purchase'): Int(),
                 Optional('upgrade cost'): Int(),
                 Optional('upgrade'): Str(),
-
+                Optional('big art'): Bool(),
             })
         )
     ),
@@ -40,11 +42,15 @@ class Card(object):
         d = MyDict(d)
         self.name = name
         self.cost = d['cost']
-        self.types = [t.strip() for t in (d['types'] or [])]
         self.text = d['text']
+        self.types = [t.strip() for t in (d['types'] or [])]
+        if '\\sequence' in self.text:
+            self.types.append('sequence')
+        self.linked = d['linked']
         self.purchase = d['purchase']
         self.upgrade_cost = d['upgrade cost']
         self.upgrade = d['upgrade']
+        self.big_art = d['big art']
 
     def __str__(self):
         return f'<{self.name} {{{self.cost}}} [{self.purchase}]:\n  - ({", ".join(self.types)}) \n  - {repr(self.text)} \n  - [{self.upgrade_cost}: {repr(self.upgrade)}]>'
@@ -99,21 +105,23 @@ latex_jinja_env = jinja2.Environment(
 
 template = latex_jinja_env.get_template('latex/glorybound_template.tex')
 
-names = [
-    'berserker',
-    # 'fireheart',
-    # 'legionnaire',
-    # 'dancer',
-    # 'arcanist',
-    # 'assassin',
-    # 'windwalker',
-    # 'hammer-priest',
-    # 'druid',
-    # 'test',
-]
-# paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
+if sys.argv.count('-full') > 0:
+    paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
+else:
+    names = [
+        # 'berserker',
+        # 'fireheart',
+        # 'legionnaire',
+        # 'dancer',
+        # 'arcanist',
+        # 'assassin',
+        'windwalker',
+        # 'hammer-priest',
+        # 'druid',
+        # 'test',
+    ]
+    paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 
-paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 
 print(template.render(
     paths=paths,

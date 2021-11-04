@@ -110,6 +110,9 @@
             \BLOCK{ for type in card.types }
             \VAR{type},
             \BLOCK{ endfor }
+            \BLOCK{ if card.linked != None }
+            linked={\VAR{card.linked}},
+            \BLOCK{ endif }
             text={%
                 \VAR{card.text | indent(4*4)}%
             },
@@ -124,10 +127,13 @@
                 \VAR{card.upgrade | indent(4*4)}%
             },
             \BLOCK{ endif }
+            \BLOCK{ if card.big_art == true }
+            big art,
+            \BLOCK{ endif }
         ]
     \BLOCK{ endfor }
 
-    
+
 \BLOCK{ endfor }
 
 \end{document} 
