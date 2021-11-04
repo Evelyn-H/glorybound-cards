@@ -105,7 +105,7 @@ latex_jinja_env = jinja2.Environment(
 
 template = latex_jinja_env.get_template('latex/glorybound_template.tex')
 
-if sys.argv.count('-full') > 0:
+if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
     names = [

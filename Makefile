@@ -2,7 +2,7 @@
 
 default: clear preprocess pdf
 
-all: clear preprocess-full pdf output
+all: clear preprocess-all pdf output
  
 clear:
 	rm -rf output/*
@@ -15,8 +15,8 @@ clear:
 preprocess:
 	pipenv run python main.py > latex/glorybound.tex
 
-preprocess-full:
-	pipenv run python main.py -full > latex/glorybound.tex
+preprocess-all:
+	pipenv run python main.py -all > latex/glorybound.tex
 
 pdf:
 	# lualatex  -synctex=1 -interaction=nonstopmode -file-line-error --shell-escape glorybound
