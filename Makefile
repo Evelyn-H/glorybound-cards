@@ -10,6 +10,7 @@ clear:
 	rm -f latex/glorybound.pdf
 	rm -f latex/glorybound.tex
 	find . -name '*.aux' -type f -delete
+	find . -name '*.fls' -type f -delete
 
 preprocess:
 	pipenv run python main.py > latex/glorybound.tex

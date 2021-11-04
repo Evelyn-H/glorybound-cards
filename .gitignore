@@ -15,6 +15,9 @@ art/*/*-*-*.png
 
 output/*
 
+latex/glorybound.tex
+latex/glorybound.pdf
+
 
 # python stuff
 .venv
