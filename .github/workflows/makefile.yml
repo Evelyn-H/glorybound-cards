@@ -19,8 +19,8 @@ jobs:
       with:
         run: |
           apk add make
-          apk add python3
-          pip install pipenv
+          apk add python3 py3-pip
+          pip3 install pipenv
           apk add imagemagick
           apk add poppler-utils
           make all
