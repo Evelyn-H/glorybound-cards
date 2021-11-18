@@ -215,7 +215,7 @@
             
         \ifthenelse{\equal{\directlua{
             icon = \luastring{\pgfkeysvalueof{/fancyrenderer/icon}}
-            texio.write('asdf'..icon)
+            % texio.write('asdf'..icon)
             if icon:find('^block') == nil then
                 tex.sprint('true')
             else

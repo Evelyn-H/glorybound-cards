@@ -102,6 +102,9 @@
 
 \BLOCK{ for path in paths }
     \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}
+    \BLOCK{ if path.extras != None }
+    \VAR{path.extras},
+    \BLOCK{ endif }
 
     \BLOCK{ for card in path.cards }
         \card[%
@@ -112,6 +115,9 @@
             \BLOCK{ endfor }
             \BLOCK{ if card.linked != None }
             linked={\VAR{card.linked}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.linked_type != None }
+            linked type={\VAR{card.linked_type}},
             \BLOCK{ endif }
             text={%
                 \VAR{card.text | indent(4*4)}%

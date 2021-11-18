@@ -1,6 +1,7 @@
 path: Berserker
 colors: 000000 - C8000F
 
+
 cards:
 - Bloodthirsty Axe:
     cost: SA

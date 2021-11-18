@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mogrify -trim +repage -colorspace RGB ./*/*.png
+find -type f -regex '[^\-]*' -exec mogrify -trim +repage -colorspace RGB {} +

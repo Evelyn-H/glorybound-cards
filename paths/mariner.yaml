@@ -1,0 +1,85 @@
+path: Mariner
+colors: 000257 - 4FB1A8
+
+
+cards:    
+- Whaler's Hook:
+    cost: S
+    text: > 
+        \attack{1}
+
+        If Whaler's Hook hits, banish a non-innate card from play.
+    upgrade cost: 4
+    upgrade: >
+        +1 attack power.
+
+
+- Chart a Course:
+    cost: W
+    text: > 
+        Choose one:
+
+        \textit{Greed} -- Recall all of your opponent's banished cards. They are yours for the rest of the match. If you have not played a harbor, recall and play Smuggler's Cove.
+
+        \textit{Madness} -- Your opponent chooses and banishes one of their cards. If you have not played a harbor, recall and play Sunken Temple.
+
+
+- Smuggler's Cove:
+    cost: 
+    types: permanent
+    linked: Chart a Course or Boarding Party
+    linked type: Harbor
+    text: > 
+        Put \mana{XX} on Smuggler's Cove. This can only be spent to play your opponent's cards.
+
+        \textbf{Pirate Captain:} If you have upgraded Boarding Party, on the final turn of the match you get +1 action.
+
+
+- Sunken Temple:
+    cost: 
+    types: permanent
+    linked: Chart a Course or Abyssal Offering
+    linked type: Harbor
+    text: > 
+        When the match ends, if at least four of your opponent's cards are banished, score two points.
+        
+        \textbf{Drowned Prophet:} If you have upgraded Abyssal Offering, score an additional two points for each banished card beyond four.
+
+
+- Trawling Net:
+    cost: A
+    text: > 
+        \block
+
+        When Trawling Net blocks a card, banish that card.
+    purchase: 0
+    upgrade cost: 3
+    upgrade: >
+        When Trawling Net blocks, it block all attacks instead of just one.
+
+
+- Boarding Party:
+    cost: SAAA
+    text: > 
+        \attack{3}
+
+        Name a non-innate card. Your opponent must banish a card with that name. Then recall all of your opponent's banished cards. They are yours for the rest of the match. 
+        
+        If you have not played a harbor, recall and play Smuggler's Cove.
+    purchase: 4
+    upgrade cost: 4
+    upgrade: >
+        You are the \textbf{Pirate Captain}, improving Smuggler's Cove.
+
+
+- Abyssal Offering:
+    cost: W
+    types: oneshot
+    text: > 
+        Your opponent chooses and banishes one of their cards. Then they do it again for each two points you've scored this match. 
+        
+        If you have not played a Harbor, recall and play Sunken Temple.
+    purchase: 4
+    upgrade cost: 4
+    upgrade: >
+        You are the \textbf{Drowned Prophet}, improving Sunken Temple.

@@ -7,16 +7,21 @@ from strictyaml import Map, MapPattern, EmptyDict, Str, Seq, Int, Bool, Any, Opt
 import jinja2
 from jinja2 import Template
 
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
 
 schema = Map({
     'path': Str(),
     'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
+    Optional('extras'): Str(),
     'cards': Seq(
         MapPattern(
             Str(), Map({
                 'cost': Regex(r'[SWFAX]*'), 
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate')),
                 Optional('linked'): Str(),
+                Optional('linked type'): Str(),
                 'text': Str(), 
                 Optional('purchase'): Int(),
                 Optional('upgrade cost'): Int(),
@@ -47,6 +52,7 @@ class Card(object):
         if '\\sequence' in self.text:
             self.types.append('sequence')
         self.linked = d['linked']
+        self.linked_type = d['linked type']
         self.purchase = d['purchase']
         self.upgrade_cost = d['upgrade cost']
         self.upgrade = d['upgrade']
@@ -57,10 +63,11 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, cards):
+    def __init__(self, name, colors, cards, extras=None):
         self.name = name
         self.colors = colors
         self.cards = cards
+        self.extras = extras
 
     @classmethod
     def from_file(cls, filename):
@@ -83,8 +90,9 @@ class Path(object):
         name = data['path']
         colors = tuple([c.strip() for c in data['colors'].split('-')])
         cards = [Card(card) for card in data['cards']]
+        extras = data.get('extras', None)
         # print(*cards, sep='\n')
-        return Path(name, colors, cards)
+        return Path(name, colors, cards, extras)
 
 
 
@@ -105,6 +113,7 @@ latex_jinja_env = jinja2.Environment(
 
 template = latex_jinja_env.get_template('latex/glorybound_template.tex')
 
+# print(sys.argv)
 if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
@@ -115,13 +124,18 @@ else:
         # 'dancer',
         # 'arcanist',
         # 'assassin',
-        'windwalker',
-        # 'hammer-priest',
+        # 'windwalker',
+        # 'hammerpriest',
         # 'druid',
+        # 'mariner',
+        # 'guardian',
+        'jester',
+        'traveler',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 
+eprint([(len(p.cards), p.name) for p in paths])
 
 print(template.render(
     paths=paths,

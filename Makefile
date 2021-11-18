@@ -2,7 +2,7 @@
 
 default: clear preprocess pdf
 
-all: clear preprocess-all pdf output
+full: clear preprocess-full pdf output
  
 clear:
 	rm -rf output/*
@@ -15,7 +15,7 @@ clear:
 preprocess:
 	pipenv run python main.py > latex/glorybound.tex
 
-preprocess-all:
+preprocess-full:
 	pipenv run python main.py -all > latex/glorybound.tex
 
 pdf:
