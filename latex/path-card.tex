@@ -1,0 +1,211 @@
+\pgfkeys{/pathrow/.cd,% set the initial path
+    name/.initial={},
+    linked/.initial={},
+    purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
+    upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
+}
+
+\newcommand{\renderthingy}[4]{%
+    \begingroup
+    \newcommand{\purchaseunderlay}{%
+        \begin{tcbclipinterior}
+            \node[
+                fit={(frame.north west) (frame.south east)},
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                inner sep=0pt,
+                % this is some weird magic to get the border to be inside the shape
+                % this does mean that the line width is being halved
+                % https://tex.stackexchange.com/questions/245141/pgf-tikz-draw-the-border-of-a-shape-inside-it
+                preaction={clip,postaction={fill=dark!25!light!75, draw=dark, line width=0.5mm}},
+                % fill=dark!25!light!75,
+                % draw=dark,
+                % line width=0.25mm,
+            ] at (frame.center) {};
+        \end{tcbclipinterior}
+    }
+    \bettertextbox
+        [%
+            y={#3}, x={#2},
+            width=6mm, height=10mm, margin=1mm, 
+            anchor=center,
+            fontsize=14pt, 
+            font=\bfseries,
+        ]
+        [%
+            halign=center, valign=center,
+            underlay={\purchaseunderlay},
+            underlay={
+                \begin{tcbclipframe}
+                    \node[
+                        anchor=north,
+                        inner sep=0pt,
+                        yshift=-1mm,
+                        % opacity=0.5,
+                    ] at (frame.north) {\includegraphics[height=3.5mm]{#4}};
+                \end{tcbclipframe}
+            },
+            top=5mm,
+        ]
+    {%
+        #1%
+    }
+    \endgroup
+}
+
+\newlength{\yoffset}
+
+\NewDocumentCommand{\pathrow}{ +O{} }{%
+    % to make sure no arguments "leak" between different \card calls
+    \begingroup%
+    % handle key-value arguments
+    \pgfkeys{/pathrow/.cd, #1}%
+    %
+    \setlength{\templen}{75.5mm-\yoffset}%
+    %
+    % purchase cost?
+    \pgfkeysifdefined{purchase}{%
+        \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/padlock.png}
+    }{%
+        \bettertextbox[%
+            anchor=center,
+            x=-23mm, y={\templen},
+            width=7mm, height=2mm, margin=0mm,
+            fontsize=7pt, font=\titlefont\sbseries,
+            rotate=90,
+        ]
+        [halign=center, valign=centerline]
+        {Starter}%
+    }%
+    %
+    % upgrade cost?
+    \pgfkeysifdefined{upgrade}{%
+        \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/upgrade.png}
+    }{}%
+    %
+    % card name
+    \bettertextbox[%
+        anchor=center,
+        y={\templen}, 
+        width=40mm, height=7mm, margin=1mm, 
+        fontsize=12pt, font=\titlefont,
+    ]
+    [valign=centerline]
+    {%
+        \pgfkeysvalueof{/pathrow/name}%
+    }%
+    %
+    \endgroup%
+}
+
+
+\pgfkeys{/path/.cd,% set the initial path
+    name/.initial={},
+    resources/.initial={},
+    color-left/.initial=FF00FF,
+    color-right/.initial=0000FF,
+    % purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
+    % upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
+}
+
+\NewDocumentCommand{\pathcard}{ +O{} +m }{
+
+    % start a new page if we have to
+    \clearpage
+
+    % to make sure no arguments "leak" between different \card calls
+    \begingroup
+    % handle key-value arguments
+    \pgfkeys{/path/.cd, #1}
+    
+    % increase our page counter and track card
+    \countpage
+    \registercard{\pgfkeysvalueof{/path/name}}{\pgfkeysvalueof{/path/name}}
+
+    \colorlet{dark}{black}
+    \colorlet{light}{white}
+    \colorlet{sequencecolor}{dark!70}
+    \colorlet{ugradegray}{dark!25!light!75}
+
+    % render frame
+    % the tikz stuff makes sure it's rendered in the background and not
+    % as part of the document flow
+    
+    % background gradient:
+    \definecolor{left}  {HTML}{\pgfkeysvalueof{/path/color-left}}
+    \definecolor{right} {HTML}{\pgfkeysvalueof{/path/color-right}}
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north,
+        yshift=-1.5mm,
+        rectangle, 
+        minimum width=\paperwidth-3mm, 
+        minimum height=\paperheight-3mm,
+        left color=left, 
+        right color=right,
+        shading = axis,
+        shading angle=135, 
+    ] at (current page.north) {};
+    
+    % frame (with transparency):
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north, 
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+    ] at (current page.north) {
+        % \includegraphics[width=63mm]{icons/frame2.png}
+        \includegraphics[width=63mm]{%
+            icons/frame2-path.png
+        }
+    };
+
+    % cost
+    % \rendermana{\pgfkeysvalueof{/path/resources}}
+    % \rendermanasymbol{1}{W}
+    % \rendermanasymbol{2}{S}
+    % \rendermanasymbol{3}{A}
+    
+    % make sure we have the right font by default
+    \bodyfont
+    
+    % name
+    \bettertextbox
+        [y=8mm, width=36mm, height=7mm, margin=0mm, fontsize=18pt, font=\titlefont\bfseries]
+        [halign=center, valign=centerline]
+    {%
+        \pgfkeysvalueof{/path/name}
+    }
+     
+    % "path of the"
+    \bettertextbox
+        [y=5mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries]
+        [halign=center, valign=centerline]
+    {Path of the}
+
+    \setlength{\yoffset}{0mm}
+
+    % render rows
+    #2%
+
+    % path
+    \bettertextbox
+        [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+        [valign=centerline, left=-0.5mm]
+    {%
+        \pgfkeysvalueof{/path/name}
+    }
+    
+    % date - glorybound
+    \bettertextbox
+        [y=81.5mm, x=27mm, width=24mm, height=4mm, anchor=north east, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+        [valign=centerline, right=-0.5mm, halign=flush right]
+    {%
+        \today\ \ --\ \ Glorybound
+    }
+
+    \endgroup
+}

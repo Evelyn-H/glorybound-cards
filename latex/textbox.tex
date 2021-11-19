@@ -33,6 +33,7 @@
     anchorpos/.initial=north,
     x/.initial=0mm,
     y/.initial=0mm,
+    rotate/.initial=0,
     width/.initial=54mm,
     height/.initial=4mm,
     margin/.initial=1mm,
@@ -44,10 +45,10 @@
 % second argument (optional): extra stuff passed to tcolorbox
 %third argument: textbox contents
 \NewDocumentCommand{\bettertextbox}{ O{} O{} +m }{
-    \begingroup
+    \begingroup%
     % handle key-value arguments
-    \pgfkeys{/textbox/.cd, #1}
-
+    \pgfkeys{/textbox/.cd, #1}%
+% 
     \tikz[overlay, remember picture] 
     \node[
         anchor=\pgfkeysvalueof{/textbox/anchor}, 
@@ -57,6 +58,7 @@
         inner xsep=0pt,
         outer ysep=0pt,
         outer xsep=0pt,
+        rotate=\pgfkeysvalueof{/textbox/rotate},
     ] at (current page.\pgfkeysvalueof{/textbox/anchorpos}) {%
         \begin{tcolorbox}[
             % show bounding box=green,
@@ -81,6 +83,6 @@
             \setlength{\parskip}{0.5\tcbfitdim}%
             #3
         \end{tcolorbox}%
-    };
-    \endgroup
+    };%
+    \endgroup%
 }

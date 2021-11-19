@@ -130,7 +130,7 @@ else:
         # 'mariner',
         # 'guardian',
         'jester',
-        'traveler',
+        # 'traveler',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]

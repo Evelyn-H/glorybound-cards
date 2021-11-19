@@ -9,6 +9,7 @@ clear:
 	rm -f glorybound.pdf
 	rm -f latex/glorybound.pdf
 	rm -f latex/glorybound.tex
+	rm -f glorybound.fdb_latexmk
 	find . -name '*.aux' -type f -delete
 	find . -name '*.fls' -type f -delete
 
