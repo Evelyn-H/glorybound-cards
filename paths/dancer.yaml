@@ -19,7 +19,7 @@ cards:
         [\upgrade{No effect}{Gain \mana{X}.}]
         [Your opponent's actions cost twice as many resources. 
             
-        \textit{(For example, an action that would cost \mana{FAA} costs \mana{FFAA}.)}]
+        \textit{(For example, an action that would cost \mana{FA} costs \mana{FFAA}.)}]
     upgrade cost: 4
     
 
@@ -28,7 +28,7 @@ cards:
     text: > 
         \sequence
         [\attack{1}\par \upgrade{If I hit}{Whether or not I hit}, name a card.]
-        [Your opponent can't play the named card(s).]
+        [Your opponent can't play the named card.]
     purchase: 0
     upgrade cost: 3
     

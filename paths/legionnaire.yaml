@@ -40,9 +40,10 @@ cards:
 - Decisive Strike:
     cost: SAA
     text: > 
-        I cost one resource less for each two points you've scored this match.
-        
         \attack{3}
+        
+        I cost one resource less for each two points you've scored this match.
+        \textit{(\mana{A} is removed before \mana{S}.)}
     purchase: 0
     upgrade cost: 4
     upgrade: >

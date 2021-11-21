@@ -25,7 +25,7 @@ cards:
 
       If I'm an \textbf{Adolescent}:
 
-      Increase my attack power by 3.
+      I get +3 attack power.
 
 
 - Frost Dragon:
@@ -39,9 +39,7 @@ cards:
 
       If I'm an \textbf{Adolescent}:
 
-      Increase my attack power by 1.
-
-      Your opponent's attacks get -3 attack power.
+      I get +1 attack power and your opponent's attacks get -3 attack power.
 
 
 - Shadow Dragon:
@@ -55,9 +53,7 @@ cards:
 
       If I'm an \textbf{Adolescent}:
 
-      Increase my attack power by 1.
-
-      I can't be blocked.
+      I get +1 attack power and I can't be blocked.
 
 
 - Defend the Peaks:

@@ -27,7 +27,7 @@ cards:
     text: >
       Gain \mana{XX}.
 
-      Attack yourself \attackicon{} with an attack power of 2.
+      Attack yourself with an attack power of 2.
     
       \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the points.)}
     purchase: 0

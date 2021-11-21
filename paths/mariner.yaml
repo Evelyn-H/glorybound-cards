@@ -29,7 +29,7 @@ cards:
     cost: 
     types: permanent
     linked: >
-        {Chart a Course} or {Boarding Party}
+        {Chart a Course} or Boarding Party
     linked type: Harbor
     text: > 
         Put \mana{XX} on Smuggler's Cove. This can only be spent to play your opponent's cards.
@@ -41,7 +41,7 @@ cards:
     cost: 
     types: permanent
     linked: >
-        {Chart a Course} or {Abyssal Offering}
+        {Chart a Course} or Abyssal Offering
     linked type: Harbor
     text: > 
         When the match ends, if at least four of your opponent's cards are banished, score two points.
