@@ -1,6 +1,8 @@
 path: Druid
 # colors: 84B229 - F17400
 colors: 4E9B0F - FF6D00
+resources: SWW
+
 
 cards:    
 - Bind in Thorns:

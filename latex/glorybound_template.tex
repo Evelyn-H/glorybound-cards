@@ -109,9 +109,13 @@
 
     \pathcard[%
         name={\VAR{path.name}},
+        resources={\VAR{path.resources}},
         color-left=\VAR{path.colors[0]},
         color-right=\VAR{path.colors[1]},
     ]{%
+        \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }
+            \addtolength{\yoffset}{1.5mm}%
+        \BLOCK{ endif }
         \BLOCK{ for card in path.cards|reverse }
             \BLOCK{ if card.linked == None }
             \pathrow[%
@@ -122,46 +126,49 @@
                 \BLOCK{ if card.upgrade_cost != None }
                 upgrade={\VAR{card.upgrade_cost}},
                 \BLOCK{ endif }
+                \BLOCK{ if card.linked_to|length > 0 }
+                linked={\VAR{card.linked_to|map(attribute='name')|join('\ \ --\ \ ')}},
+                \BLOCK{ endif }
             ]%
             \addtolength{\yoffset}{12mm}%
             \BLOCK{ endif }
         \BLOCK{ endfor }
     }
 
-    \clearpage
-
-    \BLOCK{ for card in path.cards }
-    \card[%
-        name={\VAR{card.name}},
-        cost={\VAR{card.cost}},
-        \BLOCK{ for type in card.types }
-        \VAR{type},
+    \BLOCK{ if true }
+        \BLOCK{ for card in path.cards }
+        \card[%
+            name={\VAR{card.name}},
+            cost={\VAR{card.cost}},
+            \BLOCK{ for type in card.types }
+            \VAR{type},
+            \BLOCK{ endfor }
+            \BLOCK{ if card.linked != None }
+            linked={\VAR{card.linked}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.linked_type != None }
+            linked type={\VAR{card.linked_type}},
+            \BLOCK{ endif }
+            text={%
+                \VAR{card.text | indent(4*4)}%
+            },
+            \BLOCK{ if card.purchase != None }
+            purchase={\VAR{card.purchase}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.upgrade_cost != None }
+            upgrade cost={\VAR{card.upgrade_cost}},
+            \BLOCK{ endif }
+            \BLOCK{ if card.upgrade != None }
+            upgrade={%
+                \VAR{card.upgrade | indent(4*4)}%
+            },
+            \BLOCK{ endif }
+            \BLOCK{ if card.big_art == true }
+            big art,
+            \BLOCK{ endif }
+        ]
         \BLOCK{ endfor }
-        \BLOCK{ if card.linked != None }
-        linked={\VAR{card.linked}},
-        \BLOCK{ endif }
-        \BLOCK{ if card.linked_type != None }
-        linked type={\VAR{card.linked_type}},
-        \BLOCK{ endif }
-        text={%
-            \VAR{card.text | indent(4*4)}%
-        },
-        \BLOCK{ if card.purchase != None }
-        purchase={\VAR{card.purchase}},
-        \BLOCK{ endif }
-        \BLOCK{ if card.upgrade_cost != None }
-        upgrade cost={\VAR{card.upgrade_cost}},
-        \BLOCK{ endif }
-        \BLOCK{ if card.upgrade != None }
-        upgrade={%
-            \VAR{card.upgrade | indent(4*4)}%
-        },
-        \BLOCK{ endif }
-        \BLOCK{ if card.big_art == true }
-        big art,
-        \BLOCK{ endif }
-    ]
-    \BLOCK{ endfor }
+    \BLOCK{ endif }
 
 
 \BLOCK{ endfor }

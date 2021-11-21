@@ -1,5 +1,6 @@
 path: Traveler
 colors: 54939E - FFCE7F
+resources: FFW
 
 
 cards:
@@ -21,7 +22,7 @@ cards:
         [Choose and reveal an additional card as part of your action. See what your opponent reveals, then recall and don't play one of your revealed cards.]
 
 
-- Out Of Time:
+- Out of Time:
     cost: W
     text: > 
         \sequence

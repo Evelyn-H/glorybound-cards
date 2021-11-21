@@ -1,5 +1,6 @@
 path: Arcanist
 colors: E100FF - 5300EF
+resources: FWW
 
 
 cards:
@@ -50,7 +51,7 @@ cards:
 
 - All-Consuming Void:
     cost: A
-    linked: an upgraded Arcane Research
+    linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
     text: > 
         At end of turn, end the match. \textit{(The player with more points wins)}
@@ -58,16 +59,16 @@ cards:
 
 - True Reincarnation:
     cost: 
-    linked: an upgraded Arcane Research
+    linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
     types: oneshot
     text: > 
         If your opponent would score points this turn, instead they score no points and your resources are restored to your starting resources.
     
 
-- Awaken the Old Gods:
+- Wake the Old Gods:
     cost: AAA
-    linked: an upgraded Arcane Research
+    linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
     text: > 
         \sequence

@@ -14,6 +14,7 @@ def eprint(*args, **kwargs):
 schema = Map({
     'path': Str(),
     'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
+    'resources': Regex(r'[WSF]{3}'),
     Optional('extras'): Str(),
     'cards': Seq(
         MapPattern(
@@ -53,6 +54,7 @@ class Card(object):
             self.types.append('sequence')
         self.linked = d['linked']
         self.linked_type = d['linked type']
+        self.linked_to = []
         self.purchase = d['purchase']
         self.upgrade_cost = d['upgrade cost']
         self.upgrade = d['upgrade']
@@ -63,9 +65,10 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, cards, extras=None):
+    def __init__(self, name, colors, resources, cards, extras=None):
         self.name = name
         self.colors = colors
+        self.resources = resources
         self.cards = cards
         self.extras = extras
 
@@ -89,11 +92,30 @@ class Path(object):
 
         name = data['path']
         colors = tuple([c.strip() for c in data['colors'].split('-')])
+        resources = data['resources']
         cards = [Card(card) for card in data['cards']]
         extras = data.get('extras', None)
         # print(*cards, sep='\n')
-        return Path(name, colors, cards, extras)
+        path = Path(name, colors, resources, cards, extras)
+        path.build_links()
+        return path
 
+    def card_by_name(self, name):
+        matches = [c for c in self.cards if c.name == name]
+        if len(matches) > 0:
+            return matches[0]
+        else:
+            return None
+
+    def build_links(self):
+        for c in self.cards:
+            if c.linked:
+                if '{' in c.linked:
+                    linked_cards = re.findall(r"\{(.*?)\}", c.linked)
+                else:
+                    linked_cards = [c.linked]
+                for l in linked_cards:
+                    self.card_by_name(l).linked_to.append(c)
 
 
 latex_jinja_env = jinja2.Environment(
@@ -128,14 +150,17 @@ else:
         # 'hammerpriest',
         # 'druid',
         # 'mariner',
-        # 'guardian',
-        'jester',
+        'guardian',
+        # 'jester',
         # 'traveler',
+        'bogwitch',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 
 eprint([(len(p.cards), p.name) for p in paths])
+
+eprint([[(c.name, c.linked_to) for c in path.cards if len(c.linked_to) > 0] for path in paths])
 
 print(template.render(
     paths=paths,
