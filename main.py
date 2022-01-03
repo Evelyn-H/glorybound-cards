@@ -23,6 +23,7 @@ schema = Map({
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
+                Optional('path card name'): Str(),
                 'text': Str(), 
                 Optional('purchase'): Int(),
                 Optional('upgrade cost'): Int(),
@@ -54,6 +55,7 @@ class Card(object):
             self.types.append('sequence')
         self.linked = d['linked']
         self.linked_type = d['linked type']
+        self.path_card_name = d['path card name'] or self.name
         self.linked_to = []
         self.purchase = d['purchase']
         self.upgrade_cost = d['upgrade cost']
@@ -140,20 +142,21 @@ if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
     names = [
-        'berserker',
+        # 'berserker',
         # 'fireheart',
-        'legionnaire',
-        'dancer',
+        # 'legionnaire',
+        # 'dancer',
         # 'arcanist',
         # 'assassin',
-        'windwalker',
+        # 'windwalker',
         # 'hammerpriest',
         # 'druid',
-        'mariner',
-        'guardian',
+        # 'mariner',
+        # 'guardian',
         # 'jester',
         # 'traveler',
         # 'bogwitch',
+        'lichknight',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]

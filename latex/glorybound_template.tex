@@ -127,7 +127,7 @@
                 upgrade={\VAR{card.upgrade_cost}},
                 \BLOCK{ endif }
                 \BLOCK{ if card.linked_to|length > 0 }
-                linked={\VAR{card.linked_to|map(attribute='name')|join('\ \ --\ \ ')}},
+                linked={\VAR{card.linked_to|map(attribute='path_card_name')|join('\ \ --\ \ ')}},
                 \BLOCK{ endif }
             ]%
             \addtolength{\yoffset}{12mm}%
