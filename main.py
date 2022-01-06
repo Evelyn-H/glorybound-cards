@@ -156,7 +156,9 @@ else:
         # 'jester',
         # 'traveler',
         # 'bogwitch',
-        'lichknight',
+        # 'lichknight',
+        # 'tinker',
+        'storyteller',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
