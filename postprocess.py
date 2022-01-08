@@ -48,9 +48,13 @@ def process_card(path, card, page):
     subprocess.run(f"convert \"output/{path}/{card}.png\" -alpha set -bordercolor white -border 1  -fill none -fuzz 90% -draw \"color 0,0 floodfill\" -shave 1x1 \"output/{path}/{card}.png\"", shell=True)
 
     # make image with bleed area for printing
+    out_folder = "output/print"
+    if card in paths.keys():
+        out_folder = "output/print/rainbow"
     print(f"Adding bleed to {path} - {card}")
-    subprocess.run(f"mkdir -p \"output/{path}/print\"", shell=True)
-    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 icons/bleed-overlay.png -composite \"output/{path}/print/{card}.png\"", shell=True)
+    subprocess.run(f"mkdir -p \"output/{path}\"", shell=True)
+    subprocess.run(f"mkdir -p \"output/print/rainbow\"", shell=True)
+    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 icons/bleed-overlay.png -composite \"{out_folder}/{card}.png\"", shell=True)
 
 # make images per card
 for path, card, page in cards:

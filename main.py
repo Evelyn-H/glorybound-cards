@@ -156,7 +156,7 @@ def check_colors(paths):
     eprint('\n'.join(map(str, comparisons)))
 
 check_colors([Path.from_file(f) for f in glob.glob('paths/*.yaml')])
-input()
+# input()
 # quit()
 
 latex_jinja_env = jinja2.Environment(
@@ -195,9 +195,9 @@ else:
         # 'jester',
         # 'traveler',
         # 'bogwitch',
-        # 'lichknight',
-        # 'tinker',
-        # 'storyteller',
+        'lichknight',
+        'tinker',
+        'storyteller',
         'archer',
         # 'test',
     ]
