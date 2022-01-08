@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 strictyaml = "*"
 jinja2 = "*"
+colormath = "*"
 
 [dev-packages]
 

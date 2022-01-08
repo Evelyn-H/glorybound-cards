@@ -2,10 +2,15 @@ import os
 import sys
 import glob
 import re
+import itertools
 import strictyaml as yaml
 from strictyaml import Map, MapPattern, EmptyDict, Str, Seq, Int, Bool, Any, Optional, CommaSeparated, Regex, load
 import jinja2
 from jinja2 import Template
+import colormath
+import colormath.color_objects
+import colormath.color_diff
+import colormath.color_conversions
 
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
@@ -120,6 +125,40 @@ class Path(object):
                     self.card_by_name(l).linked_to.append(c)
 
 
+def check_colors(paths):
+    new = colormath.color_objects.sRGBColor.new_from_rgb_hex
+    def convert(c):
+        target = colormath.color_objects.LabColor
+        c = colormath.color_conversions.convert_color(c, colormath.color_objects.CMYKColor)
+        return colormath.color_conversions.convert_color(c, target)
+
+    comparisons = []
+    for path_a, path_b in itertools.combinations(paths, 2):
+        if path_a.name == path_b.name:
+            continue
+        
+        a_left  = convert(new(path_a.colors[0]))
+        a_right = convert(new(path_a.colors[1]))
+        b_left  = convert(new(path_b.colors[0]))
+        b_right = convert(new(path_b.colors[1]))
+
+        # symmetric sides
+        diff_l = colormath.color_diff.delta_e_cie2000(a_left, b_left)
+        diff_r = colormath.color_diff.delta_e_cie2000(a_right, b_right)
+        diff_l_s = colormath.color_diff.delta_e_cie2000(a_left, b_right)
+        diff_r_s = colormath.color_diff.delta_e_cie2000(a_right, b_left)
+        comparisons += [(path_a.name, path_b.name, diff_l, diff_r, False)]
+        comparisons += [(path_a.name, path_b.name, diff_l_s, diff_r_s, True)]
+        eprint(f"{path_a.name} - {path_b.name}: l={diff_l},  r={diff_r}")
+
+    eprint('----\n')
+    comparisons.sort(key=lambda c: c[2]**2+c[3]**2, reverse=True)
+    eprint('\n'.join(map(str, comparisons)))
+
+check_colors([Path.from_file(f) for f in glob.glob('paths/*.yaml')])
+input()
+# quit()
+
 latex_jinja_env = jinja2.Environment(
 	block_start_string = '\BLOCK{',
 	block_end_string = '}',
@@ -158,7 +197,8 @@ else:
         # 'bogwitch',
         # 'lichknight',
         # 'tinker',
-        'storyteller',
+        # 'storyteller',
+        'archer',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
