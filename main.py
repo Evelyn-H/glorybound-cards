@@ -190,15 +190,15 @@ else:
         # 'windwalker',
         # 'hammerpriest',
         # 'druid',
-        # 'mariner',
+        'mariner',
         # 'guardian',
         # 'jester',
         # 'traveler',
         # 'bogwitch',
         'lichknight',
         'tinker',
-        'storyteller',
-        'archer',
+        # 'storyteller',
+        # 'archer',
         # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
