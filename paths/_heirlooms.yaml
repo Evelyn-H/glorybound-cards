@@ -1,0 +1,46 @@
+path: Heirloom
+colors: 000000 - 000000
+resources: WWW
+
+
+cards:    
+- Elvish Cookbook:
+    cost: 
+    types: heirloom, innate, permanent
+    text: > 
+        When you gain resources during the match, pay \mana{A} to score one point.
+
+
+- Combat Tortoise:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        At the end of each turn, if you didn't play a card this turn, my final attack gets +1 attack power.
+        
+        On the final turn of the match:
+        
+        \attack{1}
+
+- Bag of Infinite Rats:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        Your cards can't block.
+
+        When you play a card, if it costs exactly the same number of resources as a card your opponent is playing, banish the card your opponent is playing at end of turn. \textit{(Resource cost as printed on the card.)}
+
+- Grave-Mist Shovel:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        All attacks have a base attack power of 1. \textit{(All attacks includes yours and your opponents. This replaces the printed attack power, but can still be increased by effects.)}
+
+- Librarian's Ladder:
+    cost: A
+    types: heirloom, innate, permanent
+    text: >
+        When you choose me as your heirloom, choose and keep one starter card from the third path you are not playing.
+
+        Gain \mana{X}.
+
+        You have no maximum hand size. 

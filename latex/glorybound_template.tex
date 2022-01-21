@@ -113,6 +113,7 @@
         color-left=\VAR{path.colors[0]},
         color-right=\VAR{path.colors[1]},
     ]{%
+    \BLOCK{ if path.name != "Heirloom" }
         \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }
             \addtolength{\yoffset}{1.5mm}%
         \BLOCK{ endif }
@@ -133,6 +134,7 @@
             \addtolength{\yoffset}{12mm}%
             \BLOCK{ endif }
         \BLOCK{ endfor }
+    \BLOCK{ endif }
     }
 
     \BLOCK{ if true }

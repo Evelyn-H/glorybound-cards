@@ -25,7 +25,7 @@ schema = Map({
         MapPattern(
             Str(), Map({
                 'cost': Regex(r'[SWFAX]*'), 
-                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate')),
+                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
                 Optional('path card name'): Str(),
@@ -195,11 +195,12 @@ else:
         # 'jester',
         # 'traveler',
         # 'bogwitch',
-        'lichknight',
-        'tinker',
+        # 'lichknight',
+        # 'tinker',
         # 'storyteller',
         # 'archer',
         # 'test',
+        '_heirlooms',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 

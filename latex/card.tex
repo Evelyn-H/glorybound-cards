@@ -50,6 +50,7 @@
     innate/.code={\pgfkeyssetvalue{innate}{#1}},
     linked/.code={\pgfkeyssetvalue{linked}{#1}},
     linked type/.initial={},
+    heirloom/.code={\pgfkeyssetvalue{heirloom}{#1}},
     % purchase stuff
     purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade stuff
@@ -59,7 +60,9 @@
     type/.initial={%
         \printsepifnotempty{%
             \pgfkeysifdefined{linked}{Linked}{%
-                \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+                \pgfkeysifdefined{heirloom}{Heirloom}{%
+                    \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+                }%
             }%
         }
         {\ --\ }
@@ -205,7 +208,8 @@
         \includegraphics[width=63mm]{%
             % \pgfkeysifdefined{linked}{icons/frame2-gray.png}{icons/frame2.png}
             % icons/frame2.png
-            \pgfkeysifdefined{night}{icons/frame2-night.png}{icons/frame2.png}
+            % icons/frame2\pgfkeysifdefined{permanent}{-permanent}{}\pgfkeysifdefined{night}{-night}{}.png
+            icons/frame2\pgfkeysifdefined{heirloom}{-heirloom}{}\pgfkeysifdefined{permanent}{-permanent}{}\pgfkeysifdefined{night}{-night}{}.png
             % icons/frame2-dark.png
         }
     };
