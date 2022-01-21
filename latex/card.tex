@@ -490,12 +490,15 @@
     }
     
     % path
-    \bettertextbox
-        [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
-        [valign=centerline, left=-0.5mm]
-    {%
-        \pgfkeysvalueof{/card/path}
-    }
+    \pgfkeysifdefined{heirloom}{}{%
+        \bettertextbox
+            [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+            [valign=centerline, left=-0.5mm]
+        {%
+            \pgfkeysvalueof{/card/path}%
+        }
+    }%
+
     
     % date - glorybound
     \bettertextbox

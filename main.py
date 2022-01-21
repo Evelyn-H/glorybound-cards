@@ -190,7 +190,7 @@ else:
         # 'windwalker',
         # 'hammerpriest',
         # 'druid',
-        'mariner',
+        # 'mariner',
         # 'guardian',
         # 'jester',
         # 'traveler',
