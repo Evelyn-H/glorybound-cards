@@ -32,6 +32,7 @@ cards:
     text: >
         Choose a card your opponent played this turn. It has no effect, \upgrade{they recall it}{they banish it} and its cost is refunded.
     upgrade cost: 3
+
 - Myths That Guide:
     cost: WA
     purchase: 4
