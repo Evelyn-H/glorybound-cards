@@ -50,7 +50,6 @@ cards:
 
 - Audacious Croak:
     cost: 
-    types: oneshot
     linked: Polliwog Curse
     linked type: Frog
     text: >
@@ -61,7 +60,6 @@ cards:
     
 - Leap Away:
     cost: A
-    types: oneshot
     linked: Polliwog Curse
     linked type: Frog
     text: >

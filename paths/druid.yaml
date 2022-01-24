@@ -34,7 +34,7 @@ cards:
     purchase: 0
     upgrade cost: 4
     upgrade: >
-        Gains: \textit{\textsb{Innate} \linebreak(Play before the match starts.)}
+        \innatebanner
 
 
 - Tooth and Claw:

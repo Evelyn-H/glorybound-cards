@@ -18,10 +18,12 @@ cards:
         {Culling Scythe} or Shambling Ranks
     path card name: Skeletal Minion\ \ (3 copies)
     types: oneshot
-    text:
+    text: >
         \sequence
         [No effect.]
         [\attack{1}]
+
+        If Shambling Ranks is upgraded, I get +1 attack power.
 
 - Soulless Steel:
     cost: A

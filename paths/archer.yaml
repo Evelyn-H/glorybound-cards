@@ -30,7 +30,7 @@ cards:
         When you are hit by an attack, recall me.
     upgrade cost: 3
     upgrade: >
-        Gains: \textit{\textsb{Innate} \linebreak(Play before the match starts.)}
+        \innatebanner
 
 - Shield-Piercing Bolt:
     cost: SA

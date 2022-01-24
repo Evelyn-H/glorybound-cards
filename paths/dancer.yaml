@@ -26,9 +26,9 @@ cards:
 - Dizzying Spin:
     cost: F
     text: > 
-        \sequence
-        [\attack{1}\par \upgrade{If I hit}{Whether or not I hit}, name a card.]
-        [Your opponent can't play the named card.]
+        \attack{1}
+        
+        \upgrade{If I hit}{Whether or not I hit}, name a card. Your opponent can't play the named card next turn.
     purchase: 0
     upgrade cost: 3
     

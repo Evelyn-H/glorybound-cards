@@ -203,7 +203,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        At the start of each turn, if you have no unspent resources, both players' attacks get -1 attack power this turn.
+        At the start of each turn, if you have no resources remaining, both players' attacks get -1 attack power this turn.
 
 
 - Combat Tortoise:

@@ -19,7 +19,7 @@ cards:
       At the start of each turn, if your opponent has scored at least three points you may play an additional action this turn.
     upgrade cost: 6
     upgrade: >
-      Gains: \textit{\textsb{Innate} \linebreak(Play before the match starts.)}
+        \innatebanner
 
 
 - Rite of Scars:
