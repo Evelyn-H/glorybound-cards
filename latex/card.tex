@@ -294,7 +294,7 @@
                 rectangle,
                 rounded corners=1mm,
                 inner sep=0pt,
-                fill=dark!25!light!75,
+                fill=\pgfkeysifdefined{heirloom}{dark!25!heirloomlight!75}{dark!25!light!75},
             ] at (frame.center) {};
         \end{tcbclipinterior}
     }
@@ -317,7 +317,7 @@
             ]
         {%
             % this is purely to "evaluate" /card/text,
-            % so we can forge all the \upgrade{}{} commands to be executed
+            % so we can force all the \upgrade{}{} commands to be executed
             \global\let\upgradereplacement\@empty%
             \sbox\rulestextbox{\parbox{54mm}{\pgfkeysvalueof{/card/text}}}%
             \upgradereplacement%
@@ -401,8 +401,10 @@
                     anchor=south, 
                     margin=2mm,
                 ]
-                [valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
+                [%
+                    valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
                     % top=-2mm,
+                    top=\pgfkeysifdefined{innate}{-1mm}{0mm},
                     underlay=\pgfkeysifdefined{permanent}{%
                         % \begin{tcbclipinterior}
                         %     \node[
@@ -418,7 +420,8 @@
             {%
                 \pgfkeysifdefined{innate}{%
                     % {\centering\includegraphics[width=36mm]{icons/innate-banner.png}\par}
-                    \textit{\textsb{Innate} (Play before the match starts.)}\par%
+                    % \textit{\textsb{Innate} (Play before the match starts.)}\par%
+                    \innatebanner
                     % \textbf{Innate:} \textit{Play before the match starts.}\par%
                 }{}%
                 \pgfkeysifdefined{linked}{%
@@ -470,7 +473,13 @@
         ] at (current page.north) {%
             \includegraphics
                 [width=36mm, height={30mm-\extraheight}, keepaspectratio]
-                {\getart{\pgfkeysvalueof{/card/art path}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
+                {%
+                    \pgfkeysifdefined{heirloom}{%
+                        \getart{\pgfkeysvalueof{/card/art path}}{000000}{000000}
+                    }{%
+                        \getart{\pgfkeysvalueof{/card/art path}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}%
+                    }%
+                }%
         };
     }{%
         \tikz[overlay, remember picture] 

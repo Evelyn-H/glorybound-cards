@@ -5,6 +5,8 @@
 % \colorlet{dark}{white}
 % \colorlet{light}{black!90}
 
+\definecolor{heirloomlight}{HTML}{E3C9AD}
+
 
 %%% Commands to be used in card definitions
 
@@ -194,7 +196,7 @@
                 \textpdfrender{
                     TextRenderingMode=FillStrokeClip,
                     LineWidth=\outlinewidth,
-                    FillColor=light,
+                    FillColor=\pgfkeysifdefined{heirloom}{light!50!heirloomlight!50}{light},
                     StrokeColor=dark, 
                     MiterLimit=1,
                 }{\pgfkeysvalueof{/fancyrenderer/icontext}}%
@@ -206,7 +208,7 @@
             ] at (icon.center) {%
                 \fontsize{\tempfontsize}{\tempfontsize}\selectfont
                 \bfseries
-                \textcolor{light}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
+                \textcolor{\pgfkeysifdefined{heirloom}{light!50!heirloomlight!50}{light}}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
             };
         }{}
 
@@ -247,7 +249,7 @@
         text={\textbf{Block} an attack.},
         icon=\pgfkeysifdefined{night}{block-night}{block},
         fillcolor=dark,
-        textcolor=light,
+        textcolor={\pgfkeysifdefined{heirloom}{heirloomlight}{light}},
     ]
 }
 \newcommand{\attack}[1]{%
@@ -255,8 +257,27 @@
         text={\textbf{Attack}},
         icon=\pgfkeysifdefined{night}{attack-night}{attack},
         icontext={#1},
+        fillcolor={\pgfkeysifdefined{heirloom}{heirloomlight}{light}},
+        textcolor=dark,
     ]
 }
+
+\newcommand{\innatebanner}{%
+    \begingroup
+    \centering
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center, 
+            inner sep=0pt
+        ] {
+            \includegraphics[height=5mm]{icons/innate-banner\pgfkeysifdefined{night}{-night}{}.png}
+        };
+    \end{tikzpicture}%
+    \par
+    \endgroup%
+}
+
+
 
 \newlength{\turncountersize}
 \setlength{\turncountersize}{4.8mm}

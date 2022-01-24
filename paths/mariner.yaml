@@ -1,11 +1,13 @@
 path: Mariner
 colors: 000257 - 4FB1A8
-resources: SSW
+resources: SSF
+extras: >
+  \newcommand{\drown}[1]{\textcolor[HTML]{3B8594}{\textbf{#1}}}
 
 
 cards:    
 - Whaler's Hook:
-    cost: S
+    cost: A
     text: > 
         \attack{1}
 
@@ -15,42 +17,39 @@ cards:
         +1 attack power.
 
 
-- Chart a Course:
-    cost: W
+- Salt-Captain's Compass:
+    cost:
+    types: innate, permanent
     text: > 
-        Choose one:
-
-        \textit{Greed} -- Recall all of your opponent's banished cards. They are yours for the rest of the match. If you have not played a harbor, recall and play Smuggler's Cove.
-
-        \textit{Madness} -- Your opponent chooses and banishes one of their cards. If you have not played a harbor, recall and play Sunken Temple.
-
-
-- Smuggler's Cove:
-    cost: 
-    types: permanent
-    linked: >
-        {Chart a Course} or Boarding Party
-    linked type: Harbor
-    text: > 
-        Put \mana{XX} on Smuggler's Cove. This can only be spent to play your opponent's cards.
-
-        \textbf{Pirate Captain:} If you have upgraded Boarding Party, on the final turn of the match you get +1 action.
+        Recall Sunken Temple and Pirate's Cove. You can only play one harbor each match.
+        
+        When you banish an opponent's card, \drown{drown} it.
 
 
 - Sunken Temple:
-    cost: 
+    cost: F
     types: permanent
-    linked: >
-        {Chart a Course} or Abyssal Offering
+    linked: Salt-Captain's Compass
     linked type: Harbor
     text: > 
-        When the match ends, if at least four of your opponent's cards are banished, score two points.
-        
-        \textbf{Drowned Prophet:} If you have upgraded Abyssal Offering, score an additional two points for each banished card beyond four.
+        Your opponent chooses one of their cards from hand or play. Banish it.
+
+        When the match ends, score one point for each \drown{drowned} card beyond the first.
+
+
+- Pirate's Cove:
+    cost: F
+    types: permanent
+    linked: Salt-Captain's Compass
+    linked type: Harbor
+    text: > 
+        Put \mana{XX} on me. Spend these only to play \drown{drowned} cards.
+
+        \drown{Drowned} cards are kept in your in your hand and can be played as your own.
 
 
 - Trawling Net:
-    cost: A
+    cost: S
     text: > 
         \block
 
@@ -62,27 +61,21 @@ cards:
 
 
 - Boarding Party:
-    cost: SAAA
+    cost: SAA
     text: > 
         \attack{3}
 
-        Name a non-innate card. Your opponent must banish a card with that name. Then recall all of your opponent's banished cards. They are yours for the rest of the match. 
-        
-        If you have not played a harbor, recall and play Smuggler's Cove.
+        Name a non-innate card. Banish all cards with that name from your opponent's hand and from play.
+
+        Play Smuggler's Cove if able.
     purchase: 4
-    upgrade cost: 4
-    upgrade: >
-        You are the \textbf{Pirate Captain}, improving Smuggler's Cove.
 
 
 - Abyssal Offering:
-    cost: W
+    cost: 
     types: oneshot
     text: > 
-        Your opponent chooses and banishes one of their cards. Then they do it again for each two points you've scored this match. 
+        For each two points you've scored this match, your opponent chooses one of their cards from hand or play. Banish those cards.
         
-        If you have not played a Harbor, recall and play Sunken Temple.
+        Play Sunken Temple if able.
     purchase: 4
-    upgrade cost: 4
-    upgrade: >
-        You are the \textbf{Drowned Prophet}, improving Sunken Temple.
