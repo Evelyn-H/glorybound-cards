@@ -1,5 +1,5 @@
 path: Fireheart
-colors: F44B02 - F9028A
+colors: F27100 - F90063
 resources: WWW
 extras: >
   \newcommand{\burn}[1]{\textcolor[HTML]{F22643}{\textbf{#1}}}
@@ -23,7 +23,7 @@ cards:
         I can't be blocked.
 
         \attack{4}
-    upgrade cost: 7
+    upgrade cost: 5
     upgrade: >
         Only costs \mana{WWA} to play.
 
@@ -35,7 +35,7 @@ cards:
         [If your opponent attacked this turn, I \burn{burn} them.]
         [If your opponent attacked this turn, I \burn{burn} them.]
     purchase: 0
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         Stays in play for a third turn; repeats the same effect.
 
@@ -44,7 +44,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        When your opponent is \burn{burned} for \upgrade{the third time}{the second time} play Set Ablaze immediately as a special action. If it is banished, recall it first.
+        When your opponent is \burn{burned} for the \upgrade{third time}{third time and fourth time}, recall and play Set Ablaze.
     purchase: 3
     upgrade cost: 3
     
@@ -53,11 +53,12 @@ cards:
     cost: 
     types: oneshot
     text: > 
+        Reveal me when the match starts. I don't count for maximum hand size.
+
         \sequence
         [Banish a non-Fireheart card from your hand to recall Consumed by Flame.]
-        [You may play an additional action.]
-    
-    purchase: 5
+        [You get an additional action this turn.]
+    purchase: 4
 
 
 - Consumed by Flame:

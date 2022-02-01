@@ -82,7 +82,7 @@ cards:
     text: >
       Your dragons get +1 attack power.
 
-      When you reveal and play a dragon, you may play any number of other dragons from your hand as special actions and without paying their costs.
+      When you reveal and play a dragon, you may play any number of other dragons from your hand without paying their costs.
     purchase: 3
 
 

@@ -469,6 +469,26 @@
     \usebox{\rulestextbox}
     % \the\savedfontsize
 
+    \pgfkeysifdefined{designer}{%
+        \bettertextbox[%
+            % y={17mm+15mm-0.5\extraheight},
+            y={32mm-0.5\extraheight},
+            x=26.5mm,
+            width={30mm-\extraheight}, height=6mm, margin=1mm, 
+            anchor=north,
+            rotate=-90,
+            fontsize=5pt, 
+            font=\titlefont,
+        ]
+        [%
+            halign=center, valign=center,
+        ]{%
+            \textit{Champion's Design Challenge 2022\linebreak
+            Designed by \textsb{\pgfkeysvalueof{designer}}}
+        }
+    }{}%
+    
+
     % art:
     % (just a placeholder rectangle currently)
     % \typeout{ART: \pgfkeysvalueof{/card/art path}}
@@ -517,7 +537,11 @@
         [valign=centerline, left=-0.5mm]
     {%
         \pgfkeysifdefined{heirloom}{%
-            \pgfkeysifdefined{designer}{Designed by \pgfkeysvalueof{designer}}{}%
+            \pgfkeysifdefined{designer}{%
+                % \textit{Champion's Design Challenge}\linebreak
+                % Designed by \pgfkeysvalueof{designer}%
+            }{}%
+            % \pgfkeysifdefined{designer}{2021 Champion Designer: \pgfkeysvalueof{designer}}{}%
         }{%
             \pgfkeysvalueof{/card/path}%
         }%

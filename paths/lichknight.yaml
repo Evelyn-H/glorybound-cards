@@ -45,7 +45,7 @@ cards:
     types: oneshot
     purchase: 3
     text: >
-        Play a banished \textsb{oneshot} card you played this match or a Skeletal Minion alongside me as an additional action. \textit{(You still pay costs.)}
+        Play a banished oneshot card you played this match or a Skeletal Minion alongside me as an additional action. \textit{(You still pay costs.)}
 
 - Throne of Fallen Souls:
     cost: 
