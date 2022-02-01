@@ -168,6 +168,9 @@
             \BLOCK{ if card.big_art == true }
             big art,
             \BLOCK{ endif }
+            \BLOCK{ if card.designer != None }
+            designer={\VAR{card.designer}},
+            \BLOCK{ endif }
         ]
         \BLOCK{ endfor }
     \BLOCK{ endif }

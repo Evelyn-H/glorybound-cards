@@ -13,7 +13,7 @@ cards:
     upgrade cost: 4
 
 - Skeletal Minion:
-    cost:   
+    cost: 
     linked: >
         {Culling Scythe} or Shambling Ranks
     path card name: Skeletal Minion\ \ (3 copies)
@@ -23,7 +23,7 @@ cards:
         [No effect.]
         [\attack{1}]
 
-        If Shambling Ranks is upgraded, I get +1 attack power.
+        \textit{If Shambling Ranks is upgraded, I get +1 attack power.}
 
 - Soulless Steel:
     cost: A
@@ -41,18 +41,17 @@ cards:
         Your Skeletal Minions get +1 attack power.
 
 - Call from the Grave: 
-    cost:   
+    cost: 
     types: oneshot
     purchase: 3
     text: >
-        Choose one of your banished Oneshot cards and play it alongside me as an additional action. \textit{(You still pay costs.)}
+        Play a banished \textsb{oneshot} card you played this match or a Skeletal Minion alongside me as an additional action. \textit{(You still pay costs.)}
 
 - Throne of Fallen Souls:
-    cost:   
+    cost: 
+    types: support
     purchase: 5
     text: >
-        I am not used during matches.
-
         When you learn me, restore a lost heart.
 
         Whenever another player loses all their hearts and is eliminated, learn one of their starter or advanced cards, spending skill points if required.        

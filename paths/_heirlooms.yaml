@@ -1,6 +1,6 @@
 path: Heirloom
 colors: AF7942 - F2C087
-resources: WWW
+resources: XXX
 
 
 cards:    
@@ -13,17 +13,15 @@ cards:
 
         \attack{4}
         
-        Your non-permanent cards become oneshot cards. \textit{(Banish them after use.)}
+        Your non-permanent cards gain \textsb{oneshot}. \textit{(Banish them after use.)}
         
         At the end of each turn, if your hand is empty, recall me.
 
 
 - Cursed Inheritance:
     cost:
-    types: heirloom
+    types: heirloom, support
     text: >
-        I am not used during the match.
-
         When you choose me as your heirloom, gain seven skill points and learn or upgrade up to two cards.
 
         When the tournament begins, announce your curse. As long as you are cursed, you cannot take a player's final heart.
@@ -53,10 +51,8 @@ cards:
 
 - Hand of Greed:
     cost:
-    types: heirloom
+    types: heirloom, support
     text: >
-        I am not used during the match.
-        
         When you choose me as your heirloom, also keep your other two heirloom options.
         
         When the tournament begins, announce your greed and lose one heart. Then lose this heirloom.
@@ -189,7 +185,7 @@ cards:
 
         Gain \mana{XXXX} and one skill point.
 
-        The first time a card from your path would be banished, banish me instead.
+        The first time a card from your path would be banished during the match, banish me instead.
 
 
 - Morpheus Clay:
@@ -223,7 +219,7 @@ cards:
     text: >
         Your cards can't block.
         
-        When you play a card, if it costs exactly the same number of resources as a card your opponent is playing, banish the card your opponent is playing at end of turn. \textit{(Resource cost as printed on the card.)}
+        When you play a card during the match, if it costs exactly the same number of resources as a card your opponent is playing, banish the card your opponent is playing at end of turn. \textit{(Resource cost as printed on the card.)}
 
 
 - Explorer's Pack:
@@ -235,7 +231,7 @@ cards:
 
 - Broken Violin:
     cost:
-    types: heirloom, innate, permanent
+    types: heirloom, innate, oneshot
     text: >
         If you've \textbf{repaired} the violin, \linebreak gain \mana{X}.
     upgrade cost: 2
@@ -247,3 +243,13 @@ cards:
     types: heirloom, innate, permanent
     text: >
         All attacks have a base attack power of 1. \textit{(All attacks includes yours and your opponents. This replaces the printed attack power, but can still be increased by effects.)}
+
+
+- Wistful Memories:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        A card you play on the first turn of the match gains \textsb{oneshot}. When you banish it, banish it under me.
+
+        On the final turn of the match, you may play the banished card as an additional action, and it costs one resource less.
+    designer: Evelyn H.

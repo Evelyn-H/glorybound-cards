@@ -51,6 +51,7 @@
     linked/.code={\pgfkeyssetvalue{linked}{#1}},
     linked type/.initial={},
     heirloom/.code={\pgfkeyssetvalue{heirloom}{#1}},
+    support/.code={\pgfkeyssetvalue{support}{#1}},
     % purchase stuff
     purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade stuff
@@ -69,6 +70,7 @@
         {%
             % supertypes
             \pgfkeysifdefined{innate}{Innate }{}%
+            \pgfkeysifdefined{support}{Support }{}%
             % \pgfkeysifdefined{linked}{Linked }{}%
             % base types
             \pgfkeysifdefined{permanent}{Permanent }{}%
@@ -82,6 +84,7 @@
     % night mode toggle, not meant to be used directly in card definitions
     night/.code={\pgfkeyssetvalue{night}{#1}},%
     big art/.code={\pgfkeyssetvalue{big art}{#1}},%
+    designer/.code={\pgfkeyssetvalue{designer}{#1}},%
 }
 
 \newcommand{\setpath}[3]{
@@ -368,25 +371,25 @@
     }
 
     % oneshot?
-    \pgfkeysifdefined{oneshot}{%
-        % defined 
-        \tikz[overlay, remember picture] 
-        \node[
-            anchor=south, 
-            inner ysep=0pt,
-            inner xsep=0pt,
-            outer ysep=0pt,
-            outer xsep=0pt,
-            % yshift=7.5mm,
-            yshift=7mm+\textboxbottomoffset,
-        ] at (current page.south) {
-            % \includegraphics[width=36mm]{icons/oneshot-banner.png}
-            \includegraphics[width=30mm]{icons/oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
-        };
-        \addtolength{\textboxbottomoffset}{5mm}
-    }{%
-        % not defined
-    }
+    % \pgfkeysifdefined{oneshot}{%
+    %     % defined 
+    %     \tikz[overlay, remember picture] 
+    %     \node[
+    %         anchor=south, 
+    %         inner ysep=0pt,
+    %         inner xsep=0pt,
+    %         outer ysep=0pt,
+    %         outer xsep=0pt,
+    %         % yshift=7.5mm,
+    %         yshift=7mm+\textboxbottomoffset,
+    %     ] at (current page.south) {
+    %         % \includegraphics[width=36mm]{icons/oneshot-banner.png}
+    %         \includegraphics[width=30mm]{icons/oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
+    %     };
+    %     \addtolength{\textboxbottomoffset}{5mm}
+    % }{%
+    %     % not defined
+    % }
 
     % text
     \renewcommand{\buildbox}{%
@@ -402,9 +405,10 @@
                     margin=2mm,
                 ]
                 [%
-                    valign=center, bottom=0.25mm, % the bottom=... just adds some extra spacing there
+                    valign=center, %bottom=0.25mm, % the bottom=... just adds some extra spacing there
                     % top=-2mm,
                     top=\pgfkeysifdefined{innate}{-1mm}{0mm},
+                    bottom=\pgfkeysifdefined{oneshot}{-1mm}{0.25mm},
                     underlay=\pgfkeysifdefined{permanent}{%
                         % \begin{tcbclipinterior}
                         %     \node[
@@ -428,12 +432,20 @@
                     \textit{\printsepifnotemptyor{%
                         \pgfkeysvalueof{/card/linked type}%
                     }{\ --\ }{}%
-                    \textsb{Linked} (This card begins the match forgotten and is recalled by \pgfkeysvalueof{linked}.)%
+                    \textsb{Linked} (This card begins the match banished and is recalled by \pgfkeysvalueof{linked}.)%
                     }\par%
+                }{}%
+                \pgfkeysifdefined{support}{%
+                \textit{\textsb{Support} (Not used during match.)}%
+                    \par%
                 }{}%
                 \pgfkeysvalueof{/card/text}%
                 \global\setlength{\savedfontsize}{\tcbfitdim}
                 \global\savedfontsize=\savedfontsize
+                \pgfkeysifdefined{oneshot}{%
+                    \oneshotbanner
+                }{}%
+
             }%
         }
     }
@@ -499,14 +511,18 @@
     }
     
     % path
-    \pgfkeysifdefined{heirloom}{}{%
-        \bettertextbox
-            [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
-            [valign=centerline, left=-0.5mm]
-        {%
+    % \pgfkeysifdefined{heirloom}{}{%
+    \bettertextbox
+        [y=81.5mm, x=-27mm, width=24mm, height=4mm, anchor=north west, font=\titlefont\color{white}\sbseries, fontsize=7pt, margin=0.5mm]
+        [valign=centerline, left=-0.5mm]
+    {%
+        \pgfkeysifdefined{heirloom}{%
+            \pgfkeysifdefined{designer}{Designed by \pgfkeysvalueof{designer}}{}%
+        }{%
             \pgfkeysvalueof{/card/path}%
-        }
-    }%
+        }%
+    }
+    % }%
 
     
     % date - glorybound

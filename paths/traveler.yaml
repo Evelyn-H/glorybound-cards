@@ -30,7 +30,7 @@ cards:
         [No effect.]
         [\attack{3}]
     purchase: 0
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         I can't be blocked unless your opponent pays \mana{A}.
 
@@ -55,4 +55,4 @@ cards:
 
         - The match ends \upgrade{one turn}{two turns} sooner.
     purchase: 3
-    upgrade cost: 4
+    upgrade cost: 3

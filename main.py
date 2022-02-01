@@ -19,13 +19,13 @@ def eprint(*args, **kwargs):
 schema = Map({
     'path': Str(),
     'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
-    'resources': Regex(r'[WSF]{3}'),
+    'resources': Regex(r'[WSFX]{3}'),
     Optional('extras'): Str(),
     'cards': Seq(
         MapPattern(
             Str(), Map({
                 'cost': Regex(r'[SWFAX]*'), 
-                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom')),
+                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
                 Optional('path card name'): Str(),
@@ -34,6 +34,7 @@ schema = Map({
                 Optional('upgrade cost'): Int(),
                 Optional('upgrade'): Str(),
                 Optional('big art'): Bool(),
+                Optional('designer'): Str(),
             })
         )
     ),
@@ -66,6 +67,7 @@ class Card(object):
         self.upgrade_cost = d['upgrade cost']
         self.upgrade = d['upgrade']
         self.big_art = d['big art']
+        self.designer = d['designer']
 
     def __str__(self):
         return f'<{self.name} {{{self.cost}}} [{self.purchase}]:\n  - ({", ".join(self.types)}) \n  - {repr(self.text)} \n  - [{self.upgrade_cost}: {repr(self.upgrade)}]>'
@@ -181,26 +183,26 @@ if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
     names = [
+        # '_heirlooms',
         # 'berserker',
         # 'fireheart',
         # 'legionnaire',
-        'dancer',
+        # 'dancer',
         # 'arcanist',
         # 'assassin',
         # 'windwalker',
         # 'hammerpriest',
-        # 'druid',
+        'druid',
         # 'mariner',
-        # 'guardian',
+        'guardian',
         # 'jester',
         # 'traveler',
-        'bogwitch',
-        'lichknight',
+        # 'bogwitch',
+        # 'lichknight',
         # 'tinker',
         # 'storyteller',
         # 'archer',
         # 'test',
-        # '_heirlooms',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 

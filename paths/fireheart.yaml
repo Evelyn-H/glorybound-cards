@@ -44,7 +44,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        When your opponent is \burn{burned} for \upgrade{the third time}{the second time} play Set Ablaze immediately as a special action. If it is forgotten, recall it first.
+        When your opponent is \burn{burned} for \upgrade{the third time}{the second time} play Set Ablaze immediately as a special action. If it is banished, recall it first.
     purchase: 3
     upgrade cost: 3
     

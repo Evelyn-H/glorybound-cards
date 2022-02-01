@@ -1,5 +1,5 @@
 path: Windwalker
-colors: 044CF4 - 3EF60D
+colors: 347AD2 - BCC9E5
 resources: FFW
 
 
@@ -9,8 +9,8 @@ cards:
     text: >
       \attack{2}
 
-      If Tempest Blade is blocked, you may pay \mana{WA} to score two points.
-    upgrade cost: 4
+      When I am blocked, you may pay \mana{WA} to score points equal to my attack power.
+    upgrade cost: 3
     upgrade: >
       Costs \mana{A} instead of \mana{AA}.
 
@@ -20,15 +20,14 @@ cards:
     text: >
       \sequence
       [\block]
-      [Your attacks get \upgrade{+1}{+2} attack power.]
-    upgrade cost: 2
+      [Your attacks get +2 attack power.]
 
 
 
 - Storm Surge:
     cost: 
     text: >
-        Gain \mana{X} until you have more resources than your opponent.
+        At the end of this turn, gain \mana{X} until you have more resources than your opponent.
     purchase: 0
     big art: true
 
@@ -38,15 +37,18 @@ cards:
     types: innate, permanent
     text: >
         As long as both players are attacking, your attacks get +1 attack power.
-    purchase: 4
+    purchase: 3
 
 
 - Bring the Lightning:
     cost: 
     types: innate, permanent
     text: >
-        Your first attack of the match  gets +1 attack power. Then note its attack power and recall Echoing Thunder.
-    purchase: 5
+        When you attack, banish me to give one of your attacks +1 attack power. Note its final attack power and recall Echoing Thunder.
+    purchase: 4
+    upgrade cost: 4
+    upgrade: >
+        ... then double the noted number.
 
 
 - Echoing Thunder:

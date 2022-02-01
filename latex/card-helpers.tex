@@ -277,6 +277,24 @@
     \endgroup%
 }
 
+\newcommand{\oneshotbanner}{%
+    \par
+    \vspace*{0.5mm}
+    \begingroup
+    \centering
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center, 
+            inner sep=0pt
+        ] {
+            \includegraphics[height=5mm]{icons/oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
+        };
+    \end{tikzpicture}%
+    \par
+    \endgroup%
+}
+
+
 
 
 \newlength{\turncountersize}

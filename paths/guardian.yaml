@@ -1,5 +1,5 @@
 path: Guardian
-colors: 347AD2 - BCC9E5
+colors: 8EC655 - D35054
 resources: SSS
 
 
@@ -11,7 +11,7 @@ cards:
         Choose \upgrade{two dragons}{three dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.
         
         At the end of each turn, if your opponent scored points this turn, banish a dragon from your hand.
-    upgrade cost: 5
+    upgrade cost: 4
 
 
 - Inferno Dragon:
@@ -56,13 +56,13 @@ cards:
       I get +1 attack power and I can't be blocked.
 
 
-- Defend the Peaks:
+- Defend the Young:
     cost: S
     text: >
       \sequence
       [\block]
       [Your opponent's attack cards \upgrade{cost \mana{A} more}{cost \mana{AA} more}.]
-    upgrade cost: 4
+    upgrade cost: 3
 
 
 - Unyielding Protection:
@@ -71,7 +71,7 @@ cards:
     text: >
       Your opponent can't score points this turn.
     purchase: 0
-    upgrade cost: 6
+    upgrade cost: 4
     upgrade: >
       I cost no resources.
 
@@ -83,15 +83,15 @@ cards:
       Your dragons get +1 attack power.
 
       When you reveal and play a dragon, you may play any number of other dragons from your hand as special actions and without paying their costs.
-    purchase: 5
+    purchase: 3
 
 
-- Guardian's Fury:
+- Furious Charge:
     cost: SSA
     text: >
-      I cost one resource less for each dragon that has been banished. \textit{(\mana{A} is removed before \mana{S}.)}
+      I cost one resource less for each dragon that has been banished during the match. \textit{(\mana{A} is removed before \mana{S}.)}
       
       \attack{2}
 
       \block
-    purchase: 5
+    purchase: 4

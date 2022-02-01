@@ -17,10 +17,10 @@ cards:
     text: > 
         \sequence
         [\upgrade{No effect}{Gain \mana{X}.}]
-        [Your opponent's actions cost twice as many resources. 
+        [Your opponent's cards cost twice as many resources. Added cost is in \mana{A}.
             
-        \textit{(For example, an action that would cost \mana{FA} costs \mana{FFAA}.)}]
-    upgrade cost: 4
+        \textit{(For example, an action that would cost \mana{FA} costs \mana{FAAA}.)}]
+    upgrade cost: 3
     
 
 - Dizzying Spin:
@@ -28,9 +28,9 @@ cards:
     text: > 
         \attack{1}
         
-        \upgrade{If I hit}{Whether or not I hit}, name a card. Your opponent can't play the named card next turn.
+        \upgrade{If I hit}{Whether or not I hit}, name a card. Your opponent can't play that card next turn.
     purchase: 0
-    upgrade cost: 3
+    upgrade cost: 2
     
 
 - Just Out of Reach:
@@ -38,9 +38,9 @@ cards:
     text: > 
         Your opponent's attacks get -2 attack power this turn.
     purchase: 0
-    upgrade cost: 6
+    upgrade cost: 5
     upgrade: >
-        Once per match you may play me any time as a special action. If you do, banish me after use.
+        You may play me any time as a special action. If you do, banish me after use.
 
 
 - Entice to Dance:
@@ -49,7 +49,7 @@ cards:
     text: > 
         Your opponent recalls Try to Keep Up.
         
-        When the match ends, score three points unless your opponent has played Try to Keep Up.
+        When the match ends, score three points.
     purchase: 3
     upgrade cost: 3
     upgrade: >
@@ -58,9 +58,10 @@ cards:
 
 - Try to Keep Up:
     cost: 
+    types: oneshot
     linked: Entice to Dance
     text: > 
-        Banish Try to Keep Up on top of Entice to Dance.
+        Banish Entice to Dance.
 
-        \textit{(If Entice to Dance is upgraded, this card costs \mana{A}.)}
+        \textit{If Entice to Dance is upgraded, this card costs \mana{A}.}
     
