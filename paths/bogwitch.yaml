@@ -10,7 +10,7 @@ cards:
         \block
 
         Recall The Risen One.
-    upgrade cost: 5
+    upgrade cost: 3
     upgrade: >
         The Risen One gets +2 attack power.
 
@@ -33,9 +33,9 @@ cards:
         Gain \mana{W}.
 
         If I hit, your attacks can't be blocked next turn.
-    upgrade cost: 5
+    upgrade cost: 4
     upgrade: >
-        Gain an additional \mana{W}.
+        Also gain \mana{X}.
 
 
 - Polliwog Curse:
@@ -59,7 +59,7 @@ cards:
 
     
 - Leap Away:
-    cost: A
+    cost: AA
     linked: Polliwog Curse
     linked type: Frog
     text: >
@@ -76,7 +76,7 @@ cards:
         If you would gain resources during a match, put them on me instead.
       
         Your cards costs are reduced by whatever I could pay for. \textit{(For example, if you have \mana{W} in the cauldron and you play a card that costs \mana{FW}, you would only need to pay \mana{F}.)}\vspace{0.2mm}
-    purchase: 3
+    purchase: 2
     
 
 - Disperse into Rotflies:
@@ -85,4 +85,4 @@ cards:
         \sequence
         [\attack{1}\par\block]
         [\attack{1}]
-    purchase: 5
+    purchase: 4

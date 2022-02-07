@@ -185,10 +185,10 @@ else:
     names = [
         # '_heirlooms',
         # 'berserker',
-        'fireheart',
-        # 'legionnaire',
+        # 'fireheart',
+        'legionnaire',
         # 'dancer',
-        # 'arcanist',
+        'arcanist',
         # 'assassin',
         # 'windwalker',
         # 'hammerpriest',

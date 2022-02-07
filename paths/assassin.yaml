@@ -5,12 +5,12 @@ resources: FFF
 
 cards:
 - Backstab:
-    cost: F
+    cost:
     text: > 
-        If your opponent isn't attacking: 
+        If your opponent isn't attacking, pay \mana{F} to: 
 
         \attack{3}
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         +2 attack power.
 
@@ -32,11 +32,14 @@ cards:
 
 - Poisoned Dagger:
     cost: 
+    types: permanent
     linked: Trap Setting
     linked type: Trap
     text: > 
-        If you hit with an attack this turn, I become permanent and at the start of each turn, you score one point. Otherwise, banish me.
-    
+        You can't play me unless you hit with an attack this turn.
+        
+        At the start of each turn, score one point.
+
 
 - Smoke Shroud:
     cost: 
@@ -63,7 +66,7 @@ cards:
         [\attack{3}]
         [\attack{1}]
     purchase: 0
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         Costs \mana{FA} instead of \mana{FAA}.
 
@@ -72,4 +75,6 @@ cards:
     types: innate, permanent
     text: > 
         After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and no points can be scored.
-    purchase: 5
+
+        Banish me at the end of the secret turn
+    purchase: 4

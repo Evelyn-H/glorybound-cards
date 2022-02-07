@@ -181,7 +181,8 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        If you choose me as your heirloom, only choose one path instead of two.
+        If you choose me as your heirloom, only choose one path instead of two. 
+        \textit{(You only get three starting resources.)}
 
         Gain \mana{XXXX} and one skill point.
 

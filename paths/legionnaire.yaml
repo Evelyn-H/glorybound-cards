@@ -10,18 +10,16 @@ cards:
         \attack{2}
 
         Recall Parry.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         Costs \mana{A} instead of \mana{AA}.
 
 
 - Parry:
-    cost: A
+    cost: 
     linked: Balanced Blade
     types: oneshot
     text: > 
-        I cost one resource less if you played Balanced Blade last turn.
-        
         \block
 
 
@@ -29,10 +27,11 @@ cards:
     cost: SF
     text: > 
         Repeat the following twice:
+
         \attack{1}
         
         \textit{(One block can only stop one attack.)}
-    upgrade cost: 6
+    upgrade cost: 4
     upgrade: >
         Attacks three times instead of two.
 
@@ -45,13 +44,13 @@ cards:
         I cost one resource less for each two points you've scored this match.
         \textit{(\mana{A} is removed before \mana{S}.)}
     purchase: 0
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         +1 attack power.
 
 
 - Battle Tactics:
-    cost: F
+    cost: A
     types: innate, permanent
     text: > 
         Choose a strategy:
@@ -62,7 +61,7 @@ cards:
 
         \textit{Besiege} -- Your opponent pays \upgrade{\mana{A}}{\mana{AA}}.
     purchase: 3
-    upgrade cost: 4
+    upgrade cost: 3
     
 
 - Shield Wall:
@@ -70,7 +69,8 @@ cards:
     types: permanent
     text: > 
         First turn:
+        
         \block
         
-        Each turn, if you are attacking, block an attack with less attack power than yours.
-    purchase: 5
+        Each turn, if you are attacking, block an attack with attack power equal to or less than one of your attacks.
+    purchase: 4
