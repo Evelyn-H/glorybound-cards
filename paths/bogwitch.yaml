@@ -32,7 +32,7 @@ cards:
 
         Gain \mana{W}.
 
-        If I hit, your attacks can't be blocked next turn.
+        When I hit, your attacks can't be blocked next turn.
     upgrade cost: 4
     upgrade: >
         Also gain \mana{X}.

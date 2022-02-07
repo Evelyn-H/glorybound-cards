@@ -11,7 +11,7 @@ cards:
     text: > 
         \attack{1}
 
-        If Whaler's Hook hits, banish a non-innate card from play.
+        When I hit, banish a non-innate card from play.
     upgrade cost: 4
     upgrade: >
         +1 attack power.
@@ -53,11 +53,11 @@ cards:
     text: > 
         \block
 
-        When Trawling Net blocks a card, banish that card.
+        When I block a card, banish that card.
     purchase: 0
     upgrade cost: 3
     upgrade: >
-        When Trawling Net blocks, it blocks all attacks instead of just one.
+        When I block, I blocks all attacks instead of just one.
 
 
 - Boarding Party:

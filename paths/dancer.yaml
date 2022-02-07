@@ -28,7 +28,7 @@ cards:
     text: > 
         \attack{1}
         
-        \upgrade{If I hit}{Whether or not I hit}, name a card. Your opponent can't play that card next turn.
+        \upgrade{When I hit}{Whether or not I hit}, name a card. Your opponent can't play that card next turn.
     purchase: 0
     upgrade cost: 2
     

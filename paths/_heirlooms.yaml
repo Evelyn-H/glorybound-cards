@@ -36,7 +36,7 @@ cards:
     text: >
         Your cards don't cost any resources to play.
 
-        If you would choose a card to play during the match, choose it at random from among all the cards you could play.
+        If you would choose a card to play during the match, instead choose it at random from among all the cards you could play.
 
 
 - Dr. Doppel's Formula:
@@ -87,7 +87,7 @@ cards:
     text: >
         Your attacks get +1 attack power.
         
-        When you are hit by an attack, banish Illusory Greatsword unless you pay \mana{A}.
+        When you are hit by an attack, banish me unless you pay \mana{A}.
 
 
 - Kobold King's Candle:
@@ -234,9 +234,9 @@ cards:
     cost:
     types: heirloom, innate, oneshot
     text: >
-        If you've \textbf{repaired} the violin, \linebreak gain \mana{X}.
+        If you've \textbf{repaired} me, \linebreak gain \mana{X}.
     upgrade cost: 2
-    upgrade: \textbf{Repair} the violin.
+    upgrade: \textbf{Repair} me.
 
 
 - Grave-Mist Shovel:

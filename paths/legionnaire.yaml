@@ -69,8 +69,12 @@ cards:
     types: permanent
     text: > 
         First turn:
-        
+
         \block
+                
+        {\nointerlineskip
+        \vspace{\parskip}\moveright 0.1\textwidth \vbox{\hrule height 0.125mm depth 0pt width 0.8\linewidth}
+        \nointerlineskip}
         
         Each turn, if you are attacking, block an attack with attack power equal to or less than one of your attacks.
     purchase: 4

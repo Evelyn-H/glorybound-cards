@@ -9,7 +9,7 @@ cards:
     text: >
         \attack{2}
 
-        If I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
+        When I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
     upgrade cost: 4
 
 - Skeletal Minion:
