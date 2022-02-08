@@ -254,3 +254,21 @@ cards:
 
         On the final turn of the match, you may play the banished card as an additional action, and it costs one resource less.
     designer: Evelyn H.
+
+
+- Vitalic Vine-Snare:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When the match starts, choose a turn number. 
+        
+        On the chosen turn, neither player can score points.
+    designer: Tabitha F.
+
+
+- Dreamer's Seed:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When you recall one or more linked cards for the first time this match, reveal one of those cards. I become a copy of that linked card for the rest of the match. Recall me, then you may play me immediately.
+    designer: Lixing
