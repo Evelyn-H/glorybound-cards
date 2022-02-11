@@ -80,13 +80,22 @@
         }
         {\ --\ }
         {%
-            % supertypes
-            \pgfkeysifdefined{innate}{Innate }{}%
-            \pgfkeysifdefined{support}{Support }{}%
-            % \pgfkeysifdefined{linked}{Linked }{}%
-            % base types
-            \pgfkeysifdefined{permanent}{Permanent }{}%
-            \pgfkeysifdefined{sequence}{Sequence }{}%
+            \printsepifnotemptyor{\pgfkeysifdefined{innate}{Innate}{}}{ }{%
+                \printsepifnotemptyor{\pgfkeysifdefined{support}{Support}{}}{ }{%
+                    \printsepifnotemptyor{\pgfkeysifdefined{support}{Support}{}}{ }{%
+                        \printsepifnotemptyor{\pgfkeysifdefined{permanent}{Permanent}{}}{ }{%
+                            \pgfkeysifdefined{sequence}{Sequence}{}%
+                        }%
+                    }%
+                }%
+            }%
+            % % supertypes
+            % \pgfkeysifdefined{innate}{Innate }{}%
+            % \pgfkeysifdefined{support}{Support }{}%
+            % % \pgfkeysifdefined{linked}{Linked }{}%
+            % % base types
+            % \pgfkeysifdefined{permanent}{Permanent }{}%
+            % \pgfkeysifdefined{sequence}{Sequence }{}%
         }
     },
     % art path
@@ -243,7 +252,7 @@
         [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
         [halign=center, valign=centerline]
     {%
-        \pgfkeysvalueof{/card/name}
+        \pgfkeysvalueof{/card/name}%
     }
      
     % type
@@ -251,7 +260,7 @@
         [y=11mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries\itshape]
         [halign=center, valign=centerline]
     {%
-        \pgfkeysvalueof{/card/type}
+        \pgfkeysvalueof{/card/type}%
         % Basic -- \pgfkeysvalueof{/card/type}
     }
 

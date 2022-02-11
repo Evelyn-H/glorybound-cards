@@ -1,5 +1,6 @@
 path: Legionnaire
-colors: FFA500 - AF0301
+# colors: FFA500 - AF0301
+colors: FFB300 - AF1E01
 resources: SSF
 
 

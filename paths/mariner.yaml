@@ -21,7 +21,9 @@ cards:
     cost:
     types: innate, permanent
     text: > 
-        Recall Sunken Temple and Pirate's Cove. You can only play one harbor each match.
+        Recall Sunken Temple and Pirate's Cove.
+
+        You can only play one Harbor each match. When you play one, banish the other.
         
         When you banish an opponent's card, \drown{drown} it.
 

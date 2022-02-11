@@ -1,5 +1,5 @@
 path: Assassin
-colors: 222222 - CD008C
+colors: 590050 - F700AD
 resources: FFF
 
 
@@ -36,7 +36,7 @@ cards:
     linked: Trap Setting
     linked type: Trap
     text: > 
-        You can't play me unless you hit with an attack this turn.
+        You can't play me unless you hit your opponent with an attack this turn.
         
         At the start of each turn, score one point.
 
@@ -74,7 +74,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and no points can be scored.
+        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and you can't score points.
 
         Banish me at the end of the secret turn
     purchase: 4
