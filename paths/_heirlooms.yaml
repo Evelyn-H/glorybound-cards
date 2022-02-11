@@ -190,7 +190,7 @@ cards:
 
 
 - Morpheus Clay:
-    cost: A
+    cost: 
     types: heirloom, innate
     text: >
         When you play me, choose another innate card you are playing. I become a copy of that card, except that I cost \mana{A} in addition to that card's cost.
