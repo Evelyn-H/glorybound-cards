@@ -43,9 +43,9 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        Reveal an Arcanist card and a non-Arcanist card from your hand. 
+        \onplay{Reveal an Arcanist card and a non-Arcanist card from your hand.}
         
-        For the rest of the match, when you play one of those cards, play the other as a special action if able.
+        When you play one of those cards, play the other if able.
     purchase: 7
 
 

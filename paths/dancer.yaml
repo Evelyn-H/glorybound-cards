@@ -47,7 +47,7 @@ cards:
     cost: A
     types: innate, permanent
     text: > 
-        Your opponent recalls Try to Keep Up.
+        \onplay{Your opponent recalls Try to Keep Up.}
         
         When the match ends, score three points.
     purchase: 3

@@ -8,7 +8,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        Choose \upgrade{two dragons}{three dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.
+        \onplay{Choose \upgrade{two dragons}{three dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
         
         At the end of each turn, if your opponent scored points this turn, banish a dragon from your hand.
     upgrade cost: 4
@@ -20,7 +20,7 @@ cards:
     linked type: Dragon
     text: >
       If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-
+      \thinparbreak
       \attack{2}
 
       If I'm an \textbf{Adolescent}:
@@ -34,7 +34,7 @@ cards:
     linked type: Dragon
     text: >
       If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-
+      \thinparbreak
       \attack{2}
 
       If I'm an \textbf{Adolescent}:
@@ -48,7 +48,7 @@ cards:
     linked type: Dragon
     text: >
       If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-
+      \thinparbreak
       \attack{2}
 
       If I'm an \textbf{Adolescent}:

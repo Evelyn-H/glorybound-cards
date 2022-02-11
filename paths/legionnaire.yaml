@@ -28,7 +28,7 @@ cards:
     cost: SF
     text: > 
         Repeat the following twice:
-
+        \thinparbreak
         \attack{1}
         
         \textit{(One block can only stop one attack.)}
@@ -54,13 +54,15 @@ cards:
     cost: A
     types: innate, permanent
     text: > 
-        Choose a strategy:
+        \onplaynoline[choose a strategy:]{
 
-        \textit{Skirmish} -- You may play an additional action on the \upgrade{second}{second and fourth} turn.
+            \textit{Skirmish} -- You may play an additional action on the \upgrade{second}{second and fourth} turn.
 
-        \textit{Ambush} -- The first time you attack, give an attack \upgrade{+2}{+4} attack power.
+            \textit{Ambush} -- When you attack, banish me to give one of your attacks \upgrade{+2}{+4} attack power.
 
-        \textit{Besiege} -- Your opponent pays \upgrade{\mana{A}}{\mana{AA}}.
+            \textit{Besiege} -- Your opponent pays \upgrade{\mana{A}}{\mana{AA}}.
+        }
+
     purchase: 3
     upgrade cost: 3
     
@@ -69,13 +71,7 @@ cards:
     cost: S
     types: permanent
     text: > 
-        First turn:
-
-        \block
+        \onplay{\thinparbreak\block}
                 
-        {\nointerlineskip
-        \vspace{\parskip}\moveright 0.1\textwidth \vbox{\hrule height 0.125mm depth 0pt width 0.8\linewidth}
-        \nointerlineskip}
-        
         Each turn, if you are attacking, block an attack with attack power equal to or less than one of your attacks.
     purchase: 4

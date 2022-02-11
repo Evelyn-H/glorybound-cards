@@ -8,7 +8,7 @@ cards:
     cost:
     text: > 
         If your opponent isn't attacking, pay \mana{F} to: 
-
+        \thinparbreak
         \attack{3}
     upgrade cost: 3
     upgrade: >
@@ -76,5 +76,5 @@ cards:
     text: > 
         After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and you can't score points.
 
-        Banish me at the end of the secret turn
+        Banish me at the end of the secret turn.
     purchase: 4

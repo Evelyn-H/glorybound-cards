@@ -19,7 +19,7 @@ cards:
       \block
 
       When I block an attack:
-
+      \thinparbreak
       \attack{3}
     upgrade cost: 3
     upgrade: >
@@ -57,9 +57,9 @@ cards:
     types: innate, permanent
     purchase: 3
     text: >
-      When the match starts, turn Comedy and Tragedy face down. Secretly choose one of them to hide under me.
+      \onplay{Turn Comedy and Tragedy face down. Secretly choose one of them to hide under me.}
 
-      On the fourth turn of the match, recall and play the hidden card as an additional action.
+      On the fourth turn of the match, banish me to recall and play the hidden card as an additional action.
 
 
 - Comedy:

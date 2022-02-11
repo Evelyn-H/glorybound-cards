@@ -185,8 +185,8 @@ else:
     names = [
         # '_heirlooms',
         # 'berserker',
-        'fireheart',
-        'legionnaire',
+        # 'fireheart',
+        # 'legionnaire',
         # 'dancer',
         # 'arcanist',
         # 'assassin',
@@ -202,7 +202,6 @@ else:
         # 'tinker',
         # 'storyteller',
         # 'archer',
-        # 'test',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
 

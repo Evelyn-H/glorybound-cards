@@ -9,11 +9,9 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        If your hand is empty:
-
-        \attack{4}
+        \onplay[if your hand is empty:]{\thinparbreak\attack{4}}
         
-        Your non-permanent cards gain \textsb{oneshot}. \textit{(Banish them after use.)}
+        Your non-permanent cards gain \textbf{oneshot}. \textit{(Banish them after use.)}
         
         At the end of each turn, if your hand is empty, recall me.
 
@@ -62,7 +60,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        Name one of your attack cards.
+        \onplay{Name one of your attack cards.}
         
         The named card costs \mana{A} more to play and its attacks get +2 attack power.
 
@@ -101,14 +99,14 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        The first time your opponent would score points, instead you must banish me and two of your other cards, and they score no points this turn.
+        If your opponent would score points, instead you must banish me and two of your other non-innate cards, and they score no points this turn.
 
 
 - Oxless Plow:
     cost:
     types: heirloom, innate, permanent
     text: >
-        The first time you would complete a sequence, banish me to keep that sequence in play for an additional turn. The final turn effect repeats.
+        If you would complete a sequence card, instead banish me to keep that card in play for an additional turn, with the same effect as the final printed turn.
 
 
 - Librarian's Ladder:
@@ -117,7 +115,7 @@ cards:
     text: >
         When you choose me as your heirloom, choose and keep one starter card from your third path option.
 
-        Gain \mana{X}.
+        \onplay{Gain \mana{X}.}
 
         You have no maximum hand size.
 
@@ -140,7 +138,7 @@ cards:
     cost: A
     types: heirloom, innate, permanent
     text: >
-        Declare a turn number.
+        \onplay{Choose a turn number.}
 
         On the chosen turn, your opponent chooses their action first and you may look at it before choosing your own. Then banish me.
 
@@ -157,7 +155,7 @@ cards:
     types: heirloom, innate, permanent
     text: >
         When you play a card with the same name as a card you played last turn, banish me to:
-        
+        \thinparbreak
         \attack{2}
 
 
@@ -184,7 +182,7 @@ cards:
         If you choose me as your heirloom, only choose one path instead of two. 
         \textit{(You only get three starting resources.)}
 
-        Gain \mana{XXXX} and one skill point.
+        \onplay{Gain \mana{XXXX} and one skill point.}
 
         The first time a card from your path would be banished during the match, banish me instead.
 
@@ -210,7 +208,7 @@ cards:
         At the end of each turn, if you didn't play a card this turn, my final attack gets +1 attack power.
 
         On the final turn of the match:
-
+        \thinparbreak
         \attack{1}
 
 
@@ -250,7 +248,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        A card you play on the first turn of the match gains \textsb{oneshot}. When you banish it, banish it under me.
+        A card you play on the first turn of the match gains \textbf{oneshot}. When you banish it, banish it under me.
 
         On the final turn of the match, you may play the banished card as an additional action, and it costs one resource less.
     designer: Evelyn H.
@@ -260,7 +258,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When the match starts, choose a turn number. 
+        \onplay{Choose a turn number.}
         
         On the chosen turn, neither player can score points.
     designer: Tabitha F.
@@ -270,5 +268,5 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you recall one or more linked cards for the first time this match, reveal one of those cards. I become a copy of that linked card for the rest of the match. Recall me, then you may play me immediately.
+        When you recall one or more linked cards, reveal one of those cards. I become a copy of that linked card for the rest of the match. Recall me, then you may play me immediately.
     designer: Lixing

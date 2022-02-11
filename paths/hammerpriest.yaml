@@ -56,7 +56,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        Gain \mana{X}.
+        \onplay{Gain \mana{X}.}
 
         While your opponent has more points than you, they can't block an attack unless they pay \mana{A}.
     purchase: 6

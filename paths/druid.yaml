@@ -63,7 +63,7 @@ cards:
     cost: A
     types: permanent
     text: > 
-        Each turn, I grow. Then, if I have grown at least three times:
+        Each turn, I \textbf{grow}. Then, if I have \textbf{grown} at least three times:
 
         \attack{1}
     purchase: 3
@@ -73,7 +73,7 @@ cards:
     types: innate, permanent
     text: > 
         When you are attacked, banish me to: 
-
+        \thinparbreak
         \block
 
         At the end of the second turn of the match, banish me.
