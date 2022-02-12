@@ -12,7 +12,7 @@ cards:
         \attack{1}
 
         When I hit, banish a non-innate card from play.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         +1 attack power.
 
@@ -34,7 +34,7 @@ cards:
     linked: Salt-Captain's Compass
     linked type: Harbor
     text: > 
-        \onplay{Your opponent chooses one of their cards from hand or play. Banish it.}
+        \onplay{Your opponent chooses one of their non-innate cards from hand or play. Banish it.}
 
         When the match ends, score one point for each \drown{drowned} card beyond the first.
 
@@ -77,7 +77,7 @@ cards:
     cost: 
     types: oneshot
     text: > 
-        For each two points you've scored this match, your opponent chooses one of their cards from hand or play. Banish those cards.
+        For each two points you've scored this match, your opponent chooses one of their non-innate cards from hand or play. Banish those cards.
         
         Play Sunken Temple if able.
     purchase: 4

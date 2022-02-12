@@ -58,7 +58,7 @@ cards:
 
             \textit{Skirmish} -- You may play an additional action on the \upgrade{second}{second and fourth} turn.
 
-            \textit{Ambush} -- When you attack, banish me to give one of your attacks \upgrade{+2}{+4} attack power.
+            \textit{Ambush} -- When you attack, banish me to give an attack \upgrade{+2}{+4} attack power.
 
             \textit{Besiege} -- Your opponent pays \upgrade{\mana{A}}{\mana{AA}}.
         }
@@ -73,5 +73,5 @@ cards:
     text: > 
         \onplay{\thinparbreak\block}
                 
-        Each turn, if you are attacking, block an attack with attack power equal to or less than one of your attacks.
+        When you attack, block an attack with attack power equal to or less than your attack.
     purchase: 4

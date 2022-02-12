@@ -9,7 +9,7 @@ cards:
         \sequence
         [\attack{1}]
         [\attack{1}]
-    upgrade cost: 5
+    upgrade cost: 4
     upgrade: >
         +1 attack power.
 
@@ -31,7 +31,7 @@ cards:
         Gain \mana{F}.
         
         At end of turn, if you weren't hit by an attack this turn, gain an additional \mana{FF}.
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: If I would make you gain \mana{F}, instead gain that much \mana{X}.
 
 - Built to Last:
@@ -46,5 +46,7 @@ cards:
     purchase: 5
     types: permanent
     text: >
-        All your other cards have their upgraded effects.
+        \onplay{Score one point.}
+
+        All your other non-heirloom cards have their upgraded effects.
         \textit{(Upgrades are marked by the \upgradeicon\ symbol.)}

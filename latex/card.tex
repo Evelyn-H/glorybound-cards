@@ -34,10 +34,8 @@
         {%
             \printsepifnotemptyor{\pgfkeysifdefined{innate}{Innate}{}}{ }{%
                 \printsepifnotemptyor{\pgfkeysifdefined{support}{Support}{}}{ }{%
-                    \printsepifnotemptyor{\pgfkeysifdefined{linked}{Linked}{}}{ }{%
-                        \printsepifnotemptyor{\pgfkeysifdefined{permanent}{Permanent}{}}{ }{%
-                            \pgfkeysifdefined{sequence}{Sequence}{}%
-                        }%
+                    \printsepifnotemptyor{\pgfkeysifdefined{permanent}{Permanent}{}}{ }{%
+                        \pgfkeysifdefined{sequence}{Sequence}{}%
                     }%
                 }%
             }%

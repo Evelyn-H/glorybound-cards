@@ -9,7 +9,7 @@ cards:
         \attack{1}
 
         I can't be blocked unless your opponent pays \mana{A}.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: ...unless they pay \mana{AA}.
 
 - Careful Aim:
@@ -17,7 +17,7 @@ cards:
     types: permanent
     text: >
         The next time you attack, recall me to give an attack +3 attack power.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: I cost no resources to play.
 
 - Keep At Range:
@@ -34,12 +34,12 @@ cards:
 
 - Shield-Piercing Bolt:
     cost: SA
-    purchase: 3
+    purchase: 2
     text: >
         \attack{2}
     
         If your opponent is using a block, they must block me if able. When they do, banish that block card.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: +1 attack power
 
 - Survey From Cover:
@@ -47,6 +47,6 @@ cards:
     purchase: 4
     types: oneshot
     text: >
-        If your opponent isn't attacking, play another card as a special action.
+        If your opponent isn't attacking, you may play another card.
         
         \block

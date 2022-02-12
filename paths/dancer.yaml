@@ -9,7 +9,11 @@ cards:
     text: > 
         \block
 
-        When I block an attack, I attack back with equal attack power.
+        When I block:
+        \thinparbreak
+        \attack{X}
+        \thinparbreak
+        X is the attack power of the attack I'm blocking.
     
 
 - Mesmerize:
@@ -40,7 +44,7 @@ cards:
     purchase: 0
     upgrade cost: 5
     upgrade: >
-        You may play me any time as a special action. If you do, banish me after use.
+        You may play me at any time. If you do, banish me after use. \linebreak\textit{(No action required. Yes, any time.)}
 
 
 - Entice to Dance:

@@ -11,7 +11,7 @@ cards:
         \attack{0}
         
         When I hit, gain \mana{X}.
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         Gain \mana{XX} instead of \mana{X}.
 
@@ -21,9 +21,9 @@ cards:
         \sequence
         [No effect.]
         [You may play an additional action this turn.]
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
-        The first time you hit with an attack this match, you may play me immediately as a special action.
+        The first time you hit with an attack this match, play me if able.
 
 - Sleep Song:
     cost: F
@@ -31,19 +31,19 @@ cards:
     types: oneshot
     text: >
         Choose a card your opponent played this turn. It has no effect, \upgrade{they recall it}{they banish it} and its cost is refunded.
-    upgrade cost: 3
+    upgrade cost: 2
 
 - Myths That Guide:
     cost: WA
-    purchase: 4
+    purchase: 3
     types: oneshot
     text: >
         \sequence
         [No effect.]
         [You see your opponent's hand and choose what they play.]
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
-        The second time you hit with an attack this match, you may play me immediately as a special action.
+        The second time you hit with an attack this match, play me if able.
 
 
 - Library of Legends:
@@ -51,7 +51,5 @@ cards:
     purchase: 3
     types: innate, oneshot
     text: >
-        When you learn me, link me to six random heirlooms. Keep these with you for the tournament.
-        
-        Recall and play \upgrade{one}{two} of the linked heirlooms.
+        When you play me, recall and play \upgrade{one}{two} of the heirlooms linked to me. If this is the first time I've been played this tournament, link me to six random unused heirlooms first.
     upgrade cost: 3

@@ -7,8 +7,12 @@ cards:
 - Arcane Research:
     cost: F
     text: > 
-        Choose \upgrade{two random advanced}{one random forbidden magic and one random advanced card} \upgrade{cards}{} you have not yet learned and recall them. If you recall an innate card, play it immediately.
-    upgrade cost: 4
+        Choose two random advanced cards you have not yet learned and recall them. If you recall an innate card, play it immediately.
+
+        \textit{(You can't choose cards you've already researched this match.)}
+    upgrade cost: 5
+    upgrade: >
+        Also turn your banished Forbidden Magic cards face down and recall one at random.
     
 
 - Forcefield:

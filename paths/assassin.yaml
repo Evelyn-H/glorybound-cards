@@ -5,9 +5,11 @@ resources: FFF
 
 cards:
 - Backstab:
-    cost:
+    cost: F
     text: > 
-        If your opponent isn't attacking, pay \mana{F} to: 
+        If your opponent is attacking, refund my cost and I have no effect. 
+
+        Otherwise: 
         \thinparbreak
         \attack{3}
     upgrade cost: 3
@@ -25,8 +27,9 @@ cards:
 - Trap Setting:
     cost: F
     text: > 
-        Secretly choose a Trap and put it into play face down.
-        You can turn that card face up to play it as a special action any time after this turn ends.
+        Turn your banished Trap cards face down. Look at them and secretly choose one of them. \textit{(Put it near your cards in play.)}
+
+        You can turn the chosen card face up any time after this turn ends to recall and play it.
     purchase: 0
 
 
