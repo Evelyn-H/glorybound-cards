@@ -53,11 +53,9 @@ cards:
     types: support
     purchase: 3
     text: >
-        You can claim cards from the paths of eliminated players. Only corrupted XP can be spent to learn and upgrade these cards and all cost symbols are replaced with \mana{A}.
+        You can claim cards from the paths of eliminated players. You can claim up to two cards throughout the tournament.
 
-        You can claim a maximum of two cards over the course of the tournament.
-
-        When you learn me, gain 3 corrupted XP and restore a lost heart.
+        When you learn me, gain 3 shadow XP and restore a lost heart. Only shadow XP can be spent to learn and upgrade claimed cards and all cost symbols are replaced with \mana{A}.
     upgrade cost: 3
     upgrade: >
-        Gain 5 more corrupted XP.
+        Gain 5 more shadow XP.
