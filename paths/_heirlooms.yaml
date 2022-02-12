@@ -20,7 +20,7 @@ cards:
     cost:
     types: heirloom, support
     text: >
-        When you choose me as your heirloom, gain seven skill points and learn or upgrade up to two cards.
+        When you choose me as your heirloom, gain seven XP and learn or upgrade up to two cards.
 
         When the tournament begins, announce your curse. As long as you are cursed, you cannot take a player's final heart.
     upgrade cost: 7
@@ -179,10 +179,10 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        If you choose me as your heirloom, only choose one path instead of two. 
-        \textit{(You only get three starting resources.)}
+        When you choose me as your heirloom, I consume one of your paths. 
+        \textit{(You get no cards or resources from it, unless you sell me.)}
 
-        \onplay{Gain \mana{XXXX} and one skill point.}
+        \onplay{If I have consumed a path, gain \mana{XXXX} and one XP.}
 
         The first time a card from your path would be banished during the match, banish me instead.
 
@@ -222,10 +222,12 @@ cards:
 
 
 - Explorer's Pack:
-    cost: AAA
+    cost: 
     types: heirloom, innate, permanent
     text: >
-        When you choose me as your heirloom, choose and keep a third path option. You can't use more than two paths in a match unless you play me. \textit{(Because otherwise you would be starting with nine resources. And you can only use cards from paths you are using.)}
+        When you choose me as your heirloom, choose and keep a third path option. You can't use more than two paths in a match unless you play me. 
+        
+        \onplay{Pay \mana{AAA}.} \textit{(Because otherwise you would be starting with nine resources.)}
 
 
 - Broken Violin:

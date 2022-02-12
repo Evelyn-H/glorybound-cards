@@ -14,6 +14,7 @@
     innate/.code={\pgfkeyssetvalue{innate}{#1}},
     linked/.code={\pgfkeyssetvalue{linked}{#1}},
     linked type/.initial={},
+    linked short/.code={\pgfkeyssetvalue{linked short}{#1}},%
     heirloom/.code={\pgfkeyssetvalue{heirloom}{#1}},
     support/.code={\pgfkeyssetvalue{support}{#1}},
     % purchase stuff
@@ -403,7 +404,11 @@
                     \textit{\printsepifnotemptyor{%
                         \pgfkeysvalueof{/card/linked type}%
                     }{\ --\ }{}%
-                    \textsb{Linked} (This card begins the match banished and is recalled by \pgfkeysvalueof{linked}.)%
+                    \pgfkeysifdefined{linked short}{%
+                        \textsb{Linked} (This card begins the match banished.)%
+                    }{%
+                        \textsb{Linked} (This card begins the match banished and is recalled by \pgfkeysvalueof{linked}.)%
+                    }
                     }\par%
                 }{}%
                 \pgfkeysifdefined{support}{%

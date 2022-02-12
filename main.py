@@ -28,6 +28,7 @@ schema = Map({
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
+                Optional('linked short'): Bool(),
                 Optional('path card name'): Str(),
                 'text': Str(), 
                 Optional('purchase'): Int(),
@@ -61,6 +62,7 @@ class Card(object):
             self.types.append('sequence')
         self.linked = d['linked']
         self.linked_type = d['linked type']
+        self.linked_short = d['linked short']
         self.path_card_name = d['path card name'] or self.name
         self.linked_to = []
         self.purchase = d['purchase']
@@ -187,7 +189,7 @@ else:
         # 'berserker',
         # 'fireheart',
         # 'legionnaire',
-        'dancer',
+        # 'dancer',
         # 'arcanist',
         # 'assassin',
         # 'windwalker',
@@ -198,9 +200,9 @@ else:
         # 'jester',
         # 'traveler',
         # 'bogwitch',
-        # 'lichknight',
+        'lichknight',
         # 'tinker',
-        'storyteller',
+        # 'storyteller',
         # 'archer',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]

@@ -10,12 +10,13 @@ cards:
         \attack{2}
 
         When I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
-    upgrade cost: 4
+    upgrade cost: 3
 
 - Skeletal Minion:
     cost: 
     linked: >
-        {Culling Scythe} or Shambling Ranks
+        {Culling Scythe}
+    linked short: true
     path card name: Skeletal Minion\ \ (3 copies)
     types: oneshot
     text: >
@@ -36,7 +37,7 @@ cards:
     text: >
         At the end of each turn, if a player scored points this turn, recall and play a Skeletal Minion.
     purchase: 0
-    upgrade cost: 5
+    upgrade cost: 4
     upgrade: >
         Your Skeletal Minions get +1 attack power.
 
@@ -45,14 +46,16 @@ cards:
     types: oneshot
     purchase: 3
     text: >
-        Play a banished oneshot card you played this match or a Skeletal Minion alongside me as an additional action. \textit{(You still pay costs.)}
+        Choose a banished Oneshot card you played this match or a Skeletal Minion. Recall and play that card if able.
 
 - Throne of Fallen Souls:
     cost: 
     types: support
-    purchase: 5
+    purchase: 3
     text: >
-        When you learn me, restore a lost heart.
+        You can claim up to two cards from the paths of players that have been eliminated. Only corrupted XP can be spent to learn and upgrade these cards and all cost symbols are replaced with \mana{A}.
 
-        Whenever another player loses all their hearts and is eliminated, learn one of their starter or advanced cards, spending skill points if required.        
-        \textit{(It is yours for the tournament and can be upgraded later. This does not count as your purchase for the round.)}
+        When you learn me, gain 3 corrupted XP and restore a lost heart.
+    upgrade cost: 3
+    upgrade: >
+        Gain 5 more corrupted XP.

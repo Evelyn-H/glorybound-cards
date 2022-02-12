@@ -152,6 +152,9 @@
                     \BLOCK{ if card.linked_type != None }
                     linked type={\VAR{card.linked_type}},
                     \BLOCK{ endif }
+                    \BLOCK{ if card.linked_short == true }
+                    linked short,
+                    \BLOCK{ endif }
                     text={%
                         \VAR{card.text | indent(4*4)}%
                     },
