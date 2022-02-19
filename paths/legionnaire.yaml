@@ -13,7 +13,7 @@ cards:
         Recall Parry.
     upgrade cost: 3
     upgrade: >
-        Costs \mana{A} instead of \mana{AA}.
+        I cost \mana{A} instead of \mana{AA}.
 
 
 - Parry:
@@ -34,7 +34,7 @@ cards:
         \textit{(One block can only stop one attack.)}
     upgrade cost: 4
     upgrade: >
-        Attacks three times instead of two.
+        I attack three times instead of two.
 
 
 - Decisive Strike:
@@ -47,7 +47,7 @@ cards:
     purchase: 0
     upgrade cost: 3
     upgrade: >
-        +1 attack power.
+        I get +1 attack power.
 
 
 - Battle Tactics:

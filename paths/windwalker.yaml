@@ -12,7 +12,7 @@ cards:
       When I am blocked, you may pay \mana{WA} to score points equal to my attack power.
     upgrade cost: 3
     upgrade: >
-      Costs \mana{A} instead of \mana{AA}.
+      I cost \mana{A} instead of \mana{AA}.
 
 
 - Leap Skyward:

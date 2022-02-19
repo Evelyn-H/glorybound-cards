@@ -14,7 +14,7 @@ cards:
         When I hit, banish a non-innate card from play.
     upgrade cost: 3
     upgrade: >
-        +1 attack power.
+        I get +1 attack power.
 
 
 - Salt-Captain's Compass:

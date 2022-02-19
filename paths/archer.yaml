@@ -17,7 +17,7 @@ cards:
     text: >
         The next time you attack, recall me to give an attack +3 attack power.
     upgrade cost: 3
-    upgrade: I cost no resources to play.
+    upgrade: I cost no resources.
 
 - Keep At Range:
     cost: A
@@ -39,7 +39,7 @@ cards:
     
         If your opponent is using a block, they must block me if able. When they do, banish that block card.
     upgrade cost: 3
-    upgrade: +1 attack power
+    upgrade: I get +1 attack power
 
 - Survey From Cover:
     cost:

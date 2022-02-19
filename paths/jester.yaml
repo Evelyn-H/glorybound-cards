@@ -23,7 +23,7 @@ cards:
       \attack{3}
     upgrade cost: 3
     upgrade: >
-      Costs \mana{WA} instead of \mana{WAA}.
+      I cost \mana{WA} instead of \mana{WAA}.
 
 
 - Carnival Mallet:

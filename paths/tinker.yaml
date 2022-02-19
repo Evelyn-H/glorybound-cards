@@ -11,7 +11,7 @@ cards:
         [\attack{1}]
     upgrade cost: 4
     upgrade: >
-        +1 attack power.
+        I get +1 attack power.
 
 - Mechanized Snare:
     cost: F
@@ -22,7 +22,6 @@ cards:
         
         When I block an attack, \upgrade{recall me}{recall me unless you pay \mana{A}}.
     upgrade cost: 3
-    # upgrade: ...unless you pay {Any}.
 
 - Concentrate:
     cost: 

@@ -33,7 +33,8 @@ cards:
     purchase: 0
     upgrade cost: 4
     upgrade: >
-      +1 attack power; +1 \mana{X} gained.
+      I get +1 attack power and \linebreak gain an additional \mana{X}.
+      \vspace{0.5mm}
 
 
 - Pillage:

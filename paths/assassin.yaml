@@ -14,7 +14,7 @@ cards:
         \attack{3}
     upgrade cost: 3
     upgrade: >
-        +2 attack power.
+        I get +2 attack power.
 
 - Shadowstep:
     cost: 
@@ -71,7 +71,7 @@ cards:
     purchase: 0
     upgrade cost: 3
     upgrade: >
-        Costs \mana{FA} instead of \mana{FAA}.
+        I cost \mana{FA} instead of \mana{FAA}.
 
 - Hidden in Plain Sight:
     cost: 
