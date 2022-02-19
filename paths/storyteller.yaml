@@ -30,7 +30,7 @@ cards:
     purchase: 0
     types: oneshot
     text: >
-        Choose a card your opponent played this turn. It has no effect, \upgrade{they recall it}{they banish it} and its cost is refunded.
+        Choose a card your opponent played this turn. It has no effect and its cost is refunded, then \upgrade{they recall it}{banish it}.
     upgrade cost: 2
 
 - Myths That Guide:

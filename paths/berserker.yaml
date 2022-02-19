@@ -44,7 +44,7 @@ cards:
     purchase: 0
     upgrade cost: 3
     upgrade: >
-      ... and one of your opponent's non-innate cards of their choice from hand or play.
+      Also banish one of your opponent's non-innate cards of their choice from hand or play.
 
 - Retribution:
     cost: SAA

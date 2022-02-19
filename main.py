@@ -185,7 +185,7 @@ if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
     names = [
-        # '_heirlooms',
+        '_heirlooms',
         # 'berserker',
         # 'fireheart',
         # 'legionnaire',
@@ -200,7 +200,7 @@ else:
         # 'jester',
         # 'traveler',
         # 'bogwitch',
-        'lichknight',
+        # 'lichknight',
         # 'tinker',
         # 'storyteller',
         # 'archer',

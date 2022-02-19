@@ -25,7 +25,7 @@ cards:
 
         You can only play one Harbor each match. When you play one, banish the other.
         
-        When you banish an opponent's card, \drown{drown} it.
+        When you banish an opponent's card, \drown{drown} it. \textit{(Harbors use \drown{drowned} cards.)}
 
 
 - Sunken Temple:
@@ -59,7 +59,7 @@ cards:
     purchase: 0
     upgrade cost: 3
     upgrade: >
-        When I block, I blocks all attacks instead of just one.
+        When I block, I block all attacks instead of just one.
 
 
 - Boarding Party:

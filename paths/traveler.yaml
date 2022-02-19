@@ -46,7 +46,7 @@ cards:
 
 
 - Navigate the Sands:
-    cost: F
+    cost: 
     types: innate, permanent
     text: > 
         After the second turn of the match, choose one:
@@ -55,4 +55,4 @@ cards:
 
         - The match ends \upgrade{one turn}{two turns} sooner.
     purchase: 3
-    upgrade cost: 3
+    upgrade cost: 4

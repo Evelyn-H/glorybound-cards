@@ -8,9 +8,8 @@ cards:
     text: >
         \attack{1}
 
-        I can't be blocked unless your opponent pays \mana{A}.
+        I can't be blocked unless your \upgrade{opponent pays \mana{A}}{opponent pays \mana{AA}}.
     upgrade cost: 3
-    upgrade: ...unless they pay \mana{AA}.
 
 - Careful Aim:
     cost: F

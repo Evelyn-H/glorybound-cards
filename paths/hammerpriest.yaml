@@ -8,9 +8,9 @@ cards:
     cost: SW
     text: > 
         \attack{3}
-    upgrade cost: 6
+    upgrade cost: 5
     upgrade: >
-        Banish any non-innate card from play.
+        Banish any non-innate card \linebreak from play.
     # big art: true
 
 
@@ -31,25 +31,20 @@ cards:
     text: > 
         You can't play me until you've scored at least four points.
 
-        Score one point.
-        
-        Gain \mana{SW}.
+        Gain \mana{SW} and score one point.
 
         \block
     purchase: 0
-    upgrade cost: 5
-    upgrade: >
-        For the rest of the match, your attacks get +2 attack power.
 
 
 - Desperate Prayer:
     cost: 
     types: oneshot
     text: > 
-        When you are choosing cards to keep in your hand at the start of the match, you may reveal me and keep me as an extra card.
+        Reveal me when the match starts. I don't count for maximum hand size.
 
         Score one point.
-    purchase: 3
+    purchase: 2
 
 
 - Righteous Conviction:
@@ -59,4 +54,4 @@ cards:
         \onplay{Gain \mana{X}.}
 
         While your opponent has more points than you, they can't block an attack unless they pay \mana{A}.
-    purchase: 6
+    purchase: 4

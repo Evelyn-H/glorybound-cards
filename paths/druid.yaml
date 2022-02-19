@@ -11,7 +11,7 @@ cards:
         \attack{1}
 
         \block
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         +1 attack power.
 
@@ -22,51 +22,47 @@ cards:
         \sequence
         [Gain \mana{X}.]
         [Gain \mana{X}.]
-    upgrade cost: 6
+    upgrade cost: 4
     upgrade: >
         Gain \mana{XX} each turn instead.
 
 
 - Wildshape:
-    cost: 
+    cost: A
     text: > 
-        Choose, reveal and recall an Animal Form.
+        \sequence
+        [Recall Tooth and Claw.\par \vspace{0.5mm} Your opponent's attacks get -1 attack power.]
+        [Your opponent's attacks get -1 attack power.]
+
+        When I leave play, banish Tooth and Claw.
     purchase: 0
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
-        \innatebanner
+        I stay in play for an additional turn; same effect as the final turn.
 
 
 - Tooth and Claw:
-    cost: S
+    cost: SAA
     linked: Wildshape
-    linked type: Animal Form
-    types: oneshot
     text: > 
-        \attack{3}
+        \attack{2}
 
-        I can't be blocked unless your opponent pays \mana{A}.
-    
+        \attack{2}
 
-- Take Wing:
-    cost: S
-    linked: Wildshape
-    linked type: Animal Form
-    types: oneshot
-    text: > 
-        \sequence
-        [\block]
-        [\block]
+        \textit{(One block can only stop one attack.)}
     
 
 - Fierce Seedling:
-    cost: A
+    cost: WA
     types: permanent
     text: > 
-        Each turn, I \textbf{grow}. Then, if I have \textbf{grown} at least three times:
+        \onplay{No effect this turn.}
 
+        Each turn after that:
+        \thinparbreak
         \attack{1}
     purchase: 3
+
 
 - Sheltering Ancient:
     cost: 

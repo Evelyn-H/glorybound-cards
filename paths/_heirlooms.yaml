@@ -234,7 +234,7 @@ cards:
     cost:
     types: heirloom, innate, oneshot
     text: >
-        If you've \textbf{repaired} me, \linebreak gain \mana{X}.
+        If you've \textbf{repaired} me, gain \mana{X}.
     upgrade cost: 2
     upgrade: \textbf{Repair} me.
 
@@ -244,6 +244,45 @@ cards:
     types: heirloom, innate, permanent
     text: >
         All attacks have a base attack power of 1. \textit{(All attacks includes yours and your opponents. This replaces the printed attack power, but can still be increased by effects.)}
+
+
+- Troll-Hunter's Quiver:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        \onplay{Name one of your attack cards.}
+
+        The named card can't be blocked unless your opponent pays \mana{A}.
+
+
+- Pactbound Imp:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        At the start of each turn, before players choose actions, roll a six-sided die.
+
+        After actions are revealed and played, if you remembered to roll and you rolled a 5 or 6:
+        \thinparbreak
+        \attack{1}
+
+
+- The Sun-Slayer:
+    cost: AAAA
+    types: heirloom
+    text: >
+        Reveal me when the match starts. I don't count for maximum hand size.
+
+        \attack{8}
+    big art: true
+
+
+- Bloodletter Quill:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        The first three times you lose a heart, gain an additional one XP.
+
+        As long as you have one or fewer hearts remaining, you have no maximum hand size. 
 
 
 - Wistful Memories:

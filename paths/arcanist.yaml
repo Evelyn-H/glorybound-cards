@@ -7,9 +7,9 @@ cards:
 - Arcane Research:
     cost: F
     text: > 
-        Choose two random advanced cards you have not yet learned and recall them. If you recall an innate card, play it immediately.
+        Recall two random advanced cards you have not yet learned. If you recall an innate card, play it immediately.
 
-        \textit{(You can't choose cards you've already researched this match.)}
+        \textit{(You can't research cards you've already researched this match.)}
     upgrade cost: 5
     upgrade: >
         Also turn your banished Forbidden Magic cards face down and recall one at random.

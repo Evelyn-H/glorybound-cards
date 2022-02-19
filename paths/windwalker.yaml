@@ -48,7 +48,7 @@ cards:
     purchase: 4
     upgrade cost: 4
     upgrade: >
-        ... then double the noted number.
+        Double the noted number.
 
 
 - Echoing Thunder:
