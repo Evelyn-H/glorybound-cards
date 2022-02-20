@@ -33,7 +33,7 @@ cards:
     purchase: 0
     upgrade cost: 4
     upgrade: >
-      I get +1 attack power and \linebreak gain an additional \mana{X}.
+      I get +1 attack power and \linebreak you gain an additional \mana{X}.
       \vspace{0.5mm}
 
 

@@ -191,7 +191,7 @@ cards:
     cost: 
     types: heirloom, innate
     text: >
-        When you play me, choose another innate card you are playing. I become a copy of that card, except that I cost \mana{A} in addition to that card's cost.
+        When you play me, choose another innate card you are playing. \linebreak I become a copy of that card, except that I cost \mana{A} in addition to that card's cost.
 
 
 - Inflatable Armor:
@@ -295,7 +295,7 @@ cards:
     designer: Evelyn H.
 
 
-- Vitalic Vine-Snare:
+- Ensnaring Vines:
     cost:
     types: heirloom, innate, permanent
     text: >

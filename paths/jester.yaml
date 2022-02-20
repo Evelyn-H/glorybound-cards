@@ -31,7 +31,7 @@ cards:
     text: >
       \attack{2}
 
-      When I hit, banish a card at random from your hand face-down. Next turn, play that card as an additional action. It costs no resources.
+      When I hit, banish a card at random from your hand face down. Next turn, play that card as an additional action. It costs no resources.
 
 
     purchase: 0
@@ -44,11 +44,11 @@ cards:
     cost:
     types: oneshot
     text: >
-      When you play me, swap me with a card your opponent is playing and refund that card's cost.
+      When you play me, swap me with a card your opponent is playing and they refund that card's cost.
 
       \attack{2}
 
-      (You will be using your opponent's card, and I will be attacking you. Give them their card back when you would recall it.)
+      \textit{(You will be using your opponent's card, and I will be attacking you. Give them their card back when you would recall it.)}
     purchase: 3
 
 

@@ -185,11 +185,11 @@ if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
 else:
     names = [
-        # '_heirlooms',
+        '_heirlooms',
         # 'arcanist',
         # 'archer',
         # 'assassin',
-        'berserker',
+        # 'berserker',
         # 'bogwitch',
         # 'dancer',
         # 'druid',
@@ -206,6 +206,8 @@ else:
         # 'windwalker',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
+
+paths.sort()
 
 eprint([(len(p.cards), p.name) for p in paths])
 

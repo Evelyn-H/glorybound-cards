@@ -44,7 +44,7 @@ cards:
     purchase: 0
     upgrade cost: 5
     upgrade: >
-        You may play me at any time. If you do, banish me after use. \linebreak\textit{(No action required. Yes, any time.)}
+        You may play me at any time. \linebreak If you do, banish me after use. \linebreak\textit{(No action required. Yes, any time.)}
 
 
 - Entice to Dance:

@@ -22,7 +22,7 @@ cards:
     text: >
       \attack{4}
 
-      If Unburial Rite is upgraded, I get +2 attack power.
+      \textit{If Unburial Rite is upgraded, I get +2 attack power.}
     
 
 - Lantern's Touch:
@@ -75,7 +75,7 @@ cards:
     text: > 
         If you would gain resources during a match, put them on me instead.
       
-        Your cards costs are reduced by whatever I could pay for. \textit{(For example, if you have \mana{W} in the cauldron and you play a card that costs \mana{FW}, you would only need to pay \mana{F}.)}\vspace{0.2mm}
+        Your cards' costs are reduced by whatever I could pay for. \textit{(For example, if you have \mana{W} in the cauldron and you play a card that costs \mana{FW}, you would only need to pay \mana{F}.)}\vspace{0.2mm}
     purchase: 2
     
 

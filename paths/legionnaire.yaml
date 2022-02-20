@@ -27,14 +27,12 @@ cards:
 - Arrow Volley:
     cost: SF
     text: > 
-        Repeat the following twice:
+        Repeat the following \upgrade{twice}{three times}:
         \thinparbreak
         \attack{1}
         
         \textit{(One block can only stop one attack.)}
     upgrade cost: 4
-    upgrade: >
-        I attack three times instead of two.
 
 
 - Decisive Strike:
@@ -43,7 +41,7 @@ cards:
         \attack{3}
         
         I cost one resource less for each two points you've scored this match.
-        \textit{(\mana{A} is removed before \mana{S}.)}
+        \linebreak\textit{(\mana{A} is removed before \mana{S}.)}
     purchase: 0
     upgrade cost: 3
     upgrade: >

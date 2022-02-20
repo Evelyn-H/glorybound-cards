@@ -8,9 +8,9 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        \onplay{Choose \upgrade{two dragons}{three dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
+        \onplay{Choose \upgrade{two Dragons}{three Dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
         
-        At the end of each turn, if your opponent scored points this turn, banish a dragon from your hand.
+        At the end of each turn, if your opponent scored points this turn, banish a Dragon from your hand.
     upgrade cost: 4
 
 
@@ -80,16 +80,16 @@ cards:
     cost:
     types: permanent
     text: >
-      Your dragons get +1 attack power.
+      Your Dragons get +1 attack power.
 
-      When you reveal and play a dragon, you may play any number of other dragons from your hand without paying their costs.
+      When you reveal and play a Dragon, you may play any number of other Dragons from your hand without paying their costs.
     purchase: 3
 
 
 - Furious Charge:
     cost: SSA
     text: >
-      I cost one resource less for each dragon that has been banished during the match. \textit{(\mana{A} is removed before \mana{S}.)}
+      I cost one resource less for each Dragon that has been banished during the match. \textit{(\mana{A} is removed before \mana{S}.)}
       
       \attack{2}
 
