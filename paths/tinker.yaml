@@ -29,7 +29,7 @@ cards:
     text: >
         Gain \mana{F}.
         
-        At end of turn, if you weren't hit by an attack this turn, gain an additional \mana{FF}.
+        At the end of the turn, if you weren't hit by an attack this turn, gain an additional \mana{FF}.
     upgrade cost: 2
     upgrade: If I would make you gain \mana{F}, instead gain that much \mana{X}.
 

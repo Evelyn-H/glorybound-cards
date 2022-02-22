@@ -23,7 +23,7 @@ cards:
         [\upgrade{No effect}{Gain \mana{X}.}]
         [Your opponent's cards cost twice as many resources. Added cost is in \mana{A}.
             
-        \textit{(For example, an action that would cost \mana{FA} costs \mana{FAAA}.)}]
+        \textit{(For example, a card that would cost \mana{FA} costs \mana{FAAA}.)}]
     upgrade cost: 3
     
 

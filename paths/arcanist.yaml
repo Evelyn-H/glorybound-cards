@@ -60,7 +60,7 @@ cards:
     text: > 
         Score one point for each time you played Arcane Research this match.
 
-        At end of turn, end the match. \textit{(The player with more points wins)}
+        At the end of the turn, end the match. \textit{(The player with more points wins)}
     
 
 - True Reincarnation:

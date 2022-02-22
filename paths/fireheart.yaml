@@ -19,7 +19,7 @@ cards:
     cost: WWAAA
     types: oneshot
     text: > 
-        I cost no resources once your opponent has been \burn{burned} twice.
+        If your opponent has been \burn{burned} at least twice, I cost no resources.
         
         I can't be blocked.
 
@@ -33,8 +33,8 @@ cards:
     cost: 
     text: > 
         \sequence
-        [If your opponent attacked this turn, I \burn{burn} them.]
-        [If your opponent attacked this turn, I \burn{burn} them.]
+        [If your opponent is attacking you, I \burn{burn} them.]
+        [If your opponent is attacking you, I \burn{burn} them.]
     purchase: 0
     upgrade cost: 3
     upgrade: >
@@ -45,7 +45,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        When your opponent is \burn{burned} for the \upgrade{third time}{third time and fourth time}, recall and play Set Ablaze.
+        When your opponent is \burn{burned} for the \upgrade{third time}{third time or fourth time}, recall and play Set Ablaze.
     purchase: 3
     upgrade cost: 3
     
@@ -66,4 +66,4 @@ cards:
     cost: 
     linked: Pyre Offering
     text: > 
-        I am a copy of the card that was banished by Pyre Offering, except that I also \burn{burn} your opponent when I hit or when I block an attack.
+        I am a copy of the card that was banished by Pyre Offering, except that it also \burn{burns} your opponent when it hits them or blocks an attack.

@@ -51,5 +51,7 @@ cards:
     purchase: 3
     types: innate, oneshot
     text: >
-        When you play me, recall and play \upgrade{one}{two} of the heirlooms linked to me. If this is the first time I've been played this tournament, link me to six random unused heirlooms first.
+        Recall \upgrade{one}{two} of the heirlooms linked to me. Play any innate cards you recall. 
+        
+        If this is the first time I've been played this tournament, link me to six random unused heirlooms first.
     upgrade cost: 3

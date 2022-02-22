@@ -9,7 +9,7 @@ cards:
     text: >
         \attack{2}
 
-        When I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
+        When I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions} if able.
     upgrade cost: 3
 
 - Skeletal Minion:
@@ -29,13 +29,15 @@ cards:
 - Soulless Steel:
     cost: A
     text: >
-        Your opponent can't score more than one point this turn. \textit{(If they would score, they score only one point. If they have already scored points this turn, they cannot score again.)}
+        Your opponent can't score more than one point this turn. 
+        
+        \textit{(If they would score, they score only one point. If they have already scored points this turn, they cannot score again.)}
 
 - Shambling Ranks:
     cost: W
     types: permanent
     text: >
-        At the end of each turn, if a player scored points this turn, recall and play a Skeletal Minion.
+        At the end of each turn, if a player scored points this turn, recall and play a Skeletal Minion if able.
     purchase: 0
     upgrade cost: 4
     upgrade: >
@@ -46,7 +48,7 @@ cards:
     types: oneshot
     purchase: 3
     text: >
-        Choose a banished Oneshot card you played this match or a Skeletal Minion. Recall and play that card if able.
+        Choose a banished oneshot card you played this match or a Skeletal Minion. Recall and play that card if able.
 
 - Throne of Fallen Souls:
     cost: 

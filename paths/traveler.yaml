@@ -39,7 +39,7 @@ cards:
     cost: 
     types: oneshot
     text: > 
-        When you play me, name a card your opponent is playing. 
+        Name a card your opponent is playing. 
         
         Restart the turn, except your opponent can't play the named card this turn, and I am banished.
     purchase: 2
@@ -51,8 +51,8 @@ cards:
     text: > 
         After the second turn of the match, choose one:
 
-        - The match lasts \upgrade{one turn}{two turns} longer.
+        \ -- The match lasts \upgrade{one turn}{two turns} longer.
 
-        - The match ends \upgrade{one turn}{two turns} sooner.
+        \ -- The match ends \upgrade{one turn}{two turns} sooner.
     purchase: 3
     upgrade cost: 4

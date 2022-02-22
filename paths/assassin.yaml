@@ -7,7 +7,7 @@ cards:
 - Backstab:
     cost: F
     text: > 
-        If your opponent is attacking, refund my cost and I have no effect. 
+        If your opponent is attacking you, refund my cost and I have no effect. 
 
         Otherwise: 
         \thinparbreak
@@ -19,10 +19,9 @@ cards:
 - Shadowstep:
     cost: 
     text: > 
-        \block
+        You may pay \mana{F}. If you don't, I gain \textbf{oneshot}. \textit{(Banish me after use)}
 
-        Banish me unless you pay \mana{F}.
-    
+        \block    
 
 - Trap Setting:
     cost: F
@@ -77,7 +76,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn, and you can't score points.
+        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn. \textit{(You can't hit them with attacks.)}
 
         Banish me at the end of the secret turn.
     purchase: 4

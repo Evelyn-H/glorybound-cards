@@ -53,5 +53,5 @@ cards:
     text: > 
         \onplay{Gain \mana{X}.}
 
-        While your opponent has more points than you, they can't block an attack unless they pay \mana{A}.
+        As long as your opponent has more points than you, they can't block an attack unless they pay \mana{A}.
     purchase: 4

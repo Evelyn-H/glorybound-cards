@@ -182,17 +182,17 @@ template = latex_jinja_env.get_template('latex/glorybound_template.tex')
 
 # print(sys.argv)
 if sys.argv.count('-all') > 0:
-    paths = [Path.from_file(f) for f in glob.glob('paths/*.yaml')]
+    paths = [Path.from_file(f) for f in sorted(glob.glob('paths/*.yaml'))]
 else:
     names = [
-        '_heirlooms',
+        # '_heirlooms',
         # 'arcanist',
         # 'archer',
         # 'assassin',
         # 'berserker',
         # 'bogwitch',
         # 'dancer',
-        # 'druid',
+        'druid',
         # 'fireheart',
         # 'guardian',
         # 'hammerpriest',
@@ -202,12 +202,12 @@ else:
         # 'mariner',
         # 'storyteller',
         # 'tinker',
-        # 'traveler',
+        'traveler',
         # 'windwalker',
     ]
-    paths = [Path.from_file(f'paths/{n}.yaml') for n in names]
+    paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 
-paths.sort()
+paths.sort(key=lambda p: p.name)
 
 eprint([(len(p.cards), p.name) for p in paths])
 

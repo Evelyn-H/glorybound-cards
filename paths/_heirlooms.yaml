@@ -51,7 +51,7 @@ cards:
     cost:
     types: heirloom, support
     text: >
-        When you choose me as your heirloom, also keep your other two heirloom options.
+        When you choose me as your heirloom, also choose and keep two of your other heirloom options.
         
         When the tournament begins, announce your greed and lose one heart. Then lose this heirloom.
 
@@ -80,7 +80,7 @@ cards:
 
 
 - Illusory Greatsword:
-    cost: A
+    cost:
     types: heirloom, innate, permanent
     text: >
         Your attacks get +1 attack power.
@@ -140,7 +140,7 @@ cards:
     text: >
         \onplay{Choose a turn number.}
 
-        On the chosen turn, your opponent chooses their action first and you may look at it before choosing your own. Then banish me.
+        On the chosen turn, if you would choose and reveal a card as part of your action, instead see what your opponent reveals, then choose and reveal your card. Then banish me.
 
 
 - Longstep Boots:
@@ -165,7 +165,7 @@ cards:
     text: >
         Reveal me when the match starts. I don't count for maximum hand size.
 
-        When you reveal me as your action, name a card your opponent played last turn. I am a copy of that card until I leave play, except that all cost symbols are replaced with \mana{A}.
+        When you reveal me to play me, name a card your opponent played last turn. I am a copy of that card until I leave play, except that all cost symbols are replaced with \mana{A}.
 
 
 - Prayer Rod:
@@ -179,12 +179,12 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you choose me as your heirloom, I consume one of your paths. 
-        \textit{(You get no cards or resources from it, unless you sell me.)}
+        When you choose me as your heirloom, I \textbf{consume} one of your two chosen paths. 
+        \textit{(You get no cards or resources from it.)}
 
-        \onplay{If I have consumed a path, gain \mana{XXXX} and one XP.}
+        \onplay{If I have \textbf{consumed} a path, gain \mana{XXXX} and one XP.}
 
-        The first time a card from your path would be banished during the match, banish me instead.
+        The first time one of your other cards would be banished during the match, banish me instead.
 
 
 - Morpheus Clay:
@@ -218,7 +218,7 @@ cards:
     text: >
         Your cards can't block.
         
-        When you play a card during the match, if it costs exactly the same number of resources as a card your opponent is playing, banish the card your opponent is playing at end of turn. \textit{(Resource cost as printed on the card.)}
+        When you play a card, if it costs exactly the same number of resources as a card your opponent is playing, banish the card your opponent is playing at the end of the turn. \textit{(Resource cost as printed on the card.)}
 
 
 - Explorer's Pack:
@@ -234,8 +234,8 @@ cards:
     cost:
     types: heirloom, innate, oneshot
     text: >
-        If you've \textbf{repaired} me, gain \mana{X}.
-    upgrade cost: 2
+        If you've \textbf{repaired} me, gain \mana{XX}.
+    upgrade cost: 3
     upgrade: \textbf{Repair} me.
 
 
@@ -243,7 +243,9 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        All attacks have a base attack power of 1. \textit{(All attacks includes yours and your opponents. This replaces the printed attack power, but can still be increased by effects.)}
+        All attacks have a base attack power of 1. 
+        
+        \textit{(All attacks includes yours and your opponents. This replaces the printed attack power, but can still be increased by effects.)}
 
 
 - Troll-Hunter's Quiver:
@@ -311,3 +313,18 @@ cards:
     text: >
         When you recall one or more linked cards, reveal one of those cards. I become a copy of that linked card for the rest of the match. Recall me, then you may play me immediately.
     designer: Lixing
+
+
+- Cricket the Cat:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When you attack for the second, fourth, or sixth time this match, roll a six-sided die.
+
+        \textit{Odd} -- Give an attack +1 attack power.
+
+        \textit{Even} -- If your opponent is blocking, they must block this attack if able: 
+        \thinparbreak
+        \attack{0}
+
+    designer: Kaci T.
