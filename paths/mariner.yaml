@@ -11,7 +11,7 @@ cards:
     text: > 
         \attack{1}
 
-        When I hit, banish a non-innate card from play.
+        When I hit, banish one of your opponent's non-innate cards from play.
     upgrade cost: 3
     upgrade: >
         I get +1 attack power.

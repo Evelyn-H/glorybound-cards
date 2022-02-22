@@ -46,6 +46,6 @@ cards:
     purchase: 4
     types: oneshot
     text: >
-        If your opponent isn't attacking, you may play another card.
+        If your opponent isn't attacking you, you may play another card.
         
         \block

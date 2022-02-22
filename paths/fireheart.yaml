@@ -45,7 +45,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        When your opponent is \burn{burned} for the \upgrade{third time}{third time or fourth time}, recall and play Set Ablaze.
+        When your opponent is \burn{burned} for the \upgrade{third time}{third time or fourth time}, recall and play Set Ablaze if able.
     purchase: 3
     upgrade cost: 3
     
@@ -66,4 +66,4 @@ cards:
     cost: 
     linked: Pyre Offering
     text: > 
-        I am a copy of the card that was banished by Pyre Offering, except that it also \burn{burns} your opponent when it hits them or blocks an attack.
+        I am a copy of the card that was banished by Pyre Offering, except that I also \burn{burn} your opponent when I hit them or block an attack.

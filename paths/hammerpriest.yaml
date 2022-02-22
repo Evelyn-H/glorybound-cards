@@ -10,7 +10,7 @@ cards:
         \attack{3}
     upgrade cost: 5
     upgrade: >
-        Banish any non-innate card \linebreak from play.
+        Banish one of your opponent's non-innate cards from play.
     # big art: true
 
 

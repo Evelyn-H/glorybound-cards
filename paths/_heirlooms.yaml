@@ -69,7 +69,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you attack for the third time this match, banish me to \linebreak gain \mana{XX}.
+        When you attack for the third time this match, banish me to gain \mana{XX}.
 
 
 - Crooked Sundial:
@@ -121,7 +121,7 @@ cards:
 
 
 - Elvish Cookbook:
-    cost:
+    cost: A
     types: heirloom, innate, permanent
     text: >
         When you gain one or more resources during the match, pay \mana{A} to score one point.
@@ -140,7 +140,7 @@ cards:
     text: >
         \onplay{Choose a turn number.}
 
-        On the chosen turn, if you would choose and reveal a card as part of your action, instead see what your opponent reveals, then choose and reveal your card. Then banish me.
+        On the chosen turn, if you would choose and reveal a card as your action, instead your opponent reveals their card first, then you choose and reveal a card. Then banish me.
 
 
 - Longstep Boots:
@@ -179,10 +179,10 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you choose me as your heirloom, I \textbf{consume} one of your two chosen paths. 
+        When you choose me as your heirloom, I consume one of your two chosen paths. 
         \textit{(You get no cards or resources from it.)}
 
-        \onplay{If I have \textbf{consumed} a path, gain \mana{XXXX} and one XP.}
+        \onplay{If I have consumed a path, gain \mana{XXXX} and one XP.}
 
         The first time one of your other cards would be banished during the match, banish me instead.
 
@@ -191,7 +191,7 @@ cards:
     cost: 
     types: heirloom, innate
     text: >
-        When you play me, choose another innate card you are playing. \linebreak I become a copy of that card, except that I cost \mana{A} in addition to that card's cost.
+        When you play me, choose another innate card you are playing. I become a copy of that card, except that I cost \mana{A} in addition to that card's cost.
 
 
 - Inflatable Armor:

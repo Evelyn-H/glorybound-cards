@@ -45,6 +45,8 @@ cards:
         \sequence
         [Your opponent recalls Audacious Croak and Leap Away.]
         [Your opponent can only play frog cards.]
+
+        When I leave play, banish both Frog cards.
     purchase: 0
 
 
@@ -55,8 +57,6 @@ cards:
     text: >
       Gain \mana{X}.
 
-      Banish me when Polliwog Curse leaves play.
-
     
 - Leap Away:
     cost: AA
@@ -64,9 +64,6 @@ cards:
     linked type: Frog
     text: >
       \block
-
-      Banish me when Polliwog Curse leaves play.
-
 
 
 - Putrid Cauldron:

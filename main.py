@@ -192,7 +192,7 @@ else:
         # 'berserker',
         # 'bogwitch',
         # 'dancer',
-        'druid',
+        # 'druid',
         # 'fireheart',
         # 'guardian',
         # 'hammerpriest',
@@ -202,8 +202,8 @@ else:
         # 'mariner',
         # 'storyteller',
         # 'tinker',
-        'traveler',
-        # 'windwalker',
+        # 'traveler',
+        # 'windwalker', 
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 
