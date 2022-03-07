@@ -23,3 +23,6 @@ latex/glorybound.pdf
 .venv
 launch.json
 settings.json
+
+# damn windows
+Thumbs.db*
