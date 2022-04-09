@@ -180,7 +180,8 @@
     %
     % purchase cost?
     \pgfkeysifdefined{purchase}{%
-        \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/padlock.png}
+        % \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/padlock.png}
+        \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/level.png}
     }{%
         \bettertextbox[%
             anchor=center,
@@ -195,7 +196,8 @@
     %
     % upgrade cost?
     \pgfkeysifdefined{upgrade}{%
-        \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/upgrade.png}
+        % \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/upgrade.png}
+        \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/level.png}
     }{}%
     %
     % card name

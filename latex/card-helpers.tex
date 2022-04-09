@@ -541,11 +541,14 @@
     \directlua{
         function get_mana_filename(s)
             symbols = {}
-            symbols["A"] = "any"
-            symbols["F"] = "focus"
-            symbols["S"] = "strength"
-            symbols["W"] = "will"
-            symbols["X"] = "spirit"
+            % symbols["A"] = "any"
+            % symbols["F"] = "focus"
+            % symbols["S"] = "strength"
+            % symbols["W"] = "will"
+            % symbols["X"] = "spirit"
+            symbols["S"] = "spirit"
+            symbols["X"] = "sacrifice"
+            symbols["H"] = "spirit-or-sacrifice"
             return symbols[s] or s
         end
     }
@@ -661,6 +664,7 @@
 
 \newcommand{\upgradeicon}{%
     \smash{\scalerel*{%
-            \includegraphics{icons/upgrade.png}%
+            % \includegraphics{icons/upgrade.png}%
+            \includegraphics{icons/level.png}%
     }{\strut}}%
 }

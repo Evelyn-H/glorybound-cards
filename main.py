@@ -24,7 +24,7 @@ schema = Map({
     'cards': Seq(
         MapPattern(
             Str(), Map({
-                'cost': Regex(r'[SWFAX]*'), 
+                'cost': Regex(r'[SWFAXH]*'), 
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
@@ -197,7 +197,7 @@ else:
         # 'guardian',
         # 'hammerpriest',
         # 'jester',
-        # 'legionnaire',
+        'legionnaire',
         # 'lichknight',
         # 'mariner',
         # 'storyteller',
