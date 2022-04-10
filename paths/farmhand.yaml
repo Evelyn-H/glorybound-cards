@@ -1,0 +1,27 @@
+path: Farmhand
+colors: F49B0C - 34BC0F
+
+
+cards:    
+- Village Heroism:
+    cost: SS
+    text: > 
+        \attack{3}
+
+        \Invoke .
+
+
+- Tend the Flock:
+    cost: 
+    text: > 
+        If your opponent is attacking:
+        \thinparbreak
+        \block
+        
+        Otherwise, gain \mana{S}.
+
+
+- Plow Under:
+    cost: X
+    text: > 
+        Banish a card from play.

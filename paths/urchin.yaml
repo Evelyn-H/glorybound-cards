@@ -1,0 +1,34 @@
+path: Urchin
+colors: 590050 - F700AD
+
+
+cards:
+- Petty Theft:
+    cost: 
+    text: > 
+        \attack{1}
+
+        When I hit, recall Stolen Treats.
+
+- Stolen Treats:
+    cost: X
+    linked: Petty Theft
+    text: > 
+        Score one point.
+
+        \Invoke .
+
+- Mock the Crown:
+    cost: 
+    text: > 
+        \attack{0}
+
+        If your opponent is blocking, they must block me and you score one point.
+
+
+- Into the Alleys:
+    cost: H
+    text: > 
+        \sequence
+        [\block]
+        [You get an additional action.]

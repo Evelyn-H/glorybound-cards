@@ -1,0 +1,30 @@
+path: Prodigy
+colors: E100FF - 5300EF
+passive name: Gifted with Magic
+passive: >
+    Keep an additional talent. Each time you \invoke, choose which talent to \invoke .
+
+
+cards:
+- Arcane Outburst:
+    cost: H
+    text: > 
+        \Invoke .
+
+        \attack{1}
+    
+
+- Trust No One:
+    cost: 
+    text: > 
+        \block
+
+        If you are being attacked, gain \mana{S}.
+    
+
+- Careful Channeling:
+    cost: S
+    text: > 
+        \sequence
+        [\Invoke .]
+        [\Invoke .]

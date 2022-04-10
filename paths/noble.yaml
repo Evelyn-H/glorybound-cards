@@ -1,0 +1,26 @@
+path: Noble
+colors: 990BF0 - E8AD23
+
+cards:
+- Call the Guards:
+    cost: 
+    text: >
+        \sequence
+        [No effect.]
+        [\block\par\attack{1}]
+
+
+- Social Graces:
+    cost:
+    text: >
+        \Invoke . 
+        
+        At the end of the turn, score one point unless you were hit by an attack this turn.
+
+
+- Deem Treasonous:
+    cost: SX
+    text: >
+        \block
+
+        Banish a card from play.

@@ -1,0 +1,27 @@
+path: Outlander
+colors: 284A30 - 7F8853
+
+cards:
+- Survive the Wilds:
+    cost: H
+    text: >
+        \block
+        
+        \Invoke .
+
+
+- Troll-Hunting Bow:
+    cost: H
+    text: >
+        \attack{1}
+        
+        \swift
+
+
+- Careful Aim:
+    cost: 
+    types: permanent
+    text: >
+        \onplay{Gain \mana{S}.} 
+        
+        The next time you attack, recall me to give an attack +2 attack power.

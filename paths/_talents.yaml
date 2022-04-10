@@ -1,0 +1,189 @@
+path: Talent
+colors: AF7942 - F2C087
+
+
+cards:    
+
+ - Command of Fire:
+    cost: S
+    types: permanent
+    text: >
+        Your attacks get +1 attack power.
+
+        \invoke[\thinparbreak\attack{1}]
+
+
+ - Defy Mortality:
+    cost: X
+    text: >
+        If you would complete a sequence this turn, that card stays in play for an additional turn with the same effect as the final printed stage.
+
+        \invoke[Recall and play a Skeletal Minion]
+
+
+ - Rays of Radiance:
+    cost: SS
+    text: >
+        \attack{3}
+
+        I can't be blocked.
+
+        \invoke[Gain \mana{S}.]
+
+
+ - Move Like Lightning:
+    cost: 
+    text: >
+        Gain \mana{S}.
+
+        Your attacks get +1 attack power this turn.
+
+        \invoke[You get an additional action next turn.]
+
+
+ - Speak with Ghosts:
+    cost: X
+    text: >
+        Gain \mana{S}.
+
+        Recall a banished card you played this match.
+
+        \invoke[You may pay \mana{S} to recall and play a Guardian Spirit.]
+
+
+ - Gift of Lullabies:
+    cost: 
+    text: >
+        If your opponent began the turn exhausted, they can't score points this turn.
+
+        \invoke[Exhaust your opponent.]
+
+
+ - Duelist's Finesse:
+    cost: H
+    text: > 
+        \attack{1}
+
+        \swift
+
+        \invoke[I get +2 attack power for the rest of the match.]
+
+        
+ - Iron Skin:
+    cost: 
+    types: permanent
+    text: >
+        Your opponent's attacks get -1 attack power. 
+        
+        When you are hit by an attack, recall me at end of turn.
+
+        \invoke[I can't be recalled this turn. Play me if able.]
+
+
+ - Step Through Time:
+    cost: S
+    text: >
+        \attack{2}
+        
+        If it's the final turn of the match, attack twice instead. \textit{(one block can only stop one attack.)}
+
+        \invoke[The match ends one turn sooner.]
+
+
+ - Touch of Decay:
+    cost: 
+    text: >
+        \attack{0}
+        
+        When I hit, \invoke.
+
+        \invoke[Your opponent must pay \mana{S}. If they can't:\thinparbreak \attack{2}]
+
+
+ - Command of Ice:
+    cost: 
+    text: >
+        \block
+        
+        \Invoke .
+
+        \invoke[Your opponent must sacrifice a card if able.]
+
+
+ - Erase Memories:
+    cost: X
+    text: >
+        Look at your opponent's hand, then choose and banish a card from their hand.
+
+        \invoke[Name a card. Your opponent can't play the named card next turn.]
+
+
+ - Shapetheft:
+    cost: 
+    text: >
+        When you reveal me, name a card your opponent played last turn. I am a copy of that card until I leave play.
+
+        \invoke[\Invoke\ your opponent's talent.]
+
+
+ - Thrive in Carnage:
+    cost: S
+    text: >
+        \attack{3}
+        
+        If either player has five or more points, I cost nothing to play.
+
+        \invoke[At the end of the turn, if your opponent hit you with an attack this turn, score one point.]
+
+
+ - Prophetic Visions:
+    cost:
+    text: >
+        \sequence
+        [No effect.]
+        [No effect.]
+        [\attack{3}]
+
+        \invoke[Score double points next turn.]
+
+
+ - Harness Chaos:
+    cost: 
+    text: >
+        Reveal a card from your hand at random and play it without paying costs.
+
+        \invoke[Roll a six-sided die.\thinparbreak 1-2: Banish a card from your hand.\thinparbreak 3-5:\thinparbreak\attack{1}\thinparbreak 6: Play me if able.]
+
+
+ - Befriend Wild Beasts:
+    cost: 
+    types: permanent
+    text: >
+        \onplay{No effect.}
+
+        \invoke[If I'm in play, you must recall me to\thinparbreak \attack{4}\thinparbreak Otherwise, play me.]
+
+
+ - Demonic Pact:
+    cost: 
+    text: >
+        \attack{1}
+
+        If your hand is empty, I get +1 attack power.
+
+        \invoke[Play a card from your hand if able. Sacrifice it if you haven't yet.]
+
+
+# helper cards
+
+ - Guardian Spirit:
+    cost: X
+    linked: >
+        {Speak with Ghosts}
+    linked short: true
+    path card name: Guardian Spirit\ \ (3 copies)
+    types: permanent
+    text: >
+        When you are attacked, banish me to: 
+        \thinparbreak
+        \block

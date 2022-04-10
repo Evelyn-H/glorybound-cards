@@ -19,8 +19,9 @@ def eprint(*args, **kwargs):
 schema = Map({
     'path': Str(),
     'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
-    'resources': Regex(r'[WSFX]{3}'),
     Optional('extras'): Str(),
+    Optional('passive name'): Str(),
+    Optional('passive'): Str(),
     'cards': Seq(
         MapPattern(
             Str(), Map({
@@ -76,12 +77,13 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, resources, cards, extras=None):
+    def __init__(self, name, colors, cards, extras=None, passive_name=None, passive=None):
         self.name = name
         self.colors = colors
-        self.resources = resources
         self.cards = cards
         self.extras = extras
+        self.passive_name = passive_name
+        self.passive = passive
 
     @classmethod
     def from_file(cls, filename):
@@ -103,11 +105,12 @@ class Path(object):
 
         name = data['path']
         colors = tuple([c.strip() for c in data['colors'].split('-')])
-        resources = data['resources']
         cards = [Card(card) for card in data['cards']]
         extras = data.get('extras', None)
+        passive_name = data.get('passive name', None)
+        passive = data.get('passive', None)
         # print(*cards, sep='\n')
-        path = Path(name, colors, resources, cards, extras)
+        path = Path(name, colors, cards, extras, passive_name, passive)
         path.build_links()
         return path
 
@@ -197,13 +200,23 @@ else:
         # 'guardian',
         # 'hammerpriest',
         # 'jester',
-        'legionnaire',
+        # 'legionnaire',
         # 'lichknight',
         # 'mariner',
         # 'storyteller',
         # 'tinker',
         # 'traveler',
         # 'windwalker', 
+
+        # '_talents',
+        'urchin',
+        'farmhand',
+        'apprentice',
+        'disciple',
+        'noble',
+        'prodigy',
+        'outlander',
+        'soldier',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 
