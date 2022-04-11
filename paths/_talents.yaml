@@ -18,7 +18,7 @@ cards:
     text: >
         If you would complete a sequence this turn, that card stays in play for an additional turn with the same effect as the final printed stage.
 
-        \invoke[Recall and play a Skeletal Minion]
+        \invoke[Recall and play a Skeletal Minion.]
 
 
  - Rays of Radiance:
@@ -41,7 +41,7 @@ cards:
         \invoke[You get an additional action next turn.]
 
 
- - Speak with Ghosts:
+ - Speak With Ghosts:
     cost: X
     text: >
         Gain \mana{S}.
@@ -56,7 +56,7 @@ cards:
     text: >
         If your opponent began the turn exhausted, they can't score points this turn.
 
-        \invoke[Exhaust your opponent.]
+        \invoke[Exhaust your opponent.\par \textit{(If you play a card when exhausted, you must sacrifice it if you haven't yet. Resting removes exhaust.)}]
 
 
  - Duelist's Finesse:
@@ -179,7 +179,7 @@ cards:
  - Guardian Spirit:
     cost: X
     linked: >
-        {Speak with Ghosts}
+        {Speak With Ghosts}
     linked short: true
     path card name: Guardian Spirit\ \ (3 copies)
     types: permanent
@@ -187,3 +187,24 @@ cards:
         When you are attacked, banish me to: 
         \thinparbreak
         \block
+
+
+ - Skeletal Minion:
+    cost: X
+    linked: >
+        {Defy Mortality}
+    linked short: true
+    path card name: Skeletal Minion\ \ (3 copies)
+    text: >
+        \sequence
+        [No effect.]
+        [\attack{1}]
+
+ - Rest:
+    cost:
+    text: >
+        Reveal me when the match starts. I don't count for maximum hand size.
+
+        You are no longer Exhausted. \textit{(If you play a card when exhausted, you must sacrifice it if you haven't yet.)}
+
+        \textit{(Play me if you can't or don't want to play any other cards.)}

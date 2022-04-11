@@ -208,15 +208,15 @@ else:
         # 'traveler',
         # 'windwalker', 
 
-        # '_talents',
-        'urchin',
-        'farmhand',
-        'apprentice',
-        'disciple',
-        'noble',
-        'prodigy',
-        'outlander',
-        'soldier',
+        '_talents',
+        # 'urchin',
+        # 'farmhand',
+        # 'apprentice',
+        # 'disciple',
+        # 'noble',
+        # 'prodigy',
+        # 'outlander',
+        # 'soldier',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 
