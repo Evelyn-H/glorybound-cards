@@ -4,7 +4,7 @@ colors: 000000 - C8000F
 
 cards:
 - Bloodthirsty Axe:
-    cost: SA
+    cost: H
     text: >
       I get +2 attack power if you are being attacked.
 
@@ -15,7 +15,7 @@ cards:
     cost:
     types: permanent
     text: >
-      At the start of each turn, if your opponent has scored three or more points this match, you get an additional action this turn.
+      At the start of each turn, if your opponent has scored two or more points this match, you get an additional action this turn.
     upgrade cost: 4
     upgrade: >
         \innatebanner
@@ -24,35 +24,31 @@ cards:
 - Rite of Scars:
     cost:
     text: >
-      Gain \mana{XX}.
+      Gain \mana{SS}.
 
-      Attack yourself with an attack power of 2.
+      Attack yourself with an attack power of 1.
     
       \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the points.)}
-    purchase: 0
-    upgrade cost: 4
+    purchase: 2
+    upgrade cost: 3
     upgrade: >
-      I get +1 attack power and \linebreak you gain an additional \mana{X}.
+      I get +1 attack power and \linebreak you gain an additional \mana{S}.
       \vspace{0.5mm}
 
 
 - Pillage:
-    cost:
-    types: oneshot
+    cost: X
     text: >
       Banish a card your opponent played this turn.
-    purchase: 0
-    upgrade cost: 3
-    upgrade: >
-      Also banish one of your opponent's non-innate cards of their choice from hand or play.
+      
+      Banish one of your opponent's non-innate cards of their choice from hand or play.
+    purchase: 3
+
 
 - Retribution:
-    cost: SAA
+    cost: S
     text: >
       I get +1 attack power for each two points your opponent has scored this match.
 
       \attack{2}
-
-      I can't be blocked unless your \upgrade{opponent pays \mana{A}}{opponent pays \mana{AA}}.
-    purchase: 3
-    upgrade cost: 3
+    purchase: 4

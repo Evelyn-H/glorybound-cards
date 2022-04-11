@@ -4,17 +4,17 @@ colors: 54939E - FFCE7F
 
 cards:
 - Aeon-Worn Staff:
-    cost: A
+    cost: 
     text: > 
         \attack{1}
 
         If both players scored points last turn, I get +1 attack power.
         
-        If neither player scored points last turn, I cost one resource less to play.
+        If neither player scored points last turn, gain \mana{S}.
 
 
 - Shelter at the Crossroads:
-    cost: F
+    cost: 
     text: > 
         \sequence
         [\block]
@@ -22,26 +22,25 @@ cards:
 
 
 - Out of Time:
-    cost: W
+    cost: S
     text: > 
         \sequence
         [No effect.]
         [No effect.]
-        [\attack{3}]
-    purchase: 0
+        [\attack{4}]
+    purchase: 2
     upgrade cost: 3
     upgrade: >
-        I can't be blocked unless your opponent pays \mana{A}.
+        I can't be blocked unless your opponent pays \mana{S}.
 
 
 - Alter Fate:
-    cost: 
-    types: oneshot
+    cost: X
     text: > 
         Name a card your opponent is playing. 
         
         Restart the turn, except your opponent can't play the named card this turn, and I am banished.
-    purchase: 2
+    purchase: 3
 
 
 - Navigate the Sands:
@@ -54,4 +53,4 @@ cards:
 
         \ -- The match ends \upgrade{one turn}{two turns} sooner.
     purchase: 3
-    upgrade cost: 4
+    upgrade cost: 5
