@@ -1,11 +1,10 @@
 path: Lich Knight
 colors: 820000 - 88ADDB
-resources: SSW
 
 
 cards:
 - Culling Scythe:
-    cost: SA
+    cost: H
     text: >
         \attack{2}
 
@@ -13,12 +12,11 @@ cards:
     upgrade cost: 3
 
 - Skeletal Minion:
-    cost: 
+    cost: X
     linked: >
         {Culling Scythe}
     linked short: true
     path card name: Skeletal Minion\ \ (3 copies)
-    types: oneshot
     text: >
         \sequence
         [No effect.]
@@ -27,37 +25,35 @@ cards:
         \textit{If Shambling Ranks is upgraded, I get +1 attack power.}
 
 - Soulless Steel:
-    cost: A
+    cost: 
     text: >
         Your opponent can't score more than one point this turn. 
         
         \textit{(If they would score, they score only one point. If they have already scored points this turn, they cannot score again.)}
 
 - Shambling Ranks:
-    cost: W
+    cost:
     types: permanent
     text: >
         At the end of each turn, if a player scored points this turn, recall and play a Skeletal Minion if able.
-    purchase: 0
+    purchase: 2
     upgrade cost: 4
     upgrade: >
         Your Skeletal Minions get +1 attack power.
 
 - Call from the Grave: 
-    cost: 
-    types: oneshot
+    cost: X
     purchase: 3
     text: >
-        Choose a banished oneshot card you played this match or a Skeletal Minion. Recall and play that card if able.
+        Choose a banished card you played this match or a Skeletal Minion. Recall and play that card if able, sacrifice it if you haven't yet.
 
 - Throne of Fallen Souls:
     cost: 
     types: support
-    purchase: 3
+    purchase: 4
     text: >
-        You can claim cards from the paths of eliminated players. Claim up to two cards throughout the tournament. All cost symbols on those cards are replaced with \mana{A}.
-
-        When you learn me, gain 3 shadow XP and restore a lost heart. Only shadow XP can be spent to learn and upgrade claimed cards.
-    upgrade cost: 3
-    upgrade: >
-        Gain 5 more shadow XP.
+        You can claim cards from the paths of eliminated players. 
+        
+        Claim up to two cards throughout the tournament with total level 5 or less. 
+        
+        When you claim a card, you learn it

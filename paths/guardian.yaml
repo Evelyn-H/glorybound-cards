@@ -1,6 +1,5 @@
 path: Guardian
 colors: 92bd28 - D35054
-resources: SSS
 
 
 cards:    
@@ -15,7 +14,7 @@ cards:
 
 
 - Inferno Dragon:
-    cost: A
+    cost: 
     linked: Raising Dragons
     linked type: Dragon
     text: >
@@ -29,7 +28,7 @@ cards:
 
 
 - Frost Dragon:
-    cost: A
+    cost: 
     linked: Raising Dragons
     linked type: Dragon
     text: >
@@ -43,7 +42,7 @@ cards:
 
 
 - Shadow Dragon:
-    cost: A
+    cost: 
     linked: Raising Dragons
     linked type: Dragon
     text: >
@@ -57,23 +56,33 @@ cards:
 
 
 - Defend the Young:
-    cost: S
+    cost: H
     text: >
       \sequence
       [\block]
-      [Your opponent's attack cards \upgrade{cost \mana{A} more}{cost \mana{AA} more}.]
-    upgrade cost: 3
+      [Your opponent can't attack unless they pay \upgrade{\mana{S}}{\mana{SS}}.]
+    upgrade cost: 4
 
 
 - Unyielding Protection:
-    cost: SA
-    types: oneshot
+    cost: SX
     text: >
       Your opponent can't score points this turn.
-    purchase: 0
-    upgrade cost: 4
+    purchase: 2
+    upgrade cost: 3
     upgrade: >
-      I cost no resources.
+      I only cost \mana{X}.
+
+
+- Furious Charge:
+    cost: SS
+    text: >
+      I cost \mana{S} less for each Dragon that has been banished during the match.
+      
+      \attack{2}
+
+      \block
+    purchase: 3
 
 
 - Nurture Cooperation:
@@ -83,15 +92,4 @@ cards:
       Your Dragons get +1 attack power.
 
       When you reveal and play a Dragon, you may play any number of other Dragons from your hand without paying their costs.
-    purchase: 3
-
-
-- Furious Charge:
-    cost: SSA
-    text: >
-      I cost one resource less for each Dragon that has been banished during the match. \textit{(\mana{A} is removed before \mana{S}.)}
-      
-      \attack{2}
-
-      \block
     purchase: 4

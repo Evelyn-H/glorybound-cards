@@ -1,11 +1,10 @@
 path: Hammer Priest
 colors: 33CCFF - FECD01
-resources: SSW
 
 
 cards:
 - Smiting Hammer:
-    cost: SW
+    cost: S
     text: > 
         \attack{3}
     upgrade cost: 5
@@ -15,7 +14,7 @@ cards:
 
 
 - Shield of Faith:
-    cost: S
+    cost: 
     text: > 
         \sequence
         [\block]
@@ -26,32 +25,30 @@ cards:
 
 
 - Divine Intervention:
-    cost: 
-    types: oneshot
+    cost: X
     text: > 
         You can't play me until you've scored at least four points.
 
-        Gain \mana{SW} and score one point.
+        Gain \mana{SS} and score one point.
 
         \block
-    purchase: 0
+    purchase: 2
 
 
 - Desperate Prayer:
-    cost: 
-    types: oneshot
+    cost: X
     text: > 
         Reveal me when the match starts. I don't count for maximum hand size.
 
         Score one point.
-    purchase: 2
+    purchase: 3
 
 
 - Righteous Conviction:
     cost: 
     types: innate, permanent
     text: > 
-        \onplay{Gain \mana{X}.}
+        \onplay{Gain \mana{S}.}
 
-        As long as your opponent has more points than you, they can't block an attack unless they pay \mana{A}.
+        As long as your opponent has more points than you, they can't block an attack unless they pay \mana{S}.
     purchase: 4

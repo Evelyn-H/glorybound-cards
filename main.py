@@ -19,7 +19,6 @@ def eprint(*args, **kwargs):
 schema = Map({
     'path': Str(),
     'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
-    'resources': Regex(r'[WSFX]{3}'),
     Optional('extras'): Str(),
     'cards': Seq(
         MapPattern(
@@ -76,10 +75,9 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, resources, cards, extras=None):
+    def __init__(self, name, colors, cards, extras=None):
         self.name = name
         self.colors = colors
-        self.resources = resources
         self.cards = cards
         self.extras = extras
 
@@ -103,11 +101,10 @@ class Path(object):
 
         name = data['path']
         colors = tuple([c.strip() for c in data['colors'].split('-')])
-        resources = data['resources']
         cards = [Card(card) for card in data['cards']]
         extras = data.get('extras', None)
         # print(*cards, sep='\n')
-        path = Path(name, colors, resources, cards, extras)
+        path = Path(name, colors, cards, extras)
         path.build_links()
         return path
 
@@ -191,19 +188,19 @@ else:
         # 'assassin',
         # 'berserker',
         # 'bogwitch',
-        # 'dancer',
-        # 'druid',
+        'dancer',
+        'druid',
         # 'fireheart',
-        # 'guardian',
-        # 'hammerpriest',
+        'guardian',
+        'hammerpriest',
         # 'jester',
         'legionnaire',
-        # 'lichknight',
+        'lichknight',
         # 'mariner',
-        # 'storyteller',
-        # 'tinker',
+        'storyteller',
+        'tinker',
         # 'traveler',
-        # 'windwalker', 
+        'windwalker', 
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 

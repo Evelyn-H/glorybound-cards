@@ -1,7 +1,6 @@
 path: Fireheart
 # colors: F27100 - F90063
 colors: F26100 - F90063
-resources: WWW
 extras: >
   \newcommand{\burn}[1]{\textcolor[HTML]{F63132}{\textbf{#1}}}
 

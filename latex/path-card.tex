@@ -138,11 +138,14 @@
     \directlua{
         function get_mana_filename(s)
             symbols = {}
-            symbols["A"] = "any"
-            symbols["F"] = "focus"
-            symbols["S"] = "strength"
-            symbols["W"] = "will"
-            symbols["X"] = "spirit"
+            % symbols["A"] = "any"
+            % symbols["F"] = "focus"
+            % symbols["S"] = "strength"
+            % symbols["W"] = "will"
+            % symbols["X"] = "spirit"
+            symbols["S"] = "spirit"
+            symbols["X"] = "sacrifice"
+            symbols["H"] = "spirit-or-sacrifice"
             return symbols[s] or s
         end
     }
@@ -294,9 +297,9 @@
 
     % resources
     % \typeout{\pgfkeysvalueof{/path/resources}}
-    \renderresource{-5mm}{\substring{\pgfkeysvalueof{/path/resources}}{1}{1}}
-    \renderresource{0mm}{\substring{\pgfkeysvalueof{/path/resources}}{2}{2}}
-    \renderresource{5mm}{\substring{\pgfkeysvalueof{/path/resources}}{3}{3}}
+    % \renderresource{-5mm}{\substring{\pgfkeysvalueof{/path/resources}}{1}{1}}
+    % \renderresource{0mm}{\substring{\pgfkeysvalueof{/path/resources}}{2}{2}}
+    % \renderresource{5mm}{\substring{\pgfkeysvalueof{/path/resources}}{3}{3}}
 
     
     % make sure we have the right font by default

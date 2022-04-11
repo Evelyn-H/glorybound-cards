@@ -1,12 +1,11 @@
 path: Druid
 # colors: FFA50A - 3B8E0E
 colors: F49B0C - 34BC0F
-resources: SWW
 
 
 cards:    
 - Bind in Thorns:
-    cost: WA
+    cost: H
     text: > 
         \attack{1}
 
@@ -20,29 +19,29 @@ cards:
     cost: 
     text: > 
         \sequence
-        [Gain \mana{X}.]
-        [Gain \mana{X}.]
+        [Gain \mana{S}.]
+        [Gain \mana{S}.]
     upgrade cost: 4
     upgrade: >
-        Gain \mana{XX} each turn instead.
+        Gain \mana{SS} each turn instead.
 
 
 - Wildshape:
-    cost: A
+    cost: 
     text: > 
         \sequence
         [Recall Tooth and Claw.\par \vspace{0.5mm} Your opponent's attacks get -1 attack power.]
         [Your opponent's attacks get -1 attack power.]
 
         When I leave play, banish Tooth and Claw.
-    purchase: 0
-    upgrade cost: 3
+    purchase: 2
+    upgrade cost: 4
     upgrade: >
         I stay in play for an additional turn; same effect as the final turn.
 
 
 - Tooth and Claw:
-    cost: SAA
+    cost: SS
     linked: Wildshape
     text: > 
         \attack{2}
@@ -53,7 +52,7 @@ cards:
     
 
 - Fierce Seedling:
-    cost: WA
+    cost: S
     types: permanent
     text: > 
         \onplay{No effect this turn.}
@@ -73,4 +72,4 @@ cards:
         \block
 
         At the end of the second turn of the match, banish me.
-    purchase: 5
+    purchase: 4

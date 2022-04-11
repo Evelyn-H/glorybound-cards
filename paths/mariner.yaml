@@ -1,6 +1,5 @@
 path: Mariner
 colors: 000257 - 4FB1A8
-resources: SSF
 extras: >
   \newcommand{\drown}[1]{\textcolor[HTML]{3B8594}{\textbf{#1}}}
 

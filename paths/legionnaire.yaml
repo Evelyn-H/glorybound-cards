@@ -1,7 +1,6 @@
 path: Legionnaire
 # colors: FFA500 - AF0301
 colors: FFB300 - AF1E01
-resources: SSF
 
 
 cards:
@@ -19,7 +18,6 @@ cards:
 - Parry:
     cost: X
     linked: Balanced Blade
-    types: oneshot
     text: > 
         \block
 
@@ -41,7 +39,7 @@ cards:
         \attack{3}
         
         I cost \mana{S} less for each two points you've scored this match.
-    purchase: 0
+    purchase: 2
     upgrade cost: 3
     upgrade: >
         If you have eight or more points,\linebreak I get +2 attack power.
@@ -61,7 +59,7 @@ cards:
         }
 
     purchase: 3
-    upgrade cost: 3
+    upgrade cost: 5
     
 
 - Shield Wall:
