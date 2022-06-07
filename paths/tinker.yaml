@@ -39,7 +39,7 @@ cards:
     purchase: 3
 
 - Innovator's Triumph:
-    cost: 
+    cost: X
     purchase: 4
     text: >
-        Learn and upgrade all your cards, and recall all your banished cards. This does not affect linked or support cards
+        Learn and upgrade all your cards until the end of the match. Recall all your cards that are banished or outside the match. This does not affect conjured or support cards.

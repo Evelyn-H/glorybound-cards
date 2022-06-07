@@ -7,25 +7,24 @@ extras: >
 
 cards:    
 - Insatiable Flame:
-    cost: W
+    cost: 
     text: > 
         \attack{1}
 
-        I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze)}
+        I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze.)}
+    upgrade cost: 3
+    upgrade: >
+        I can't be blocked unless your opponent pays \mana{S}.
     
 
 - Set Ablaze:
-    cost: WWAAA
-    types: oneshot
+    cost: SSX
     text: > 
-        If your opponent has been \burn{burned} at least twice, I cost no resources.
+        If your opponent has been \burn{burned} at least twice, I cost \mana{S} less to play and I get +2 attack power.
         
         I can't be blocked.
 
-        \attack{4}
-    upgrade cost: 5
-    upgrade: >
-        I only cost \mana{WWA}.
+        \attack{3}
 
 
 - Inferno Circle:
@@ -34,10 +33,8 @@ cards:
         \sequence
         [If your opponent is attacking you, I \burn{burn} them.]
         [If your opponent is attacking you, I \burn{burn} them.]
-    purchase: 0
-    upgrade cost: 3
-    upgrade: >
-        I stay in play for an additional turn; same effect as the final turn.
+        [If your opponent is attacking you, I \burn{burn} them.]
+    purchase: 2
 
 
 - Kindled Flame:
@@ -46,17 +43,16 @@ cards:
     text: > 
         When your opponent is \burn{burned} for the \upgrade{third time}{third time or fourth time}, recall and play Set Ablaze if able.
     purchase: 3
-    upgrade cost: 3
+    upgrade cost: 4
     
 
 - Pyre Offering:
-    cost: 
-    types: oneshot
+    cost: X
     text: > 
         Reveal me when the match starts. I don't count for maximum hand size.
 
         \sequence
-        [Banish a non-Fireheart card from your hand to recall Consumed by Flame.]
+        [Gain \mana{S}. Banish a non-Fireheart card from your hand to conjure Consumed by Flame.]
         [You get an additional action this turn.]
     purchase: 4
 

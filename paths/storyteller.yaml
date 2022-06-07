@@ -1,5 +1,7 @@
 path: Storyteller
 colors: 990BF0 - E8AD23
+extras: >
+  \newcommand{\library}[1]{\textcolor[HTML]{A320D5}{\textbf{#1}}}
 
 
 cards:
@@ -26,8 +28,10 @@ cards:
     cost: X
     purchase: 2
     text: >
-        Choose a card your opponent played this turn. It has no effect and its cost is refunded, then \upgrade{they recall it}{banish it}.
+        When you reveal me as your action, choose a card your opponent is revealing. They must rest instead of playing that card.
     upgrade cost: 3
+    upgrade: >
+        Banish that card.
 
 - Myths That Guide:
     cost: SX
@@ -46,7 +50,7 @@ cards:
     purchase: 3
     types: innate
     text: >
-        Recall \upgrade{one}{two} of the heirlooms linked to me. Play any innate cards you recall. 
-        
-        If this is the first time I've been played this tournament, link me to six random unused heirlooms first.
+        If there is not a \library{library}, six random unclaimed heirlooms become the \library{library} for the rest of the tournament.
+
+        Recall \upgrade{one heirloom}{two heirlooms} from the \library{library}. Claim each card you recall for the rest of the match, and play any that are innate.
     upgrade cost: 5

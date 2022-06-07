@@ -8,7 +8,7 @@ cards:
     text: >
         \attack{2}
 
-        When I hit, recall and play \upgrade{a Skeletal Minion}{two Skeletal Minions} if able.
+        When I hit, conjure and play \upgrade{a Skeletal Minion}{two Skeletal Minions} if able.
     upgrade cost: 3
 
 - Skeletal Minion:
@@ -35,11 +35,11 @@ cards:
     cost:
     types: permanent
     text: >
-        At the end of each turn, if a player scored points this turn, recall and play a Skeletal Minion if able.
+        At the end of each turn, if a player scored points this turn, conjure and play a Skeletal Minion if able.
     purchase: 2
     upgrade cost: 4
     upgrade: >
-        Your Skeletal Minions get +1 attack power.
+        All Skeletal Minions get +1 attack power.
 
 - Call from the Grave: 
     cost: X

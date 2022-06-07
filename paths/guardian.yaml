@@ -7,9 +7,9 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        \onplay{Choose \upgrade{two Dragons}{three Dragons} and reveal and recall them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
+        \onplay{Choose \upgrade{two Dragons}{three Dragons} and reveal and conjure them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
         
-        At the end of each turn, if your opponent scored points this turn, banish a Dragon from your hand.
+        At the end of each turn, if your opponent scored points this turn, banish one of your Dragons.
     upgrade cost: 4
 
 

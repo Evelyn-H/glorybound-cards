@@ -9,7 +9,7 @@ cards:
     text: > 
         \attack{2}
 
-        Recall Parry.
+        Conjure Parry.
     upgrade cost: 3
     upgrade: >
         I cost \mana{H} less to play.

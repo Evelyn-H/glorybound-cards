@@ -48,7 +48,7 @@ cards:
     cost: S
     types: innate, permanent
     text: > 
-        \onplay{Your opponent recalls Try to Keep Up.}
+        \onplay{Your opponent conjures Try to Keep Up.}
         
         When the match ends, score three points.
     purchase: 3

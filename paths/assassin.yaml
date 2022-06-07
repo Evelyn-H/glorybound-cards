@@ -1,16 +1,18 @@
 path: Assassin
 colors: 590050 - F700AD
+extras: >
+  \newcommand{\trap}{\textit{\textsb{Trap} (Play me any time after the turn I'm conjured, no action required.)}}
 
 
 cards:
 - Backstab:
-    cost: F
+    cost: 
     text: > 
-        If your opponent is attacking you, refund my cost and I have no effect. 
+        I cost \mana{SS} more to play if your opponent is attacking or revealing an attack card as their action.
 
-        Otherwise: 
-        \thinparbreak
         \attack{3}
+
+        \textit{(If you can't pay for me you can't play me.)}
     upgrade cost: 3
     upgrade: >
         I get +2 attack power.
@@ -18,58 +20,64 @@ cards:
 - Shadowstep:
     cost: 
     text: > 
-        You may pay \mana{F}. If you don't, I gain \textbf{oneshot}. \textit{(Banish me after use)}
-
         \block    
 
-- Trap Setting:
-    cost: F
-    text: > 
-        Turn your banished Trap cards face down. Look at them and secretly choose one of them. \textit{(Put it near your cards in play.)}
+        You may sacrifice me to gain \mana{S}.
 
-        You can turn the chosen Trap face up any time after this turn ends to recall and play it.
-    purchase: 0
+- Trap Setting:
+    cost: 
+    text: > 
+        Secretly choose a Trap you haven't chosen yet this match and conjure it. After this turn ends, you can play that card at any time.
+        
+        \textit{(Playing the trap does not require an action. Conceal the other two traps to avoid giving away your choice.)}
+    purchase: 2
 
 
 - Poisoned Dagger:
     cost: 
     types: permanent
     linked: Trap Setting
-    linked type: Trap
     text: > 
-        You can't play me unless you hit your opponent with an attack this turn.
-        
+        \trap
+
+        You can't play me unless you hit with an attack this turn.
+
         At the start of each turn, score one point.
 
 
 - Smoke Shroud:
-    cost: 
+    cost: X
     linked: Trap Setting
-    linked type: Trap
-    types: oneshot
     text: > 
-        If your opponent didn't attack last turn, they can't score points this turn.
+        \trap
+
+        You can't play me unless your opponent didn't attack on their last turn.
+
+        Your opponent can't score points this turn.
+
     
 
 - Feign Defeat:
-    cost: 
+    cost: X
     linked: Trap Setting
-    linked type: Trap
-    types: oneshot
     text: > 
-        If your opponent has more points than you, they can't block this turn.
-    
+        \trap
+        
+        You can't play me unless your opponent has more points than you.
+        
+        Your opponent can't block this turn.
+
 
 - Always More Knives:
-    cost: FAA
+    cost: SS
     text: > 
         \sequence
         [\attack{3}]
         [\attack{1}]
-    purchase: 0
-    upgrade cost: 3
+    purchase: 2
+    upgrade cost: 4
     upgrade: >
-        I cost \mana{FA} instead of \mana{FAA}.
+        I cost \mana{S} instead of \mana{SS}.
 
 - Hidden in Plain Sight:
     cost: 

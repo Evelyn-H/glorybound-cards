@@ -16,6 +16,7 @@
     linked type/.initial={},
     linked short/.code={\pgfkeyssetvalue{linked short}{#1}},%
     heirloom/.code={\pgfkeyssetvalue{heirloom}{#1}},
+    token/.code={\pgfkeyssetvalue{token}{#1}},
     support/.code={\pgfkeyssetvalue{support}{#1}},
     % purchase stuff
     purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
@@ -25,9 +26,11 @@
     % read-only key to get the printed type line
     type/.initial={%
         \printsepifnotempty{%
-            \pgfkeysifdefined{linked}{Linked}{%
+            \pgfkeysifdefined{linked}{Conjured}{%
                 \pgfkeysifdefined{heirloom}{Heirloom}{%
-                    \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+                    \pgfkeysifdefined{token}{Token}{%
+                        \pgfkeysifdefined{purchase}{Advanced}{Starter}%
+                    }%
                 }%
             }%
         }
@@ -407,9 +410,9 @@
                         \pgfkeysvalueof{/card/linked type}%
                     }{\ --\ }{}%
                     \pgfkeysifdefined{linked short}{%
-                        \textsb{Linked} (This card begins the match banished.)%
+                        \textsb{Conjured} (I only join your hand when I'm conjured.)%
                     }{%
-                        \textsb{Linked} (This card begins the match banished and is recalled by \pgfkeysvalueof{linked}.)%
+                        \textsb{Conjured} (I only join your hand when \pgfkeysvalueof{linked} conjures me.)%
                     }
                     }\par%
                 }{}%

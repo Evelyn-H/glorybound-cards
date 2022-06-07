@@ -583,6 +583,14 @@
     % \includegraphics[width=1mm]{icons/mana/#1.png}%
 }
 \begin{luacode*}
+    function get_mana_filename(s)
+        symbols = {}
+        symbols["S"] = "spirit"
+        symbols["X"] = "sacrifice"
+        symbols["H"] = "spirit-or-sacrifice"
+        return symbols[s] or s
+    end
+
     function render_mana_text(s)
         for i = 1, #s do
             tex.sprint("\\manatext{"..get_mana_filename(s:sub(i,i)).."}")

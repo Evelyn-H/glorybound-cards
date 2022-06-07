@@ -8,46 +8,43 @@ cards:
     text: >
       \attack{0}
 
-      If your opponent is using a block, they must block me if able. When they do, you \upgrade{score one point}{score two points}.
+      If your opponent is using a block, they must block me if able. When they do, you \upgrade{score two points}{score three points}.
     upgrade cost: 3
 
 
 - Explosive Decoy:
-    cost: WAA
+    cost: S
     text: >
       \block
 
-      When I block an attack:
+      When I block, sacrifice me to:
       \thinparbreak
       \attack{3}
     upgrade cost: 3
     upgrade: >
-      I cost \mana{WA} instead of \mana{WAA}.
+      You don't need to sacrifice me to attack.
 
 
 - Carnival Mallet:
-    cost: SA
+    cost: S
     text: >
       \attack{2}
 
-      When I hit, banish a card at random from your hand face down. Next turn, play that card as an additional action. It costs no resources.
+      When I hit, banish a card at random from your hand face down. Next turn, play that card as an additional action. It costs no \mana{S}.
 
 
-    purchase: 0
+    purchase: 2
     upgrade cost: 4
     upgrade: >
       Choose the card you banish instead of picking it at random.
 
 
 - Knife-Juggling Mishap:
-    cost:
-    types: oneshot
+    cost: X
     text: >
-      When you play me, swap me with a card your opponent is playing and they refund that card's cost.
+      When you reveal me to play me, choose a card your opponent is revealing. Claim that card until it leaves play, and it costs no \mana{S} to play. Your opponent claims me until I leave play.
 
       \attack{2}
-
-      \textit{(You will be using your opponent's card, and I will be attacking you. Give them their card back when you would recall it.)}
     purchase: 3
 
 
@@ -56,26 +53,24 @@ cards:
     types: innate, permanent
     purchase: 3
     text: >
-      \onplay{Turn Comedy and Tragedy face down. Secretly choose one of them to hide under me.}
+      \onplay{Secretly choose Comedy or Tragedy and hide it under me.}
 
-      On the fourth turn of the match, banish me to recall and play the hidden card as an additional action.
+      On the fourth turn of the match, banish me and reveal the hidden card. Conjure and play that card.
 
 
 - Comedy:
-    cost:
-    types: oneshot
+    cost: X
     linked: Immersive Theater
     text: >
-      The player who has fewer points when I am revealed uses me to attack the player with more points. In a tie, you attack.
+      As you play me, if your opponent has fewer points than you, they claim me and play me instead.
 
       \attack{2}
 
 
 - Tragedy:
-    cost:
-    types: oneshot
+    cost: X
     linked: Immersive Theater
     text: >
-      The player who has more points when I am revealed uses me to attack the player with fewer points. In a tie, you attack.
+      As you play me, if your opponent has more points than you, they claim me and play me instead.
 
       \attack{2}

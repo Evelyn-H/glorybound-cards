@@ -42,7 +42,7 @@ cards:
     cost: 
     types: innate, permanent
     text: >
-        When you attack, banish me to give one of your attacks +1 attack power. Note its final attack power and recall Echoing Thunder.
+        When you attack, banish me to give one of your attacks +1 attack power. Note its final attack power and conjure Echoing Thunder.
     purchase: 4
 
 

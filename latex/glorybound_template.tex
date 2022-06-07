@@ -87,6 +87,10 @@
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
 
+
+
+\begin{document}
+
 % my custom textbox command
 \include{latex/textbox.tex}
 
@@ -97,9 +101,6 @@
 \include{latex/card-helpers.tex}
 \include{latex/card.tex}
 \include{latex/path-card.tex}
-
-
-\begin{document}
 
 \BLOCK{ for path in paths }
     \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}

@@ -6,7 +6,7 @@ extras: >
 
 cards:    
 - Whaler's Hook:
-    cost: A
+    cost: 
     text: > 
         \attack{1}
 
@@ -20,7 +20,7 @@ cards:
     cost:
     types: innate, permanent
     text: > 
-        \onplay{Recall Sunken Temple and Pirate's Cove.}
+        \onplay{Conjure Sunken Temple and Pirate's Cove.}
 
         You can only play one Harbor each match. When you play one, banish the other.
         
@@ -28,7 +28,7 @@ cards:
 
 
 - Sunken Temple:
-    cost: F
+    cost: 
     types: permanent
     linked: Salt-Captain's Compass
     linked type: Harbor
@@ -39,44 +39,45 @@ cards:
 
 
 - Pirate's Cove:
-    cost: F
+    cost: 
     types: permanent
     linked: Salt-Captain's Compass
     linked type: Harbor
     text: > 
-        \onplay{Put \mana{XX} on me. Spend these only to play \drown{drowned} cards.}
+        \onplay{Put \mana{S} on me. Spend this only to play \drown{drowned} cards.}
 
-        \drown{Drowned} cards are kept in your in your hand and can be played as your own.
+        At the end of each turn, recall all \drown{drowned} cards that aren't yours yet and claim them until the match ends.
+
 
 
 - Trawling Net:
-    cost: S
+    cost: 
     text: > 
         \block
 
         When I block a card, banish that card.
-    purchase: 0
+    purchase: 2
     upgrade cost: 3
     upgrade: >
-        When I block, I block all attacks instead of just one.
+        When I block, I can block any number of attacks.
+
 
 
 - Boarding Party:
-    cost: SAA
+    cost: SS
     text: > 
         \attack{3}
 
         Name a non-innate card. Banish all cards with that name from your opponent's hand and from play.
 
         Play Pirate's Cove if able.
-    purchase: 4
+    purchase: 3
 
 
 - Abyssal Offering:
-    cost: 
-    types: oneshot
+    cost: X
     text: > 
         For each two points you've scored this match, your opponent chooses one of their non-innate cards from hand or play. Banish those cards.
         
         Play Sunken Temple if able.
-    purchase: 4
+    purchase: 3

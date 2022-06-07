@@ -8,7 +8,7 @@ cards:
     text: > 
         \block
 
-        Recall The Risen One.
+        Conjure The Risen One.
     upgrade cost: 3
     upgrade: >
         The Risen One gets +2 attack power.
@@ -37,7 +37,7 @@ cards:
     cost: X
     text: > 
         \sequence
-        [Your opponent recalls Audacious Croak and Leap Away.]
+        [Your opponent conjures Audacious Croak and Leap Away.]
         [Your opponent can only play frog cards.]
 
         When I leave play, banish both Frog cards.
@@ -64,9 +64,9 @@ cards:
     cost: 
     types: permanent
     text: >       
-        Your cards cost \mana{S} less to play, but also cost \mana{X}.
+        You can pay costs with \mana{S} instead of \mana{X} or \mana{X} instead of \mana{S}. \textit{(\mana{X} can only be paid once per card.)}
     purchase: 3
-    upgrade cost: 4
+    upgrade cost: 5
     upgrade: >
         \innatebanner
     

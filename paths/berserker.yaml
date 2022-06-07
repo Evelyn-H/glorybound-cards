@@ -28,7 +28,7 @@ cards:
 
       Attack yourself with an attack power of 1.
     
-      \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the points.)}
+      \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the point.)}
     purchase: 2
     upgrade cost: 3
     upgrade: >

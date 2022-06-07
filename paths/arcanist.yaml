@@ -4,42 +4,42 @@ colors: E100FF - 5300EF
 
 cards:
 - Arcane Research:
-    cost: F
+    cost: 
     text: > 
         Recall two random advanced cards you have not yet learned. If you recall an innate card, play it immediately.
 
         \textit{(You can't research cards you've already researched this match.)}
-    upgrade cost: 5
+    upgrade cost: 4
     upgrade: >
-        Also turn your banished Forbidden Magic cards face down and recall one at random.
+        Also conjure a random Forbidden Magic card that hasn't been conjured this match.
     
 
 - Forcefield:
-    cost: W
+    cost: S
+    types: permanent
     text: > 
+        When you are being attacked, recall me to:
+        \thinparbreak
         \block
-
-        For the rest of the match, I cost no resources.
     
 
 - Meteor Invocation:
-    cost: WA
+    cost: H
     text: > 
         \sequence
         [No effect.]
         [\attack{4}]
-    purchase: 0
-    upgrade cost: 4
+    purchase: 2
+    upgrade cost: 3
     upgrade: >
         I get +2 attack power.
 
 
 - Shrinking Ray:
-    cost: WA
-    types: oneshot
+    cost: 
     text: > 
-        Your opponent must pay \mana{AA} (or \mana{A} if that's all they have) before they pay for cards they are playing this turn. If this leaves them unable to pay for a card, they recall it and don't play it.
-    purchase: 4
+        When you reveal me, your opponent pays \mana{S} if able. \textit{(If this leaves them unable to pay for the card they reveal, they can't play it.)}
+    purchase: 3
 
 
 - Spellweaving:
@@ -49,11 +49,11 @@ cards:
         \onplay{Reveal an Arcanist card and a non-Arcanist card from your hand.}
         
         When you play one of those cards, play the other if able.
-    purchase: 7
+    purchase: 5
 
 
 - All-Consuming Void:
-    cost: A
+    cost: 
     linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
     text: > 
@@ -63,18 +63,17 @@ cards:
     
 
 - True Reincarnation:
-    cost: 
+    cost: X
     linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
-    types: oneshot
     text: > 
         Your opponent can't score points this turn. 
         
-        Restore your resources to your starting resources.
+        Restore your spirit to your starting spirit and recall one of your cards that was banished this match.
     
 
 - Wake the Old Gods:
-    cost: AAA
+    cost: SS
     linked: an upgraded {Arcane Research}
     linked type: Forbidden Magic
     text: > 

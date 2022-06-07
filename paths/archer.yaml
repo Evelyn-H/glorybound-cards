@@ -3,35 +3,24 @@ colors: 284A30 - 7F8853
 
 cards:
 - Swift Arrow:
-    cost: A
+    cost: H
     text: >
         \attack{1}
 
-        I can't be blocked unless your \upgrade{opponent pays \mana{A}}{opponent pays \mana{AA}}.
+        I can't be blocked unless your \upgrade{opponent pays \mana{S}}{opponent pays \mana{SS}}.
     upgrade cost: 3
 
 - Careful Aim:
-    cost: F
+    cost: 
     types: permanent
     text: >
-        The next time you attack, recall me to give an attack +3 attack power.
-    upgrade cost: 3
-    upgrade: I cost no resources.
-
-- Keep At Range:
-    cost: A
-    types: permanent
-    purchase: 0
-    text: >
-        Your opponent's attack cards cost \mana{A} more to play. This includes the turn you play me. If they can't pay, the attack is recalled and refunded.
-        
-        When you are hit by an attack, recall me.
+        When you attack, recall me to give an attack +3 attack power.
     upgrade cost: 3
     upgrade: >
-        \innatebanner
+        \onplay{Gain \mana{S}.}
 
 - Shield-Piercing Bolt:
-    cost: SA
+    cost: H
     purchase: 2
     text: >
         \attack{2}
@@ -40,10 +29,21 @@ cards:
     upgrade cost: 3
     upgrade: I get +1 attack power
 
+- Keep At Range:
+    cost: S
+    types: permanent
+    purchase: 2
+    text: >
+        When you reveal me to play me, and at the start of each turn if I'm in play, your opponent's attack cards cost \mana{S} more to play this turn. \textit{(If this leaves them unable to pay for the card they reveal, they can't play it.)}
+        
+        When you are hit by an attack, recall me.
+    upgrade cost: 4
+    upgrade: >
+        \innatebanner
+
 - Survey From Cover:
-    cost:
+    cost: X
     purchase: 4
-    types: oneshot
     text: >
         If your opponent isn't attacking you, you may play another card.
         

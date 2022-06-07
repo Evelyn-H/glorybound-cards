@@ -18,7 +18,7 @@ cards:
     text: > 
         \sequence
         [\block]
-        [Choose and reveal an additional card as part of your action. See what your opponent reveals, then recall and don't play one of your revealed cards.]
+        [Instead of a normal action this turn, choose two cards from your hand. Decide which one to reveal after seeing what your opponent reveals.]
 
 
 - Out of Time:
