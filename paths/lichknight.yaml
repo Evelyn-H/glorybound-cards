@@ -8,7 +8,7 @@ cards:
     text: >
         \attack{2}
 
-        When I hit, conjure and play \upgrade{a Skeletal Minion}{two Skeletal Minions} if able.
+        When I hit, conjure and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
     upgrade cost: 3
 
 - Skeletal Minion:
@@ -35,7 +35,7 @@ cards:
     cost:
     types: permanent
     text: >
-        At the end of each turn, if a player scored points this turn, conjure and play a Skeletal Minion if able.
+        At the end of each turn, if a player scored points this turn, conjure and play a Skeletal Minion.
     purchase: 2
     upgrade cost: 4
     upgrade: >
@@ -45,14 +45,18 @@ cards:
     cost: X
     purchase: 3
     text: >
-        Choose a banished card you played this match or a Skeletal Minion. Recall and play that card if able, sacrifice it if you haven't yet.
+        Choose one:
+
+        \ -- Recall and play a banished card you've played this match.
+
+        \ -- Conjure and play a Skeletal Minion.
 
 - Throne of Fallen Souls:
     cost: 
     types: support
     purchase: 4
     text: >
-        You can claim cards from the paths of eliminated players. 
+        Between matches you can claim cards from the paths of eliminated players. 
         
         Claim up to two cards throughout the tournament with total level 5 or less. 
         

@@ -186,7 +186,7 @@ cards:
     cost: 
     types: heirloom, innate
     text: >
-        When you play me, choose another innate card you are playing. I become a copy of that card, except that I cost \mana{S} instead of that card's cost.
+        When you play me, choose another innate card you are playing. I become a copy of that card until I leave play, except that I cost \mana{S} instead of that card's cost.
 
 
 - Inflatable Armor:
@@ -220,7 +220,7 @@ cards:
     cost: 
     types: heirloom, innate, permanent
     text: >
-        When you claim me as your heirloom, claim a third path option. You can't use more than two paths in a match unless you play me. 
+        When you claim me as your heirloom, claim a third path option.
 
 
 - Broken Violin:
@@ -329,4 +329,4 @@ cards:
     text: >
         \textbf{Rest} to spend an action without playing a card. Keep this token in your hand, and reveal it instead of a card when you don't want to or can't play anything.
         
-        Resting also removes \textbf{exhaustion}. \textit{(An exhausted player must sacrifice each card they play.)}
+        % Resting also removes \textbf{exhaustion}. \textit{(An exhausted player must sacrifice each card they play.)}

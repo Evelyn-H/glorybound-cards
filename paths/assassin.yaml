@@ -8,7 +8,7 @@ cards:
 - Backstab:
     cost: 
     text: > 
-        I cost \mana{SS} more to play if your opponent is attacking or revealing an attack card as their action.
+        I cost \mana{SS} more to play if your opponent is attacking or playing an attack card.
 
         \attack{3}
 
