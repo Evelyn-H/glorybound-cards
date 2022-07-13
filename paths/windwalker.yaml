@@ -8,7 +8,7 @@ cards:
     text: >
       \attack{2}
 
-      When I am blocked, you may pay \mana{S} to score points equal to my attack power.
+      When I am blocked, you may pay \mana{H} to score points equal to my attack power.
     upgrade cost: 3
     upgrade: >
       I cost \mana{H} less to play.
@@ -44,6 +44,9 @@ cards:
     text: >
         When you attack, banish me to give one of your attacks +1 attack power. Note its final attack power and conjure Echoing Thunder.
     purchase: 4
+    upgrade cost: 5
+    upgrade: >
+        Double the noted number.
 
 
 - Echoing Thunder:

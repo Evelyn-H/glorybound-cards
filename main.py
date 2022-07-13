@@ -182,10 +182,10 @@ if sys.argv.count('-all') > 0:
     paths = [Path.from_file(f) for f in sorted(glob.glob('paths/*.yaml'))]
 else:
     names = [
-        '_heirlooms',
+        # '_heirlooms',
         # 'arcanist',
         # 'archer',
-        'assassin',
+        # 'assassin',
         # 'berserker',
         # 'bogwitch',
         # 'dancer',
@@ -195,12 +195,12 @@ else:
         # 'hammerpriest',
         # 'jester',
         # 'legionnaire',
-        'lichknight',
+        # 'lichknight',
         # 'mariner',
         # 'storyteller',
         # 'tinker',
         # 'traveler',
-        # 'windwalker', 
+        'windwalker', 
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 
