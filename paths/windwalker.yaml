@@ -4,14 +4,14 @@ colors: 348bd2 - bce0e5
 
 cards:
 - Tempest Blade:
-    cost: H
+    cost: S
     text: >
       \attack{2}
 
-      When I am blocked, you may pay \mana{H} to score points equal to my attack power.
+      When I am blocked, you may pay \mana{X} to score points equal to my attack power.
     upgrade cost: 3
     upgrade: >
-      I cost \mana{H} less to play.
+      I cost \mana{S} less to play.
 
 
 - Leap Skyward:
