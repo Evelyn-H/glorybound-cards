@@ -239,6 +239,8 @@
     color-right/.initial=0000FF,
     % purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
+    passive name/.code={\pgfkeyssetvalue{passive name}{#1}},
+    passive/.code={\pgfkeyssetvalue{passive}{#1}},
 }
 
 \NewDocumentCommand{\pathcard}{ +O{} +m }{
@@ -318,6 +320,26 @@
         [y=5mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries]
         [halign=center, valign=centerline]
     {Path of the}
+
+    \pgfkeysifdefined{passive}{%
+        \bettertextbox[%
+            y=20mm,
+            width=40mm, height=4mm, margin=0mm, 
+            fontsize=10pt,
+            font=\titlefont\sbseries,
+        ]
+        [halign=center, valign=centerline]{%
+            \pgfkeysvalueof{passive name}:%
+        }
+        \bettertextbox[%
+            y=26mm,
+            width=40mm, height=16mm, margin=0mm, 
+            fontsize=9pt,
+        ]
+        [valign=top]{%
+            \pgfkeysvalueof{passive}
+        }
+    }{}%
 
     \setlength{\yoffset}{0mm}
 

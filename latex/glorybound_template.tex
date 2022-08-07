@@ -112,6 +112,12 @@
         name={\VAR{path.name}},
         color-left=\VAR{path.colors[0]},
         color-right=\VAR{path.colors[1]},
+        \BLOCK{ if path.passive_name != None }
+        passive name={\VAR{path.passive_name}},
+        \BLOCK{ endif }
+        \BLOCK{ if path.passive != None }
+        passive={\VAR{path.passive}},
+        \BLOCK{ endif }
     ]{%
     \BLOCK{ if path.name != "Heirloom" }
         \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }

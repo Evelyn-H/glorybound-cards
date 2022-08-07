@@ -1,0 +1,27 @@
+path: Apprentice
+colors: 33CCFF - FECD01
+
+cards:
+- Crafting Hammer:
+    cost: H
+    text: > 
+        \attack{2}
+
+        When I hit, \invoke .
+
+
+- Sheltered by the Guild:
+    cost: 
+    text: > 
+        \block
+
+        If you have two or more \mana{S}, pay \mana{S} to score one point.
+
+
+- Bake Bread:
+    cost: 
+    types: 
+    text: > 
+        \sequence
+        [Gain \mana{S}.]
+        [Your attacks get +1 attack power.]

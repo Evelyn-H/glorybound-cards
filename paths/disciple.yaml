@@ -1,0 +1,33 @@
+path: Disciple
+colors: 592424 - CE803B
+
+cards:
+- Practiced Forms:
+    cost: H
+    text: >
+        \sequence
+        [\attack{1}]
+        [\attack{1}]
+
+
+- Study Ancient Texts:
+    cost: 
+    text: >
+        \Invoke . 
+        
+        Recall Forgotten Rite.
+
+
+- Forgotten Rite:
+    cost: SX
+    linked: Study Ancient Texts
+    text: >
+        \attack{4}
+
+
+- Midnight Initiation:
+    cost: 
+    text: >
+        Your opponent can't score points this turn. 
+        
+        Exhaust yourself.

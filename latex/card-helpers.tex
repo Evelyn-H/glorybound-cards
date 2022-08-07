@@ -124,7 +124,8 @@
 \makeatother
 
 \newcommand{\dividerline}{%
-    \vspace{-0.667\parskip}%
+    % \vspace{-0.667\parskip}%
+    \vspace{0.5\parskip}%
     \par%
     \centerline{%
         % \rule{.8\linewidth}{.125mm}%
@@ -132,7 +133,8 @@
         \rule{43.2mm}{.125mm}%
     }%
     \par%
-    \vspace{-0.667\parskip}%
+    \vspace{0.5\parskip}%
+    % \vspace{-0.667\parskip}%
 }%
 
 % \newcommand{\onplay}[2][]{%
@@ -150,6 +152,17 @@
     \onplaynoline[#1]{#2}%
     % \dividerline
 }
+
+\NewDocumentCommand{\invoke}{+o}{%
+    \IfNoValueT{#1}{\textbf{invoke}}%
+    \IfValueT{#1}{\dividerline\par\textbf{Invoke:} #1}%
+}
+
+\newcommand{\Invoke}{\textbf{Invoke}}
+
+\newcommand{\swift}{\textbf{Swift} \textit{(Blocking me costs \mana{S}.)}}
+
+
 
 % \newcommand{\upgrade}{\bgroup\markoverwith{\textcolor{ugradegray}{\rule[-.5ex]{.5pt}{2.5ex}}}\ULon}
 
