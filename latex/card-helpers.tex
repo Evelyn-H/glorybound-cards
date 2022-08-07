@@ -153,6 +153,10 @@
     % \dividerline
 }
 
+\NewDocumentCommand{\reflex}{+m}{%
+    \textbf{Reflex:} #1, you may play me.
+}
+
 \NewDocumentCommand{\invoke}{+o}{%
     \IfNoValueT{#1}{\textbf{invoke}}%
     \IfValueT{#1}{\dividerline\par\textbf{Invoke:} #1}%

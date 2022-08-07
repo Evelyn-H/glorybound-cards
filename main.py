@@ -27,6 +27,7 @@ schema = Map({
             Str(), Map({
                 'cost': Regex(r'[SWFAXH]*'), 
                 Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support|token')),
+                Optional('affinity'): CommaSeparated(Regex(r'blossoms|daggers|skulls|candles|claws|shields|eyes|masks|hours|ribbons')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
                 Optional('linked short'): Bool(),
@@ -59,6 +60,9 @@ class Card(object):
         self.cost = d['cost']
         self.text = d['text']
         self.types = [t.strip() for t in (d['types'] or [])]
+        aff = [t.strip() for t in (d['affinity'] or [])] + [None, None]
+        self.primary = aff[0]
+        self.secondary = aff[1]
         if '\\sequence' in self.text:
             self.types.append('sequence')
         self.linked = d['linked']
@@ -208,15 +212,17 @@ else:
         # 'traveler',
         # 'windwalker', 
 
-        '_talents',
-        'urchin',
-        'farmhand',
-        'apprentice',
-        'disciple',
-        'noble',
-        'prodigy',
-        'outlander',
-        'soldier',
+        # '_talents',
+        # 'urchin',
+        # 'farmhand',
+        # 'apprentice',
+        # 'disciple',
+        # 'noble',
+        # 'prodigy',
+        # 'outlander',
+        # 'soldier',
+
+        'advanced-uncommon',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 

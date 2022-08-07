@@ -1,0 +1,20 @@
+path: The Mercenary Guild
+colors: 54939E - FFCE7F
+affinity: daggers
+domain text: >
+    \textit{Reputation} - Your reputation is equal to the greatest power attack you've resolved this match. (Attacks resolve when they hit or are blocked. If you haven't attacked yet, your reputation is zero.)
+    
+    \textit{Calling Card} - At the end of each turn, if your reputation increased this turn, conjure and play an Assassin's Focus.
+
+cards:
+- Payment Up Front:
+    cost: X
+    text: >
+        Gain an amount of {S} equal to your reputation. Then you may pay {S}{S}. If you do, you get an additional action next turn.
+
+- Flawless Execution:
+    cost: SX
+    text: >
+        My base power X is equal you your reputation when you play me.
+        \swift
+        \attack{X}

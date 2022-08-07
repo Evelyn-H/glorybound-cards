@@ -18,6 +18,9 @@
     heirloom/.code={\pgfkeyssetvalue{heirloom}{#1}},
     token/.code={\pgfkeyssetvalue{token}{#1}},
     support/.code={\pgfkeyssetvalue{support}{#1}},
+    % affinities
+    primary/.code={\pgfkeyssetvalue{primary}{#1}},
+    secondary/.code={\pgfkeyssetvalue{secondary}{#1}},
     % purchase stuff
     purchase/.code={\pgfkeyssetvalue{purchase}{#1}},
     % upgrade stuff
@@ -62,12 +65,12 @@
     designer/.code={\pgfkeyssetvalue{designer}{#1}},%
 }
 
-\newcommand{\setpath}[3]{
+\newcommand{\setpath}[1]{
     % \finishpathfile
     \pgfkeys{/card/.cd,
         path=#1,
-        color-left=#2,
-        color-right=#3,
+        % color-left=#2,
+        % color-right=#3,
     }
     % \beginpathfile{#1}
 }
@@ -117,6 +120,10 @@
 \end{luacode*}
 \newcommand{\getart}[3]{\directlua{tex.print(get_art(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}
 
+\newcommand{\getColorSpec}[3][\getColorSpecTemp]{%
+    \extractcolorspec{#3}\getColorSpecTemp
+    \expandafter\convertcolorspec\getColorSpecTemp{#2}#1}
+
 \makeatletter
 \NewDocumentCommand{\card}{ +O{} }{
 
@@ -158,8 +165,26 @@
     % as part of the document flow
     
     % background gradient:
-    \definecolor{left}  {HTML}{\pgfkeysvalueof{/card/color-left}}
-    \definecolor{right} {HTML}{\pgfkeysvalueof{/card/color-right}}
+    % \definecolor{left}  {HTML}{\pgfkeysvalueof{/card/color-left}}
+    % \definecolor{right} {HTML}{\pgfkeysvalueof{/card/color-right}}
+
+    \colorlet{primary}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}
+    \colorlet{secondary}{\pgfkeysifdefined{secondary}{\pgfkeysvalueof{secondary}}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}}
+
+    \getColorSpec[\mycolorprimary]{HTML}{primary}
+    \getColorSpec[\mycolorsecondary]{HTML}{secondary}
+
+    \pgfkeys{/card/.cd,
+        color-left=\mycolorprimary,
+        color-right=\mycolorsecondary,
+    }
+
+    \colorlet{primarylight}{primary!60!white}
+    \colorlet{secondarylight}{secondary!60!white}
+
+    \colorlet{left}{primary}
+    \colorlet{right}{\pgfkeysifdefined{secondary}{secondarylight}{primarylight}}
+
     \tikz[overlay, remember picture] 
     \node[
         anchor=north,
@@ -231,37 +256,61 @@
         ] at (frame.center) {};
     \end{tcbclipinterior}
     }
-    \pgfkeysifdefined{purchase}{%
-        \bettertextbox
-            [%
-                y=5mm, x=26.5mm,
-                width=6mm, height=10.5mm, margin=1mm, 
-                anchor=north east,
-                fontsize=14pt, 
-                font=\bfseries,
-            ]
-            [%
-                halign=center, valign=center,
-                underlay={\purchaseunderlay},
-                underlay={
-                    \begin{tcbclipframe}
-                        \node[
-                            anchor=north,
-                            inner sep=0pt,
-                            yshift=-1mm,
-                            % opacity=0.5,
-                        % ] at (frame.north) {\includegraphics[height=3.5mm]{icons/padlock\pgfkeysifdefined{night}{-night}{}.png}};
-                        ] at (frame.north) {\includegraphics[height=3.5mm]{icons/level\pgfkeysifdefined{night}{-night}{}.png}};
-                    \end{tcbclipframe}
-                },
-                top=5.5mm,
-            ]
-        {%
-            \pgfkeysvalueof{purchase}%
-        }
-    }{%
-        % not defined
-    }
+
+    % affinities
+    \pgfkeysifdefined{primary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                % fill=dark!25!light!75,
+                fill={\pgfkeysifdefined{secondary}{secondarylight}{primarylight}},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{\pgfkeysifdefined{secondary}{secondary}{primary}}}
+            };
+        \end{tikzpicture}
+    }{}
+
+    \pgfkeysifdefined{secondary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                fill={primarylight},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{primary}}
+            };
+        \end{tikzpicture}
+    }{}
+    
 
     % upgrade?
     \setlength{\extraheight}{0mm}

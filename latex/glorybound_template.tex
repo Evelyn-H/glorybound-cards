@@ -97,13 +97,17 @@
 % helpers for file splitting / output shenanigans
 \include{latex/output-helpers.tex}
 
+% affinities stuff
+\include{latex/affinities.tex}
+
 % card rendering code
 \include{latex/card-helpers.tex}
 \include{latex/card.tex}
 \include{latex/path-card.tex}
 
 \BLOCK{ for path in paths }
-    \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}
+    % \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}
+    \setpath{\VAR{path.name}}
     \BLOCK{ if path.extras != None }
     \VAR{path.extras}
     \BLOCK{ endif }
@@ -152,6 +156,13 @@
                     \BLOCK{ for type in card.types }
                     \VAR{type},
                     \BLOCK{ endfor }
+                    %affinities
+                    \BLOCK{ if card.primary != None }
+                    primary={\VAR{card.primary}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.secondary != None }
+                    secondary={\VAR{card.secondary}},
+                    \BLOCK{ endif }
                     \BLOCK{ if card.linked != None }
                     linked={\VAR{card.linked}},
                     \BLOCK{ endif }
