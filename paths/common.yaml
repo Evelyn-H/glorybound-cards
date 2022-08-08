@@ -1,0 +1,185 @@
+path: Common
+colors: 000000 - 000000
+
+cards:
+- Offer to the Pyre:
+    cost: S
+    affinity: candles, claws
+    text: >
+        Banish one of your other cards from hand or play to:
+        \thinparbreak
+        \attack{4}
+        
+
+- Wisdom of Ancestors:
+    cost: X
+    affinity: candles, ribbons
+    text: >
+        \reflex{When I'm the only card in your hand}
+
+        Recall up to one of your banished cards and up to one of the cards in your cache.
+        
+
+- Thorns of the Coven:
+    cost: X
+    affinity: candles, blossoms
+    text: >
+        \attack{1}
+
+        When I'm banished from your hand or from play, gain \mana{S}.
+        
+
+- Psychic Torment:
+    cost: X
+    affinity: candles, eyes
+    text: >
+        Banish one card from play.
+        
+
+- Adrenaline Surge:
+    cost:
+    affinity: ribbons, claws
+    text: >
+        \reflex{When you score your fourth point this match}
+
+        \sequence
+        [No effect.]
+        [You get an additional action this turn.]
+        
+
+- Warrior's Pride:
+    cost: X
+    affinity: ribbons, skulls
+    text: >
+        \reflex{When you attack for the third time this match}
+
+        Gain \mana{SS}.
+        
+
+- Stay Out Of Reach:
+    cost: H
+    affinity: shields, ribbons
+    text: >
+        \reflex{When you are being attacked and you have scored no points this match}
+
+        Your opponent's attacks get -2 attack power.
+        
+
+- Iron-Oak Protector:
+    cost: SS
+    affinity: blossoms, shields
+    text: >
+        \block
+
+        \attack{3}
+        
+
+- Accelerated Growth:
+    cost:
+    affinity: blossoms, hours
+    text: >
+        \sequence
+        [Gain \mana{S}.]
+        [Gain \mana{S}.]
+        
+
+- Cloaked in Mist:
+    cost:
+    affinity: daggers, blossoms
+    text: >
+        \onplay{Gain \mana{S}.}
+
+        When you are attacking, recall me to give all your attacks this turn Swift. \textit{(Swift attacks cost \mana{S} to block.)}
+        
+
+- Vengeance:
+    cost: X
+    affinity: claws, daggers
+    text: >
+        \attack{2}
+
+        \swift
+
+        If your opponent has scored three or more points this match, I get +2 power.
+        
+
+- Loot the Mausoleum:
+    cost:
+    affinity: claws, skulls
+    text: >
+        Name one of your move cards. You get +1 expertise with that card this match.
+        
+        Your opponent conjures and plays a Skeletal Minion.
+        
+
+- Mark for Death:
+    cost:
+    affinity: skulls, daggers
+    text: >
+        \attack{0}
+
+        When I hit, your attacks next turn get +1 power and can't be blocked.
+        
+
+- The Art of Disguise:
+    cost:
+    affinity: masks, daggers
+    text: >
+        When you reveal me as an action, name a card your opponent played last turn. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}
+        
+
+- Hypnotic Melody:
+    cost: S
+    affinity: masks, eyes
+    text: >
+        \attack{2}
+
+        When I hit, banish one of your opponent's move cards from play.
+        
+
+- Runic Barrier:
+    cost: S
+    affinity: eyes, shields
+    types: permanent
+    text: >
+        When you are being attacked, recall me to:
+        \thinparbreak
+        \block
+
+        When I block a card, banish that card.
+        
+
+- Void Skip:
+    cost: SX
+    affinity: eyes, hours
+    text: >
+        When you reveal me as an action, choose a card your opponent is revealing. Banish that card and they don't play it.
+        
+
+- Laboratory Macabre:
+    cost: X
+    affinity: skulls, hours
+    text: >
+        Conjure and play a Skeletal Minion.
+
+        Conjure and play a Chronotech Augment.
+        
+
+- Hold in Suspense:
+    cost:
+    affinity: masks, hours
+    text: >
+        \sequence
+        [\block]
+        [Instead of a normal action this turn, choose two cards from your hand. Decide which one to reveal after seeing what your opponent reveals.]
+        
+
+- Mirror of Hubris:
+    cost: H
+    affinity: masks, shields
+    text: >
+        \block
+
+        When I block an attack:
+        \thinparbreak
+        \attack{2}

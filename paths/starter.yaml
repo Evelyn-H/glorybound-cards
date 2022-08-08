@@ -1,0 +1,21 @@
+path: Starter
+colors: 000000 - 000000
+
+cards:
+- Spirited Strike:
+    cost: S
+    affinity:
+    text: >
+        \attack{2}
+
+- Defensive Stance:
+    cost:
+    affinity:
+    text: >
+        \block
+
+- Two-Breath Meditation:
+    cost:
+    affinity:
+    text: >
+        Gain \mana{S}. Then you may pay \mana{SSS} to score one point.

@@ -1,4 +1,4 @@
-path: Advanced Uncommon
+path: Uncommon
 colors: 54939E - FFCE7F
 
 cards:
@@ -86,5 +86,6 @@ cards:
     types: permanent
     affinity: daggers
     linked: Backstab
+    linked short: true
     text: >
         When you are attacking, banish me to give an attack +1 power.

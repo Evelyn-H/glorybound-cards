@@ -122,6 +122,12 @@
         \BLOCK{ if path.passive != None }
         passive={\VAR{path.passive}},
         \BLOCK{ endif }
+        \BLOCK{ if path.primary != None }
+        primary={\VAR{path.primary}},
+        \BLOCK{ endif }
+        \BLOCK{ if path.secondary != None }
+        secondary={\VAR{path.secondary}},
+        \BLOCK{ endif }
     ]{%
     \BLOCK{ if path.name != "Heirloom" }
         \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }

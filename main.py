@@ -22,11 +22,13 @@ schema = Map({
     Optional('extras'): Str(),
     Optional('passive name'): Str(),
     Optional('passive'): Str(),
+    Optional('affinity'): CommaSeparated(Regex(r'blossoms|daggers|skulls|candles|claws|shields|eyes|masks|hours|ribbons')),
+
     'cards': Seq(
         MapPattern(
             Str(), Map({
                 'cost': Regex(r'[SWFAXH]*'), 
-                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support|token')),
+                Optional('types'): CommaSeparated(Regex(r'oneshot|permanent|innate|heirloom|support|token|domain')),
                 Optional('affinity'): CommaSeparated(Regex(r'blossoms|daggers|skulls|candles|claws|shields|eyes|masks|hours|ribbons')),
                 Optional('linked'): Str(),
                 Optional('linked type'): Str(),
@@ -81,13 +83,15 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, cards, extras=None, passive_name=None, passive=None):
+    def __init__(self, name, colors, cards, extras=None, passive_name=None, passive=None, primary=None, secondary=None):
         self.name = name
         self.colors = colors
         self.cards = cards
         self.extras = extras
         self.passive_name = passive_name
         self.passive = passive
+        self.primary = primary
+        self.secondary = secondary
 
     @classmethod
     def from_file(cls, filename):
@@ -114,7 +118,8 @@ class Path(object):
         passive_name = data.get('passive name', None)
         passive = data.get('passive', None)
         # print(*cards, sep='\n')
-        path = Path(name, colors, cards, extras, passive_name, passive)
+        aff = [t.strip() for t in (data.get('affinity', []))] + [None, None]
+        path = Path(name, colors, cards, extras, passive_name, passive, aff[0], aff[1])
         path.build_links()
         return path
 
@@ -222,7 +227,10 @@ else:
         # 'outlander',
         # 'soldier',
 
-        'advanced-uncommon',
+        # 'advanced-uncommon',
+        'starter',
+        'common',
+        'mercenary',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
 

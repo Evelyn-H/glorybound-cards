@@ -693,3 +693,59 @@
             \includegraphics{icons/level.png}%
     }{\strut}}%
 }
+
+% render affinities
+\newcommand{\renderaffinities}{%
+    \pgfkeysifdefined{primary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                % fill=dark!25!light!75,
+                fill={\pgfkeysifdefined{secondary}{secondarylight}{primarylight}},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{\pgfkeysifdefined{secondary}{secondary}{primary}}}
+            };
+        \end{tikzpicture}
+    }{}
+
+    \pgfkeysifdefined{secondary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                fill={primarylight},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{primary}}
+            };
+        \end{tikzpicture}
+    }{}
+}

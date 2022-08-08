@@ -241,6 +241,9 @@
     % upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
     passive name/.code={\pgfkeyssetvalue{passive name}{#1}},
     passive/.code={\pgfkeyssetvalue{passive}{#1}},
+    % affinities
+    primary/.code={\pgfkeyssetvalue{primary}{#1}},
+    secondary/.code={\pgfkeyssetvalue{secondary}{#1}},
 }
 
 \NewDocumentCommand{\pathcard}{ +O{} +m }{
@@ -266,9 +269,27 @@
     % the tikz stuff makes sure it's rendered in the background and not
     % as part of the document flow
     
-    % background gradient:
-    \definecolor{left}  {HTML}{\pgfkeysvalueof{/path/color-left}}
-    \definecolor{right} {HTML}{\pgfkeysvalueof{/path/color-right}}
+    \colorlet{primary}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}
+    \colorlet{secondary}{\pgfkeysifdefined{secondary}{\pgfkeysvalueof{secondary}}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}}
+
+    \getColorSpec[\mycolorprimary]{HTML}{primary}
+    \getColorSpec[\mycolorsecondary]{HTML}{secondary}
+
+    \pgfkeys{/path/.cd,
+        color-left=\mycolorprimary,
+        color-right=\mycolorsecondary,
+    }
+
+    \global\let\domainprimary\mycolorprimary
+    \global\let\domainsecondary\mycolorsecondary
+
+    \colorlet{primarylight}{primary!60!white}
+    \colorlet{secondarylight}{secondary!60!white}
+
+    \colorlet{left}{primary}
+    \colorlet{right}{\pgfkeysifdefined{secondary}{secondarylight}{primarylight}}
+
+
     \tikz[overlay, remember picture] 
     \node[
         anchor=north,
@@ -303,6 +324,9 @@
     % \renderresource{0mm}{\substring{\pgfkeysvalueof{/path/resources}}{2}{2}}
     % \renderresource{5mm}{\substring{\pgfkeysvalueof{/path/resources}}{3}{3}}
 
+
+    \renderaffinities
+
     
     % make sure we have the right font by default
     \bodyfont
@@ -319,22 +343,22 @@
     \bettertextbox
         [y=5mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries]
         [halign=center, valign=centerline]
-    {Path of the}
+    {Domain of the}
 
     \pgfkeysifdefined{passive}{%
+        % \bettertextbox[%
+        %     y=20mm,
+        %     width=40mm, height=4mm, margin=0mm, 
+        %     fontsize=10pt,
+        %     font=\titlefont\sbseries,
+        % ]
+        % [halign=center, valign=centerline]{%
+        %     \pgfkeysvalueof{passive name}:%
+        % }
         \bettertextbox[%
             y=20mm,
-            width=40mm, height=4mm, margin=0mm, 
+            width=40mm, height=22mm, margin=0mm, 
             fontsize=10pt,
-            font=\titlefont\sbseries,
-        ]
-        [halign=center, valign=centerline]{%
-            \pgfkeysvalueof{passive name}:%
-        }
-        \bettertextbox[%
-            y=26mm,
-            width=40mm, height=16mm, margin=0mm, 
-            fontsize=9pt,
         ]
         [valign=top]{%
             \pgfkeysvalueof{passive}
