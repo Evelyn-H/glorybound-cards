@@ -314,7 +314,8 @@
     ] at (current page.north) {
         % \includegraphics[width=63mm]{icons/frame2.png}
         \includegraphics[width=63mm]{%
-            icons/frame2-path.png
+            % icons/frame2-path.png
+            icons/frame2-path-title.png
         }
     };
 
@@ -331,19 +332,35 @@
     % make sure we have the right font by default
     \bodyfont
     
+    % % name
+    % \bettertextbox
+    %     [y=8mm, width=36mm, height=7mm, margin=0mm, fontsize=18pt, font=\titlefont\bfseries]
+    %     [halign=center, valign=centerline]
+    % {%
+    %     \pgfkeysvalueof{/path/name}
+    % }
+     
+    % % "path of the"
+    % \bettertextbox
+    %     [y=5mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries]
+    %     [halign=center, valign=centerline]
+    % {Domain of the}
+
     % name
     \bettertextbox
-        [y=8mm, width=36mm, height=7mm, margin=0mm, fontsize=18pt, font=\titlefont\bfseries]
+        [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
         [halign=center, valign=centerline]
     {%
-        \pgfkeysvalueof{/path/name}
+        \pgfkeysvalueof{/path/name}%
     }
      
-    % "path of the"
+    % type
     \bettertextbox
-        [y=5mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries]
+        [y=11mm, width=36mm, height=4mm, margin=0mm, fontsize=8pt, font=\titlefont\sbseries\itshape]
         [halign=center, valign=centerline]
-    {Domain of the}
+    {%
+        Domain%
+    }
 
     \pgfkeysifdefined{passive}{%
         % \bettertextbox[%

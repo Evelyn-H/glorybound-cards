@@ -228,8 +228,8 @@ else:
         # 'soldier',
 
         # 'advanced-uncommon',
-        'starter',
-        'common',
+        # 'starter',
+        # 'common',
         'mercenary',
     ]
     paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
