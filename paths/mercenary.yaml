@@ -4,7 +4,7 @@ affinity: daggers
 
 passive name:
 passive: >
-    \textit{Reputation} - Your reputation is equal to the greatest power attack you've resolved this match. (Attacks resolve when they hit or are blocked. If you haven't attacked yet, your reputation is zero.)
+    \textit{Reputation} - Your reputation is equal to the greatest power attack you've resolved this match. \textit{(Attacks resolve when they hit or are blocked. If you haven't attacked yet, your reputation is zero.)}
     
 
     \textit{Calling Card} - At the end of each turn, if your reputation increased this turn, conjure and play an Assassin's Focus.

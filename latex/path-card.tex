@@ -69,7 +69,7 @@
             xshift={#1},
             yshift=-{#2},
             minimum width={#3}, 
-            minimum height=7mm,
+            minimum height=6mm,
             inner sep=0mm,
             % fill=gray, 
             line width=0mm,
@@ -178,39 +178,40 @@
     \pgfkeysifdefined{purchase}{%
         \renderbackgroundbox{9.5mm}{\templen}{\pgfkeysifdefined{upgrade}{44mm}{48mm}}
     }{%
-        \renderbackgroundbox{11.5mm}{\templen}{\pgfkeysifdefined{upgrade}{44mm}{46mm}}
+        % \renderbackgroundbox{11.5mm}{\templen}{\pgfkeysifdefined{upgrade}{44mm}{46mm}}
+        \renderbackgroundbox{8.5mm}{\templen}{\pgfkeysifdefined{upgrade}{44mm}{46mm}}
     }
     %
-    % purchase cost?
-    \pgfkeysifdefined{purchase}{%
-        % \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/padlock.png}
-        \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/level.png}
-    }{%
-        \bettertextbox[%
-            anchor=center,
-            x=-23mm, y={\templen},
-            width=7mm, height=2mm, margin=0mm,
-            fontsize=7pt, font=\titlefont\sbseries,
-            rotate=90,
-        ]
-        [halign=center, valign=centerline]
-        {Starter}%
-    }%
-    %
-    % upgrade cost?
-    \pgfkeysifdefined{upgrade}{%
-        % \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/upgrade.png}
-        \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/level.png}
-    }{}%
+    % % purchase cost?
+    % \pgfkeysifdefined{purchase}{%
+    %     % \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/padlock.png}
+    %     \renderthingy{\pgfkeysvalueof{purchase}}{-23mm}{\templen}{icons/level.png}
+    % }{%
+    %     \bettertextbox[%
+    %         anchor=center,
+    %         x=-23mm, y={\templen},
+    %         width=7mm, height=2mm, margin=0mm,
+    %         fontsize=7pt, font=\titlefont\sbseries,
+    %         rotate=90,
+    %     ]
+    %     [halign=center, valign=centerline]
+    %     {Starter}%
+    % }%
+    % %
+    % % upgrade cost?
+    % \pgfkeysifdefined{upgrade}{%
+    %     % \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/upgrade.png}
+    %     \renderthingy{\pgfkeysvalueof{upgrade}}{23mm}{\templen}{icons/level.png}
+    % }{}%
     %
     % card name
     \bettertextbox[%
         anchor=center,
         y={\templen}, 
-        width=40mm, height=7mm, margin=1mm, 
-        fontsize=12pt, font=\titlefont,
+        width=44mm, height=7mm, margin=1mm, 
+        fontsize=10pt, font=\titlefont,
     ]
-    [valign=centerline, left=0.5mm]
+    [valign=centerline]
     {%
         \pgfkeysvalueof{/pathrow/name}%
     }%
@@ -374,10 +375,10 @@
         % }
         \bettertextbox[%
             y=20mm,
-            width=40mm, height=22mm, margin=0mm, 
+            width=44mm, height=32mm, margin=1mm, 
             fontsize=10pt,
         ]
-        [valign=top]{%
+        [valign=center]{%
             \pgfkeysvalueof{passive}
         }
     }{}%
