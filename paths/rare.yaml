@@ -1,0 +1,295 @@
+path: Rare
+
+cards:
+- Candlehead and Ashtooth:
+    cost: SX
+    affinity: candles
+    text: >
+        Conjure two Brimstone Imps and play one of them without paying costs.
+        
+
+- Demon's Bargain:
+    cost:
+    types: permanent
+    affinity: candles
+    text: >
+        \onplay{Your opponent can't hit with attacks or score points this turn.}
+
+        At the start of each turn, your opponent scores one point.
+        
+
+- Read Forbidden Tomes:
+    cost:
+    affinity: candles
+    text: >
+        Banish one of your other cards from hand or play to name a move or domain card. You get +1 expertise with the named card this match.
+        
+
+- Roundhouse Kick:
+    cost: S
+    affinity: ribbons
+    text: >
+        \reflex{When you play your second move this turn}
+
+        \attack{2}
+        
+
+- Daze:
+    cost:
+    affinity: ribbons
+    text: >
+        \reflex{When you hit with an attack}
+
+        \sequence
+        [No effect.]
+        [Your opponent can't pay \mana{S}. \textit{(\mana{H} must be paid with \mana{X}.)}]
+        
+
+- Acrobat's Leap:
+    cost:
+    types:
+    affinity: ribbons
+    text: >
+        \sequence
+        [\block]
+        [All points you would score this turn are doubled.]
+        
+
+- Infuse with Sunlight:
+    cost:
+    affinity: blossoms
+    text: >
+        \sequence
+        [Gain \mana{SS} and put that spirit on me. It can be spent normally but vanishes when I leave play.]
+        [No effect.]
+        
+
+- The Woods Offer Refuge:
+    cost:
+    affinity: blossoms
+    text: >
+        \reflex{When you gain \mana{S}}
+
+        \block
+        
+        If you played me as a reflex, sacrifice me.
+        
+
+- Fists of Life-Force:
+    cost: SSS
+    affinity: blossoms
+    text: >
+        \attack{3}
+
+        \attack{3}
+
+        \textit{(One block can only stop one attack.)}
+        
+
+- Feral Companion:
+    cost:
+    affinity: claws
+    types: permanent
+    text: >
+        When you attack, recall me to:
+        \thinparbreak
+        \attack{2}
+        
+
+- Howl of the Pack:
+    cost: SSX
+    affinity: claws
+    text: >
+        I cost \mana{S} less to play if you scored points last turn.
+
+        \attack{2}
+
+        \attack{2}
+
+        \textit{(One block can only stop one attack.)}
+        
+
+- Strength of Granite:
+    cost:
+    affinity: claws
+    text: >
+        \reflex{When both players are attacking}
+
+        \sequence
+        [Your opponent's attacks get -1 attack power.]
+        [Your opponent's attacks get -1 attack power.]
+
+        If you played me as a reflex, sacrifice me.
+        
+
+- Pierce the Heart:
+    cost:
+    affinity: daggers
+    text: >
+        \attack{1}
+
+        If another card would increase my power, it increases my power by two times as much. \textit{(For example, if I would get +2 power, I get +4 power instead.)}
+
+        When I score nine or more points in one attack, end the match when this turn ends. \textit{(The player with more points wins.)}
+        
+
+- Stalk the Shadows:
+    cost:
+    affinity: daggers
+    text: >
+        \block
+
+        Conjure and play an Assassin's Focus.
+        
+
+- Backstab:
+    cost: H
+    affinity: daggers
+    text: >
+        If your opponent is not attacking or blocking:
+        \thinparbreak
+        \attack{4}
+
+        Otherwise, conjure and play two Assassin's Focus.
+        
+
+- Ravenwand Bolt:
+    cost: H
+    affinity: eyes
+    text: >
+        If one of your opponent's cards was banished last turn, I get +2 attack power.
+
+        \attack{2}
+        
+
+- Scrying Orb:
+    cost:
+    affinity: eyes
+    types: permanent
+    text: >
+        \onplay{Your opponent reveals two cards from their hand. Choose one of those cards and banish it.}
+
+        At the end of each turn, if your opponent has three or more banished cards, score one point.
+        
+
+- Mask of Memories:
+    cost:
+    affinity: eyes
+    text: >
+        When you reveal me as an action, you may name one of your opponent's banished cards. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}
+
+        If you don't name a card:
+        \thinparbreak
+        \attack{1}
+        
+
+- Lodestone Staff:
+    cost: H
+    affinity: hours
+    text: >
+        \sequence
+        [Choose one: The match lasts one turn longer; or it ends one turn sooner.]
+        [\attack{1}]
+        
+
+- Out of Time:
+    cost: S
+    affinity: hours
+    text: >
+        \sequence
+        [No effect]
+        [No effect]
+        [\attack{4}]
+        
+
+- Avoid Fate:
+    cost: X
+    affinity: hours
+    text: >
+        \block
+
+        Conjure and play a Chronotech Augment.
+
+        Whenever you play a sequence while I'm banished, recall me.
+        
+
+- Poised to React:
+    cost: SX
+    affinity: masks
+    text: >
+        Play another card.
+        
+
+- Knife-Juggling Mishap:
+    cost: X
+    affinity: masks
+    text: >
+        When you reveal me as an action, choose a move your opponent is revealing. Claim that card until it leaves play, and it costs no \mana{S} to play this turn. Your opponent claims me until I leave play.
+
+        \attack{2}
+        
+
+- Humiliate:
+    cost:
+    affinity: masks
+    text: >
+        \attack{0}
+
+        If your opponent is blocking, they must block me if able. When they do, score two points.
+        
+
+- Radiant Chains:
+    cost:
+    affinity: shields
+    types: permanent
+    text: >
+        \onplay{Choose a card name. Your opponent can't play cards with the chosen name until I leave play.}
+
+        At the end of each turn, if your opponent scored points this turn, recall me.
+        
+
+- Shieldmate's Bond:
+    cost:
+    affinity: shields
+    types: permanent
+    text: >
+        \reflex{When you block an attack}
+
+        At the end of each turn, if your opponent scored points this turn, recall me.
+
+        At the end of the match, if I'm in play, score two points.
+        
+
+- Unyielding Protection:
+    cost: SX
+    affinity: shields
+    text: >
+        Your opponent can't score points this turn.
+        
+
+- Scars of the Deathless:
+    cost:
+    affinity: skulls
+    text: >
+        Your opponent can't score more than one point this turn. 
+        
+        \textit{(If they would score points, they score one point. If they have already scored this turn, they can't score again.)}
+        
+
+- Shambling Ranks:
+    cost:
+    types: permanent
+    affinity: skulls
+    text: >
+        At the end of each turn, if a player scored points this turn, conjure and play a Skeletal Minion.
+        
+
+- Tattered Banner:
+    cost: S
+    types: permanent
+    affinity: skulls
+    text: >
+        \reflex{At the end of each turn, if you hit with an attack this turn}
+        
+        Your attacks get +1 power.
+        

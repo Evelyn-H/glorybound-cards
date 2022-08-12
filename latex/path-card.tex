@@ -99,37 +99,37 @@
             -- 
             cycle;
 
-        \pgfkeysifdefined{linked}{%
-            \node[
-                anchor=center,
-                rectangle,
-                xshift=0mm,
-                yshift=-{#2-5mm},
-                minimum width=36mm, 
-                minimum height=3mm,
-                inner sep=0mm,
-                % fill=gray, 
-                line width=0mm,
-            ] (bb) at (current page.north) {};
+        % \pgfkeysifdefined{linked}{%
+        %     \node[
+        %         anchor=center,
+        %         rectangle,
+        %         xshift=0mm,
+        %         yshift=-{#2-5mm},
+        %         minimum width=36mm, 
+        %         minimum height=3mm,
+        %         inner sep=0mm,
+        %         % fill=gray, 
+        %         line width=0mm,
+        %     ] (bb) at (current page.north) {};
 
-            \path[%
-                line width=0mm, 
-                fill=dark!90,
-            ] 
-                (bb.north east)
-                --
-                (bb.north west)
-                -- 
-                ([yshift=1mm] bb.south west)
-                --
-                ([xshift=1mm] bb.south west)
-                -- 
-                ([xshift=-1mm] bb.south east)
-                --
-                ([yshift=1mm] bb.south east)
-                -- 
-                cycle;
-        }{}
+        %     \path[%
+        %         line width=0mm, 
+        %         fill=dark!90,
+        %     ] 
+        %         (bb.north east)
+        %         --
+        %         (bb.north west)
+        %         -- 
+        %         ([yshift=1mm] bb.south west)
+        %         --
+        %         ([xshift=1mm] bb.south west)
+        %         -- 
+        %         ([xshift=-1mm] bb.south east)
+        %         --
+        %         ([yshift=1mm] bb.south east)
+        %         -- 
+        %         cycle;
+        % }{}
     \end{tikzpicture}
     \endgroup
 }
@@ -217,18 +217,18 @@
     }%
     %
     % linked cards
-    \pgfkeysifdefined{linked}{%
-        \bettertextbox[%
-            anchor=center,
-            y={\templen-5mm}, 
-            width=36mm, height=3mm, margin=0.25mm, 
-            fontsize=7pt, font=\titlefont\sbseries,
-        ]
-        [valign=centerline, left=0.75mm, right=0.75mm]
-        {%
-            \textcolor{light}{\pgfkeysvalueof{linked}}%
-        }%
-    }{}%
+    % \pgfkeysifdefined{linked}{%
+    %     \bettertextbox[%
+    %         anchor=center,
+    %         y={\templen-5mm}, 
+    %         width=36mm, height=3mm, margin=0.25mm, 
+    %         fontsize=7pt, font=\titlefont\sbseries,
+    %     ]
+    %     [valign=centerline, left=0.75mm, right=0.75mm]
+    %     {%
+    %         \textcolor{light}{\pgfkeysvalueof{linked}}%
+    %     }%
+    % }{}%
     \endgroup%
 }
 
@@ -242,6 +242,7 @@
     % upgrade/.code={\pgfkeyssetvalue{upgrade}{#1}},
     passive name/.code={\pgfkeyssetvalue{passive name}{#1}},
     passive/.code={\pgfkeyssetvalue{passive}{#1}},
+    big passive/.code={\pgfkeyssetvalue{big passive}{#1}},%
     % affinities
     primary/.code={\pgfkeyssetvalue{primary}{#1}},
     secondary/.code={\pgfkeyssetvalue{secondary}{#1}},
@@ -281,6 +282,11 @@
         color-right=\mycolorsecondary,
     }
 
+    \pgfkeys{/card/.cd,
+        color-left=\mycolorprimary,
+        color-right=\mycolorsecondary,
+    }
+
     \global\let\domainprimary\mycolorprimary
     \global\let\domainsecondary\mycolorsecondary
 
@@ -316,7 +322,7 @@
         % \includegraphics[width=63mm]{icons/frame2.png}
         \includegraphics[width=63mm]{%
             % icons/frame2-path.png
-            icons/frame2-path-title.png
+            icons/frame2-path-title-wide.png
         }
     };
 
@@ -327,8 +333,34 @@
     % \renderresource{5mm}{\substring{\pgfkeysvalueof{/path/resources}}{3}{3}}
 
 
-    \renderaffinities
+    % \renderaffinities
 
+    \pgfkeysifdefined{primary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            % \node[
+            %     anchor=center,
+            %     rectangle,
+            %     rounded corners=1mm,
+            %     xshift=-5.5mm-3mm,
+            %     yshift=-5.5mm-4mm,
+            %     minimum width=6mm, 
+            %     minimum height=8mm,
+            %     inner sep=0mm,
+            %     % fill=dark!25!light!75,
+            %     fill={\pgfkeysifdefined{secondary}{secondarylight}{primarylight}},
+            %     line width=0mm,
+            % ] (bb) at (current page.north east) {};
+
+            \node[
+                opacity=0.07,
+                anchor=center,
+                inner sep=0pt,
+                yshift=-36mm,
+            ] at (current page.north) {
+                \includegraphics[width=36mm, height=36mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{\pgfkeysifdefined{secondary}{secondary}{primary}}}
+            };
+        \end{tikzpicture}
+    }{}
     
     % make sure we have the right font by default
     \bodyfont
@@ -349,7 +381,7 @@
 
     % name
     \bettertextbox
-        [y=4.5mm, width=36mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
+        [y=4.5mm, width=42mm, height=6mm, margin=0mm, fontsize=14pt, font=\titlefont\bfseries]
         [halign=center, valign=centerline]
     {%
         \pgfkeysvalueof{/path/name}%
@@ -373,9 +405,11 @@
         % [halign=center, valign=centerline]{%
         %     \pgfkeysvalueof{passive name}:%
         % }
+        
         \bettertextbox[%
-            y=20mm,
-            width=44mm, height=32mm, margin=1mm, 
+            anchor=center,
+            y=\pgfkeysifdefined{big passive}{40mm}{36mm},
+            width=44mm, height=\pgfkeysifdefined{big passive}{44mm}{36mm}, margin=1mm, 
             fontsize=10pt,
         ]
         [valign=center]{%

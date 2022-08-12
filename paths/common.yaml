@@ -1,5 +1,4 @@
 path: Common
-colors: 000000 - 000000
 
 cards:
 - Offer to the Pyre:
@@ -56,7 +55,7 @@ cards:
         Gain \mana{SS}.
         
 
-- Stay Out Of Reach:
+- Stay Out of Reach:
     cost: H
     affinity: shields, ribbons
     text: >

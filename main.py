@@ -15,13 +15,17 @@ import colormath.color_conversions
 def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
+def flatten(l):
+    return [item for sublist in l for item in sublist]
+
 
 schema = Map({
     'path': Str(),
-    'colors': Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
+    Optional('colors'): Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
     Optional('extras'): Str(),
     Optional('passive name'): Str(),
     Optional('passive'): Str(),
+    Optional('big passive'): Bool(),
     Optional('affinity'): CommaSeparated(Regex(r'blossoms|daggers|skulls|candles|claws|shields|eyes|masks|hours|ribbons')),
 
     'cards': Seq(
@@ -46,17 +50,18 @@ schema = Map({
     # "c": EmptyDict() | Seq(MapPattern(Str(), Str())),
 })
 
+class MyDict(dict):
+    def __missing__(self, key):
+        return None
+    def __getitem__(self, key):
+        val = dict.__getitem__(self, key)
+        if isinstance(val, str):
+            return val.strip().replace('\n', '\n\n')
+        return val
+
 class Card(object):
     def __init__(self, d):
         name, d = d.popitem()
-        class MyDict(dict):
-            def __missing__(self, key):
-                return None
-            def __getitem__(self, key):
-                val = dict.__getitem__(self, key)
-                if isinstance(val, str):
-                    return val.strip().replace('\n', '\n\n')
-                return val
         d = MyDict(d)
         self.name = name
         self.cost = d['cost']
@@ -83,7 +88,7 @@ class Card(object):
 
 
 class Path(object):
-    def __init__(self, name, colors, cards, extras=None, passive_name=None, passive=None, primary=None, secondary=None):
+    def __init__(self, name, colors, cards, extras=None, passive_name=None, passive=None, primary=None, secondary=None, big_passive=None):
         self.name = name
         self.colors = colors
         self.cards = cards
@@ -92,6 +97,7 @@ class Path(object):
         self.passive = passive
         self.primary = primary
         self.secondary = secondary
+        self.big_passive = big_passive
 
     @classmethod
     def from_file(cls, filename):
@@ -106,22 +112,34 @@ class Path(object):
         # text = fix_string_stuff(text)
         # print(text)
 
-        config = yaml.load(text, schema)
-        data = config.data
-        # data = yaml.load(text)
-        # print(repr(data))
+        def from_string(text):
+            # eprint(text)
+            config = yaml.load(text, schema)
+            data = config.data
+            # data = yaml.load(text)
+            # print(repr(data))
 
-        name = data['path']
-        colors = tuple([c.strip() for c in data['colors'].split('-')])
-        cards = [Card(card) for card in data['cards']]
-        extras = data.get('extras', None)
-        passive_name = data.get('passive name', None)
-        passive = data.get('passive', None)
-        # print(*cards, sep='\n')
-        aff = [t.strip() for t in (data.get('affinity', []))] + [None, None]
-        path = Path(name, colors, cards, extras, passive_name, passive, aff[0], aff[1])
-        path.build_links()
-        return path
+            name = data['path']
+            colors = tuple([c.strip() for c in data.get('colors', '000000 - 000000').split('-')])
+            cards = [Card(card) for card in data['cards']]
+            extras = data.get('extras', None)
+            passive_name = data.get('passive name', None)
+            big_passive = data.get('big passive', None)
+            passive = MyDict(data)['passive']
+            if passive:
+                for c in cards:
+                    c.types.append('domain')
+
+            # print(*cards, sep='\n')
+            aff = [t.strip() for t in (data.get('affinity', []))] + [None, None]
+            path = Path(name, colors, cards, extras, passive_name, passive, aff[0], aff[1], big_passive)
+            path.build_links()
+            return path
+
+        sep = 'path:'
+        paths = [sep+x for x in text.split(sep)[1:] if not x.split('\n')[1].startswith('#')]
+
+        return [from_string(text) for text in paths]
 
     def card_by_name(self, name):
         matches = [c for c in self.cards if c.name == name]
@@ -134,10 +152,13 @@ class Path(object):
         for c in self.cards:
             if c.linked:
                 if '{' in c.linked:
-                    linked_cards = re.findall(r"\{(.*?)\}", c.linked)
+                        linked_cards = re.findall(r"\{(.*?)\}", c.linked)
                 else:
                     linked_cards = [c.linked]
+                if c.linked.strip() == '' or c.linked.strip().startswith('{}'):
+                    linked_cards=[]
                 for l in linked_cards:
+                    eprint(l)
                     self.card_by_name(l).linked_to.append(c)
 
 
@@ -171,7 +192,7 @@ def check_colors(paths):
     comparisons.sort(key=lambda c: c[2]**2+c[3]**2, reverse=True)
     eprint('\n'.join(map(str, comparisons)))
 
-check_colors([Path.from_file(f) for f in glob.glob('paths/*.yaml')])
+check_colors(flatten([Path.from_file(f) for f in glob.glob('paths/*.yaml')]))
 # input()
 # quit()
 
@@ -194,7 +215,7 @@ template = latex_jinja_env.get_template('latex/glorybound_template.tex')
 
 # print(sys.argv)
 if sys.argv.count('-all') > 0:
-    paths = [Path.from_file(f) for f in sorted(glob.glob('paths/*.yaml'))]
+    paths = flatten([Path.from_file(f) for f in sorted(glob.glob('paths/*.yaml'))])
 else:
     names = [
         # '_heirlooms',
@@ -227,14 +248,17 @@ else:
         # 'outlander',
         # 'soldier',
 
-        # 'advanced-uncommon',
-        # 'starter',
-        # 'common',
-        'mercenary',
-    ]
-    paths = [Path.from_file(f'paths/{n}.yaml') for n in sorted(names)]
+        'conjured',
+        'starter',
+        'common',
+        'rare',
 
-paths.sort(key=lambda p: p.name)
+        'domains',
+    ]
+    # paths = flatten([Path.from_file(f'paths/{n}.yaml') for n in sorted(names)])
+    paths = flatten([Path.from_file(f'paths/{n}.yaml') for n in names])
+
+# paths.sort(key=lambda p: p.name)
 
 eprint([(len(p.cards), p.name) for p in paths])
 

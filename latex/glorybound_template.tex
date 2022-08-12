@@ -120,7 +120,9 @@
         passive name={\VAR{path.passive_name}},
         \BLOCK{ endif }
         \BLOCK{ if path.passive != None }
-        passive={\VAR{path.passive}},
+        passive={%
+            \VAR{path.passive | indent(4*4)}%
+        },
         \BLOCK{ endif }
         \BLOCK{ if path.primary != None }
         primary={\VAR{path.primary}},
@@ -128,27 +130,29 @@
         \BLOCK{ if path.secondary != None }
         secondary={\VAR{path.secondary}},
         \BLOCK{ endif }
+        \BLOCK{ if path.big_passive == true }
+        big passive,
+        \BLOCK{ endif }
     ]{%
     \BLOCK{ if path.name != "Heirloom" }
-        \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }
+        \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|length > 0 and path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }
             \addtolength{\yoffset}{1.5mm}%
         \BLOCK{ endif }
         \BLOCK{ for card in path.cards|reverse }
-            \BLOCK{ if card.linked == None }
             \pathrow[%
+                \BLOCK{ if card.path_card_name != None }
+                name={\VAR{card.path_card_name}},
+                \BLOCK{ else }
                 name={\VAR{card.name}},
+                \BLOCK{ endif }
                 \BLOCK{ if card.purchase != None }
                 purchase={\VAR{card.purchase}},
                 \BLOCK{ endif }
                 \BLOCK{ if card.upgrade_cost != None }
                 upgrade={\VAR{card.upgrade_cost}},
                 \BLOCK{ endif }
-                \BLOCK{ if card.linked_to|length > 0 }
-                linked={\VAR{card.linked_to|map(attribute='path_card_name')|join('\ \ --\ \ ')}},
-                \BLOCK{ endif }
             ]%
             \addtolength{\yoffset}{8mm}%
-            \BLOCK{ endif }
         \BLOCK{ endfor }
     \BLOCK{ endif }
     }

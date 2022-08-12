@@ -1,0 +1,45 @@
+path: Conjured
+
+cards:
+- Brimstone Imp:
+    cost: X
+    linked: 
+    linked short: true
+    affinity: candles
+    text: >
+        Reveal a card from your hand at random and play it without paying costs.
+
+        \attack{1}
+        
+
+- Assassin's Focus:
+    cost: X
+    types: permanent
+    linked: 
+    linked short: true
+    affinity: daggers
+    text: >
+        When you are attacking, banish me to give an attack +1 power.
+        
+
+- Chronotech Augment:
+    cost: X
+    types: permanent
+    linked: 
+    linked short: true
+    affinity: hours
+    text: >
+        \onplay{Choose a sequence to augment. Put me behind that card.}
+
+        If the augmented sequence would leave play because all stages are complete, instead banish me to repeat the final stage next turn.
+        
+
+- Skeletal Minion:
+    cost: X
+    linked: 
+    linked short: true
+    affinity: skulls
+    text: >
+        \sequence
+        [No effect.]
+        [\attack{1}]
