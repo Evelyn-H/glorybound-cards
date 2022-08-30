@@ -5,7 +5,7 @@ cards:
     cost: S
     affinity:
     text: >
-        \attack{2}
+        \attackexpertise{2}
 
 - Defensive Stance:
     cost:
@@ -13,8 +13,12 @@ cards:
     text: >
         \block
 
+    upgrade cost: 1+
+    upgrade: >
+        I block any number of attacks this turn.
+
 - Two-Breath Meditation:
     cost:
     affinity:
     text: >
-        Gain \mana{S}. Then you may pay \mana{SSS} to score one point.
+        Gain \expertisenumber{one} \mana{S}. Then you may pay \mana{SSS} to score one point.

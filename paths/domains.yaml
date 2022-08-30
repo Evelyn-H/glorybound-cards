@@ -16,7 +16,7 @@ cards:
     cost: SSS
     types: permanent
     text: >
-        Your Brimstone Imps get +1 attack power.
+        Your Brimstone Imps get +1 power.
 
 
 
@@ -63,7 +63,7 @@ cards:
 - Read the Fine Print:
     cost: X
     text: > 
-        When you reveal me to play me, claim a card your opponent is revealing until the end of the match. If you do, reveal your hand and your opponent chooses a card. Banish that card. \textit{(You will pay for and play the claimed card.)}
+        \onreveal{Claim a card your opponent is revealing until the end of the match. If you do, reveal your hand and your opponent chooses a card. Banish that card. \textit{(You will pay for and play the claimed card.)}}
     
 
 - Inescapable Contract:
@@ -91,7 +91,7 @@ cards:
     text: >
         Spend four momentum to play me.
 
-        Your attacks get +2 attack power.
+        Your attacks get +2 power.
     
 
 - Display of Technique:
@@ -118,7 +118,7 @@ cards:
 - Move with Intention:
     cost:
     text: >
-        If you reveal me alongside another action, you get +1 expertise with that card until it leaves play.
+        \onreveal[if you reveal me alongside another action]{You get +1 expertise with that card until it leaves play.
     
 
 - Invite to Dance:
@@ -144,10 +144,10 @@ path: Circle of the Sun
 affinity: blossoms
 passive: >
     \passivename{Fallow Solstice}
-    At the start of each turn, if you have no \mana{S}, both players' attacks get -1 attack power this turn.
+    At the start of each turn, if you have no \mana{S}, both players' attacks get -1 power this turn.
 
     \passivename{Flourishing Solstice}
-    At the start of each turn, if you have four or more \mana{S}, both players' attacks get +1 attack power this turn.
+    At the start of each turn, if you have four or more \mana{S}, both players' attacks get +1 power this turn.
 
 
 cards:
@@ -199,7 +199,7 @@ cards:
     text: >
         \pseudotype{Shrine}
 
-        You cannot be hit by attacks with attack power less than or equal to the amount of \mana{S} on me.
+        You cannot be hit by attacks with power less than or equal to the amount of \mana{S} on me.
         
         At the end of each turn, remove \mana{S} from me.
         
@@ -270,7 +270,7 @@ passive: >
     \passivename{Honor the Elements}
     At the start of each turn, if you have scored four or more points this match, choose a gift you haven't chosen yet:
 
-    \choice[Gift of Mountains] Your opponent's attacks get -1 attack power this turn.
+    \choice[Gift of Mountains] Your opponent's attacks get -1 power this turn.
     
     \choice[Gift of Thunder] You get an additional action this turn.
     
@@ -319,7 +319,7 @@ cards:
 
         \attack{1}
 
-        \bond{Bear} I get +1 attack power.
+        \bond{Bear} I get +1 power.
 
         \bond{Eagle} I am swift. \textit{(I cost \mana{S} to block.)}.
     
@@ -529,7 +529,7 @@ cards:
 - Supernova:
     cost: X
     text: >
-        I get +2 attack power for each of your banished sequence cards.
+        I get +2 power for each of your banished sequence cards.
 
         \attack{2}
     
@@ -550,7 +550,7 @@ cards:
 - Improbability Spikes:
     cost: S
     text: >
-        My base attack power X is equal to the number of turns I've been in play. \textit{(X is 1 the turn I'm played, 2 the next turn, etc.)}
+        My base power X is equal to the number of turns I've been in play. \textit{(X is 1 the turn I'm played, 2 the next turn, etc.)}
 
         \sequence
         [\attack{X}]
@@ -659,7 +659,7 @@ cards:
     text: >
         \pseudotype{Chord}
 
-        \onplay{If you have another chord in play, banish it. If you banish a chord this way, your opponent's attacks get -2 attack power this turn.}
+        \onplay{If you have another chord in play, banish it. If you banish a chord this way, your opponent's attacks get -2 power this turn.}
         
         Whenever your opponent plays a card, they sacrifice it if they haven't yet.
         
@@ -698,7 +698,7 @@ cards:
 
         \attack{1}
 
-        Your opponent's attacks get -1 attack power.
+        Your opponent's attacks get -1 power.
     
 
 
@@ -715,7 +715,7 @@ cards:
     cost: S
     types: permanent
     text: >
-        Your opponent's attacks get -1 attack power.
+        Your opponent's attacks get -1 power.
 
         The first time you have four or more permanents in play, I get +1 expertise this match.
     
@@ -845,7 +845,7 @@ cards:
     types: permanent
     linked: Gruesome Curiosity
     text: >
-        Your opponent's attacks get -1 attack power and they sacrifice every card they play.
+        Your opponent's attacks get -1 power and they sacrifice every card they play.
         Each turn:
         \thinparbreak
         \attack{2}

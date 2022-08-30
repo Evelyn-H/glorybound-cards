@@ -10,14 +10,14 @@
 
 %%% Commands to be used in card definitions
 
-\colorlet{ugradegray}{dark!25!light!75}
-% \newcommand{\upgrade}[1]{\sethlcolor{ugradegray}\hl{{#1}}}
-% \newcommand{\upgrade}[1]{\colorbox{ugradegray}{ugradegray}{#1}}
+\colorlet{upgradegray}{dark!25!light!75}
+% \newcommand{\upgrade}[1]{\sethlcolor{upgradegray}\hl{{#1}}}
+% \newcommand{\upgrade}[1]{\colorbox{upgradegray}{upgradegray}{#1}}
 
 % \newcommand{\upgrade}[1]{%
 % % #1%
 %     \setlength{\fboxsep}{0pt}%
-%     \colorbox{ugradegray}{%
+%     \colorbox{upgradegray}{%
 %         % \vphantom{Blg}%
 %         \strut%
 %         #1%
@@ -104,7 +104,7 @@
 \newcommand{\upgrade}[2]{%
 % #1%
     \setlength{\fboxsep}{0pt}%
-    \colorbox{ugradegray}{%
+    \colorbox{upgradegray}{%
         % \vphantom{Blg}%
         \strut%
         \,#1\,%
@@ -122,6 +122,16 @@
     }%
 }
 \makeatother
+
+\newcommand{\upgradeicon}[1]{%
+    \smash{\scalerel*{\includegraphics{icons/upgrade-gray.png}}{AQ}}%
+}
+
+\newcommand{\expertisenumber}[1]{%
+    \colorlet{temp}{black!50}
+    \mbox{\textcolor{temp}{\textbf{\upgradeicon\, #1}}}
+}
+
 
 \newcommand{\dividerline}{%
     % \vspace{-0.667\parskip}%
@@ -153,6 +163,13 @@
     % \dividerline
 }
 
+
+\NewDocumentCommand{\onreveal}{+o +m}{%
+    {\textbf{On reveal\IfNoValueT{#1}{:}}\IfValueT{#1}{, #1} #2}%
+    % \dividerline
+}
+
+
 \NewDocumentCommand{\reflex}{+m}{%
     \textbf{Reflex:} #1, you may play me.
 }
@@ -179,7 +196,7 @@
     \textit{\textbf{#1}}
 }
 
-% \newcommand{\upgrade}{\bgroup\markoverwith{\textcolor{ugradegray}{\rule[-.5ex]{.5pt}{2.5ex}}}\ULon}
+% \newcommand{\upgrade}{\bgroup\markoverwith{\textcolor{upgradegray}{\rule[-.5ex]{.5pt}{2.5ex}}}\ULon}
 
 % \newcommand{\block}{{\par\centering\textbf{Block} an attack.\par}}
 
@@ -366,6 +383,15 @@
                 ([xshift=-\iconwidth*0.9, yshift=0.0mm] bb.south east);
         }{}
 
+
+        \pgfkeysifdefined{attackexpertise}{%
+            \node[
+                anchor=west, 
+                inner sep=0pt,
+            ] (expertise) at ([xshift=1.5mm] bb.west) {%
+                \includegraphics[width=4mm]{icons/upgrade-gray.png}%
+            };
+        }{}
         
     \end{tikzpicture}%
     \par
@@ -388,6 +414,13 @@
         fillcolor={\pgfkeysifdefined{heirloom}{heirloomlight}{light}},
         textcolor=dark,
     ]
+}
+
+\newcommand{\attackexpertise}[1]{%
+    \begingroup%
+        \pgfkeyssetvalue{attackexpertise}{something}
+        \attack{#1}
+    \endgroup%
 }
 
 \newcommand{\innatebanner}{%
@@ -698,12 +731,12 @@
 }
 
 
-\newcommand{\upgradeicon}{%
-    \smash{\scalerel*{%
-            % \includegraphics{icons/upgrade.png}%
-            \includegraphics{icons/level.png}%
-    }{\strut}}%
-}
+% \newcommand{\upgradeicon}{%
+%     \smash{\scalerel*{%
+%             % \includegraphics{icons/upgrade.png}%
+%             % \includegraphics{icons/level.png}%
+%     }{\strut}}%
+% }
 
 % render affinities
 \newcommand{\renderaffinities}{%

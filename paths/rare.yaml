@@ -116,8 +116,8 @@ cards:
         \reflex{When both players are attacking}
 
         \sequence
-        [Your opponent's attacks get -1 attack power.]
-        [Your opponent's attacks get -1 attack power.]
+        [Your opponent's attacks get -1 power.]
+        [Your opponent's attacks get -1 power.]
 
         If you played me as a reflex, sacrifice me.
         
@@ -157,7 +157,7 @@ cards:
     cost: H
     affinity: eyes
     text: >
-        If one of your opponent's cards was banished last turn, I get +2 attack power.
+        If one of your opponent's cards was banished last turn, I get +2 power.
 
         \attack{2}
         
@@ -176,11 +176,13 @@ cards:
     cost:
     affinity: eyes
     text: >
-        When you reveal me as an action, you may name one of your opponent's banished cards. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}
+        \onreveal{you may name one of your opponent's banished cards. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}}
 
         If you don't name a card:
         \thinparbreak
         \attack{1}
+
+        \expertisenumber{Expertise} with me improves the copy.
         
 
 - Lodestone Staff:
@@ -224,7 +226,7 @@ cards:
     cost: X
     affinity: masks
     text: >
-        When you reveal me as an action, choose a move your opponent is revealing. Claim that card until it leaves play, and it costs no \mana{S} to play this turn. Your opponent claims me until I leave play.
+        \onreveal{Choose a move your opponent is revealing. Claim that card until it leaves play, and it costs no \mana{S} to play this turn. Your opponent claims me until I leave play.}
 
         \attack{2}
         

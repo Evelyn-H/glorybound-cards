@@ -157,12 +157,12 @@
         \colorlet{dark}{white}
         \colorlet{light}{black!90}
         \colorlet{sequencecolor}{dark!70!light!30}
-        \colorlet{ugradegray}{dark!25!light!75}
+        \colorlet{upgradegray}{dark!25!light!75}
     }{%
         \colorlet{dark}{black}
         \colorlet{light}{white}
         \colorlet{sequencecolor}{dark!70}
-        \colorlet{ugradegray}{dark!25!light!75}
+        \colorlet{upgradegray}{dark!25!light!75}
     }
 
     % render frame
@@ -276,7 +276,9 @@
     }
 
     % affinities
-    \renderaffinities
+    \pgfkeysifdefined{linked}{}{%
+        \renderaffinities
+    }
     
 
     % upgrade?
@@ -349,8 +351,8 @@
                             inner sep=0pt,
                             xshift=1mm,
                             % opacity=0.5,
-                        % ] at (frame.west) {\includegraphics[height=4mm]{icons/upgrade\pgfkeysifdefined{night}{-night}{}.png}};
-                        ] at (frame.west) {\includegraphics[height=4mm]{icons/level\pgfkeysifdefined{night}{-night}{}.png}};
+                        ] at (frame.west) {\includegraphics[height=4mm]{icons/upgrade\pgfkeysifdefined{night}{-night}{}.png}};
+                        % ] at (frame.west) {\includegraphics[height=4mm]{icons/level\pgfkeysifdefined{night}{-night}{}.png}};
                     \end{tcbclipframe}
                 },
                 left=4.5mm,

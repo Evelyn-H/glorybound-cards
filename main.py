@@ -40,7 +40,7 @@ schema = Map({
                 Optional('path card name'): Str(),
                 'text': Str(), 
                 Optional('purchase'): Int(),
-                Optional('upgrade cost'): Int(),
+                Optional('upgrade cost'): Str(),
                 Optional('upgrade'): Str(),
                 Optional('big art'): Bool(),
                 Optional('designer'): Str(),
@@ -248,12 +248,12 @@ else:
         # 'outlander',
         # 'soldier',
 
-        'conjured',
-        'starter',
-        'common',
+        # 'conjured',
+        # 'starter',
+        # 'common',
         'rare',
 
-        'domains',
+        # 'domains',
     ]
     # paths = flatten([Path.from_file(f'paths/{n}.yaml') for n in sorted(names)])
     paths = flatten([Path.from_file(f'paths/{n}.yaml') for n in names])

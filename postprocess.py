@@ -49,12 +49,21 @@ def process_card(path, card, page):
 
     # make image with bleed area for printing
     out_folder = "output/print"
+    postfix = ""
     if card in paths.keys():
         out_folder = "output/print/rainbow"
+        subprocess.run(f"cp \"cardback-rainbow.png\" \"{out_folder}/{card}[back,1].png\"", shell=True)
+        postfix = f"[face,1]"
+    elif path in ['Starter', 'Rare', 'Common', 'Conjured']:
+        out_folder = f"output/print/{path}"
+        subprocess.run(f"mkdir -p \"{out_folder}\"", shell=True)
+        count = {'Starter': 8, 'Common': 3, 'Rare': 2, 'Conjured': 'x'}[path]
+        postfix = f"[face,{count}]"
+    
     print(f"Adding bleed to {path} - {card}")
     subprocess.run(f"mkdir -p \"output/{path}\"", shell=True)
     subprocess.run(f"mkdir -p \"output/print/rainbow\"", shell=True)
-    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 icons/bleed-overlay.png -composite \"{out_folder}/{card}.png\"", shell=True)
+    subprocess.run(f"convert \"output/{path}/{card}.png\" -resize 50% -gravity center -extent 825x1125 icons/bleed-overlay.png -composite \"{out_folder}/{card}{postfix}.png\"", shell=True)
 
 # make images per card
 for path, card, page in cards:

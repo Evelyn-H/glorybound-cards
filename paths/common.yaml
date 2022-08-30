@@ -61,7 +61,7 @@ cards:
     text: >
         \reflex{When you are being attacked and you have scored no points this match}
 
-        Your opponent's attacks get -2 attack power.
+        Your opponent's attacks get \expertisenumber{-2} power.
         
 
 - Iron-Oak Protector:
@@ -71,6 +71,9 @@ cards:
         \block
 
         \attack{3}
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
         
 
 - Accelerated Growth:
@@ -95,11 +98,11 @@ cards:
     cost: X
     affinity: claws, daggers
     text: >
-        \attack{2}
+        \attackexpertise{2}
 
         \swift
 
-        If your opponent has scored three or more points this match, I get +2 power.
+        If your opponent has scored three or more points this match, I get \expertisenumber{+2} power.
         
 
 - Loot the Mausoleum:
@@ -124,7 +127,9 @@ cards:
     cost:
     affinity: masks, daggers
     text: >
-        When you reveal me as an action, name a card your opponent played last turn. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}
+        \onreveal{Name a card your opponent played last turn. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}}
+
+        \expertisenumber{Expertise} with me improves the copy.
         
 
 - Hypnotic Melody:
@@ -152,7 +157,7 @@ cards:
     cost: SX
     affinity: eyes, hours
     text: >
-        When you reveal me as an action, choose a card your opponent is revealing. Banish that card and they don't play it.
+        \onreveal{Choose a card your opponent is revealing. Banish that card and they don't play it.}
         
 
 - Laboratory Macabre:
