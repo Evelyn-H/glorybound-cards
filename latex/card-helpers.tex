@@ -165,7 +165,7 @@
 
 
 \NewDocumentCommand{\onreveal}{+o +m}{%
-    {\textbf{On reveal\IfNoValueT{#1}{:}}\IfValueT{#1}{, #1} #2}%
+    {\textbf{On reveal\IfNoValueT{#1}{:}}\IfValueT{#1}{, #1:} #2}%
     % \dividerline
 }
 
@@ -218,6 +218,7 @@
 \newlength\iconwidth
 \newlength\tempfontsize
 \newlength\outlinewidth
+\newlength\expertisewidth
 
 % https://tex.stackexchange.com/a/6424
 \makeatletter
@@ -383,13 +384,13 @@
                 ([xshift=-\iconwidth*0.9, yshift=0.0mm] bb.south east);
         }{}
 
-
+        \setlength\expertisewidth{4mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
         \pgfkeysifdefined{attackexpertise}{%
             \node[
                 anchor=west, 
                 inner sep=0pt,
             ] (expertise) at ([xshift=1.5mm] bb.west) {%
-                \includegraphics[width=4mm]{icons/upgrade-gray.png}%
+                \includegraphics[width=\expertisewidth]{icons/upgrade-gray.png}%
             };
         }{}
         
@@ -640,7 +641,8 @@
 
 % this one is for use inside the card text
 \newcommand{\manatext}[1]{%
-    \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{\strut}}%
+    \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{AQ}}%
+    % \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{\strut}}%
     % \includegraphics[width=1mm]{icons/mana/#1.png}%
 }
 \begin{luacode*}

@@ -56,7 +56,7 @@ path: The Inkblood Syndicate
 affinity: candles
 passive: >
     \passivename{Intricate Schemes}
-    The first time each turn that one of your cards is banished, look at your cache and secretly choose a card to recall. If your cache is empty, instead do this with your reserve.
+    The first time each turn that one of your cards is banished, look at your cache and secretly choose a card to put into your hand. If your cache is empty, instead do this with your reserve.
 
 
 cards:
@@ -118,11 +118,12 @@ cards:
 - Move with Intention:
     cost:
     text: >
-        \onreveal[if you reveal me alongside another action]{You get +1 expertise with that card until it leaves play.
+        \onreveal[if you reveal me alongside another action]{You get +1 expertise with that card until it leaves play.}
     
 
 - Invite to Dance:
     cost:
+    types: permanent
     text: >
         \onplay{Your opponent conjures Try to Keep Up.}
 
@@ -333,7 +334,7 @@ cards:
 
         \bond{Bear} If I block an attack with 3 or more power, banish me and banish Refuse to be Caged.
 
-        \bond{Eagle} Banish me. Recall me when you play Refuse to be Caged.
+        \bond{Eagle} Banish me. Return me to your hand when you play Refuse to be Caged.
     
 
 - Refuse to be Caged:
@@ -366,7 +367,7 @@ cards:
 - Flawless Execution:
     cost: SX
     text: >
-        My base power X is equal you your reputation when you play me.
+        My base power X is equal to your reputation when you play me.
 
         \swift
 
@@ -462,7 +463,7 @@ passive: >
     When your opponent has no cards in hand or in play, score two points and note that they are a vessel.
 
     \passivename{The Vessel Serves}
-    When a vessel is eliminated from the the tournament, claim and learn an advanced move or domain move that they had learned.
+    When a vessel is eliminated from the tournament, claim and learn an advanced move or domain move that they had learned.
 
 
 cards:
@@ -488,7 +489,7 @@ path: The Sea of Lost Dreams
 affinity: eyes
 passive: >
     \passivename{Memories Washed Ashore}
-    When you banish one of your opponent's cards, claim it until the end of the match and recall it. You get +1 expertise with cards claimed this way.
+    When you banish one of your opponent's cards, claim it until the end of the match and put it into your hand. You get +1 expertise with cards claimed this way.
 
 
 cards:
@@ -615,7 +616,7 @@ passive: >
     \passivename{Harmonic Evocation}
     When the match starts, order the three chords and reveal the order. 
     
-    At the start of the first turn of the match, conjure play the first chord. 
+    At the start of the first turn of the match, conjure and play the first chord. 
     
     At the start of the third turn, conjure and play the next one. 
     
@@ -686,7 +687,7 @@ cards:
     text: >
         \pseudotype{Dragon}
 
-        \attack{1}
+        \attackexpertise{1}
 
         I can't be blocked.
     
@@ -696,9 +697,9 @@ cards:
     text: >
         \pseudotype{Dragon}
 
-        \attack{1}
+        \attackexpertise{1}
 
-        Your opponent's attacks get -1 power.
+        Your opponent's attacks get \expertisenumber{-1} power.
     
 
 
@@ -715,7 +716,7 @@ cards:
     cost: S
     types: permanent
     text: >
-        Your opponent's attacks get -1 power.
+        Your opponent's attacks get \expertisenumber{-1} power.
 
         The first time you have four or more permanents in play, I get +1 expertise this match.
     
@@ -723,7 +724,7 @@ cards:
 - Solar Convergence:
     cost:
     text: >
-        To play me, recall two of your permanents.
+        To play me, return two of your permanents from play to hand.
 
         \block
 

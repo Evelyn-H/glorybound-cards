@@ -5,7 +5,7 @@ cards:
     cost: SX
     affinity: candles
     text: >
-        Conjure two Brimstone Imps and play one of them without paying costs.
+        Conjure \expertisenumber{two} Brimstone Imps and play one of them without paying costs.
         
 
 - Demon's Bargain:
@@ -17,12 +17,17 @@ cards:
 
         At the start of each turn, your opponent scores one point.
         
+    upgrade cost: 1+
+    upgrade: >
+        I don't count for max hand size.
+        
 
-- Read Forbidden Tomes:
+- Seek Forbidden Knowledge:
     cost:
     affinity: candles
     text: >
-        Banish one of your other cards from hand or play to name a move or domain card. You get +1 expertise with the named card this match.
+        \onplay{Banish one of your move cards from hand or play.}
+        When you reveal another starter or advanced move, you get \expertisenumber{+1} expertise with that card until it leaves play.
         
 
 - Roundhouse Kick:
@@ -31,7 +36,7 @@ cards:
     text: >
         \reflex{When you play your second move this turn}
 
-        \attack{2}
+        \attackexpertise{2}
         
 
 - Daze:
@@ -44,6 +49,10 @@ cards:
         [No effect.]
         [Your opponent can't pay \mana{S}. \textit{(\mana{H} must be paid with \mana{X}.)}]
         
+    upgrade cost: 1+
+    upgrade: >
+        I don't count for max hand size.
+        
 
 - Acrobat's Leap:
     cost:
@@ -52,36 +61,35 @@ cards:
     text: >
         \sequence
         [\block]
-        [All points you would score this turn are doubled.]
+        [If you would score points this turn, score \expertisenumber{two} times as many points.]
         
 
 - Infuse with Sunlight:
     cost:
     affinity: blossoms
     text: >
-        \sequence
-        [Gain \mana{SS} and put that spirit on me. It can be spent normally but vanishes when I leave play.]
-        [No effect.]
+        For each \mana{S} you had at the start of this turn, gain \expertisenumber{one} \mana{S}.
         
 
 - The Woods Offer Refuge:
-    cost:
+    cost: X
     affinity: blossoms
     text: >
         \reflex{When you gain \mana{S}}
 
         \block
-        
-        If you played me as a reflex, sacrifice me.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{X} less to play.
         
 
 - Fists of Life-Force:
     cost: SSS
     affinity: blossoms
     text: >
-        \attack{3}
+        \attackexpertise{3}
 
-        \attack{3}
+        \attackexpertise{3}
 
         \textit{(One block can only stop one attack.)}
         
@@ -91,9 +99,11 @@ cards:
     affinity: claws
     types: permanent
     text: >
-        When you attack, recall me to:
+        \onplay{No effect.}
+        
+        When you attack, return me to your hand to:
         \thinparbreak
-        \attack{2}
+        \attackexpertise{2}
         
 
 - Howl of the Pack:
@@ -102,9 +112,9 @@ cards:
     text: >
         I cost \mana{S} less to play if you scored points last turn.
 
-        \attack{2}
+        \attackexpertise{2}
 
-        \attack{2}
+        \attackexpertise{2}
 
         \textit{(One block can only stop one attack.)}
         
@@ -116,8 +126,8 @@ cards:
         \reflex{When both players are attacking}
 
         \sequence
-        [Your opponent's attacks get -1 power.]
-        [Your opponent's attacks get -1 power.]
+        [Your opponent's attacks get \expertisenumber{-1} power.]
+        [Your opponent's attacks get \expertisenumber{-1} power.]
 
         If you played me as a reflex, sacrifice me.
         
@@ -128,7 +138,7 @@ cards:
     text: >
         \attack{1}
 
-        If another card would increase my power, it increases my power by two times as much. \textit{(For example, if I would get +2 power, I get +4 power instead.)}
+        If another card would increase my power, it increases my power by \expertisenumber{two} times as much. \textit{(For example, if I would get +2 power, I get +4 power instead.)}
 
         When I score nine or more points in one attack, end the match when this turn ends. \textit{(The player with more points wins.)}
         
@@ -139,7 +149,7 @@ cards:
     text: >
         \block
 
-        Conjure and play an Assassin's Focus.
+        Conjure and play \expertisenumber{one} Assassin's Focus.
         
 
 - Backstab:
@@ -148,18 +158,18 @@ cards:
     text: >
         If your opponent is not attacking or blocking:
         \thinparbreak
-        \attack{4}
+        \attackexpertise{4}
 
-        Otherwise, conjure and play two Assassin's Focus.
+        Otherwise, conjure and play \expertisenumber{two} Assassin's Focus.
         
 
 - Ravenwand Bolt:
     cost: H
     affinity: eyes
     text: >
-        If one of your opponent's cards was banished last turn, I get +2 power.
+        If one of your opponent's cards was banished last turn, I get \expertisenumber{+2} power.
 
-        \attack{2}
+        \attackexpertise{2}
         
 
 - Scrying Orb:
@@ -169,7 +179,7 @@ cards:
     text: >
         \onplay{Your opponent reveals two cards from their hand. Choose one of those cards and banish it.}
 
-        At the end of each turn, if your opponent has three or more banished cards, score one point.
+        At the end of each turn, if your opponent has three or more banished cards, score \expertisenumber{one} point.
         
 
 - Mask of Memories:
@@ -180,7 +190,7 @@ cards:
 
         If you don't name a card:
         \thinparbreak
-        \attack{1}
+        \attackexpertise{1}
 
         \expertisenumber{Expertise} with me improves the copy.
         
@@ -191,7 +201,7 @@ cards:
     text: >
         \sequence
         [Choose one: The match lasts one turn longer; or it ends one turn sooner.]
-        [\attack{1}]
+        [\attackexpertise{1}]
         
 
 - Out of Time:
@@ -202,6 +212,9 @@ cards:
         [No effect]
         [No effect]
         [\attack{4}]
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
         
 
 - Avoid Fate:
@@ -212,7 +225,11 @@ cards:
 
         Conjure and play a Chronotech Augment.
 
-        Whenever you play a sequence while I'm banished, recall me.
+        When you play a sequence while I'm banished, return me to your hand.
+        
+    upgrade cost: 1+
+    upgrade: >
+        I don't count for max hand size.
         
 
 - Poised to React:
@@ -220,6 +237,9 @@ cards:
     affinity: masks
     text: >
         Play another card.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
         
 
 - Knife-Juggling Mishap:
@@ -230,6 +250,10 @@ cards:
 
         \attack{2}
         
+    upgrade cost: 1+
+    upgrade: >
+        I get -1 power.
+        
 
 - Humiliate:
     cost:
@@ -237,7 +261,7 @@ cards:
     text: >
         \attack{0}
 
-        If your opponent is blocking, they must block me if able. When they do, score two points.
+        If your opponent is blocking, they must block me if able. When they do, score \expertisenumber{two} points.
         
 
 - Radiant Chains:
@@ -245,9 +269,9 @@ cards:
     affinity: shields
     types: permanent
     text: >
-        \onplay{Choose a card name. Your opponent can't play cards with the chosen name until I leave play.}
+        \onplay{Choose \expertisenumber{one} card name. Your opponent can't play cards named this way until I leave play.}
 
-        At the end of each turn, if your opponent scored points this turn, recall me.
+        At the end of each turn, if your opponent scored points this turn, return me to your hand.
         
 
 - Shieldmate's Bond:
@@ -257,9 +281,9 @@ cards:
     text: >
         \reflex{When you block an attack}
 
-        At the end of each turn, if your opponent scored points this turn, recall me.
+        At the end of each turn, if your opponent scored points this turn, return me to your hand.
 
-        At the end of the match, if I'm in play, score two points.
+        At the end of the match, if I'm in play, score \expertisenumber{two} points.
         
 
 - Unyielding Protection:
@@ -267,6 +291,9 @@ cards:
     affinity: shields
     text: >
         Your opponent can't score points this turn.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
         
 
 - Scars of the Deathless:
@@ -277,6 +304,10 @@ cards:
         
         \textit{(If they would score points, they score one point. If they have already scored this turn, they can't score again.)}
         
+    upgrade cost: 1+
+    upgrade: >
+        I don't count for max hand size.
+        
 
 - Shambling Ranks:
     cost:
@@ -284,6 +315,10 @@ cards:
     affinity: skulls
     text: >
         At the end of each turn, if a player scored points this turn, conjure and play a Skeletal Minion.
+        
+    upgrade cost: 1+
+    upgrade: >
+        \reflex{At the start of the first turn}
         
 
 - Tattered Banner:
@@ -293,5 +328,5 @@ cards:
     text: >
         \reflex{At the end of each turn, if you hit with an attack this turn}
         
-        Your attacks get +1 power.
+        Your attacks get \expertisenumber{+1} power.
         
