@@ -22,11 +22,13 @@ cards:
         I don't count for max hand size.
         
 
-- Seek Forbidden Knowledge:
+- Forbidden Knowledge:
     cost:
     affinity: candles
+    types: permanent
     text: >
         \onplay{Banish one of your move cards from hand or play.}
+
         When you reveal another starter or advanced move, you get \expertisenumber{+1} expertise with that card until it leaves play.
         
 
@@ -43,11 +45,11 @@ cards:
     cost:
     affinity: ribbons
     text: >
-        \reflex{When you hit with an attack}
+        \reflex{When you hit with an attack that has two or more power}
 
         \sequence
         [No effect.]
-        [Your opponent can't pay \mana{S}. \textit{(\mana{H} must be paid with \mana{X}.)}]
+        [Your opponent can't pay \mana{S}.]
         
     upgrade cost: 1+
     upgrade: >
@@ -153,7 +155,7 @@ cards:
         
 
 - Backstab:
-    cost: H
+    cost: X
     affinity: daggers
     text: >
         If your opponent is not attacking or blocking:
@@ -164,12 +166,15 @@ cards:
         
 
 - Ravenwand Bolt:
-    cost: H
+    cost: S
     affinity: eyes
     text: >
-        If one of your opponent's cards was banished last turn, I get \expertisenumber{+2} power.
+        If you have no \mana{S}, you may play me for \mana{X} instead.
 
         \attackexpertise{2}
+
+        If one of your opponent's cards was banished last turn, I get \expertisenumber{+2} power.
+
         
 
 - Scrying Orb:
@@ -186,7 +191,7 @@ cards:
     cost:
     affinity: eyes
     text: >
-        \onreveal{you may name one of your opponent's banished cards. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}}
+        \onreveal{You may name one of your opponent's banished cards. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}}
 
         If you don't name a card:
         \thinparbreak
@@ -196,12 +201,12 @@ cards:
         
 
 - Lodestone Staff:
-    cost: H
+    cost: SX
     affinity: hours
     text: >
         \sequence
-        [Choose one: The match lasts one turn longer; or it ends one turn sooner.]
-        [\attackexpertise{1}]
+        [Choose one: The match lasts \expertisenumber{one} turn longer; or it ends \expertisenumber{one} turn sooner.]
+        [\attack{2}]
         
 
 - Out of Time:
@@ -217,7 +222,7 @@ cards:
         I cost \mana{S} less to play.
         
 
-- Avoid Fate:
+- Stretch the Seconds:
     cost: X
     affinity: hours
     text: >

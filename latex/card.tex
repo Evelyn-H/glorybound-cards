@@ -33,7 +33,7 @@
             \pgfkeysifdefined{linked}{Conjured Move}{%
                 \pgfkeysifdefined{heirloom}{Heirloom}{%
                     \pgfkeysifdefined{token}{Token}{%
-                        \pgfkeysifdefined{domain}{Domain Move}{%
+                        \pgfkeysifdefined{domain}{Domain}{%
                             \pgfkeysifdefined{primary}{Advanced Move}{Starter Move}%
                         }%
                     }%
@@ -173,14 +173,14 @@
     % \definecolor{left}  {HTML}{\pgfkeysvalueof{/card/color-left}}
     % \definecolor{right} {HTML}{\pgfkeysvalueof{/card/color-right}}
 
-    \pgfkeysifdefined{domain}{%
-        \pgfkeys{/card/.cd,
-            color-left=\domainprimary,
-            color-right=\domainsecondary,
-        }
-        \definecolor{primary}{HTML}{\domainprimary}
-        \definecolor{secondary}{HTML}{\domainsecondary}
-    }{%
+    % \pgfkeysifdefined{domain}{%
+    %     \pgfkeys{/card/.cd,
+    %         color-left=\domainprimary,
+    %         color-right=\domainsecondary,
+    %     }
+    %     \definecolor{primary}{HTML}{\domainprimary}
+    %     \definecolor{secondary}{HTML}{\domainsecondary}
+    % }{%
         \colorlet{primary}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}
         \colorlet{secondary}{\pgfkeysifdefined{secondary}{\pgfkeysvalueof{secondary}}{\pgfkeysifdefined{primary}{\pgfkeysvalueof{primary}}{noaffinity}}}
 
@@ -191,7 +191,7 @@
             color-left=\mycolorprimary,
             color-right=\mycolorsecondary,
         }
-    }
+    % }
 
     \colorlet{primarylight}{primary!60!white}
     \colorlet{secondarylight}{secondary!60!white}
@@ -230,7 +230,7 @@
             % \pgfkeysifdefined{linked}{icons/frame2-gray.png}{icons/frame2.png}
             % icons/frame2.png
             % icons/frame2\pgfkeysifdefined{permanent}{-permanent}{}\pgfkeysifdefined{night}{-night}{}.png
-            icons/frame2\pgfkeysifdefined{heirloom}{-heirloom}{}\pgfkeysifdefined{permanent}{-permanent}{}\pgfkeysifdefined{night}{-night}{}.png
+            icons/frame2\pgfkeysifdefined{heirloom}{-heirloom}{}\pgfkeysifdefined{permanent}{-permanent}{}\pgfkeysifdefined{night}{-night}{\pgfkeysifdefined{domain}{-domain}{}}.png
             % icons/frame2-dark.png
         }
     };
@@ -542,7 +542,7 @@
             }{}%
             % \pgfkeysifdefined{designer}{2021 Champion Designer: \pgfkeysvalueof{designer}}{}%
         }{%
-            \pgfkeysvalueof{/card/path}%
+            \pgfkeysifdefined{domain}{}{\pgfkeysvalueof{/card/path}}%
         }%
     }
     % }%

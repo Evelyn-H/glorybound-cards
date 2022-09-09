@@ -1,0 +1,165 @@
+path: Rare
+
+cards:
+- Inescapable Contract:
+    cost: X
+    affinity: candles
+    text: >
+        Choose one of your banished cards and play it. \textit{(You still pay costs.)}
+    upgrade cost: 1+
+    upgrade: >
+        Gain one \mana{S}.
+        
+
+- Invite to Dance:
+    cost: X
+    affinity: ribbons
+    types: permanent
+    text: >
+        \onplay{Your opponent conjures Accept the Dance.}
+
+        Track your elegance. Whenever you play another move while I'm in play, you gain one elegance this match.
+
+        When the match ends, if I'm in play, score points equal to your elegance.
+        
+- Accept the Dance:
+    cost: X
+    affinity: ribbons
+    linked: Invite to Dance
+    text: >
+        Banish Invite to Dance.
+        
+
+- A Feast For All:
+    cost: SX
+    affinity: blossoms
+    text: >
+        Play any number of advanced cards that share no affinities. \textit{(No affinity symbol can appear more than once among the cards played this way.)}
+    upgrade cost: 1+
+    upgrade: >
+        I don't count for max hand size.
+        
+
+- Earth-Shaking Entrance:
+    cost: S
+    affinity: claws
+    text: >
+        \reflex{At the start of the first turn of the match}
+
+        \swift
+
+        \attackexpertise{2}
+        
+
+- The Assassin's Trap:
+    cost: X
+    affinity: daggers
+    text: >
+        Secretly choose \expertisenumber{one} and conjure it:
+        
+        \choice Poisoned Blade
+    
+        \choice Clever Decoy
+    
+        \choice Feign Defeat
+        
+        \textit{(Conceal the others to avoid revealing your choice.)}
+        
+        
+- Poisoned Blade:
+    cost: X
+    affinity: daggers
+    types: permanent
+    linked: 
+    linked short: true
+    text: >
+        You can only play me as a reflex.
+
+        \reflex{When you hit with an attack}
+
+        At the start of each turn, score one point.
+    
+
+- Clever Decoy:
+    cost: X
+    affinity: daggers
+    linked:
+    linked short: true
+    text: >
+        You can only play me as a reflex.
+
+        \reflex{When your opponent is attacking but didn't attack last turn}
+
+        Your opponent can't score points this turn.
+        
+
+- Feign Defeat:
+    cost: X
+    affinity: daggers
+    linked:
+    linked short: true
+    text: >
+        You can only play me as a reflex.
+
+        \reflex{When your opponent is blocking and has more points than you}
+
+        Your attacks can't be blocked this turn.
+        
+
+- Mesmeric Decay:
+    cost: X
+    affinity: eyes
+    text: >
+        \sequence
+        [Your opponent chooses one of their cards from hand or play. Banish it.]
+        [Your opponent chooses \expertisenumber{one} of their cards from hand or play. Banish it.] 
+
+        
+
+- Chrono-Automaton:
+    cost: S
+    affinity: hours
+    text: >
+        \sequence
+        [No effect]
+        [\attack{1}
+        \thinparbreak
+        Conjure and play a Chronotech Augment.]
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Follow the Script:
+    cost: SX
+    affinity: masks
+    text: >
+        \sequence
+        [No effect.]
+        [You see your opponent's hand and choose what they play.]
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+        
+- Shield Wall:
+    cost: S
+    affinity: shields
+    types: permanent
+    text: >
+        \onplay{\thinparbreak\block}
+
+        When you attack, block an attack with power equal to or less than your attack.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Trio of Trapped Souls:
+    cost: X
+    affinity: skulls
+    text: >
+        Repeat the following \expertisenumber{three} times:
+        \thinparbreak
+        \attack{0}
+        \textit{(One block can only stop one attack)}

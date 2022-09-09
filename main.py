@@ -250,7 +250,8 @@ else:
 
         # 'conjured',
         # 'starter',
-        'common',
+        # 'common',
+        # 'uncommon',
         'rare',
 
         # 'domains',

@@ -54,12 +54,19 @@ def process_card(path, card, page):
         out_folder = "output/print/rainbow"
         subprocess.run(f"cp \"cardback-rainbow.png\" \"{out_folder}/{card}[back,1].png\"", shell=True)
         postfix = f"[face,1]"
-    elif path in ['Starter', 'Rare', 'Common', 'Conjured']:
+    elif path in ['Starter', 'Rare', 'Uncommon', 'Common', 'Conjured']:
         out_folder = f"output/print/{path}"
         subprocess.run(f"mkdir -p \"{out_folder}\"", shell=True)
-        count = {'Starter': 8, 'Common': 3, 'Rare': 2, 'Conjured': 'x'}[path]
+        count = {'Starter': 8, 'Common': 3, 'Uncommon': 2, 'Rare': 1, 'Conjured': 'x'}[path]
         postfix = f"[face,{count}]"
     
+    if path in ['Domain']:
+        out_folder = "output/print/Domain"
+        subprocess.run(f"mkdir -p \"{out_folder}\"", shell=True)
+        subprocess.run(f"cp \"cardback-rainbow.png\" \"{out_folder}/{card}[back,1].png\"", shell=True)
+        postfix = f"[face,1]"
+
+
     print(f"Adding bleed to {path} - {card}")
     subprocess.run(f"mkdir -p \"output/{path}\"", shell=True)
     subprocess.run(f"mkdir -p \"output/print/rainbow\"", shell=True)
