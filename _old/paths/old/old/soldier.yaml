@@ -1,0 +1,31 @@
+path: Soldier
+colors: FFB300 - AF1E01
+passive name: Battle-Forged
+passive: >
+    The third time you attack, \invoke .
+
+cards:
+- Emblazed Shield:
+    cost: 
+    text: > 
+        \block
+
+        If you are being attacked, sacrifice me to:
+        \thinparbreak
+        \attack{1}
+
+
+- Reckless Charge:
+    cost: S
+    text: > 
+        \attack{3}
+
+
+- Arrow Volley:
+    cost: X
+    text: > 
+        \attack{1}
+
+        \attack{1}
+        
+        \textit{(One block can only stop one attack.)}

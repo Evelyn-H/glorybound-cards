@@ -1,0 +1,112 @@
+kind: Advanced
+
+cards:
+- Alter Fate:
+    cost: 0
+    types: advanced move ruined
+    text: |
+        \onreveal[Name a card your opponent revealed this turn. Restart the turn, except that they can't play the named card this turn, and Alter Fate is banished.]
+
+- Aegis of Courage:
+    cost: 0
+    types: advanced move ruined
+    text: |
+        \block
+        Conjure a Glimmer of Hope into play.
+
+- Blinding Flare:
+    cost: 2
+    types: advanced move
+    text: |
+        Your attacks this turn can't be blocked.
+        \attack[2]
+
+- Celestial Starfire:
+    cost: 3
+    types: advanced move
+    text: |
+        \attack[6]
+
+- Devouring Frost:
+    cost: 0
+    types: advanced move
+    text: |
+        \block all attacks for the rest of the turn.
+        When I block a move card, banish that card.
+
+- Humiliate:
+    cost: 0
+    types: advanced move
+    text: |
+        \attack[0]
+        If your opponent is blocking, they must block my attack if able. When they do, score two points.
+
+- Lightning Daggers:
+    cost: 0
+    types: advanced move sequence
+    text: |
+        \sequence
+        [\attack[1]]
+        [You get an additional action this turn.]
+
+- Mask of the Mimic:
+    cost: 0
+    types: advanced move
+    text: |
+        \onreveal[Name a move card your opponent played last turn. I become a copy of that card until I leave play.]
+
+- Morbid Experiment:
+    cost: 1
+    types: advanced move
+    text: |
+        Conjure a Skeletal Minion into play.
+        Conjure a Chronotech Augment attached to one of your sequences.
+
+- Pact of the Blade:
+    cost: 0
+    types: advanced move
+    text: |
+        Banish a move card from your hand. If you do: \attack[3]
+
+- Portal Mischief:
+    cost: 1
+    types: advanced move ruined
+    text: |
+        Conjure an Assassin's Focus into play.
+        The match lasts one turn longer.
+        \block
+
+- Recurring Nightmares:
+    cost: 0
+    types: advanced move ruined
+    text: |
+        \attack[0]
+        \attack[0]
+        If at least one of my attacks hit, name a card. Your opponent can't play that card next turn.
+        If both attacks hit, they can't play that card for the rest of the match.
+
+- Runic Attunement:
+    cost: 0
+    types: advanced move
+    text: |
+        \Charge one of your items.
+        Gain an inspiration.
+
+- Sleep Song:
+    cost: 1
+    types: advanced move ruined
+    text: |
+        \onreveal[Choose a card your opponent is revealing. Banish that card. They do not play it.]
+
+- Unbound Potential:
+    cost: 0
+    types: advanced move ruined
+    text: |
+        \Invoke
+        \Invoke
+
+- Wreath of Crows:
+    cost: 0
+    types: advanced move permanent
+    text: |
+        Your moves cost \inspiration[1] less to play.

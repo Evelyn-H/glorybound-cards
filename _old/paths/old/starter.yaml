@@ -1,0 +1,24 @@
+path: Starter
+
+cards:
+- Spirited Strike:
+    cost: S
+    affinity:
+    text: >
+        \attackexpertise{2}
+
+- Defensive Stance:
+    cost:
+    affinity:
+    text: >
+        \block
+
+    upgrade cost: 1+
+    upgrade: >
+        I block any number of attacks this turn.
+
+- Two-Breath Meditation:
+    cost:
+    affinity:
+    text: >
+        Gain \expertisenumber{one} \mana{S}. Then you may pay \mana{SSS} to score one point.

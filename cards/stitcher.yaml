@@ -1,0 +1,64 @@
+kind: Archetype
+subname: Stitcher
+
+cards:
+- Ritual Blade:
+    cost: 1
+    types: starter move
+    text: |
+        \attack[2]
+        When I hit with my attack, \invoke.
+
+- Ward of Blood:
+    cost: 0
+    types: starter move
+    text: |
+        \block
+        If you have no inspiration, ruin me to gain an inspiration.
+
+- Carrion Call:
+    cost: 0
+    types: starter move ruined
+    text: |
+        Conjure two Skeletal Minions into play.
+
+- Death Will Not Take Another:
+    types: starter inspiration
+    text: |
+        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+            
+- Putrid Cauldron:
+    types: item
+    text: |
+        Whenever one of your cards is banished, put it under me in the cauldron.
+        At the start of each turn, you may remove a card from the cauldron to choose \orange[one]:
+        - Your attacks get +1 power this turn.
+        - Gain an inspiration.
+            
+- Scars of the Deathless:
+    cost: 0
+    types: move
+    text: |
+        Your opponent can't score more than one point this turn.
+
+- Restitch the Flesh:
+    cost: 0
+    types: move ruined
+    text: |
+        \onreveal[You may play one of your banished cards. \reminder[(You still pay costs.]]
+        
+- The Stitcher:
+    types: signature move
+    text: |
+        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
+        \li[Ritual Blade][I get +2 attack power.]
+        \li[Ward of Blood][When I am banished, conjure your ascension to your hand.]
+        \li[Carrion Call][When you play me, \invoke.]
+        
+- Stitcher Ascension:
+    cost: 0
+    types: conjured move ascension permanent
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        \endstep[Conjure a Skeletal Minion into play. You may banish a card from your hand to conjure an additional two Skeletal Minions.]

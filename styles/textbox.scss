@@ -1,0 +1,67 @@
+.card > main > .text {
+    p {
+        margin-bottom: 0.5em;
+    }
+
+    .inspiration {
+        display: inline;
+        width: 0.8em;
+        height: 0.8em;
+
+        margin-left: 0.1em;
+        margin-bottom: -0.15em;
+        vertical-align: baseline;
+        margin-right: 0.1em;
+
+        opacity: 0.8;
+    }
+
+    .sequence {
+
+        margin-bottom: 0.5em;
+        padding-left: 5mm;
+
+        li {
+            &::marker {
+            }
+        }
+    }
+
+    .reminder {
+        font-style: italic;
+    }
+
+    .trigger {
+        .prefix {
+            font-weight: 600;
+        }
+    }
+
+    strong {
+        font-weight: 600;
+    }
+
+    .attack {
+        font-weight: 600;
+    }
+
+    .block {
+        font-weight: 600;
+    }
+
+    .invoke {
+        font-weight: 600;
+    }
+
+    .charge {
+        font-weight: 600;
+    }
+
+    .orange {
+        color: var(--color-upgrade-inc);
+    }
+
+    .blue {
+        color: var(--color-upgrade-dec);
+    }
+}

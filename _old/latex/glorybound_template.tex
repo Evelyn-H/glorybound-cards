@@ -1,0 +1,213 @@
+% !TeX program = lualatex
+
+\documentclass{article}
+% \documentclass{minimal}
+\usepackage[
+    paperwidth=63mm, 
+    paperheight=88mm,
+    margin=0mm,
+]{geometry}
+\setlength\parindent{0pt}
+\setlength{\parskip}{2mm}
+
+% the cmyk option makes it convert rgb color to cmyk space
+% this makes the pdf output look more "realistic", but less vibrant
+% \usepackage[cmyk]{xcolor}
+\usepackage{xcolor}
+
+% makes lua stuff easier
+\usepackage{luacode}
+
+% for \NewDocumentCommand
+\usepackage{xparse}
+
+% for filler text
+\usepackage{lipsum}
+
+% for getting the current date
+\usepackage[datesep=/]{datetime2}
+\DTMsetdatestyle{mmddyy}
+
+% for textboxes
+% this also pulls in tikz as a dependency
+\usepackage[fitting, skins]{tcolorbox}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+
+% for length maths shenanigans
+\usepackage{calc}
+
+% for tables stuff
+\usepackage{tabularx}
+\usepackage{array}
+
+% for outlined text
+\usepackage{pdfrender}
+
+% for scaling things
+\usepackage{scalerel}
+
+% this gets rid of a bunch of font scaling warnings 
+% by replacing the standard fonts with scalable versions
+\usepackage{lmodern}
+
+% for better conditionals
+\usepackage{ifthen}
+\usepackage{etoolbox}
+
+% for landscape pages
+\usepackage{pdflscape}
+
+% load fonts
+\usepackage{fontspec}
+\newfontfamily\bodyfont{CrimsonPro-Regular}[
+    Path           = "fonts/Crimson_Pro/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    Numbers        = Monospaced,
+    BoldFont       = CrimsonPro-Bold,
+    ItalicFont     = CrimsonPro-Italic,
+    BoldItalicFont = CrimsonPro-BoldItalic,
+    FontFace       = {sb}{n}{CrimsonPro-SemiBold},
+    FontFace       = {sb}{it}{CrimsonPro-SemiBoldItalic},
+]
+\newfontfamily\titlefont{Grenze-Regular}[
+    Path           = "fonts/Grenze/",
+    Extension      = .ttf,
+    Ligatures      = TeX,
+    BoldFont       = Grenze-Bold,
+    ItalicFont     = Grenze-Italic,
+    BoldItalicFont = Grenze-BoldItalic,
+    FontFace       = {sb}{n}{Grenze-SemiBold},
+    FontFace       = {sb}{it}{Grenze-SemiBoldItalic},
+]
+
+% semibold commands
+\DeclareOldFontCommand{\sbseries}{\fontseries{sb}\selectfont}{\mathbf}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+
+
+
+
+\begin{document}
+
+% my custom textbox command
+\include{latex/textbox.tex}
+
+% helpers for file splitting / output shenanigans
+\include{latex/output-helpers.tex}
+
+% affinities stuff
+\include{latex/affinities.tex}
+
+% card rendering code
+\include{latex/card-helpers.tex}
+\include{latex/card.tex}
+\include{latex/path-card.tex}
+
+\BLOCK{ for path in paths }
+    % \setpath{\VAR{path.name}}{\VAR{path.colors[0]}}{\VAR{path.colors[1]}}
+    \setpath{\VAR{path.name}}
+    \BLOCK{ if path.extras != None }
+    \VAR{path.extras}
+    \BLOCK{ endif }
+
+    \pathcard[%
+        name={\VAR{path.name}},
+        color-left=\VAR{path.colors[0]},
+        color-right=\VAR{path.colors[1]},
+        \BLOCK{ if path.passive_name != None }
+        passive name={\VAR{path.passive_name}},
+        \BLOCK{ endif }
+        \BLOCK{ if path.passive != None }
+        passive={%
+            \VAR{path.passive | indent(4*4)}%
+        },
+        \BLOCK{ endif }
+        \BLOCK{ if path.primary != None }
+        primary={\VAR{path.primary}},
+        \BLOCK{ endif }
+        \BLOCK{ if path.secondary != None }
+        secondary={\VAR{path.secondary}},
+        \BLOCK{ endif }
+        \BLOCK{ if path.big_passive == true }
+        big passive,
+        \BLOCK{ endif }
+    ]{%
+    \BLOCK{ if path.name != "Heirloom" }
+        \BLOCK{ if path.cards|selectattr("linked", "eq", None)|list|length > 0 and path.cards|selectattr("linked", "eq", None)|list|last|attr("linked_to")|length > 0 }
+            \addtolength{\yoffset}{1.5mm}%
+        \BLOCK{ endif }
+        \BLOCK{ for card in path.cards|reverse }
+            \pathrow[%
+                \BLOCK{ if card.path_card_name != None }
+                name={\VAR{card.path_card_name}},
+                \BLOCK{ else }
+                name={\VAR{card.name}},
+                \BLOCK{ endif }
+                \BLOCK{ if card.purchase != None }
+                purchase={\VAR{card.purchase}},
+                \BLOCK{ endif }
+                \BLOCK{ if card.upgrade_cost != None }
+                upgrade={\VAR{card.upgrade_cost}},
+                \BLOCK{ endif }
+            ]%
+            \addtolength{\yoffset}{8mm}%
+        \BLOCK{ endfor }
+    \BLOCK{ endif }
+    }
+
+    \BLOCK{ if true }
+        \BLOCK{ for card in path.cards }
+            \BLOCK{ if true }
+                \card[%
+                    name={\VAR{card.name}},
+                    cost={\VAR{card.cost}},
+                    \BLOCK{ for type in card.types }
+                    \VAR{type},
+                    \BLOCK{ endfor }
+                    %affinities
+                    \BLOCK{ if card.primary != None }
+                    primary={\VAR{card.primary}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.secondary != None }
+                    secondary={\VAR{card.secondary}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.linked != None }
+                    linked={\VAR{card.linked}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.linked_type != None }
+                    linked type={\VAR{card.linked_type}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.linked_short == true }
+                    linked short,
+                    \BLOCK{ endif }
+                    text={%
+                        \VAR{card.text | indent(4*4)}%
+                    },
+                    \BLOCK{ if card.purchase != None }
+                    purchase={\VAR{card.purchase}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.upgrade_cost != None }
+                    upgrade cost={\VAR{card.upgrade_cost}},
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.upgrade != None }
+                    upgrade={%
+                        \VAR{card.upgrade | indent(4*4)}%
+                    },
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.big_art == true }
+                    big art,
+                    \BLOCK{ endif }
+                    \BLOCK{ if card.designer != None }
+                    designer={\VAR{card.designer}},
+                    \BLOCK{ endif }
+                ]
+            \BLOCK{ endif }
+        \BLOCK{ endfor }
+    \BLOCK{ endif }
+
+
+\BLOCK{ endfor }
+
+\end{document} 

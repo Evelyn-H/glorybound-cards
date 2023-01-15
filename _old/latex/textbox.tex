@@ -1,0 +1,88 @@
+% Some tcolorbox hackery to add "proper" one-line vertical centering
+\newlength{\Eheight}
+\makeatletter
+\def\tcb@dbox@top#1#2#3#4#5{\pgftext[x=#1,y=#2+#3,left,top]{#5}}
+% define new valign type
+\def\tcb@dbox@centerline#1#2#3#4#5{%
+    % based on valign=top 
+    \pgftext[x=#1,y=#2+#3,left,top]{%
+        % make sure we have the correct front set for measuring 
+        \pgfkeysvalueof{/textbox/font}%
+        \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
+        % measure cap height
+        \setlength{\Eheight}{\heightof{E}}%
+        % \the\Eheight
+        % and then raise (actually lower) the text based on that
+        \raisebox{%
+            0pt-0.5\Eheight-(\pgfkeysvalueof{/textbox/height}-\pgfkeysvalueof{/textbox/margin}-\pgfkeysvalueof{/textbox/margin})/2
+        }{#5}
+    }
+}
+\def\tcb@dbox@center#1#2#3#4#5{\pgftext[x=#1,y=#2+#3/2,left]{#5}}
+\def\tcb@dbox@bottom#1#2#3#4#5{\pgftext[x=#1,y=#2,left,bottom]{#5}}
+
+\tcbset{
+    % add new valign type to the list of valid options
+    valign/centerline/.code={\def\kvtcb@valignupper{centerline}}
+}
+\makeatother
+
+
+\pgfkeys{/textbox/.cd,% set the initial path
+    anchor/.initial=north,
+    anchorpos/.initial=north,
+    x/.initial=0mm,
+    y/.initial=0mm,
+    rotate/.initial=0,
+    width/.initial=54mm,
+    height/.initial=4mm,
+    margin/.initial=1mm,
+    fontsize/.initial=10pt,
+    font/.initial=\bodyfont,
+}
+
+% first argument (optional): key-value options
+% second argument (optional): extra stuff passed to tcolorbox
+%third argument: textbox contents
+\NewDocumentCommand{\bettertextbox}{ O{} O{} +m }{
+    \begingroup%
+    % handle key-value arguments
+    \pgfkeys{/textbox/.cd, #1}%
+% 
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=\pgfkeysvalueof{/textbox/anchor}, 
+        xshift=\pgfkeysvalueof{/textbox/x},
+        yshift= -1 * \pgfkeysvalueof{/textbox/y},
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+        rotate=\pgfkeysvalueof{/textbox/rotate},
+    ] at (current page.\pgfkeysvalueof{/textbox/anchorpos}) {%
+        \begin{tcolorbox}[
+            show bounding box=green,
+            width=\pgfkeysvalueof{/textbox/width},
+            height=\pgfkeysvalueof{/textbox/height},
+            fit,
+            fit basedim=\pgfkeysvalueof{/textbox/fontsize},
+            fit skip=1.1, % baselineskip
+            blank,
+            parbox=false, % makes parskip work
+            halign=flush left,
+            boxsep=\pgfkeysvalueof{/textbox/margin},
+            % fontupper=\fontsize{\pgfkeysvalueof{/textbox/fontsize}}{\pgfkeysvalueof{/textbox/fontsize}}\selectfont,
+            % tikz={opacity=0.5,transparency group},
+            #2
+        ]%%
+            \color{dark}
+            \pgfkeysvalueof{/textbox/font}%
+            % this lets the parskip adapt to scaling text, 
+            % it makes the whitespace look more natural 
+            % and leaves more space for text
+            \setlength{\parskip}{0.5\tcbfitdim}%
+            #3
+        \end{tcolorbox}%
+    };%
+    \endgroup%
+}

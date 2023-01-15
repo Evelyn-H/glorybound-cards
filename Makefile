@@ -1,34 +1,20 @@
+.PHONY: default full clean build watch render sass
 
+default: build
 
-default: clear preprocess pdf
-
-full: clear preprocess-full pdf output
- 
-clear:
+clean:
 	rm -rf output/*
-	rm -f glorybound.pdf
-	rm -f latex/glorybound.pdf
-	rm -f latex/glorybound.tex
-	rm -f glorybound.fdb_latexmk
-	find . -name '*.aux' -type f -delete
-	find . -name '*.fls' -type f -delete
+	rm -rf build/*
+	rm -rf rendered/*
 
-preprocess:
-	pipenv run python main.py > latex/glorybound.tex
+sass: 
+	sass styles/main.scss build/styles/main.css
+ 
+watch: 
+	sass --watch styles:build/styles
 
-preprocess-full:
-	pipenv run python main.py -all > latex/glorybound.tex
+build: clean sass
+	pipenv run python build.py
 
-pdf:
-	# lualatex  -synctex=1 -interaction=nonstopmode -file-line-error --shell-escape glorybound
-	latexmk -lualatex --shell-escape -interaction=nonstopmode latex/glorybound
-	cp glorybound.pdf latex/glorybound.pdf
-
-output: copy postprocess
-
-copy:
-	mkdir -p output
-	cp glorybound.pdf output/cards.pdf
-
-postprocess:
-	pipenv run python postprocess.py
+render: clean sass
+	pipenv run python build.py --render

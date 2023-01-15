@@ -1,0 +1,434 @@
+path: Domain
+
+cards:
+- The Sulphur Gate:
+    cost:
+    affinity: candles
+    types: domain
+    text: >
+        \passivename{An Abundance of Imps}
+        If you would return a card from play to your hand, instead you may banish that card to conjure a Brimstone Imp.
+
+    upgrade cost: 1+
+    upgrade: >
+        Your Brimstone Imps get +1 power.
+
+
+- Cult of the Demon Prince:
+    cost:
+    affinity: candles
+    types: domain
+    text: >
+        \passivename{Rite of Summoning}
+        At the start of each turn, banish one of your move cards from hand or play.
+        \thinparbreak
+        When you have \expertisenumber{one} or fewer cards in hand, summon Balgamemnon, Prince of Pain and conjure Flaying Touch.
+
+        \passivename{Balgamemnon, Prince of Pain}
+        Each turn, if I have been summoned:
+        \thinparbreak
+        \attackexpertise{2}
+
+- Flaying Touch:
+    cost: X
+    affinity: candles
+    types: domain
+    linked: >
+        {}Apostle of the Demon Prince
+    text: >
+        \onreveal{Choose a card your opponent is revealing. Banish that card and score one point for each symbol in its cost.}
+        
+        \textit{(\mana{S} and \mana{X} are symbols. Your opponent will not get to play that card.)}
+        
+    
+    
+- The Inkblood Syndicate:
+    cost:
+    affinity: candles
+    types: domain
+    text: >
+      \passivename{Book of Indebted Souls}
+      The first time each turn that one of your move cards is banished, secretly choose a move card from your cache or reserve and put it into your hand.
+    upgrade cost: 1+
+    upgrade: >
+      Your reserve can hold two additional cards.
+
+  
+- Circle of the Sun:
+    cost:
+    affinity: blossoms
+    types: domain
+    text: >
+      When the match starts, conjure Sowing Equinox and Reaping Equinox.
+    
+      \passivename{Fallow Solstice}
+      At the start of each turn, if you have no \mana{S}, both players' attacks get \expertisenumber{-1} power this turn.
+
+      \passivename{Flourishing Solstice}
+      At the start of each turn, if you have four or more \mana{S}, both players' attacks get \expertisenumber{+1} power this turn.
+
+- Sowing Equinox:
+    cost:
+    affinity: blossoms
+    types: domain
+    linked: >
+        {}Circle of the Sun
+    text: >
+        \reflex{When you gain \mana{S}}
+
+        Gain \mana{S}.
+
+
+- Reaping Equinox:
+    cost: S
+    affinity: blossoms
+    types: domain
+    linked: >
+        {}Circle of the Sun
+    text: >
+        \reflex{When you spend \mana{S}}
+
+        \attack{1}
+  
+
+- The Apothecarium:
+    cost:
+    affinity: blossoms
+    types: domain
+    text: >
+      \passivename{Fertile Soil}
+      When you gain \mana{S}, you may place it on either side of me instead of keeping it to spend. 
+      
+      \passivename{Garden of Medicines}
+      For each \mana{S} on my left, your moves cost \mana{S} less to play.
+      
+      \passivename{Garden of Toxins}
+      For each \mana{S} on my right, your attacks get \expertisenumber{+1} power.
+  
+  
+- The Druid's Vineyard:
+    cost:
+    affinity: blossoms
+    types: domain
+    text: >
+      \passivename{Shared Abundance}
+      At the start of each turn, both players gain \expertisenumber{one} \mana{S}.
+  
+  
+- Herald of Ashes:
+    cost:
+    affinity: claws
+    types: domain
+    text: >
+      \passivename{Kindled Flame}
+      When your opponent scores their third point of the match, you ignite. This grants you an additional action each turn for the rest of the match.
+    
+    upgrade cost: 1+
+    upgrade: >
+        Ignite when your opponent scores their first point of the match.
+  
+  
+- Songs of Earth and Sky:
+    cost:
+    affinity: claws
+    types: domain
+    text: >
+      \passivename{Honor the Elements}
+      At the start of each turn, if you have scored four or more points this match, choose a gift you haven't chosen yet:
+
+      \choice[Gift of Mountains] Your opponent's attacks get \expertisenumber{-1} power this turn.
+      
+      \choice[Gift of Thunder] You get \expertisenumber{one} additional action this turn.
+      
+      \choice[Gift of Floods] Gain \expertisenumber{one} \mana{S}.
+
+- Forge of Endings:
+    cost:
+    affinity: hours
+    types: domain
+    text: >
+      When the match starts, conjure Supernova. Expertise with me counts as expertise with Supernova.
+    
+      \passivename{Overclock}
+      When you play a sequence, activate all of its stages immediately. At the end of the turn, banish it.
+
+- Supernova:
+    cost: X
+    affinity: hours
+    types: domain
+    linked: >
+        {}Forge of Endings
+    text: >
+        I get \expertisenumber{+2} power for each of your banished sequence cards.
+
+        \attackexpertise{2}
+      
+  
+- The Aeon Engine:
+    cost:
+    affinity: hours
+    types: domain
+    text: >
+      \passivename{A Chronotech Masterpiece}
+      When the match starts, pay \mana{S} to activate me. Whenever you play a sequence, if I was activated this match, conjure and play a Chronotech Augment attached to that sequence.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to activate.
+        
+    
+- The Mercenary Guild:
+    cost:
+    affinity: daggers
+    types: domain
+    text: >
+      \passivename{Reputation}
+      Your reputation is equal to the greatest power attack you've resolved this match. \textit{(Attacks resolve when they hit or are blocked.)}
+      
+      \passivename{Signature Move}
+      When the match starts, name \expertisenumber{one} of your move cards. When you reveal or play a named card that you haven't yet played this match, you get +X expertise with it until it leaves play, where X is your reputation.
+
+  
+- The Midnight Knife:
+    cost:
+    affinity: daggers
+    types: domain
+    text: >
+      \passivename{Finesse Weapons}
+      Your attacks get -1 power. The first \expertisenumber{two} times you hit with an attack this match, score twice as many points.
+  
+  
+- Order of the Spider:
+    cost:
+    affinity: daggers
+    types: domain
+    text: >
+      \passivename{Web of Schemes}
+      At the end of each turn, if you didn't attack this turn, conjure and play \expertisenumber{one} Assassin's Focus.
+      
+      \passivename{Lethal Precision}
+      When you banish an Assassin's Focus to power up an attack, also give that attack Swift if it isn't swift yet. \textit{(Swift attacks cost \mana{S} to block.)}
+  
+  
+- Halls of Eternal War:
+    cost:
+    affinity: skulls
+    types: domain
+    text: >
+      \passivename{Fight Beyond Death}
+      Whenever you hit with an attack that is not a Skeletal Minion, conjure and play a Skeletal Minion.
+      
+      \passivename{Pinnacle of Carnage}
+      When you conjure a Skeletal Minion for the fourth time this match, conjure The Fallen Valkyries.
+    
+    upgrade cost: 1+
+    upgrade: >
+        Your Skeletal Minions get +1 power.
+
+- The Fallen Valkyries:
+    cost: X
+    affinity: skulls
+    types: domain
+    linked: >
+        {}Halls of Eternal War
+    text: >
+        Your opponent can't score points this turn.
+
+        \attack{5}
+        
+  
+  
+- The Bone Fortress:
+    cost:
+    affinity: skulls
+    types: domain
+    text: >
+      \passivename{Skeletal Guard}
+      When you play a Skeletal Minion, you may play it in Guard Stance (sideways). Minions in Guard Stance have their stage two attack replaced with: ``block an attack.''
+      
+      The first time you block an attack this match, conjure and play \expertisenumber{one} Skeletal Minion.
+  
+  
+- The Simple Grave:
+    cost:
+    affinity: skulls
+    types: domain
+    text: >
+      \passivename{Equal In Death}
+      All attacks score exactly two points when they hit, regardless of power.
+      
+      \textit{(All attacks includes yours and your opponent's.)}
+  
+  
+- Sky-Dragon Stance:
+    cost:
+    affinity: ribbons
+    types: domain
+    text: >
+      \passivename{Momentum}
+      Track your momentum. You begin the match with no momentum. Whenever you play a move that is not a conjured card, you gain one momentum.
+
+      \passivename{Soaring Spirit}
+      You may spend two momentum instead of up to \expertisenumber{one} \mana{S}.
+    
+      \passivename{Ready to Strike}
+      The first time you have five or more momentum, conjure Fists of the Dragon.
+
+- Fists of the Dragon:
+    cost: SS
+    affinity: ribbons
+    types: domain
+    linked: >
+        {}Sky-Dragon Stance
+    text: >
+        \attack{3}
+        \attack{3}
+        \textit{(One block can only stop one attack.)}
+        
+  
+  
+- The Rhythm Dance:
+    cost:
+    affinity: ribbons
+    types: domain
+    text: >
+      \passivename{Find Your Rhythm}
+      When the match starts, pay \mana{S} to choose ``even'' or \mana{SS} to choose ``odd''. 
+      
+      You get an additional action on turns with the chosen value. \textit{(Turns 2 and 4 are even; 1, 3 and 5 are odd.)}
+    
+  
+- The Patchwork Troupe:
+    cost:
+    affinity: masks
+    types: domain
+    text: >
+      \passivename{Immersive Theater}
+      When the match starts, secretly choose Comedy or Tragedy and hide it under me. 
+      
+      On the fourth turn of the match, reveal the hidden card. Conjure and play that card.
+
+- Comedy:
+    cost: X
+    affinity: masks
+    types: domain
+    linked: >
+        {}The Patchwork Troupe
+    text: >
+        As you play me, if your opponent has fewer points than you, they claim me and play me instead.
+        
+        \attack{3}
+        
+
+- Tragedy:
+    cost: X
+    affinity: masks
+    types: domain
+    linked: >
+        {}The Patchwork Troupe
+    text: >
+        As you play me, if your opponent has more points than you, they claim me and play me instead.
+        
+        \attack{3}
+
+
+- The Carnival of Masks:
+    cost:
+    affinity: masks
+    types: domain
+    text: >
+        \passivename{Glittering Secrets}
+        Your maximum hand size is reduced by \expertisenumber{two}.
+
+        Your reserve size is increased by \expertisenumber{two}.
+
+        When the match starts, secretly choose \expertisenumber{two} cards from your reserve and add them to your hand.
+
+  
+- The Last Dragons:
+    cost:
+    affinity: shields
+    types: domain
+    text: >
+      \passivename{Raising Dragons}
+      When the match starts, conjure Frostfire Hatchling and Shadowscale Hatchling. Your Dragons begin the match as eggs and can't be played. 
+      
+      At the end of the second turn they hatch. 
+      
+      At the end of each turn after that they grow, getting \expertisenumber{+1} expertise this match.
+      
+      \passivename{Protect the Young}
+      At the end of each turn after that, you get \expertisenumber{+1} expertise with dragons this match.
+
+- Shadowscale Hatchling:
+    cost:
+    affinity: shields
+    types: domain
+    linked: >
+        {}The Last Dragons
+    text: >
+        \pseudotype{Dragon}
+
+        \attackexpertise{1}
+
+        I can't be blocked.
+    
+
+- Frostfire Hatchling:
+    cost:
+    affinity: shields
+    types: domain
+    linked: >
+        {}The Last Dragons
+    text: >
+        \pseudotype{Dragon}
+
+        \attackexpertise{1}
+
+        Your opponent's attacks get \expertisenumber{-1} power.
+  
+  
+- The Solstone Architect:
+    cost:
+    affinity: shields
+    types: domain
+    text: >
+      \passivename{Dawn of Monuments}
+      At the start of the first turn of the match, you may play a permanent card.
+      
+      \passivename{Temples of the Sun}
+      When you control three or more permanents, you become blessed. For the rest of the match, your opponent's attacks get -1 power.
+
+
+- The Sea of Lost Dreams:
+    cost:
+    affinity: eyes
+    types: domain
+    text: >
+      When the match starts, conjure Gone Fishing.
+    
+      \passivename{Memories Washed Ashore}
+      When you banish one of your opponent's cards, claim it until the end of the match and put it into your hand. You get \expertisenumber{+1} expertise with cards claimed this way.
+
+- Gone Fishing:
+    cost: SX
+    affinity: eyes
+    types: domain
+    linked: >
+        {}The Sea of Lost Dreams
+    text: >
+        Name a card. Your opponent banishes a card with that name from their hand. If they can't, they reveal their hand and you score one point.
+  
+  
+- Puppeteer of the Hollow:
+    cost:
+    affinity: eyes
+    types: domain
+    text: >
+      \passivename{Empty the Ego}
+      At the end of each turn, for each two points you scored this turn, your opponent chooses one of their cards from hand or play. Banish that card.
+    
+      \passivename{Strings of Dominion}
+      When your opponent has no cards in hand, note that they are a vessel.
+
+      \passivename{Obedient Husks}
+      When a vessel is eliminated from the tournament, claim and learn \expertisenumber{one} move card or domain card that they had learned.

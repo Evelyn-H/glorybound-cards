@@ -1,0 +1,71 @@
+kind: Archetype
+subname: Artificer
+
+cards:
+- Explosive Iteration:
+    cost: 1
+    types: starter move sequence
+    text: |
+        \sequence
+        [\attack[1]]
+        [\attack[2]]
+
+- Clay Guardian:
+    cost: 0
+    types: starter move sequence
+    text: |
+        \sequence
+        [Block an attack]
+        [Block an attack]
+        \endstep[If I blocked an attack this turn, return me to your hand.]
+
+- Crafter's Focus:
+    cost: 0
+    types: starter move
+    text: |
+        \invoke.
+        \endstep[If you weren't hit by an attack this turn, gain two inspiration.]
+
+- Precise Concepts, Precise Tools:
+    types: starter inspiration
+    text: |
+        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+
+- Temporal Filament:
+    types: item
+    text: |
+        \equip[\Charge me.]
+        When you play a sequence, remove a charge from me to attach a Chronotech Augment to that sequence.
+        
+- Infuse with Power:
+    cost: 0
+    types: move ruined
+    text: |
+        Choose up to two items. \Charge each item chosen this way.
+        
+- Runic Detonation:
+    cost: 1
+    types: move
+    text: |
+        As an additional cost to play me, ruin a sequence you have in play. \reminder[(Ruined cards are banished when they leave play.)]
+        Your opponent's attacks get -1 power this turn.
+        \attack[3]
+        
+- The Artificer:
+    types: signature move
+    text: |
+        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
+        \li[Explosive Iteration][I get +1 attack power.]
+        \li[Clay Guardian][I lose my \b[end step] effect.]
+        \li[Crafter's Focus][The second time you play me this match, conjure your ascension to hand.]
+        
+- Artificer Ascension:
+    cost: 1
+    types: conjured move ascension sequence
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        Your opponent's attacks get -2 attack power while I am in play.
+        \sequence
+        [\attack[2]]
+        [\attack[2]]

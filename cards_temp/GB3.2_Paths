@@ -1,0 +1,432 @@
+>> Path of the Fireheart
+
+name: Set Ablaze
+inspiration cost: {1}
+types: fireheart starter move
+text: >
+	\attack{2}
+	If a move card blocks me, ruin it. \it{(When a ruined card leaves play, banish it.)}
+
+name: Defiant Fury
+inspiration cost: {0}
+types: fireheart starter move
+text: >
+	\Invoke.
+	If your opponent has three or more points:
+	\thinparbreak
+	\attack{2}
+
+name: Pyre Meditation
+inspiration cost: {0}
+types: fireheart starter move sequence
+text: >
+	\sequence
+	[Gain one inspiration.]
+	[Your attacks get +2 attack power this turn.]
+	
+name: Bright-Burning Authenticity
+types: fireheart starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+		
+name: Lava Axe
+types: fireheart item
+text: >
+	At the start of each turn, if either player has three or more points, your attacks get \orange{+1} power this turn. If both players have three or more points, they get \orange{+2} power instead.
+
+name: Walk Among Flames
+inspiration cost: {0}
+types: fireheart move ruined
+text: >
+	\ruined
+	Your opponent conjures Immolation into play. You gain two inspiration and get an additional action next turn.
+	
+name: Immolation
+types: fireheart conjured move
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	\attack{2}
+
+name: Fiery Aura
+inspiration cost: {1}
+types: fireheart move sequence
+text: >
+	\sequence
+	[Once this turn, when I see your opponent attacking:
+	\thinparbreak
+	\attack{2}]
+	[Same effect as first turn.]
+	[Same effect as first turn.]
+	
+name: Signature: The Fireheart
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Set Ablaze -} I cost \inspiration{1} less to play.
+	\it{Defiant Fury -} I get +2 attack power.
+	\it{Pyre Meditation -} The second time you play me this match, conjure your ascension to hand.
+
+name: Fireheart Ascension
+inspiration cost: {1}
+types: fireheart conjured move ascension
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	\attack{3}
+	\attack{3}
+
+>> Path of the Druid
+
+name: Bramble Snare
+inspiration cost: {1}
+types: druid starter move
+text: >
+	\attack{1}
+	\block
+
+name: Wild Companion
+inspiration cost: {0}
+types: druid starter move permanent
+text: >
+	The first time I see you attack each turn:
+	\thinparbreak
+	\attack{1}
+	\endstep{If I attacked this turn, pay \inspiration{1} or return me to your hand.}
+
+name: Commune with Nature
+inspiration cost: {0}
+types: druid starter move
+text: >
+	Gain one inspiration.
+	\Invoke.
+	
+name: Nourishing Bonds
+types: druid starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+	
+name: Leaf-Crowned Ancient
+inspiration cost: {3}
+types: druid move sequence
+text: >
+	\sequence
+	[\attack{2}]
+	[\attack{2}]
+	[\attack{2}]
+	
+name: Blossomwood Staff
+types: druid item
+text: >
+	Once each turn, when you hit with an attack, gain \orange{one} inspiration.
+	
+name: Grasping Roots
+inspiration cost: {1}
+types: druid  move ruined
+text: >
+	\ruined
+	Choose one of your opponent's items. At the end of this turn, banish it.
+	
+name: Signature: The Druid
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Bramble Snare -} The second time you play me this match, conjure your ascension to hand.
+	\it{Wild Companion -} I get +1 attack power.
+	\it{Commune with Nature -} Invoke an additional time.
+
+name: Druid Ascension
+inspiration cost: {0}
+types: druid conjured move ascension
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	Gain \inspiration{4}
+	\attack{4}
+
+>> Path of the Sentinel
+
+name: Moment of Heroism
+inspiration cost: {2}
+types: sentinel starter move
+text: >
+	\Invoke.
+	\attack{3}
+
+name: Vigilant Guard
+inspiration cost: {0}
+types: sentinel starter move
+text: >
+	\block
+	\endstep{If I blocked, gain an inspiration.}
+
+name: Safe From Harm
+inspiration cost: {0}
+types: sentinel starter move
+text: >
+	Conjure a Glimmer of Hope into play.
+
+name: A Bastion Against Darkness
+types: sentinel starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+		
+name: Truesilver Chains
+types: sentinel item
+text: >
+	When the match starts, choose a card name. Cards with that name cost an additional \orange{one} \inspiration{1} for your opponent to play.
+	
+name: Jubilant Charge
+inspiration cost: {2}
+types: sentinel move
+text: >
+	I cost \inspiration{1} less for each Glimmer of Hope you have.
+	\attack{2}
+	\block
+	
+name: Six-Candle Sanctuary
+inspiration cost: {0}
+types: sentinel move permanent
+text: >
+	At the start of each turn, your opponent's attacks get -1 attack power this turn. \it{(I have no effect the turn you play me.)}
+	
+name: Signature: The Sentinel
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Moment of Heroism -} I get +1 attack power and I invoke an additional time.
+	\it{Vigilant Guard -} I block any number of attacks this turn.
+	\it{Safe From Harm -} The second time you play me this match, conjure your ascension to hand.
+	
+Sentinel Ascension
+inspiration cost: {0}
+types: sentinel conjured move ascension
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	Your opponent can't score points this turn.
+	Score one point.
+
+>> Path of the Shadow
+
+name: Concealed Dagger
+inspiration cost: {1}
+types: shadow starter move
+text: >
+	\attack{2}
+	I cost \inspiration{1} to block.
+
+name: Shroud in Darkness
+inspiration cost: {0}
+types: shadow starter move
+text: >
+	If your opponent is attacking:
+	\thinparbreak
+	\block
+	If they are not attacking, \invoke.
+
+name: Infiltration Scheme
+inspiration cost: {0}
+types: shadow starter move sequence
+text: >
+	\sequence
+	[Gain an inspiration. Name a card.]
+	[Your opponent can't play the named card this turn.]
+
+name: Know Your Enemies
+types: shadow starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+		
+name: Cloak of the Trickster
+types: shadow item
+text: >
+	\equip{\Charge me.}
+	At the end of each turn, if it is not a secret turn, remove a charge from me. If you do, after this turn ends but before the next turn begins, you get a secret turn. Your opponent and their cards do not participate in this turn. \it(You cannot hit them with attacks.)
+
+name: Trap Setting
+inspiration cost: {0}
+types: shadow move
+text: >
+	Secretly choose a trap you haven't yet chosen this match and conjure it to your hand. You can't play that card this turn. \it{(Conceal the other trap cards to avoid giving away your choice.)}
+	
+name: Poisoned Dagger
+inspiration cost: {0}
+types: shadow conjured move permanent
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	You can't play me as an action. When you hit with an attack, you may play me from your hand.
+	At the start of each turn, score one point.
+	
+name: Smoke Shroud
+inspiration cost: {0}
+types: shadow conjured move
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	You can't play me as an action. When your opponent is attacking, if they didn't attack last turn, you may play me from your hand.
+	Your opponent can't score points for the rest of the turn.
+	
+name: Feign Defeat
+inspiration cost: {0}
+types: shadow conjured move
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	You can't play me as an action. When you are attacking, if your opponent has more points than you, you may play me from your hand.
+	Your attacks can't be blocked this turn.
+	
+name: Backstab
+inspiration cost: {0}
+types: shadow move
+text: >
+	\onreveal{If your opponent revealed an attack move this turn, return me to your hand without playing me unless you pay \inspiration{2}.}
+	\attack{4}
+	
+name: Signature: The Shadow
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Concealed Dagger -} I cost an additional \inspiration{2} to block.
+	\it{Shroud In Darkness -} The second time you play me this match, conjure your ascension to hand.
+	\it{Infiltration Scheme -} Name an additional card.
+	
+Shadow Ascension
+inspiration cost: {0}
+types: shadow conjured move ascension
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	\onreveal{Gain one inspiration, then play up to three other moves alongside me.}
+
+>> Path of the Stitcher
+
+name: Ritual Blade
+inspiration cost: {1}
+types: stitcher starter move
+text: >
+	\attack{2}
+	When I hit with my attack, \invoke.
+
+name: Ward of Blood
+inspiration cost: {0}
+types: stitcher starter move
+text: >
+	\block
+	If you have no inspiration, ruin me to gain an inspiration.
+
+name: Carrion Call
+inspiration cost: {0}
+types: stitcher starter move ruined
+text: >
+	\ruined
+	Conjure two Skeletal Minions into play.
+
+name: Death Will Not Take Another
+types: stitcher starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+		
+name: Putrid Cauldron
+types: stitcher item
+text: >
+	Whenever one of your cards is banished, put it under me in the cauldron.
+	At the start of each turn, you may remove a card from the cauldron to choose \orange{one}:
+	- Your attacks get +1 power this turn.
+	- Gain an inspiration.
+		
+name: Scars of the Deathless
+inspiration cost: {0}
+types: stitcher move
+text: >
+	Your opponent can't score more than one point this turn.
+
+name: Restitch the Flesh
+inspiration cost: {0}
+types: stitcher move ruined
+text: >
+	\ruined
+	\onreveal(You may play one of your banished cards. \it{(You still pay costs.)}
+	
+name: Signature: The Stitcher
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Ritual Blade -} I get +2 attack power.
+	\it{Ward of Blood -} When I am banished, conjure your ascension to your hand.
+	\it{Carrion Call -} When you play me, \invoke.
+	
+name: Stitcher Ascension
+inspiration cost: {0}
+types: stitcher conjured move ascension permanent
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	\endstep{Conjure a Skeletal Minion into play. You may banish a card from your hand to conjure an additional two Skeletal Minions.}
+
+>> Path of the Artificer
+
+name: Explosive Iteration
+inspiration cost: {1}
+types: artificer starter move sequence
+text: >
+	[\attack{1}]
+	[\attack{2}]
+
+name: Clay Guardian
+inspiration cost: {0}
+types: artificer starter move sequence
+text: >
+	\sequence
+	[Block an attack]
+	[Block an attack]
+	\endstep{If I blocked an attack this turn, return me to your hand.}
+
+name: Crafter's Focus
+inspiration cost: {0}
+types: artificer starter move
+text: >
+	\invoke.
+	\endstep{If you weren't hit by an attack this turn, gain two inspiration.}
+
+name: Precise Concepts, Precise Tools
+types: starter inspiration
+text: >
+	\equip{Equip me and any number of other cards from your hand face-down as inspiration.}
+
+name: Temporal Filament
+types: artificer item
+text: >
+	\equip{\Charge me.}
+	When you play a sequence, remove a charge from me to attach a Chronotech Augment to that sequence.
+	
+name: Infuse with Power
+inspiration cost: {0}
+types: artificer move ruined
+text: >
+	\ruined
+	Choose up to two items. \Charge each item chosen this way.
+	
+name: Runic Detonation
+inspiration cost: {1}
+types: artificer move
+text: >
+	As an additional cost to play me, ruin a sequence you have in play. \it{(Ruined cards are banished when they leave play.)}
+	Your opponent's attacks get -1 power this turn.
+	\attack{3}
+	
+name: Signature: The Artificer
+types: signature move
+text: >
+	You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+	\equip{Equip one of your starter moves. I become an upgraded copy of that card.}
+	\it{Explosive Iteration -} I get +1 attack power.
+	\it{Clay Guardian -} I lose my \b{end step} effect.
+	\it{Crafter's Focus -} The second time you play me this match, conjure your ascension to hand.
+	
+name: Artificer Ascension
+inspiration cost: {1}
+types: artificer conjured move ascension sequence
+text: >
+	Conjured - I appear when another card conjures me and disappear when I leave play.
+	Your opponent's attacks get -2 attack power while I am in play.
+	\sequence
+	[\attack{2}]
+	[\attack{2}]

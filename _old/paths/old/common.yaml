@@ -1,0 +1,210 @@
+path: Common
+
+cards:
+- Offer to the Pyre:
+    cost: S
+    affinity: candles, claws
+    text: >
+        Banish one of your other cards from hand or play to:
+        \thinparbreak
+        \attack{4}
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Wisdom of Ancestors:
+    cost: X
+    affinity: candles, ribbons
+    text: >
+        \reflex{When I'm the only card in your hand}
+
+        Choose up to \expertisenumber{one} of your banished cards and up to \expertisenumber{one} of the cards in your cache. Put those cards into your hand.
+
+        If you played me as a reflex, score one point.
+        
+
+- Thorns of the Coven:
+    cost: X
+    affinity: candles, blossoms
+    text: >
+        \attackexpertise{1}
+
+        When I'm banished from your hand or from play, gain \expertisenumber{one} \mana{S}.
+        
+
+- Psychic Torment:
+    cost: X
+    affinity: candles, eyes
+    text: >
+        Banish up to \expertisenumber{one} move card from play.
+        
+
+- Adrenaline Surge:
+    cost:
+    affinity: ribbons, claws
+    text: >
+        \reflex{When you score your fifth point this match}
+
+        \sequence
+        [No effect.]
+        [You get \expertisenumber{one} additional action this turn.]
+        
+
+- Warrior's Pride:
+    cost: X
+    affinity: ribbons, skulls
+    text: >
+        \reflex{When you attack for the third time this match}
+
+        Gain \expertisenumber{one} \mana{S}.
+        Your attacks get \expertisenumber{+1} power this turn.
+        
+
+- Stay Out of Reach:
+    cost: S
+    affinity: shields, ribbons
+    text: >
+        \reflex{When you are being attacked and you have scored no points this match}
+
+        Your opponent's attacks get \expertisenumber{-2} power.
+        
+
+- Iron-Oak Protector:
+    cost: SS
+    affinity: blossoms, shields
+    text: >
+        \block
+
+        \attack{3}
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Accelerated Growth:
+    cost:
+    affinity: blossoms, hours
+    text: >
+        \sequence
+        [Gain \expertisenumber{one} \mana{S}.]
+        [Gain \expertisenumber{one} \mana{S}.]
+        
+
+- Cloaked in Mist:
+    cost:
+    types: permanent
+    affinity: daggers, blossoms
+    text: >
+        \onplay{Gain \expertisenumber{one} \mana{S}.}
+
+        When you are attacking, return me to your hand to give all your attacks this turn Swift. \textit{(Swift attacks cost \mana{S} to block.)}
+        
+
+- Vengeance:
+    cost: X
+    affinity: claws, daggers
+    text: >
+        \attackexpertise{2}
+
+        \swift
+
+        If your opponent has scored three or more points this match, I get \expertisenumber{+2} power.
+        
+
+- Raid the Mausoleum:
+    cost:
+    affinity: claws, skulls
+    text: >
+        \attackexpertise{2}
+        
+        Your opponent conjures and plays a Skeletal Minion.
+        
+
+- Mark for Death:
+    cost:
+    affinity: skulls, daggers
+    text: >
+        \sequence
+        [\attack{0}]
+        [Your attacks get \expertisenumber{+1} power this turn. If my first stage attack hit, they also can't be blocked.]
+        
+
+- The Art of Disguise:
+    cost:
+    affinity: masks, daggers
+    text: >
+        \onreveal{Name a card your opponent played last turn. If you do, I am a copy of that card until I leave play. \textit{(Its cost, types, and text replace my own.)}}
+
+        \expertisenumber{Expertise} with me improves the copy.
+        
+
+- Hypnotic Melody:
+    cost: S
+    affinity: masks, eyes
+    text: >
+        \attackexpertise{2}
+
+        When I hit, banish \expertisenumber{one} of your opponent's move cards from play.
+        
+
+- Runic Barrier:
+    cost: S
+    affinity: eyes, shields
+    types: permanent
+    text: >
+        When you are being attacked, return me to your hand to:
+        \thinparbreak
+        \block
+
+        When I block a card, banish that card.
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Void Skip:
+    cost: SX
+    affinity: eyes, hours
+    text: >
+        \onreveal{Choose a card your opponent is revealing. Banish that card and they don't play it.}
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{S} less to play.
+        
+
+- Laboratory Macabre:
+    cost: X
+    affinity: skulls, hours
+    text: >
+        Conjure and play a Skeletal Minion.
+
+        Conjure and play a Chronotech Augment.
+        
+    upgrade cost: 1+
+    upgrade: >
+        I cost \mana{X} less to play.
+        
+
+- Hold in Suspense:
+    cost:
+    affinity: masks, hours
+    text: >
+        \sequence
+        [\block]
+        [Instead of a normal action this turn, choose \expertisenumber{two} cards from your hand. Decide which one to reveal after seeing what your opponent reveals.]
+        
+
+- Mirror of Hubris:
+    cost: X
+    affinity: masks, shields
+    text: >
+        \block
+
+        When I block an attack:
+        \thinparbreak
+        \attack{3}
+        
+    upgrade cost: 1+
+    upgrade: >
+        I block any number of attacks this turn.
