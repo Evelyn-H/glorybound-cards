@@ -7,7 +7,11 @@
 
 <div class="carousel">
     {% for card in group.cards %}
-        {% include 'single_card.html' %}
+        <iframe
+            src="../cards/{{ card.name_clean }}.html"
+            title="{{ group.name }} - {{ card.name }}"
+            class="card">
+        </iframe>
     {% endfor %}
 </div>
 

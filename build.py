@@ -32,6 +32,8 @@ def eprint(*args, **kwargs):
 def flatten(l):
     return [item for sublist in l for item in sublist]
 
+def cleanup(p: str):
+    return p.replace(' ', '_').replace('\'', '_').replace(':', '_')
 
 
 # ==== card definition schema ====
@@ -80,6 +82,10 @@ class Card(object):
             return 'Signature: ' + self._name
         else:
             return self._name
+
+    @property
+    def name_clean(self):
+        return cleanup(self.name)
 
     @property
     def type_line(self):
@@ -138,6 +144,10 @@ class Group(object):
             return f"{self.kind}: {self.subname}"
         else:
             return self.kind
+
+    @property
+    def name_clean(self):
+        return cleanup(self.name)
 
     @staticmethod
     def from_string(text):
@@ -272,9 +282,6 @@ card_jinja_env = j2.Environment(
 files = glob.glob('cards/**.yaml')
 groups = [Group.from_file(f) for f in files]
 
-def cleanup(p: str):
-    return p.replace(' ', '_').replace('\'', '_').replace(':', '_')
-
 date = datetime.date.today().strftime('%m/%d/%y')
 
 def render_and_save_html(template_name, out_path, filename, **template_vars):
@@ -323,13 +330,13 @@ def render_image(html_file, out_file, resolution_x, resolution_y):
 
 @background
 def make_pdf(group):
-    os.makedirs('./rendered/pdfs/', exist_ok=True) 
-    subprocess.run(f"convert ./rendered/{cleanup(group.name)}/*.png ./rendered/pdfs/{cleanup(group.name)}.pdf", shell=True)
+    os.makedirs('./build/pdfs/', exist_ok=True) 
+    subprocess.run(f"convert ./build/images/{cleanup(group.name)}/*.png ./build/pdfs/{cleanup(group.name)}.pdf", shell=True)
 
 @background
 def add_bleed(group, card):
-    os.makedirs(f'./rendered/print/{cleanup(group.name)}/', exist_ok=True) 
-    subprocess.run(f"convert ./rendered/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./icons/bleed-overlay.png -composite ./rendered/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
+    os.makedirs(f'./build/print/{cleanup(group.name)}/', exist_ok=True) 
+    subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
 
 
 # ==== main ====
@@ -369,7 +376,7 @@ if __name__ == '__main__':
             for card in group.cards:
                 card_name = cleanup(card.name)
                 html_file = os.path.abspath(f'./build/cards/{card_name}.html')
-                out_file = os.path.abspath(f'./rendered/{cleanup(group.name)}/{card_name}.png')
+                out_file = os.path.abspath(f'./build/images/{cleanup(group.name)}/{card_name}.png')
                 print(out_file)
                 print(html_file)
                 render_image(html_file, out_file, resolution_x, resolution_y)

@@ -26,6 +26,8 @@
 
     .card {
         scroll-snap-align: start;
+        border: none;
+        display: block;
     }
 }
 

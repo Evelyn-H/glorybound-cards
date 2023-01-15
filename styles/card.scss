@@ -5,6 +5,7 @@ body {
     // transform: scale(calc(250/96));
     transform: scale(calc(600/96));
     transform-origin: top center;
+    background-color: var(--color-print-bg);
 }
 
 .card {

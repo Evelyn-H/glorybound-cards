@@ -5,7 +5,6 @@ default: build
 clean:
 	rm -rf output/*
 	rm -rf build/*
-	rm -rf rendered/*
 
 sass: 
 	sass styles/main.scss build/styles/main.css

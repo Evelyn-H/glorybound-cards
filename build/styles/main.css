@@ -28,12 +28,15 @@
 
 .carousel .card {
   scroll-snap-align: start;
+  border: none;
+  display: block;
 }
 
 body {
   /* scale to have the correct dpi */
   transform: scale(6.25);
   transform-origin: top center;
+  background-color: var(--color-print-bg);
 }
 
 .card {
