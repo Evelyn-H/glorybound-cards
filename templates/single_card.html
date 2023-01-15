@@ -1,0 +1,28 @@
+<div class="card {{ card.types | join(' ') }}">
+    <div class="background"></div>
+    <div class="border"></div>
+
+    <!-- <img class="reference-image" src="Set Ablaze.png" /> -->
+
+    <main>
+        <div class="title"><div class="autofit"><div class="vcenter">{{ card.name }}</div></div></div>
+        <div class="divider"><div class="divider-inner"></div></div>
+        <div class="types"><div class="autofit"><div class="vcenter">{{ card.type_line }}</div></div></div>
+
+        <!-- <div class="cost">{{ card.cost }}</div> -->
+        <div class="cost">
+            {% for n in range(card.cost) %}
+                <img class="inspiration" src="../../icons/inspiration.png" />
+            {% endfor %}
+        </div>
+
+        <div class="art"></div>
+
+        <div class="text"><div class="autofit">{{ card.rendered_text | safe }}</div></div>
+    </main>
+
+    <footer>
+        <div class="left">{{ group.name }}</div>
+        <div class="right">{{ date }}&nbsp;&nbsp;&ndash;&nbsp;&nbsp;GLORYBOUND</div>
+    </footer>
+</div>

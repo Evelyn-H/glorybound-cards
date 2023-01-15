@@ -1,0 +1,39 @@
+
+// from: https://stackoverflow.com/a/26074244
+@mixin vcenter() {
+    &::after {
+        content: ':'; /* must contain text to get the auto height of the line box */
+        display: inline-block;
+        vertical-align: middle;
+        width: 0; /* making pseudo elenent invisible */
+        overflow: hidden;
+    }
+}
+
+.vcenter {
+    @include vcenter;
+}
+
+.carousel {
+    // display: flex;
+    // flex-direction: column;
+    // gap: 4mm;
+
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+    height: 88mm;
+
+    .card {
+        scroll-snap-align: start;
+    }
+}
+
+@mixin autofit() {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.autofit {
+    // display: inline-block;
+}

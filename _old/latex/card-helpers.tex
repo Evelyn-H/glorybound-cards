@@ -1,0 +1,797 @@
+\colorlet{dark}{black}
+\colorlet{light}{white}
+% \colorlet{dark}{red}
+% \colorlet{light}{green}
+% \colorlet{dark}{white}
+% \colorlet{light}{black!90}
+
+\definecolor{heirloomlight}{HTML}{E3C9AD}
+
+
+%%% Commands to be used in card definitions
+
+\colorlet{upgradegray}{dark!25!light!75}
+% \newcommand{\upgrade}[1]{\sethlcolor{upgradegray}\hl{{#1}}}
+% \newcommand{\upgrade}[1]{\colorbox{upgradegray}{upgradegray}{#1}}
+
+% \newcommand{\upgrade}[1]{%
+% % #1%
+%     \setlength{\fboxsep}{0pt}%
+%     \colorbox{upgradegray}{%
+%         % \vphantom{Blg}%
+%         \strut%
+%         #1%
+%         % \makebox{something}%
+%         % \makebox{
+%         %     \strut#1
+%         % }
+%     }%
+% }
+
+\newcommand{\printsepifnotempty}[3]{%
+    \directlua{
+        s1 = \luastring{#1}
+        sep = \luastring{#2}
+        s3 = \luastring{#3}
+
+        tex.sprint(s1)
+        if s1:len() > 0 and s3:len() > 0 then
+            tex.sprint(sep)
+        end
+        tex.sprint(s3)
+    }%
+}
+\newcommand{\printsepifnotemptyor}[3]{%
+    \directlua{
+        s1 = \luastring{#1}
+        sep = \luastring{#2}
+        s3 = \luastring{#3}
+
+        tex.sprint(s1)
+        if s1:len() > 0 or s3:len() > 0 then
+            tex.sprint(sep)
+        end
+        tex.sprint(s3)
+    }%
+}
+
+\newcommand{\printseponlyifnotempty}[2]{%
+    \directlua{
+        sep = \luastring{#1}
+        s = \luastring{#2}
+
+        if s:len() > 0 then
+            tex.sprint(sep)
+        end
+    }%
+}
+
+\newcommand{\printseponlyifempty}[2]{%
+    \directlua{
+        sep = \luastring{#1}
+        s = \luastring{#2}
+
+        if s:len() == 0 then
+            tex.sprint(sep)
+        end
+    }%
+}
+
+% https://tex.stackexchange.com/a/225078
+\newcommand\fauxsc[1]{\fauxschelper#1 \relax\relax}
+\def\fauxschelper#1 #2\relax{%
+  \fauxschelphelp#1\relax\relax%
+  \if\relax#2\relax\else\ \fauxschelper#2\relax\fi%
+}
+\def\Hscale{.80}\def\Vscale{.80}\def\Cscale{1.00}
+\def\fauxschelphelp#1#2\relax{%
+  \ifnum`#1=\lccode`#1\relax\scalebox{\Hscale}[\Vscale]{\char\uccode`#1}\else%
+    \scalebox{\Cscale}[1]{#1}\fi%
+  \ifx\relax#2\relax\else\fauxschelphelp#2\relax\fi}
+
+\begin{luacode*}
+    function remove_apostrophe(path)
+        new = path:gsub("'", "_")
+        -- texio.write("TEST:"..new)
+        return new
+    end
+\end{luacode*}
+\newcommand{\fixpath}[1]{\directlua{tex.sprint(remove_apostrophe(\luastring{#1}))}}
+
+
+
+\makeatletter
+\newcommand{\upgrade}[2]{%
+% #1%
+    \setlength{\fboxsep}{0pt}%
+    \colorbox{upgradegray}{%
+        % \vphantom{Blg}%
+        \strut%
+        \,#1\,%
+        % \makebox{something}%
+        % \makebox{
+        %     \strut#1
+        % }
+    }%
+    \ifstrempty{#2}{}{%
+        \ifx\upgradereplacement\empty%
+        \else%
+            \g@addto@macro{\upgradereplacement}{;\ }%
+        \fi%
+        \g@addto@macro{\upgradereplacement}{[#2]}%
+    }%
+}
+\makeatother
+
+\newcommand{\upgradeicon}[1]{%
+    \smash{\scalerel*{\includegraphics{icons/upgrade-gray.png}}{AQ}}%
+}
+
+\newcommand{\expertisenumber}[1]{%
+    \colorlet{temp}{black!50}
+    \mbox{\textcolor{temp}{\textbf{\upgradeicon\, #1}}}
+}
+
+
+\newcommand{\dividerline}{%
+    % \vspace{-0.667\parskip}%
+    \vspace{0.5\parskip}%
+    \par%
+    \centerline{%
+        % \rule{.8\linewidth}{.125mm}%
+        % \rule{36mm}{.125mm}%
+        \rule{43.2mm}{.125mm}%
+    }%
+    \par%
+    \vspace{0.5\parskip}%
+    % \vspace{-0.667\parskip}%
+}%
+
+% \newcommand{\onplay}[2][]{%
+%     \textbf{On play\printseponlyifempty{:}{#1}}\printsepifnotemptyor{}{, }{#1}\printseponlyifnotempty{:}{#1} #2
+%     \dividerline
+% }
+
+\newcommand{\thinparbreak}{{\setlength{\parskip}{0.5\parskip}\par}}
+
+\NewDocumentCommand{\onplaynoline}{+o +m}{%
+    {\textbf{On play\IfNoValueT{#1}{:}}\IfValueT{#1}{, #1} #2}
+}
+
+\NewDocumentCommand{\onplay}{+o +m}{%
+    \onplaynoline[#1]{#2}%
+    % \dividerline
+}
+
+
+\NewDocumentCommand{\onreveal}{+o +m}{%
+    {\textbf{On reveal\IfNoValueT{#1}{:}}\IfValueT{#1}{, #1:} #2}%
+    % \dividerline
+}
+
+
+\NewDocumentCommand{\reflex}{+m}{%
+    \textbf{Reflex:} #1, you may play me.
+}
+
+\NewDocumentCommand{\invoke}{+o}{%
+    \IfNoValueT{#1}{\textbf{invoke}}%
+    \IfValueT{#1}{\dividerline\par\textbf{Invoke:} #1}%
+}
+
+\newcommand{\Invoke}{\textbf{Invoke}}
+
+\newcommand{\swift}{\textbf{Swift} \textit{(Blocking me costs \mana{S}.)}}
+
+\NewDocumentCommand{\passivename}{+m}{%
+    \textit{\textbf{#1}}\linebreak
+}
+
+\NewDocumentCommand{\choice}{+o}{%
+    \IfValueT{#1}{\textit{#1}\ -- }%
+    \IfNoValueT{#1}{\ -- }%
+}
+
+\NewDocumentCommand{\pseudotype}{+m}{%
+    \textit{\textbf{#1}}
+}
+
+% \newcommand{\upgrade}{\bgroup\markoverwith{\textcolor{upgradegray}{\rule[-.5ex]{.5pt}{2.5ex}}}\ULon}
+
+% \newcommand{\block}{{\par\centering\textbf{Block} an attack.\par}}
+
+% \newcommand{\attack}[1]{{\par\centering\textbf{Attack} #1.\par}}
+
+\pgfkeys{/fancyrenderer/.cd,% set the initial path
+    text/.initial={},
+    icon/.initial={},
+    icontext/.code={\pgfkeyssetvalue{/fancyrenderer/icontext}{#1}},
+    fillcolor/.initial={light},
+    textcolor/.initial={dark},
+    scale/.initial={1.0},
+    % scale/.initial={0.8},
+}
+
+% helper lengths
+\newlength\boxwidth
+\newlength\cornersize
+\newlength\iconwidth
+\newlength\tempfontsize
+\newlength\outlinewidth
+\newlength\expertisewidth
+
+% https://tex.stackexchange.com/a/6424
+\makeatletter
+\newcommand*{\DivideLengths}[2]{%
+  \strip@pt\dimexpr\number\numexpr\number\dimexpr#1\relax*65536/\number\dimexpr#2\relax\relax sp\relax
+}
+\makeatother
+
+\NewDocumentCommand{\fancyrenderer}{ +O{} }{%
+    % to make sure no arguments "leak" between different calls
+    \begingroup%
+    % some magic for autoscaling
+    % \pgfkeyssetvalue{/fancyrenderer/scale}{\DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}}%
+    \pgfkeyssetvalue{/fancyrenderer/scale}{%
+        \directlua{%
+            ratio = \DivideLengths{\tcbfitdim}{\pgfkeysvalueof{/textbox/fontsize}}
+            % tex.print(ratio)
+            if ratio > 0.9 then
+                tex.print("1.0")
+            % elseif ratio < 0.7 then
+            %     tex.print("0.6")
+            else
+                tex.print("0.8")
+            end
+        }
+    }%
+    \setlength\boxwidth{36mm}%
+    % horizontal centering (relative to the parent parbox)
+    \ifdefined\insidesequence
+        \pgfkeyssetvalue{/fancyrenderer/scale}{0.8}%
+        \setlength\boxwidth{32mm}%
+    \else
+        \centering%
+    \fi
+    % handle key-value arguments
+    \pgfkeys{/fancyrenderer/.cd, #1}%
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center,
+            rectangle,
+            % minimum width=0.8\linewidth, 
+            minimum width=\boxwidth, 
+            minimum height=6mm*\pgfkeysvalueof{/fancyrenderer/scale},
+            % fill=gray, 
+        ] (bb) {};
+
+
+        \setlength\cornersize{1.5mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+        \path[
+            draw=dark, line width=0.5mm, 
+            fill=\pgfkeysvalueof{/fancyrenderer/fillcolor}
+        ] 
+            ([xshift=-2mm, yshift=-0.25mm] bb.north east)
+            --
+            ([xshift=\cornersize, yshift=-0.25mm] bb.north west)
+            --
+            ([xshift=0.25mm, yshift=-\cornersize] bb.north west)
+            -- 
+            ([xshift=0.25mm, yshift=\cornersize] bb.south west)
+            --
+            ([xshift=\cornersize, yshift=0.25mm] bb.south west)
+            -- 
+            ([xshift=-2mm, yshift=0.25mm] bb.south east)
+            -- 
+            cycle;
+
+        \setlength\tempfontsize{10pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        \node[
+            anchor=west,
+            % anchor=mid west,
+            % minimum width=0.8\linewidth-8mm,
+            minimum width=\boxwidth-8mm,
+        ] at (bb.west) {
+            \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+            \textcolor{\pgfkeysvalueof{/fancyrenderer/textcolor}}{\pgfkeysvalueof{/fancyrenderer/text}}
+        };
+
+        \setlength\iconwidth{10mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        % attack icon
+        \node[
+            anchor=east, 
+            inner ysep=0pt,
+            inner xsep=0pt,
+            outer ysep=0pt,
+            outer xsep=0pt,
+        ] (icon) at (bb.east) {%
+            \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
+        };
+
+        % and the white-ish semi-transparent overlay to make the colors a bit more wahsed out
+        \node[
+            anchor=east, 
+            inner ysep=0pt,
+            inner xsep=0pt,
+            outer ysep=0pt,
+            outer xsep=0pt,
+            opacity = 0.5,
+        ] at (bb.east) {%
+            \pgfkeysifdefined{night}{%
+                \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{000000}{000000}}%
+            }{%
+                \includegraphics[width=\iconwidth]{\geticon{\pgfkeysvalueof{/fancyrenderer/icon}}{FFFFFF}{FFFFFF}}%
+            }%
+        };
+
+        \setlength\tempfontsize{24pt*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+        \setlength\outlinewidth{0.75mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+
+        \pgfkeysifdefined{/fancyrenderer/icontext}{
+            % https://tex.stackexchange.com/questions/400296/outline-text-characters
+            \node[
+                anchor=center,
+                % minimum width=\iconwidth, 
+                % minimum height=\iconwidth,
+                % fill=gray,
+            ] at (icon.center) {%
+                \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+                \bfseries
+                \textpdfrender{
+                    TextRenderingMode=FillStrokeClip,
+                    LineWidth=\outlinewidth,
+                    FillColor=\pgfkeysifdefined{item}{light!50!heirloomlight!50}{light},
+                    StrokeColor=dark, 
+                    MiterLimit=1,
+                }{\pgfkeysvalueof{/fancyrenderer/icontext}}%
+            };
+            \node[
+                anchor=center,
+                % minimum width=\iconwidth, 
+                % minimum height=\iconwidth,
+            ] at (icon.center) {%
+                \fontsize{\tempfontsize}{\tempfontsize}\selectfont
+                \bfseries
+                \textcolor{\pgfkeysifdefined{item}{light!50!heirloomlight!50}{light}}{\pgfkeysvalueof{/fancyrenderer/icontext}}%
+            };
+        }{}
+
+        % this just draws a little line over the left edge of the icon
+        % to try and hide the transparancy issues there
+            
+        \ifthenelse{\equal{\directlua{
+            icon = \luastring{\pgfkeysvalueof{/fancyrenderer/icon}}
+            % texio.write('asdf'..icon)
+            if icon:find('^block') == nil then
+                tex.sprint('true')
+            else
+                tex.sprint('false')
+            end
+        }}{false}}{
+            \path[
+                draw=dark, line width=0.5mm, 
+            ] 
+                ([xshift=-\iconwidth*0.9, yshift=-0.0mm] bb.north east)
+                --    
+                ([xshift=-\iconwidth*0.9, yshift=-0.1mm] bb.north east)
+                --    
+                ([xshift=-\iconwidth] bb.east)
+                --
+                ([xshift=-\iconwidth*0.9, yshift=0.1mm] bb.south east)
+                --
+                ([xshift=-\iconwidth*0.9, yshift=0.0mm] bb.south east);
+        }{}
+
+        \setlength\expertisewidth{4mm*\real{\pgfkeysvalueof{/fancyrenderer/scale}}}
+        \pgfkeysifdefined{attackexpertise}{%
+            \node[
+                anchor=west, 
+                inner sep=0pt,
+            ] (expertise) at ([xshift=1.5mm] bb.west) {%
+                \includegraphics[width=\expertisewidth]{icons/upgrade-gray.png}%
+            };
+        }{}
+        
+    \end{tikzpicture}%
+    \par
+    \endgroup%
+}
+
+\newcommand{\block}{%
+    \fancyrenderer[%
+        text={\textbf{Block} an attack.},
+        icon=\pgfkeysifdefined{night}{block-night}{block},
+        fillcolor=dark,
+        textcolor={\pgfkeysifdefined{item}{heirloomlight}{light}},
+    ]
+}
+\newcommand{\attack}[1]{%
+    \fancyrenderer[%
+        text={\textbf{Attack}},
+        icon=\pgfkeysifdefined{night}{attack-night}{attack},
+        icontext={#1},
+        fillcolor={\pgfkeysifdefined{item}{heirloomlight}{light}},
+        textcolor=dark,
+    ]
+}
+
+\newcommand{\attackexpertise}[1]{%
+    \begingroup%
+        \pgfkeyssetvalue{attackexpertise}{something}
+        \attack{#1}
+    \endgroup%
+}
+
+\newcommand{\innatebanner}{%
+    \begingroup
+    \centering
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center, 
+            inner sep=0pt
+        ] {
+            \includegraphics[height=5mm]{icons/innate-banner\pgfkeysifdefined{night}{-night}{}.png}
+        };
+    \end{tikzpicture}%
+    \par
+    \endgroup%
+}
+
+\newcommand{\oneshotbanner}{%
+    \par
+    \vspace*{0.5mm}
+    \begingroup
+    \centering
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            anchor=center, 
+            inner sep=0pt
+        ] {
+            \includegraphics[height=5mm]{icons/oneshot-banner\pgfkeysifdefined{night}{-night}{}.png}
+        };
+    \end{tikzpicture}%
+    \par
+    \endgroup%
+}
+
+
+
+
+\newlength{\turncountersize}
+\setlength{\turncountersize}{4.8mm}
+
+\colorlet{sequencecolor}{dark!70}
+
+\newcommand{\sequencerowsep}{%
+    \node[
+        anchor=north east,
+        inner sep=0pt,
+        minimum width=\linewidth, 
+        minimum height=2mm,
+    ] (end) at (text.south east) {};
+
+    % \path[
+    %     draw=sequencecolor, line width=0.25mm, 
+    % ]
+    % ([xshift=9mm] end.west) -- ([xshift=-9mm] end.east);
+}
+\newcommand{\sequencerow}[2][]{%
+    % rules text
+    \node[
+        anchor=north east,
+        % anchor=mid west,
+        text width=\linewidth-6mm-3mm,
+        minimum height=\turncountersize,
+        inner sep=0pt,
+        align=flush left,
+        % fill=sequencecolor,
+    ] (text) at (end.south east) {%
+        \def\insidesequence{}%
+        \fontsize{\tcbfitdim}{\tcbfitdim}\selectfont%
+        % \color{light}
+        #2
+    };
+
+    % turn counter 
+    \node[
+        fit={(text.north west) (text.south west)},
+        anchor=east,
+        rectangle,
+        inner sep=0pt,
+        minimum width=\turncountersize, 
+        minimum height=\turncountersize,
+        xshift=-3mm,
+        % fill=sequencecolor,
+    ] (turn) at (text.west) {};
+
+    \path[
+        draw=sequencecolor, line width=0.5mm, 
+        fill=sequencecolor,
+    ] 
+        ([xshift=-1.2mm, yshift=-0.25mm] turn.north east)
+        --
+        ([xshift=1.2mm, yshift=-0.25mm] turn.north west)
+        --
+        ([xshift=0.25mm, yshift=-1.2mm] turn.north west)
+        -- 
+        ([xshift=0.25mm, yshift=1.2mm] turn.south west)
+        --
+        ([xshift=1.2mm, yshift=0.25mm] turn.south west)
+        -- 
+        ([xshift=-1.2mm, yshift=0.25mm] turn.south east)
+        -- 
+        ([xshift=-0.25mm, yshift=1.2mm] turn.south east)
+        -- 
+        ([xshift=-0.25mm, yshift=-1.2mm] turn.north east)
+        --
+        cycle;
+
+    \node[
+        anchor=center,
+    ] at (turn.center) {%
+        \fontsize{10pt}{10pt}\selectfont
+        \textcolor{light}{\textbf{#1}}%
+    };
+}
+
+\NewDocumentCommand{\sequence}{+o +o +o +o}{%
+    \begin{tikzpicture}[x=1mm, y=1mm]
+        \node[
+            inner sep=0pt,
+            minimum width=0mm, 
+            minimum height=0mm,
+            fill=sequencecolor, 
+        ] (end) {};
+
+        \sequencerow[I]{#1}
+        % this node just saves the location of the first turn counter
+        % so we can use it for drawing the timeline
+        \node[
+            anchor=north west,
+            inner sep=0pt,
+            minimum width=\turncountersize, 
+            minimum height=0mm,
+            fill=sequencecolor, 
+            ] (topturn) at (turn.north west){};
+        % add as many rows as we need
+        \IfValueT{#2}
+        {%
+            \sequencerowsep
+            \sequencerow[II]{#2}
+            \IfValueT{#3}
+            {%
+            \sequencerowsep
+                \sequencerow[III]{#3}
+                \IfValueT{#4}
+                {%
+                    \sequencerowsep
+                    \sequencerow[IV]{#4}
+                }
+            }
+        }
+
+    \begin{scope}[on background layer]
+        \path[
+            fill=sequencecolor,
+        ] 
+            ([xshift=-0.75mm, yshift=1mm] topturn.north)
+            --
+            ([yshift=1.75mm] topturn.north)
+            --
+            ([xshift=0.75mm, yshift=1mm] topturn.north)
+            --
+            ([xshift=0.75mm, yshift=-1mm] turn.south)
+            --
+            ([yshift=-1.75mm] turn.south)
+            --
+            ([xshift=-0.75mm, yshift=-1mm] turn.south)
+            --
+            cycle;
+    \end{scope}
+
+    \end{tikzpicture}%
+}
+
+%%%
+
+
+%%% Misc rendering helper functions
+
+\newcommand{\rendermanasymbol}[2]{
+    \directlua{
+        function get_mana_filename(s)
+            symbols = {}
+            % symbols["A"] = "any"
+            % symbols["F"] = "focus"
+            % symbols["S"] = "strength"
+            % symbols["W"] = "will"
+            % symbols["X"] = "spirit"
+            symbols["S"] = "spirit"
+            symbols["X"] = "sacrifice"
+            symbols["H"] = "spirit-or-sacrifice"
+            return symbols[s] or s
+        end
+    }
+    \tikz[overlay, remember picture] 
+    \node[
+        anchor=north west, 
+        inner ysep=0pt,
+        inner xsep=0pt,
+        outer ysep=0pt,
+        outer xsep=0pt,
+        xshift=5.5mm,
+        yshift=-\directlua{tex.print(5.5 + 6 * (#1 - 1))}mm,
+    ] at (current page.north west) {
+        % \includesvg[width = 63mm]{frames/frame-berserker.svg}
+        \includegraphics[width=5mm]{icons/mana/\directlua{tex.print(get_mana_filename(\luastringN{#2}))}.png}
+    };
+}
+
+\begin{luacode*}
+    function render_mana(s)
+        for i = 1, #s do
+            tex.print("\\rendermanasymbol{"..i.."}{"..s:sub(i,i).."}")
+        end
+    end
+\end{luacode*}
+\newcommand{\rendermana}[1]{\directlua{render_mana(\luastring{#1})}}
+
+
+% this one is for use inside the card text
+\newcommand{\manatext}[1]{%
+    \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{AQ}}%
+    % \smash{\scalerel*{\includegraphics{icons/mana/#1.png}}{\strut}}%
+    % \includegraphics[width=1mm]{icons/mana/#1.png}%
+}
+\begin{luacode*}
+    function get_mana_filename(s)
+        symbols = {}
+        symbols["S"] = "spirit"
+        symbols["X"] = "sacrifice"
+        symbols["H"] = "spirit-or-sacrifice"
+        return symbols[s] or s
+    end
+
+    function render_mana_text(s)
+        for i = 1, #s do
+            tex.sprint("\\manatext{"..get_mana_filename(s:sub(i,i)).."}")
+            if i ~= #s then 
+                -- the \, space is technically a kern, 
+                -- which stops latex from breaking it with a newline
+                tex.sprint("\\,")
+            end
+        end
+    end
+\end{luacode*}
+\newcommand{\mana}[1]{\directlua{render_mana_text(\luastring{#1})}}
+
+
+% building the attack and block icons
+% generate gradient png
+% magick -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" gradient.png
+
+% two commands for the overlaying
+% convert gradient.png attack.png -composite resulta.png
+% convert resulta.png attack-mask-2.png  -compose copy_opacity -composite result.png
+
+% and this just combines both of them into one
+% convert gradient.png attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
+
+% and then this combines all three into one:
+% convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack.png -composite attack-mask.png -compose copy_opacity -composite result.png
+
+
+% better version that fixes the "colored edge" issue
+% convert -size 474x473 -define gradient:direction=Northeast gradient:"#00DB1D"-"#BF00FF" attack-mask.png -compose copy_opacity -composite -channel a -threshold 99% attack.png -channel rgba -compose src-over -composite result.png
+
+\begin{luacode*}
+    function generate_icon(name, col1, col2)
+        -- local file = io.popen("cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name..".png -composite "..name.."-mask.png -compose copy_opacity -composite "..name.."-"..col1.."-"..col2..".png")
+        local file = io.popen("mkdir -p icons/processed && cd icons/ && convert -size 473x473 -define gradient:direction=Northeast gradient:\"#"..col1.."\"-\"#"..col2.."\" "..name.."-mask.png -compose copy_opacity -composite -channel a -threshold 99% "..name..".png -channel rgba -compose src-over -composite processed/"..name.."-"..col1.."-"..col2..".png")
+        local output = file:read('*all')
+        file:close()
+    end
+    function get_icon(name, col1, col2)
+        filename = "icons/processed/"..name.."-"..col1.."-"..col2..".png"
+        -- check if it already exists
+        local f = io.open(filename, "r")
+        if f~=nil then 
+            io.close(f) 
+            return filename
+        else 
+            generate_icon(name, col1, col2)
+            return filename  
+        end
+    end
+\end{luacode*}
+\newcommand{\geticon}[3]{\directlua{tex.print(get_icon(\luastring{#1}, \luastring{#2}, \luastring{#3}))}}
+
+
+
+% this one is for use inside the card text
+\newcommand{\attackicon}{%
+    \smash{\scalerel*{%
+        \begin{tikzpicture}[x=5mm, y=5mm]
+            \node[
+                % anchor=east, 
+                inner sep=0pt,
+            ] (icon) {%
+                \includegraphics{\geticon{attack}{\pgfkeysvalueof{/card/color-left}}{\pgfkeysvalueof{/card/color-right}}}%
+            };
+            \node[
+                anchor=center, 
+                inner sep=0pt,
+                opacity = 0.5,
+            ] at (icon.center) {%
+                \includegraphics{\geticon{attack}{FFFFFF}{FFFFFF}}%
+            };
+        \end{tikzpicture}%
+    }{\strut}}%
+    % \includegraphics[width=1mm]{icons/mana/#1.png}%
+}
+
+
+% \newcommand{\upgradeicon}{%
+%     \smash{\scalerel*{%
+%             % \includegraphics{icons/upgrade.png}%
+%             % \includegraphics{icons/level.png}%
+%     }{\strut}}%
+% }
+
+% render affinities
+\newcommand{\renderaffinities}{%
+    \pgfkeysifdefined{primary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                % fill=dark!25!light!75,
+                fill={\pgfkeysifdefined{secondary}{secondarylight}{primarylight}},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{\pgfkeysifdefined{secondary}{secondary}{primary}}}
+            };
+        \end{tikzpicture}
+    }{}
+
+    \pgfkeysifdefined{secondary}{%
+        \begin{tikzpicture}[x=1mm, y=1mm, overlay, remember picture]
+            \node[
+                anchor=center,
+                rectangle,
+                rounded corners=1mm,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+                minimum width=6mm, 
+                minimum height=8mm,
+                inner sep=0mm,
+                fill={primarylight},
+                line width=0mm,
+            ] (bb) at (current page.north east) {};
+
+            \node[
+                anchor=center,
+                inner sep=0pt,
+                xshift=-5.5mm-3mm,
+                yshift=-5.5mm-4mm-9mm,
+            ] at (current page.north east) {
+                \includegraphics[width=5mm, height=7mm, keepaspectratio]{icons/affinities/\pgfkeysvalueof{primary}}
+            };
+        \end{tikzpicture}
+    }{}
+}

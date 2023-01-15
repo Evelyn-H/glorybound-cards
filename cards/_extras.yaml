@@ -1,0 +1,40 @@
+kind: Extra
+
+cards:
+- Skeletal Minion:
+    types: conjured move sequence
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        \sequence
+        [No effect]
+        [\attack[1]]
+        
+- Glimmer of Hope:
+    types: conjured move permanent
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        \endstep[If your opponent scored points this turn, banish me.]
+        At the end of the match, if I am in play, score one point.
+        
+- Assassin's Focus:
+    types: conjured move permanent
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        When I see you attacking, banish me to give an attack +2 attack power.
+        
+- Chronotech Augment:
+    types: conjured augment
+    text: |
+        Augment - I appear when I am attached to a card in play, and disappear if I am not.
+        If the augmented sequence would leave play because all stages are complete, instead remove me to repeat the final stage next turn.
+        
+- Charge:
+    types: conjured augment
+    text: |
+        Augment - I appear when I am attached to a card in play, and disappear if I am not.
+        \orange[Orange] numbers on the augmented item get +1. \blue[Blue] numbers on the augmented item get -1.
+        
+- Inspiration:
+    types: conjured inspiration
+    text: |
+        I appear when you gain inspiration exceeding your starting inspiration.

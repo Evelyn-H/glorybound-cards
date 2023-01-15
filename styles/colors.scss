@@ -1,0 +1,55 @@
+@use "sass:color";
+
+// color that means: "careful! you missed a color here!"
+$scream: rgb(0, 255, 255);
+
+
+$dark-gray: #1a1a1a;
+$gray: #777;
+
+$purple: hsl(255, 30%, 25%);
+$light-purple: color.scale($purple, $lightness: 40%);
+
+$pinkish-purple: color.adjust($purple, $hue: 60, $saturation: 25%, $lightness: -10%);
+$light-pinkish-purple: color.scale($pinkish-purple, $lightness: 20%);
+
+$bold-purple: hsl(255, 40%, 35%);
+$gold: hsl(40, 65%, 50%);
+
+$blue: hsl(210, 65%, 40%);
+$dark-blue: hsl(210, 30%, 25%);
+
+$green: hsl(90, 45%, 25%);
+$dark-green: color.scale($green, $lightness: 20%);
+
+$red: hsl(0, 65%, 40%);
+
+$beige: #744e29;
+$light-beige: color.scale($beige, $lightness: 40%);
+$dark-beige: color.scale($beige, $lightness: -40%, $saturation: -40%);
+
+
+$transparent-white: rgba(255, 255, 255, 0.5);
+
+
+:root {
+    --color-print-bg: #{$gray};
+    --color-border: #000;
+
+    // --color-bg-left: #{$purple};
+    // --color-bg-right: #{$purple};
+    // horrendous colors to make it clear we forgot to set a color
+    --color-bg-left: #{$scream};
+    --color-bg-right: #{$scream};
+    --color-divider: #{$gray};
+
+    --color-text: #000;
+    --color-textbox-bg: #fff;
+    --color-art-placeholder: #{$gray};
+
+    --color-footer-text: #fff;
+
+
+    --color-upgrade-inc: hsl(45, 75%, 50%);
+    --color-upgrade-dec: hsl(225, 75%, 50%);
+}

@@ -1,0 +1,50 @@
+@use 'colors';
+
+.card {
+
+    &.conjured {
+        --color-text: #fff;
+        --color-textbox-bg: #{$dark-gray};
+    }
+
+
+    // == background colors ==
+
+    &.move {
+        --color-bg-left: #{$purple};
+        --color-bg-right: #{$purple}; 
+
+        &.starter {
+            --color-bg-right: #{$light-purple}; 
+        }
+
+        &.signature {
+            --color-bg-left: #{$pinkish-purple};
+            --color-bg-right: #{$light-pinkish-purple}; 
+        }
+
+        &.ascension {
+            --color-bg-left: #{$bold-purple}; 
+            --color-bg-right: #{$gold}; 
+        }
+    }
+
+    &.item {
+        // --color-bg-left: #{$dark-beige};
+        // --color-bg-right: #{$beige}; 
+        --color-bg-left: #{$beige};
+        --color-bg-right: #{$light-beige}; 
+
+        --color-textbox-bg: #{$transparent-white};
+    }
+
+    &.augment {
+        --color-bg-left: #{$dark-blue};
+        --color-bg-right: #{$blue}; 
+    }
+
+    &.inspiration {
+        // --color-bg-left: #fff;
+        // --color-bg-right: #fff; 
+    }
+}

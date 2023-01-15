@@ -1,0 +1,66 @@
+kind: Archetype
+subname: Druid
+
+cards:
+- Bramble Snare:
+    cost: 1
+    types: starter move
+    text: |
+        \attack[1]
+        \block
+
+- Wild Companion:
+    cost: 0
+    types: starter move permanent
+    text: |
+        The first time I see you attack each turn: \attack[1]
+        \endstep[If I attacked this turn, pay \inspiration[1] or return me to your hand.]
+
+- Commune with Nature:
+    cost: 0
+    types: starter move
+    text: |
+        Gain one inspiration.
+        \Invoke.
+        
+- Nourishing Bonds:
+    types: starter inspiration
+    text: |
+        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+        
+- Leaf-Crowned Ancient:
+    cost: 3
+    types: move sequence
+    text: |
+        \sequence
+        [\attack[2]]
+        [\attack[2]]
+        [\attack[2]]
+        
+- Blossomwood Staff:
+    types: item
+    text: |
+        Once each turn, when you hit with an attack, gain \orange[one] inspiration.
+        
+- Grasping Roots:
+    cost: 1
+    types:  move ruined
+    text: |
+        Choose one of your opponent's items. At the end of this turn, banish it.
+        
+- The Druid:
+    types: signature move
+    text: |
+        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
+        \li[Bramble Snare][The second time you play me this match, conjure your ascension to hand.]
+        \li[Wild Companion][I get +1 attack power.]
+        \li[Commune with Nature][Invoke an additional time.]
+
+- Druid Ascension:
+    cost: 0
+    types: conjured move ascension
+    text: |
+        Conjured - I appear when another card conjures me and disappear when I leave play.
+        Gain \inspiration[4]
+        \attack[4]
