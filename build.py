@@ -49,10 +49,10 @@ schema = Map({
             Str(), Map({
                 Optional('cost'): Int(), 
                 'text': Str(), 
-                Optional('types'): Regex(r'\s*((move|starter|advanced|ascension|inspiration|ruined|permanent|item|augment|conjured|sequence|signature)\s*)*'),
+                Optional('types'): Regex(r'\s*((move|starter|advanced|ascension|inspiration|ruined|permanent|item|augment|conjured|sequence|signature|mentor)\s*)*'),
 
-                Optional('invoke name'): Str(), 
                 Optional('invoke'): Str(), 
+                Optional('invoketext'): Str(), 
             })
         )
     ),
@@ -73,8 +73,8 @@ class Card(object):
         self.types = [t.strip() for t in (d['types'].split(' ') or [])]
         # if '\\sequence' in self.text:
             # self.types.append('sequence')
-        self.invoke_name = d['invoke name']
-        self.invoke = d['invoke']
+        self.invoke_name = d['invoke']
+        self.invoke_text = d['invoketext']
 
     @property
     def name(self):
@@ -100,6 +100,7 @@ class Card(object):
         line += maybe_add('starter')
         line += maybe_add('advanced')
         line += maybe_add('signature')
+        line += maybe_add('mentor')
 
         line += maybe_add('move')
         line += maybe_add('item')
@@ -117,10 +118,33 @@ class Card(object):
 
         return line.strip()
 
+    @property 
+    def full_text(self):
+        text = ''
+        text += '\\conjured\n\n' if 'conjured' in self.types and not 'augment' in self.types else ''
+        text += '\\augment\n\n' if 'augment' in self.types else ''
+
+        # text += '\\signature\n\n' if 'signature' in self.types else ''
+
+        text += self.text
+
+        if self.invoke_name:
+            text += f'\n\n\\invoke_ability[{self.invoke_name}][{self.invoke_text}]'
+
+        return text.strip() 
+
     @property
     def rendered_text(self):
-        # print('text:', self.text)
-        return render_textbox(self.text)
+        expanded, remainder = expand(self.full_text)
+        if len(remainder) > 0:
+            raise Exception(f'unexpected text: {remainder}')
+
+        expanded = expanded.strip()
+        # print('---', expanded)
+        html = '<div class="p">' + str.join('</div><div class="p">', filter(None, split_on_empty_lines(expanded))) + '</div>'
+        print(split_on_empty_lines(expanded))
+        print(html)
+        return html
 
     @property
     def ruined(self):
@@ -201,7 +225,7 @@ def read_block(text: str) -> Tuple[str, str]:
 
 def expand_once(text: str) -> Tuple[str, str]:
     # macros start with a '\' followed by a name and optionally arguments between [ and ]
-    pattern_macro = r'(\\(?P<macro>\w+))'
+    pattern_macro = r'(\\(?P<macro>(\w|_)+))'
 
     # regular text can't contain '\' or '[' or ']'
     pattern_text = r'[^\\\[\]]*'
@@ -261,16 +285,6 @@ def split_on_empty_lines(s):
     blank_line_regex = r"(?:\r?\n *){2,}"
     return re.split(blank_line_regex, s.strip())
 
-def render_textbox(text: str) -> str:
-    expanded, remainder = expand(text)
-    if len(remainder) > 0:
-        raise Exception(f'unexpected text: {remainder}')
-
-    expanded = expanded.strip()
-    # print('---', expanded)
-    html = '<p>' + str.join('</p><p>', split_on_empty_lines(expanded)) + '</p>'
-    # print(split_on_empty_lines(expanded))
-    return html
 
 # ==== card rendering ====
 
@@ -331,7 +345,9 @@ def render_image(html_file, out_file, resolution_x, resolution_y):
 @background
 def make_pdf(group):
     os.makedirs('./build/pdfs/', exist_ok=True) 
-    subprocess.run(f"convert ./build/images/{cleanup(group.name)}/*.png ./build/pdfs/{cleanup(group.name)}.pdf", shell=True)
+    # subprocess.run(f"convert ./build/images/{cleanup(group.name)}/*.png ./build/pdfs/{cleanup(group.name)}.pdf", shell=True)
+    cards = [f'./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png' for card in group.cards]
+    subprocess.run(f"convert {' '.join(cards)} ./build/pdfs/{cleanup(group.name)}.pdf", shell=True)
 
 @background
 def add_bleed(group, card):
@@ -394,4 +410,8 @@ if __name__ == '__main__':
         # make pdfs per group
         for group in groups:
             make_pdf(group)
+        
+        
         asyncio.get_event_loop().run_until_complete(asyncio.gather(*tasks))
+
+        subprocess.run(f"pdftk Archetype* cat output Archetypes.pdf", shell=True)

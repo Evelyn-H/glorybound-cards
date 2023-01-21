@@ -22,7 +22,7 @@ def on_own_paragraph(macro):
 
 @register
 def attack(strength):
-    return f'<span class="attack">attack {strength}</span>'
+    return f'<span class="attack">attack [{strength}]</span>'
 
 @register
 def block():
@@ -34,11 +34,41 @@ def reminder(text):
 
 @register
 def sequence(*turns):
-    return '<ol class="sequence">' + ''.join([f'<li>{turn}</li>' for turn in turns])  + '</ol>'
+    return '<div class="sequence">' + ''.join([f'<div class="turn">{turn}</div>' for turn in turns])  + '</div>'
 
 @register
 def inspiration(amount='1'):
-    return f'<img class="inspiration" src="../../icons/inspiration.png" />' * int(amount)
+    return '<span class="inspiration">' + (f'<img src="../../assets/icons/inspiration.png" />' * int(amount)) + '</span>'
+
+@register
+def keyword(name, text):
+    return f'<span class="keyword">{name}</span> &ndash; ' + reminder(text)
+
+@register
+def conjured():
+    return keyword('Conjured', 'I appear when another card conjures me and disappear when I leave play.')
+
+@register
+def augment():
+    return keyword('Augment', 'I appear when I am attached to a card in play, and disappear if I am not.')
+
+# @register
+# def signature():
+#     return 'You can only claim one signature, and only after losing half your hearts.'
+
+# @register
+# def upgrade():
+#     return keyword('Upgrade', 'I appear when I am attached to a card in play, and disappear if I am not.')
+
+@register
+def invoke_ability(name, ability_text):
+    text = ''
+    # text += '<div class="spacer"></div>'
+    text += '<div class="invoke-ability">'
+    text += f'<div class="invoke-name">{name}</div>'
+    text += f'<div class="invoke-text">{oninvoke(ability_text)}</div>'
+    text += '</div>'
+    return text
 
 @register
 def invoke():
@@ -62,7 +92,7 @@ def li(text, name=None):
     if name:
         name, text = text, name
         return f'<em>{name}</em>&nbsp;&ndash;&nbsp;{text}'
-    return f'&nbsp;&#183;&nbsp;{text}'
+    return f'&nbsp;&ndash;&nbsp;{text}'
 
 @register
 def b(text):
@@ -89,6 +119,10 @@ def onplay(text):
 @register
 def equip(text):
     return trigger('Equip', text)
+
+@register
+def oninvoke(text):
+    return trigger('On invoke', text)
 
 
 # == on-off effects ==
