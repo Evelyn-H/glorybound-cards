@@ -22,12 +22,20 @@
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
 
-    height: 88mm;
+    height: 88mm * 3;
+    width: 63mm * 3;
 
+    margin: auto;
+    
     .card {
+        height: 88mm * 3;
+        width: 63mm * 3;
+
         scroll-snap-align: start;
         border: none;
         display: block;
+
+        margin: 0;
     }
 }
 

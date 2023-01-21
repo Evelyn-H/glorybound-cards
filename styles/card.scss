@@ -103,8 +103,11 @@ body {
             height: 0.5mm;
             width: 36mm;
         
-            background-color: var(--color-divider);
+            // background-color: var(--color-divider);
             border-radius: 0.25mm;
+
+            background: linear-gradient(45deg, var(--color-bg-left), var(--color-bg-right));
+            background-size: 63mm 88mm;
         }
         
         .types {
@@ -119,6 +122,8 @@ body {
             font-size: 7pt;
             font-weight: 600;
             font-style: italic;
+
+            word-spacing: 0.1em;
         }
 
         .cost {

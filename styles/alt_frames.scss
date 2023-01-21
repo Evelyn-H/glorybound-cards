@@ -29,6 +29,13 @@
         }
     }
 
+    &.mentor {
+        --color-bg-left: #{$water};
+        --color-bg-right: #{$red}; 
+
+        --color-textbox-bg: #{$transparent-white};
+    }
+
     &.item {
         // --color-bg-left: #{$dark-beige};
         // --color-bg-right: #{$beige}; 

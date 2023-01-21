@@ -15,7 +15,7 @@ cards:
 - Belt of the Sun King:
     types: item
     text: |
-        When you spend inspiration, \charge me for each inspiration spent.
+        When you spend \inspiration, \charge me for each \inspiration spent.
         When I have three or more charges, remove three charges to \invoke.
 
 - Crown of Madness:
@@ -43,7 +43,7 @@ cards:
 - Pouch of Magic Beans:
     types: item
     text: |
-        When you have four or more unspent inspiration, banish me to conjure your ascension to your hand.
+        When you have four or more unspent \inspiration, banish me to conjure your ascension to your hand.
 
 - Iron Anchor:
     types: item
@@ -59,19 +59,19 @@ cards:
 - Apothecary's Spade:
     types: item
     text: |
-        If you would gain one or more inspiration, \charge me that many times instead.
+        If you would gain one or more \inspiration, \charge me that many times instead.
         Your attacks get +1 power for each charge on me.
 
 - Elven Longbow:
     types: item
     text: |
-        At the start of each turn, if your opponent has more points than you, you gain an inspiration and your attacks cost \inspiration[1] to block this turn.
+        At the start of each turn, if your opponent has more points than you, you gain an \inspiration and your attacks cost \inspiration[1] to block this turn.
 
 - Shield of the Legion:
     types: item
     text: |
         I cost \inspiration[1] to equip.
-        When you resolve combat effects, your attacks also each block an attack with power less than their power.
+        When you resolve combat effects, your attacks also each \block an attack with power less than their power.
 
 - Orb of Memories:
     types: item
@@ -118,7 +118,7 @@ cards:
 - Pollenbloom Wand:
     types: item
     text: |
-        At the end of each turn, if you gained inspiration this turn, \charge me and you gain an additional inspiration.
+        At the end of each turn, if you gained \inspiration this turn, \charge me and you gain an additional \inspiration.
         At the start of each turn, if I have three or more charges, banish me to: \block.
 
 - Soul-Split Mirror:
@@ -140,7 +140,7 @@ cards:
 - Mistmeadow Lantern:
     types: item
     text: |
-        At the end of each turn, if you have no inspiration, \charge me.
+        At the end of each turn, if you have no \inspiration, \charge me.
         Your attacks and your opponent's attacks all get -1 power for each charge on me.
 
 - Explorer's Journal:
@@ -173,7 +173,7 @@ cards:
     types: item
     text: |
         At the start of each turn, you may banish Flask of Moonlight to be infused with moonlight this turn.
-        Whenever you score points while infused with moonlight, you gain inspiration equal to the points scored.
+        Whenever you score points while infused with moonlight, you gain \inspiration equal to the points scored.
         If you score five or more points while infused, conjure your ascension to your hand.
 
 - Improvised Slingshot:
@@ -185,12 +185,12 @@ cards:
     types: item
     text: |
         When you equip me, secretly choose a move card from your hand and banish it face-down under me.
-        When you reveal actions on the third turn, your opponent guesses the hidden card. If they guessed wrong, play it alongside your action and it costs no inspiration to play. Otherwise, return it to your hand.
+        When you reveal actions on the third turn, your opponent guesses the hidden card. If they guessed wrong, play it alongside your action and it costs no \inspiration to play. Otherwise, return it to your hand.
 
 - Illicit Replica:
     types: item
     text: |
-        When you equip me, gain an inspiration.
+        When you equip me, gain an \inspiration.
         At the start of the first turn, choose one of your opponent's items. I become a copy of that card for the rest of the match. If it is charged, put the same number of charges on me.
 
 - Driftwood Shield:

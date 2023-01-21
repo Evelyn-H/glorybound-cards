@@ -6,7 +6,7 @@ cards:
     cost: 2
     types: starter move
     text: |
-        \Invoke.
+        \Invoke
         \attack[3]
 
 - Vigilant Guard:
@@ -14,7 +14,7 @@ cards:
     types: starter move
     text: |
         \block
-        \endstep[If I blocked, gain an inspiration.]
+        \endstep[If I blocked, gain \inspiration.]
 
 - Safe From Harm:
     cost: 0
@@ -59,6 +59,5 @@ cards:
     cost: 0
     types: conjured move ascension
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         Your opponent can't score points this turn.
         Score one point.

@@ -20,8 +20,8 @@ cards:
     cost: 0
     types: starter move
     text: |
-        Gain one inspiration.
-        \Invoke.
+        Gain \inspiration.
+        \Invoke
         
 - Nourishing Bonds:
     types: starter inspiration
@@ -40,7 +40,7 @@ cards:
 - Blossomwood Staff:
     types: item
     text: |
-        Once each turn, when you hit with an attack, gain \orange[one] inspiration.
+        Once each turn, when you hit with an attack, gain \orange[one] \inspiration.
         
 - Grasping Roots:
     cost: 1
@@ -61,6 +61,5 @@ cards:
     cost: 0
     types: conjured move ascension
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         Gain \inspiration[4]
         \attack[4]

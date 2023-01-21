@@ -90,7 +90,7 @@ cards:
     types: advanced move
     text: |
         \Charge one of your items.
-        Gain an inspiration.
+        Gain \inspiration.
 
 - Sleep Song:
     cost: 1

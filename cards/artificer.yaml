@@ -6,25 +6,24 @@ cards:
     cost: 1
     types: starter move sequence
     text: |
-        \sequence
-        [\attack[1]]
-        [\attack[2]]
+        \sequence[\attack[1]][\attack[2]]
+        asdfg
 
 - Clay Guardian:
     cost: 0
     types: starter move sequence
     text: |
         \sequence
-        [Block an attack]
-        [Block an attack]
+        [\block]
+        [\block]
         \endstep[If I blocked an attack this turn, return me to your hand.]
 
 - Crafter's Focus:
     cost: 0
     types: starter move
     text: |
-        \invoke.
-        \endstep[If you weren't hit by an attack this turn, gain two inspiration.]
+        \Invoke
+        \endstep[If you weren't hit by an attack this turn, gain \inspiration[2].]
 
 - Precise Concepts, Precise Tools:
     types: starter inspiration
@@ -47,7 +46,7 @@ cards:
     cost: 1
     types: move
     text: |
-        As an additional cost to play me, ruin a sequence you have in play. \reminder[(Ruined cards are banished when they leave play.)]
+        As an additional cost to play me, ruin a sequence you have in play. \reminder[Ruined cards are banished when they leave play.]
         Your opponent's attacks get -1 power this turn.
         \attack[3]
         
@@ -64,7 +63,6 @@ cards:
     cost: 1
     types: conjured move ascension sequence
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         Your opponent's attacks get -2 attack power while I am in play.
         \sequence
         [\attack[2]]

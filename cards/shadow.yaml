@@ -22,7 +22,7 @@ cards:
     types: starter move sequence
     text: |
         \sequence
-        [Gain an inspiration. Name a card.]
+        [Gain \inspiration. Name a card.]
         [Your opponent can't play the named card this turn.]
 
 - Know Your Enemies:
@@ -46,7 +46,6 @@ cards:
     cost: 0
     types: conjured move permanent
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         You can't play me as an action. When you hit with an attack, you may play me from your hand.
         At the start of each turn, score one point.
         
@@ -54,7 +53,6 @@ cards:
     cost: 0
     types: conjured move
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         You can't play me as an action. When your opponent is attacking, if they didn't attack last turn, you may play me from your hand.
         Your opponent can't score points for the rest of the turn.
         
@@ -62,7 +60,6 @@ cards:
     cost: 0
     types: conjured move
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         You can't play me as an action. When you are attacking, if your opponent has more points than you, you may play me from your hand.
         Your attacks can't be blocked this turn.
         
@@ -86,5 +83,4 @@ cards:
     cost: 0
     types: conjured move ascension
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
-        \onreveal[Gain one inspiration, then play up to three other moves alongside me.]
+        \onreveal[Gain \inspiration, then play up to three other moves alongside me.]

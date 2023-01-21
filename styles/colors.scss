@@ -22,7 +22,9 @@ $dark-blue: hsl(210, 30%, 25%);
 $green: hsl(90, 45%, 25%);
 $dark-green: color.scale($green, $lightness: 20%);
 
-$red: hsl(0, 65%, 40%);
+$red: hsl(0, 65%, 25%);
+$water: hsl(180, 45%, 25%);
+
 
 $beige: #744e29;
 $light-beige: color.scale($beige, $lightness: 40%);
@@ -41,7 +43,7 @@ $transparent-white: rgba(255, 255, 255, 0.5);
     // horrendous colors to make it clear we forgot to set a color
     --color-bg-left: #{$scream};
     --color-bg-right: #{$scream};
-    --color-divider: #{$gray};
+    // --color-divider: #{$gray};
 
     --color-text: #000;
     --color-textbox-bg: #fff;

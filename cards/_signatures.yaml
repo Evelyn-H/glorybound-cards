@@ -7,7 +7,7 @@ cards:
         You can only claim one signature, and only after losing half your hearts.
         Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
         If I would make you conjure a card, I make you conjure an additional card of that type.
-        If I would make you gain one or more inspiration, I make you gain an additional inspiration.
+        If I would make you gain one or more \inspiration, I make you gain an additional \inspiration.
 
 - Dawn and Dusk:
     types: signature move

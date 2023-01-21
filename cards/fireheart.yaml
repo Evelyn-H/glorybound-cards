@@ -13,7 +13,7 @@ cards:
     cost: 0
     types: starter move
     text: |
-        \Invoke.
+        \Invoke
         If your opponent has three or more points: \attack[2]
 
 - Pyre Meditation:
@@ -21,7 +21,7 @@ cards:
     types: starter move sequence
     text: |
         \sequence
-        [Gain one inspiration.]
+        [Gain \inspiration.]
         [Your attacks get +2 attack power this turn.]
         
 - Bright-Burning Authenticity:
@@ -38,12 +38,11 @@ cards:
     cost: 0
     types: move ruined
     text: |
-        Your opponent conjures Immolation into play. You gain two inspiration and get an additional action next turn.
+        Your opponent conjures Immolation into play. You gain \inspiration[2] and get an additional action next turn.
         
 - Immolation:
     types: conjured move
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         \attack[2]
 
 - Fiery Aura:
@@ -68,6 +67,5 @@ cards:
     cost: 1
     types: conjured move ascension
     text: |
-        Conjured - I appear when another card conjures me and disappear when I leave play.
         \attack[3]
         \attack[3]

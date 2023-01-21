@@ -1,28 +1,57 @@
 .card > main > .text {
-    p {
+    .p {
         margin-bottom: 0.5em;
+    }
+
+    & > .autofit > :first-child {
+        margin-top: 0;
+    }
+
+    & > .autofit > :last-child {
+        margin-bottom: 0;
     }
 
     .inspiration {
-        display: inline;
-        width: 0.8em;
-        height: 0.8em;
+        display: inline-block;
 
-        margin-left: 0.1em;
-        margin-bottom: -0.15em;
-        vertical-align: baseline;
-        margin-right: 0.1em;
-
-        opacity: 0.8;
-    }
+        img {
+            display: inline;
+            width: 0.8em;
+            height: 0.8em;
+    
+            margin-left: 0.1em;
+            margin-bottom: -0.15em;
+            vertical-align: baseline;
+            margin-right: 0.1em;
+    
+            opacity: 0.8;
+        }
+    } 
 
     .sequence {
 
-        margin-bottom: 0.5em;
-        padding-left: 5mm;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        // padding-left: 5mm;
+        padding-left: 0mm;
 
-        li {
-            &::marker {
+        list-style: none;
+
+        counter-reset: turn;
+
+        .turn {
+            margin-bottom: 0.5em;
+
+            counter-increment: turn;
+            display: block;
+            
+            &::before {
+                display: inline-block;
+                width: 5mm;
+                margin-right: 2mm;
+
+                content: counter(turn, upper-roman);
+                text-align: center;
             }
         }
     }
@@ -49,6 +78,10 @@
         font-weight: 600;
     }
 
+    .keyword {
+        font-weight: 600;
+    }
+
     .invoke {
         font-weight: 600;
     }
@@ -63,5 +96,34 @@
 
     .blue {
         color: var(--color-upgrade-dec);
+    }
+
+    .invoke-ability {
+        // background-color: var(--color-textbox-bg);
+        // border-radius: 1mm;
+        // margin: -2mm;
+        // padding: 2mm;
+
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+
+        .invoke-name {
+            font-family: 'Grenze';
+            font-style: italic;
+            font-weight: 600;
+
+            text-align: center;
+
+            &::before {
+                content: '—  ';
+            }
+            &::after {
+                content: '  —';
+            }
+        }
+
+        .invoke-text {
+
+        }
     }
 }

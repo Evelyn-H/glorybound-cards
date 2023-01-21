@@ -1,0 +1,185 @@
+kind: Mentor
+
+cards:
+- Kaya Obsidian-Shield:
+    cost: 1
+    types: mentor move
+    text: |
+        \block
+        When I block an attack: \attack[3]
+    invoke: Unbreakable
+    invoketext: |
+        \block
+        
+- Milo, the Arsonist:
+    cost: 1
+    types: mentor move
+    text: |
+        \attack[3]
+    invoke: Find Strength In Rage
+    invoketext: |
+        \endstep[If you were hit by an attack this turn, score one point.]
+        
+- Vernon, the Gardener:
+    cost: 2
+    types: mentor move
+    text: |
+        \attack[3]
+        I cost \inspiration[2] to block.
+    invoke: Summer Bloom
+    invoketext: |
+        Gain \inspiration.
+        
+- Maren, Sower of Spores:
+    cost: 0
+    types: mentor move
+    text: |
+        Gain \inspiration for each point you've scored this match.
+    invoke: Mycelial Tendrils
+    invoketext: |
+        \attack[0]
+        When I hit, your attacks get +2 attack power next turn.
+
+- Sashka, Bone Collector:
+    cost: 1
+    types: mentor move permanent
+    text: |
+        At the end of each turn, if either player scored points this turn, conjure a Skeletal Minion into play.
+    invoke: Reanimation
+    invoketext: |
+        Conjure a Skeletal Minion into play.
+
+- Zophi, Muse of Ghosts:
+    cost: 0
+    types: mentor move
+    text: |
+        \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
+    invoke: Haunting Melody
+    invoketext: |
+        Your opponent reveals a card from their hand. Banish that card.
+
+- Gil Ninefingers:
+    cost: 2
+    types: mentor move
+    text: |
+        I cost \inspiration[1] less to play for each Assassin's Focus you have.
+        \attack[1]
+        \attack[1]
+        \reminder[One block can only stop one attack.]
+    invoke: Careful Preparation
+    invoketext: |
+        Conjure an Assassin's Focus.
+
+- Mouse, the Blackmailer:
+    cost: 0
+    types: mentor move
+    text: |
+        Look at your opponent's hand.
+        \block
+    invoke: Masked Extortion
+    invoketext: |
+        Your opponent pays \inspiration[1]. If they can't, you score one point.
+
+- Jax, Renowned Swordsmith:
+    cost: 1
+    types: mentor move permanent
+    text: |
+        Your attacks get +1 attack power.
+    invoke: Steel Shards
+    invoketext: |
+        \attack[1]
+
+- Chiara, the Inventor:
+    cost: 0
+    types: mentor move sequence
+    text: |
+        \sequence
+        [Gain \inspiration.]
+        [This turn, your attacks cost \inspiration[1] to block.]
+    invoke: Chronotech Upgrade
+    invoketext: |
+        You may choose a sequence. If you do, conjure a Chronotech Augment into play attached to that card.
+
+- Vanya, Shield of the Dawn:
+    cost: 1
+    types: mentor move
+    text: |
+        One of your opponent's attacks gets -1 power this turn.
+        \attack[1]
+    invoke: Daybreak
+    invoketext: |
+        Conjure a Glimmer of Hope into play.
+
+- Ammon, the Frostguard:
+    cost: 0
+    types: mentor move permanent
+    text: |
+        Your opponent's attacks get -1 attack power.
+        \endstep[If you were hit by an attack this turn, recall me.]
+    invoke: Winter's Grasp
+    invoketext: |
+        I can't be recalled or banished this turn. If I'm in your hand, play me.
+
+- Niomi of the Four Winds:
+    cost: 0
+    types: mentor move
+    text: |
+        Gain \inspiration. Your attacks get +1 power this turn.
+    invoke: Move Like Air
+    invoketext: |
+        You get an additional action next turn.
+
+- Kuzai, the Gambler:
+    cost: 0
+    types: mentor move
+    text: |
+        \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
+    invoke: Embrace Chaos
+    invoketext: |
+        Roll a d6.
+        1-2: Banish a card from your hand.
+        2-5: \attack[1]
+        6: Play me.
+
+- Rashaad, Demon-Binder:
+    cost: 0
+    types: mentor move permanent
+    text: |
+        \onplay[No effect.]
+    invoke: Summoner's Pact
+    invoketext: |
+        If I am in play, recall me to: \attack[4]
+        Otherwise, play me.
+
+- Persephone, the Oracle:
+    cost: 1
+    types: mentor move sequence
+    text: |
+        \sequence
+        [No effect.]
+        [No effect.]
+        [\attack[4]]
+    invoke: Prophetic Visions
+    invoketext: |
+        Next turn, if you would score points, score twice that many points.
+
+- Tamir, Bionic Fugitive:
+    cost: 1
+    types: mentor move
+    text: |
+        \attack[2]
+        If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
+    invoke: Overclock
+    invoketext: |
+        The match ends one turn sooner.
+        
+- Elio, the Storyteller:
+    cost: 0
+    types: mentor move sequence
+    text: |
+        \sequence
+        [Each player gains \inspiration.]
+        [This turn, you get an additional action.]
+    invoke: Legends Reenacted
+    invoketext: |
+        You may pay \inspiration[2]. If you do, score one point.
