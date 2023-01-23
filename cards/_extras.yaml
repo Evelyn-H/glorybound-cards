@@ -3,6 +3,7 @@ kind: Extra
 cards:
 - Skeletal Minion:
     types: conjured move sequence
+    art: Skeletal Minion
     text: |
         \sequence
         [No effect]
@@ -10,26 +11,31 @@ cards:
         
 - Glimmer of Hope:
     types: conjured move permanent
+    art: Divine Intervention
     text: |
         \endstep[If your opponent scored points this turn, banish me.]
         At the end of the match, if I am in play, score one point.
         
 - Assassin's Focus:
     types: conjured move permanent
+    art: Keep At Range
     text: |
-        When I see you attacking, banish me to give an attack +2 attack power.
+        When I see you attacking, banish me to give an attack +2 power.
         
 - Chronotech Augment:
     types: conjured augment
+    art: Built to Last
     text: |
         If the augmented sequence would leave play because all stages are complete, instead remove me to repeat the final stage next turn.
         
 - Charge:
     types: conjured augment
+    art: Two-Breath Meditation
     text: |
         \orange[Orange] numbers on the augmented item get +1. \blue[Blue] numbers on the augmented item get -1.
         
 - Inspiration:
     types: conjured inspiration
+    art: 
     text: |
         I appear when you gain inspiration exceeding your starting inspiration.

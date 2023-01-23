@@ -39,8 +39,10 @@
     &.item {
         // --color-bg-left: #{$dark-beige};
         // --color-bg-right: #{$beige}; 
-        --color-bg-left: #{$beige};
-        --color-bg-right: #{$light-beige}; 
+        // --color-bg-left: #{$beige};
+        // --color-bg-right: #{$light-beige}; 
+        --color-bg-left: #{$warm-gray};
+        --color-bg-right: #{$warm-gray-light}; 
 
         --color-textbox-bg: #{$transparent-white};
     }
@@ -50,8 +52,47 @@
         --color-bg-right: #{$blue}; 
     }
 
+    &.rules {
+        --color-bg-left: #{$dark-gray};
+        --color-bg-right: #{$dark-gray}; 
+
+        --color-text: #fff;
+        --color-textbox-bg: #{$dark-gray};
+
+        .divider-inner {
+            background: #fff;
+        }
+
+        .text {
+            grid-row: 5/8;
+        }
+
+        .art {
+            display: none;
+        }
+    }
+
     &.inspiration {
         // --color-bg-left: #fff;
         // --color-bg-right: #fff; 
+
+        .background > img {
+            // background-image: url(../../assets/art/artificer.png);
+            // background-size: 100%;
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            background: none;
+            color: #fff;
+
+            --color-bg-left: #fff;
+            --color-bg-right: #fff; 
+
+            .art, .text {
+                display: none
+            }
+        }
     }
 }

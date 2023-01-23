@@ -5,6 +5,7 @@ cards:
 - Concealed Dagger:
     cost: 1
     types: starter move
+    art: Shadowstep
     text: |
         \attack[2]
         I cost \inspiration[1] to block.
@@ -12,6 +13,7 @@ cards:
 - Shroud in Darkness:
     cost: 0
     types: starter move
+    art: Dizzying Spin
     text: |
         If your opponent is attacking:
         \block
@@ -20,6 +22,7 @@ cards:
 - Infiltration Scheme:
     cost: 0
     types: starter move sequence
+    art: Survey From Cover
     text: |
         \sequence
         [Gain \inspiration. Name a card.]
@@ -27,11 +30,13 @@ cards:
 
 - Know Your Enemies:
     types: starter inspiration
+    art: 
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
             
 - Cloak of the Trickster:
     types: item
+    art: Hidden in Plain Sight
     text: |
         \equip[\Charge me.]
         At the end of each turn, if it is not a secret turn, remove a charge from me. If you do, after this turn ends but before the next turn begins, you get a secret turn. Your opponent and their cards do not participate in this turn. \reminder[You cannot hit them with attacks.]
@@ -39,12 +44,14 @@ cards:
 - Trap Setting:
     cost: 0
     types: move
+    art: Trap Setting
     text: |
         Secretly choose a trap you haven't yet chosen this match and conjure it to your hand. You can't play that card this turn. \reminder[Conceal the other trap cards to avoid giving away your choice.]
         
 - Poisoned Dagger:
     cost: 0
     types: conjured move permanent
+    art: Poisoned Dagger
     text: |
         You can't play me as an action. When you hit with an attack, you may play me from your hand.
         At the start of each turn, score one point.
@@ -52,6 +59,7 @@ cards:
 - Smoke Shroud:
     cost: 0
     types: conjured move
+    art: Smoke Shroud
     text: |
         You can't play me as an action. When your opponent is attacking, if they didn't attack last turn, you may play me from your hand.
         Your opponent can't score points for the rest of the turn.
@@ -59,6 +67,7 @@ cards:
 - Feign Defeat:
     cost: 0
     types: conjured move
+    art: Feign Defeat
     text: |
         You can't play me as an action. When you are attacking, if your opponent has more points than you, you may play me from your hand.
         Your attacks can't be blocked this turn.
@@ -66,14 +75,16 @@ cards:
 - Backstab:
     cost: 0
     types: move
+    art: Backstab
     text: |
         \onreveal[If your opponent revealed an attack move this turn, return me to your hand without playing me unless you pay \inspiration[2].]
         \attack[4]
         
 - The Shadow:
     types: signature move
+    art: Boarding Party
     text: |
-        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \reminder[You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
         \li[Concealed Dagger][I cost an additional \inspiration[2] to block.]
         \li[Shroud In Darkness][The second time you play me this match, conjure your ascension to hand.]
@@ -82,5 +93,6 @@ cards:
 - Shadow Ascension:
     cost: 0
     types: conjured move ascension
+    art: Spellweaving
     text: |
         \onreveal[Gain \inspiration, then play up to three other moves alongside me.]

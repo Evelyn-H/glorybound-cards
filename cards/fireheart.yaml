@@ -5,6 +5,7 @@ cards:
 - Set Ablaze:
     cost: 1
     types: starter move
+    art: Insatiable Flame
     text: |
         \attack[2]
         If a move card blocks me, ruin it. \reminder[When a ruined card leaves play, banish it.]
@@ -12,6 +13,7 @@ cards:
 - Defiant Fury:
     cost: 0
     types: starter move
+    art: Battle Rage
     text: |
         \Invoke
         If your opponent has three or more points: \attack[2]
@@ -19,6 +21,7 @@ cards:
 - Pyre Meditation:
     cost: 0
     types: starter move sequence
+    art: Rest
     text: |
         \sequence
         [Gain \inspiration.]
@@ -26,28 +29,33 @@ cards:
         
 - Bright-Burning Authenticity:
     types: starter inspiration
+    art: 
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
             
 - Lava Axe:
     types: item
+    art: Retribution
     text: |
         At the start of each turn, if either player has three or more points, your attacks get \orange[+1] power this turn. If both players have three or more points, they get \orange[+2] power instead.
 
 - Walk Among Flames:
     cost: 0
     types: move ruined
+    art: Just Out of Reach
     text: |
         Your opponent conjures Immolation into play. You gain \inspiration[2] and get an additional action next turn.
         
 - Immolation:
     types: conjured move
+    art: Consumed by Flame
     text: |
         \attack[2]
 
 - Fiery Aura:
     cost: 1
     types: move sequence
+    art: Set Ablaze
     text: |
         \sequence
         [Once this turn, when I see your opponent attacking: \attack[2]]
@@ -56,8 +64,9 @@ cards:
         
 - The Fireheart:
     types: signature move
+    art: Inferno Circle
     text: |
-        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \reminder[You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
         \li[Set Ablaze][I cost \inspiration[1] less to play.]
         \li[Defiant Fury][I get +2 attack power.]
@@ -66,6 +75,7 @@ cards:
 - Fireheart Ascension:
     cost: 1
     types: conjured move ascension
+    art: Kindled Flame
     text: |
         \attack[3]
         \attack[3]

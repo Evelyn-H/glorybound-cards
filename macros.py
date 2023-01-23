@@ -22,11 +22,11 @@ def on_own_paragraph(macro):
 
 @register
 def attack(strength):
-    return f'<span class="attack">attack [{strength}]</span>'
+    return f'<span class="attack">Attack [{strength}]</span>'
 
 @register
 def block():
-    return f'<span class="block">block</span>'
+    return f'<span class="block">Block</span>'
 
 @register
 def reminder(text):
@@ -34,7 +34,7 @@ def reminder(text):
 
 @register
 def sequence(*turns):
-    return '<div class="sequence">' + ''.join([f'<div class="turn">{turn}</div>' for turn in turns])  + '</div>'
+    return '<div class="sequence">' + ''.join([f'<div class="turn"><div class="turn-text">{turn}</div></div>' for turn in turns])  + '</div>'
 
 @register
 def inspiration(amount='1'):
@@ -42,7 +42,7 @@ def inspiration(amount='1'):
 
 @register
 def keyword(name, text):
-    return f'<span class="keyword">{name}</span> &ndash; ' + reminder(text)
+    return f'<span class="keyword">{name}</span> ' + reminder(text)
 
 @register
 def conjured():
@@ -51,6 +51,18 @@ def conjured():
 @register
 def augment():
     return keyword('Augment', 'I appear when I am attached to a card in play, and disappear if I am not.')
+
+@register
+def ruined():
+    return keyword('Ruined', 'Banish me when I would leave play.')
+
+@register
+def permanent():
+    return reminder('Permanents stay in play.')
+
+@register
+def item():
+    return reminder('Equip two items before the first turn.')
 
 # @register
 # def signature():
@@ -64,10 +76,10 @@ def augment():
 def invoke_ability(name, ability_text):
     text = ''
     # text += '<div class="spacer"></div>'
-    text += '<div class="invoke-ability">'
-    text += f'<div class="invoke-name">{name}</div>'
-    text += f'<div class="invoke-text">{oninvoke(ability_text)}</div>'
-    text += '</div>'
+    # text += '<div class="invoke-ability">'
+    text += f'<div class="invoke-name">Invoke: {name}</div>'
+    text += ability_text
+    # text += '</div>'
     return text
 
 @register
@@ -97,6 +109,10 @@ def li(text, name=None):
 @register
 def b(text):
     return f'<strong>{text}</strong>'
+
+@register
+def center(text):
+    return f'<div class="center">{text}</div>'
 
 # == triggers ==
 

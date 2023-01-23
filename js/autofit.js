@@ -23,7 +23,7 @@ function fit(element) {
 
     var i = 0
     while (element.offsetHeight > parent.offsetHeight && (i++ < 200)) {
-        console.log(font_size, element.offsetHeight, parent.offsetHeight)
+        // console.log(font_size, element.offsetHeight, parent.offsetHeight)
         font_size = (font_size*factor) ;
         element.style.fontSize = font_size + 'px';
     }

@@ -3,47 +3,52 @@ kind: Signature
 cards:
 - Overabundance:
     types: signature move
+    art: Oxless Plow
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
         If I would make you conjure a card, I make you conjure an additional card of that type.
         If I would make you gain one or more \inspiration, I make you gain an additional \inspiration.
 
 - Dawn and Dusk:
     types: signature move
+    art: Illusory Greatsword
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
         The first time you play me each match, I cost \inspiration[2] less to play.
         The second time you play me each match, I can't be blocked until I leave play.
 
 - Retribution:
     types: signature move
+    art: Decisive Strike
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
         When your opponent scores points with a move card while I am in play, ruin that card.
         When your opponent scores points while I am banished, return me to your hand.
 
 - Ascendant's Pride:
     types: signature move
+    art: Battle Tactics
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
         The first time I hit with an attack or block an attack each turn, invoke.
         The first time I invoke each turn, I invoke again.
 
 - Lasting Influence:
     types: signature move
+    art: Circlet of Obsession
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        Upgrade - Equip another move card at match start. I am an upgraded copy of that card.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
         If I am a permanent, you may play me at the start of the first turn.
         If I am a sequence, when you play me, attach a Chronotech Augment to me.
-        I can't be banished from play.
 
 - Prized Posession:
     types: signature move
+    art: Broken Violin
     text: |
-        You can only claim one signature, and only after losing half your hearts.
-        When you equip items, banish me from your hand to \charge one of your equipped items.
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Banish me from your hand to \charge one of your equipped items.]

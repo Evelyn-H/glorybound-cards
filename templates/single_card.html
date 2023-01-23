@@ -1,5 +1,9 @@
 <div class="card {{ card.types | join(' ') }}">
-    <div class="background"></div>
+    <div class="background">
+    {% if card.inspiration %}
+        <img src="{{ card.inspiration_art }}" />
+    {% endif %}
+    </div>
     <div class="border"></div>
 
     <!-- <img class="reference-image" src="Set Ablaze.png" /> -->
@@ -16,7 +20,7 @@
             {% endfor %}
         </div>
 
-        <div class="art"></div>
+        <div class="art"><img src="{{ card.art_filename }}" /></div>
 
         <div class="text"><div class="autofit">{{ card.rendered_text | safe }}</div></div>
     </main>

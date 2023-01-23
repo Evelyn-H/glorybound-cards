@@ -43,12 +43,15 @@
             margin-bottom: 0.5em;
 
             counter-increment: turn;
-            display: block;
+            display: flex;
             
             &::before {
                 display: inline-block;
                 width: 5mm;
                 margin-right: 2mm;
+
+                flex-grow: 0;
+                flex-shrink: 0;
 
                 content: counter(turn, upper-roman);
                 text-align: center;
@@ -98,16 +101,12 @@
         color: var(--color-upgrade-dec);
     }
 
-    .invoke-ability {
-        // background-color: var(--color-textbox-bg);
-        // border-radius: 1mm;
-        // margin: -2mm;
-        // padding: 2mm;
-
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-
+    // .invoke-ability {
+        
         .invoke-name {
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+
             font-family: 'Grenze';
             font-style: italic;
             font-weight: 600;
@@ -121,9 +120,5 @@
                 content: '  —';
             }
         }
-
-        .invoke-text {
-
-        }
-    }
+    // }
 }

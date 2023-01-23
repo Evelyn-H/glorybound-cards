@@ -1,0 +1,39 @@
+kind: Rules
+
+cards:
+- Path of the Aspirant:
+    types: rules
+    art: 
+    text: |
+        An aspirant enters the tournament with a vision of who they will become. They pursue any mentor of their choice, and follow the ambitions of their archetype. Aspirants discover new magic and ask "how can this help me achieve my dreams?"
+
+        \li[Choose any mentor to claim from the deck of mentors.]
+        \li[After the second match, discover four new moves.]
+        \li[After the fourth match, discover four new items.]
+
+        If this is your first time playing, have a look at the Recommended Mentors card to see suggested mentors for each archetype.
+        
+
+- Recommended Mentors:
+    types: rules
+    art: 
+    text: |
+        If this is your first time playing, we recommend these mentors for each archetype:
+        
+        \li[Fireheart][Kaya]
+        \li[Druid][Vernon]
+        \li[Sentinel][Vanya]
+        \li[Shadow][Gil]
+        \li[Stitcher][Sashka]
+        \li[Artificer][Jax]
+
+        
+- Path of the Adventurer:
+    types: rules
+    art: 
+    text: |
+        An adventurer enters the tournament open to all opportunities. They choose a mentor from the few they initially meet, and they can develop strong focuses beyond their archetype. Adventurers discover new magic and ask "where would this be the most useful, and can I get there?"
+
+        \li[Discover three mentors, four new moves, four new items, and two signatures. Claim one mentor and discard the other two.]
+        \li[You can’t claim your archetype signature.]
+        

@@ -5,6 +5,7 @@ cards:
 - Moment of Heroism:
     cost: 2
     types: starter move
+    art: Smiting Hammer
     text: |
         \Invoke
         \attack[3]
@@ -12,6 +13,7 @@ cards:
 - Vigilant Guard:
     cost: 0
     types: starter move
+    art: Defend the Young
     text: |
         \block
         \endstep[If I blocked, gain \inspiration.]
@@ -19,22 +21,26 @@ cards:
 - Safe From Harm:
     cost: 0
     types: starter move
+    art: Elegant Reversal
     text: |
         Conjure a Glimmer of Hope into play.
 
 - A Bastion Against Darkness:
     types: starter inspiration
+    art: 
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
             
 - Truesilver Chains:
     types: item
+    art: Radiant Chains
     text: |
         When the match starts, choose a card name. Cards with that name cost an additional \orange[one] \inspiration[1] for your opponent to play.
         
 - Jubilant Charge:
     cost: 2
     types: move
+    art: Furious Charge
     text: |
         I cost \inspiration[1] less for each Glimmer of Hope you have.
         \attack[2]
@@ -43,13 +49,15 @@ cards:
 - Six-Candle Sanctuary:
     cost: 0
     types: move permanent
+    art: Unburial Rite
     text: |
         At the start of each turn, your opponent's attacks get -1 attack power this turn. \reminder[I have no effect the turn you play me.]
         
 - The Sentinel:
     types: signature move
+    art: Shield of Faith
     text: |
-        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \reminder[You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
         \li[Moment of Heroism][I get +1 attack power and I invoke an additional time.]
         \li[Vigilant Guard][I block any number of attacks this turn.]
@@ -58,6 +66,7 @@ cards:
 - Sentinel Ascension:
     cost: 0
     types: conjured move ascension
+    art: Desperate Prayer
     text: |
         Your opponent can't score points this turn.
         Score one point.

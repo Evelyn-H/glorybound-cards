@@ -149,8 +149,24 @@ body {
         .art {
             grid-column: 3 / 4;
             grid-row: 5 / 6;
+
+            display: flex;
         
-            background-color: var(--color-art-placeholder);
+            & > img {
+                max-width: 100%;
+                max-height: 100%;
+                margin: auto;
+                display: block;
+            }
+
+            &.placeholder {
+                background: linear-gradient(45deg, var(--color-bg-left), var(--color-bg-right));
+                opacity: 0.3;
+
+                & > img {
+                    display: none;
+                }
+            }
         }
         
         .text {

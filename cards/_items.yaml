@@ -3,228 +3,272 @@ kind: Item
 cards:
 - Brawling Gauntlets:
     types: item
+    art: Brawling Gauntlet
     text: |
         When you attack, \charge me.
         When I have two or more charges, remove two charges to \invoke.
 
 - Blood-Scribe's Quill:
     types: item
+    art: Ruby Scabbard
     text: |
-        At the start of each turn, if both players scored points last turn, \invoke.
+        At the start of each turn, if both players scored points last turn, \invoke \orange[once].
 
 - Belt of the Sun King:
     types: item
+    art: Longstep Boots
     text: |
         When you spend \inspiration, \charge me for each \inspiration spent.
         When I have three or more charges, remove three charges to \invoke.
 
 - Crown of Madness:
     types: item
+    art: Mirror of Hubris
     text: |
-        At the start of each turn, banish a card from your hand. If you do, \invoke.
+        At the start of each turn, banish a card from your hand. If you do, \invoke \orange[once].
 
 - Chimera Cloak:
     types: item
+    art: Gregor_s Unlucky Shirt
     text: |
         When you invoke, \charge me.
         When I have two or more charges, banish me to conjure your ascension to your hand.
 
 - Warcaller's Trumpet:
     types: item
+    art: Inspire
     text: |
-        When you have scored four or more points this match, banish me to conjure your ascension to your hand.
+        When you have scored \blue[four] or more points this match, banish me to conjure your ascension to your hand.
 
 - Mysterious Egg:
     types: item
+    art: Combat Tortoise
     text: |
         At the start of each turn, if neither player scored points last turn, \charge me.
         When I have two or more charges, banish me to conjure your ascension to your hand.
 
 - Pouch of Magic Beans:
     types: item
+    art: Dreamer_s Seed
     text: |
-        When you have four or more unspent \inspiration, banish me to conjure your ascension to your hand.
+        When you have \blue[four] or more unspent \inspiration, banish me to conjure your ascension to your hand.
 
 - Iron Anchor:
     types: item
+    art: Whaler_s Hook
     text: |
-        When either player has one or fewer cards in their hand, banish me to conjure your ascension to your hand.
+        When the number of cards in either player's hand is \orange[zero], banish me to conjure your ascension to your hand.
 
 - Tinker's Toolbox:
     types: item
+    art: Audacious Croak
     text: |
         When you conjure a card, \charge me.
         When I have three or more charges, banish me to conjure your ascension to your hand.
 
 - Apothecary's Spade:
     types: item
+    art: Grave-Mist Shovel
     text: |
         If you would gain one or more \inspiration, \charge me that many times instead.
         Your attacks get +1 power for each charge on me.
 
 - Elven Longbow:
     types: item
+    art: Swift Arrow
     text: |
-        At the start of each turn, if your opponent has more points than you, you gain an \inspiration and your attacks cost \inspiration[1] to block this turn.
+        At the start of each turn, if your opponent has more points than you, you gain \orange[one] \inspiration and your attacks cost \inspiration[1] to block this turn.
 
 - Shield of the Legion:
     types: item
+    art: Shield Wall
     text: |
-        I cost \inspiration[1] to equip.
+        \equip[I cost \inspiration[1] to equip.]
         When you resolve combat effects, your attacks also each \block an attack with power less than their power.
 
 - Orb of Memories:
     types: item
+    art: Scrying Orb
     text: |
         At the start of the first turn of the match, your opponent reveals two cards from their hand. Choose one and banish it.
-        Whenever you banish one of your opponent's cards, score one point.
+        Whenever you banish one of your opponent's cards, score \orange[one] point.
 
 - Crooked Sundial:
     types: item
+    art: Crooked Sundial
     text: |
         At the end of the second turn of the match, choose one:
-        \li[The match lasts two turns longer.]
-        \li[The match ends two turns sooner.]
+        \li[The match lasts \orange[two] turns longer.]
+        \li[The match ends \orange[two] turns sooner.]
 
 - Stormlight Daggers:
     types: item
+    art: Bring the Lightning
     text: |
-        The first time I see you attack, banish me to \attack[X], where X is that attack's power.
+        \equip[\Charge me.]
+        When I see you attacking, remove a charge from me to \attack[X], where X is that attack's power.
 
 - Mask of the Many:
     types: item
+    art: Sequined Mask
     text: |
-        You get an additional action on the third turn of the match.
+        You get \orange[one] additional action on the third turn of the match.
         If you have less than half your hearts, you also get an additional action on the first and fifth turns of the match.
         You can't use signature cards while I am equipped.
 
 - Hand of Greed:
     types: item
+    art: Hand of Greed
     text: |
         When you claim me, you lose two hearts, discover an item card, and claim an additional item.
-        When you equip me, equip up to two additional items.
+        \equip[Equip up to two additional items.]
 
 - Demonforged Scythe:
     types: item
+    art: Culling Scythe
     text: |
-        Your attacks and your opponent's attacks all get +2 power.
+        Your attacks and your opponent's attacks all get \orange[+2] power.
 
 - Kobold King's Candle:
     types: item
+    art: Kobold King_s Candle
     text: |
-        I cost \inspiration[2] to equip.
-        At the end of each turn, score points equal to the points you scored this turn.
+        \equip[I cost \inspiration[2] to equip.]
+        \endstep[Score points equal to the points you scored this turn.]
 
 - Pollenbloom Wand:
     types: item
+    art: Shelter at the Crossroads
     text: |
-        At the end of each turn, if you gained \inspiration this turn, \charge me and you gain an additional \inspiration.
+        \endstep[If you gained \inspiration this turn, \charge me and you gain an additional \inspiration.]
         At the start of each turn, if I have three or more charges, banish me to: \block.
 
 - Soul-Split Mirror:
     types: item
+    art: Soul-Split Mirror
     text: |
-        The first time I would see your opponent score points, instead banish me and banish two cards from your hand. If you do, your opponent can't score points this turn.
+        \equip[\Charge me.]
+        If your opponent would score points, instead remove a charge from me and banish two cards from your hand. If you do, your opponent can't score points this turn.
+        \reminder[If you can't remove the charge and banish two cards, do neither.]
 
 - Mage-Hunter's Crossbow:
     types: item
+    art: Sentinel_s Crossbow
     text: |
-        When you play a move with the same name as a move you played last turn, banish me to: \attack[2].
+        \equip[\Charge me.]
+        When you play a move with the same name as a move you played last turn, remove a charge from me to: \attack[2].
 
 - Morpheus Clay:
     types: item
+    art: Morpheus Clay
     text: |
-        I cost \inspiration[1] to equip.
+        \equip[I cost \inspiration[1] to equip.]
         As you equip me, choose another item you are equipping. I am a copy of that card this match.
 
 - Mistmeadow Lantern:
     types: item
+    art: Lantern_s Touch
     text: |
         At the end of each turn, if you have no \inspiration, \charge me.
         Your attacks and your opponent's attacks all get -1 power for each charge on me.
 
 - Explorer's Journal:
     types: item
+    art: Elvish Cookbook
     text: |
-        When you claim me, you discover two advanced moves, then choose two moves you've discovered and bond them to me.
-        When you equip me, add the cards bonded to me to your hand.
+        When you claim me, you discover two advanced moves, then note two non-signature moves you've discovered but not yet claimed.
+        \equip[Add the noted cards to your hand.]
 
 - Ensnaring Vines:
     types: item
+    art: Ensnaring Vines
     text: |
-        At the start of the first turn of the match, choose a turn number.
-        On the chosen turn, neither player can score points.
+        \equip[\Charge me.]
+        At the start of each turn, remove a charge from me. If you do, note a turn number.
+        Players can't score points during turns noted this way.
 
 - Wistful Memories:
     types: item
+    art: Wistful Memories
     text: |
         At the end of the first turn of the match, note a move card you played this turn. When that card leaves play, banish it under me.
         On the final turn of the match, reveal and play the banished card as an additional action alongside your other actions.
 
 - Cricket the Cat:
     types: item
+    art: Cricket the Cat
     text: |
-        Whenever you attack, roll a d6.
-        0-3: No effect.
-        4-5: That attack gets +1 attack power.
-        6: \attack[1]. If your opponent is blocking, they must block me if able.
+        Whenever you attack with another card, roll a d6.
+        0-\blue[3]: No effect.
+        \blue[4]-\blue[5]: That attack gets +1 attack power.
+        \blue[6]+: \attack[1]. If your opponent is blocking, they must block me if able.
 
 - Flask of Moonlight:
     types: item
+    art: Gambler_s Dice
     text: |
-        At the start of each turn, you may banish Flask of Moonlight to be infused with moonlight this turn.
-        Whenever you score points while infused with moonlight, you gain \inspiration equal to the points scored.
-        If you score five or more points while infused, conjure your ascension to your hand.
+        At the start of each turn, you may banish me. When you do, you are radiant this turn.
+        Whenever you score points while radiant, you gain \inspiration equal to the points scored.
+        If you score \blue[five] or more points while radiant, conjure your ascension to your hand.
 
 - Improvised Slingshot:
     types: item
+    art: Troll-Hunter_s Quiver
     text: |
-        Your attacks that have 1 or less attack power cost \inspiration[1] to block.
+        Your attacks that have \orange[1] or less attack power cost \inspiration[1] to block.
 
 - Top Hat of Deception:
     types: item
+    art: Disperse into Rotflies
     text: |
-        When you equip me, secretly choose a move card from your hand and banish it face-down under me.
+        \equip[Secretly choose a move card from your hand and banish it face-down under me.]
         When you reveal actions on the third turn, your opponent guesses the hidden card. If they guessed wrong, play it alongside your action and it costs no \inspiration to play. Otherwise, return it to your hand.
 
 - Illicit Replica:
     types: item
+    art: Knife-Juggling Mishap
     text: |
-        When you equip me, gain an \inspiration.
+        \equip[Gain an \inspiration.]
         At the start of the first turn, choose one of your opponent's items. I become a copy of that card for the rest of the match. If it is charged, put the same number of charges on me.
 
 - Driftwood Shield:
     types: item
+    art: Inflatable Armor
     text: |
-        When you equip me, \charge me.
+        \equip[\Charge me.]
         You can't play cards that have the same name as a card you played last turn.
         At the start of each turn, remove a charge from me. If you do: \block
 
 - The Aeon Engine:
     types: item
+    art: Salt-Captain_s Compass
     text: |
         All your cards are ruined. \reminder[Ruined cards are banished when they leave play.]
-        When you play a sequence, conjure a Chronotech Augment into play attached to it.
+        When you play a sequence, conjure \orange[one] Chronotech Augment into play attached to it.
 
 - Book of Names:
     types: item
+    art: Arcane Research
     text: |
-        At start of each turn, if one or more of your cards were banished last turn, choose a card that you have discovered but not claimed and put it into your hand.
+        At start of each turn, if one or more of your cards were banished last turn, choose \orange[one] non-signature card that you have discovered but not claimed and put it into your hand.
 
 - Spiderspun Veil:
     types: item
+    art: Hold in Suspense
     text: |
-        At the end of each turn, if you didn't attack this turn, conjure an Assassin's Focus into play.
+        At the end of each turn, if you didn't attack this turn, conjure \orange[one] Assassin's Focus into play.
 
 - Strings of the Puppeteer:
     types: item
+    art: Sunken Temple
     text: |
-        When you equip me, \charge me.
+        \equip[\Charge me.]
         At the start of each turn, remove a charge from me. If you do, conjure a Skeletal Minion into play.
         When you conjure a Skeletal Minion, you may conjure it in guard stance (sideways). If you do, its final stage attack is replaced with a block.
 
 - Caged Songbird:
     types: item
+    art: Frost Dragon
     text: |
-        When you equip me, \charge me three times.
+        \equip[\Charge me three times.]
         At the start of each turn, remove a charge from me to conjure a Glimmer of Hope into play.

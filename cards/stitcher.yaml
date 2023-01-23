@@ -5,6 +5,7 @@ cards:
 - Ritual Blade:
     cost: 1
     types: starter move
+    art: Tempest Blade
     text: |
         \attack[2]
         When I hit with my attack, \invoke.
@@ -12,6 +13,7 @@ cards:
 - Ward of Blood:
     cost: 0
     types: starter move
+    art: Rite of Scars
     text: |
         \block
         If you have no \inspiration, ruin me to gain \inspiration.
@@ -19,16 +21,19 @@ cards:
 - Carrion Call:
     cost: 0
     types: starter move ruined
+    art: Shambling Ranks
     text: |
         Conjure two Skeletal Minions into play.
 
 - Death Will Not Take Another:
     types: starter inspiration
+    art: 
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
             
 - Putrid Cauldron:
     types: item
+    art: Putrid Cauldron
     text: |
         Whenever one of your cards is banished, put it under me in the cauldron.
         At the start of each turn, you may remove a card from the cauldron to choose \orange[one]:
@@ -38,19 +43,22 @@ cards:
 - Scars of the Deathless:
     cost: 0
     types: move
+    art: Soulless Steel
     text: |
         Your opponent can't score more than one point this turn.
 
 - Restitch the Flesh:
     cost: 0
     types: move ruined
+    art: Call from the Grave
     text: |
         \onreveal[You may play one of your banished cards. \reminder[You still pay costs.]]
         
 - The Stitcher:
     types: signature move
+    art: Throne of Fallen Souls
     text: |
-        You can only claim me if you are on the Path of the Stitcher, and only after losing half your hearts.
+        \reminder[You can only claim me if you are on the Path of the Stitcher, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
         \li[Ritual Blade][I get +2 attack power.]
         \li[Ward of Blood][When I am banished, conjure your ascension to your hand.]
@@ -59,5 +67,6 @@ cards:
 - Stitcher Ascension:
     cost: 0
     types: conjured move ascension permanent
+    art: Bag of Infinite Rats
     text: |
         \endstep[Conjure a Skeletal Minion into play. You may banish a card from your hand to conjure an additional two Skeletal Minions.]

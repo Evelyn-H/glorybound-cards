@@ -4,6 +4,7 @@ cards:
 - Kaya Obsidian-Shield:
     cost: 1
     types: mentor move
+    art: 
     text: |
         \block
         When I block an attack: \attack[3]
@@ -14,6 +15,7 @@ cards:
 - Milo, the Arsonist:
     cost: 1
     types: mentor move
+    art: 
     text: |
         \attack[3]
     invoke: Find Strength In Rage
@@ -23,6 +25,7 @@ cards:
 - Vernon, the Gardener:
     cost: 2
     types: mentor move
+    art: 
     text: |
         \attack[3]
         I cost \inspiration[2] to block.
@@ -33,18 +36,20 @@ cards:
 - Maren, Sower of Spores:
     cost: 0
     types: mentor move
+    art: 
     text: |
         Gain \inspiration for each point you've scored this match.
     invoke: Mycelial Tendrils
     invoketext: |
         \attack[0]
-        When I hit, your attacks get +2 attack power next turn.
+        When I hit, your attacks get +2 power next turn.
 
 - Sashka, Bone Collector:
     cost: 1
     types: mentor move permanent
+    art: 
     text: |
-        At the end of each turn, if either player scored points this turn, conjure a Skeletal Minion into play.
+        \endstep[If either player scored points this turn, conjure a Skeletal Minion into play.]
     invoke: Reanimation
     invoketext: |
         Conjure a Skeletal Minion into play.
@@ -52,6 +57,7 @@ cards:
 - Zophi, Muse of Ghosts:
     cost: 0
     types: mentor move
+    art: 
     text: |
         \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
     invoke: Haunting Melody
@@ -61,18 +67,19 @@ cards:
 - Gil Ninefingers:
     cost: 2
     types: mentor move
+    art: 
     text: |
         I cost \inspiration[1] less to play for each Assassin's Focus you have.
-        \attack[1]
-        \attack[1]
+        \attack[1]; \attack[1]
         \reminder[One block can only stop one attack.]
     invoke: Careful Preparation
     invoketext: |
-        Conjure an Assassin's Focus.
+        Conjure an Assassin's Focus into play.
 
 - Mouse, the Blackmailer:
     cost: 0
     types: mentor move
+    art: 
     text: |
         Look at your opponent's hand.
         \block
@@ -83,8 +90,9 @@ cards:
 - Jax, Renowned Swordsmith:
     cost: 1
     types: mentor move permanent
+    art: 
     text: |
-        Your attacks get +1 attack power.
+        Your attacks get +1 power.
     invoke: Steel Shards
     invoketext: |
         \attack[1]
@@ -92,17 +100,19 @@ cards:
 - Chiara, the Inventor:
     cost: 0
     types: mentor move sequence
+    art: 
     text: |
         \sequence
         [Gain \inspiration.]
         [This turn, your attacks cost \inspiration[1] to block.]
     invoke: Chronotech Upgrade
     invoketext: |
-        You may choose a sequence. If you do, conjure a Chronotech Augment into play attached to that card.
+        You may choose a sequence and attach a Chronotech Augment to it.
 
 - Vanya, Shield of the Dawn:
     cost: 1
     types: mentor move
+    art: 
     text: |
         One of your opponent's attacks gets -1 power this turn.
         \attack[1]
@@ -113,8 +123,9 @@ cards:
 - Ammon, the Frostguard:
     cost: 0
     types: mentor move permanent
+    art: 
     text: |
-        Your opponent's attacks get -1 attack power.
+        Your opponent's attacks get -1 power.
         \endstep[If you were hit by an attack this turn, recall me.]
     invoke: Winter's Grasp
     invoketext: |
@@ -123,6 +134,7 @@ cards:
 - Niomi of the Four Winds:
     cost: 0
     types: mentor move
+    art: 
     text: |
         Gain \inspiration. Your attacks get +1 power this turn.
     invoke: Move Like Air
@@ -132,6 +144,7 @@ cards:
 - Kuzai, the Gambler:
     cost: 0
     types: mentor move
+    art: 
     text: |
         \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
     invoke: Embrace Chaos
@@ -144,8 +157,9 @@ cards:
 - Rashaad, Demon-Binder:
     cost: 0
     types: mentor move permanent
+    art: 
     text: |
-        \onplay[No effect.]
+        \reminder[Playing me sets me up to be invoked.]
     invoke: Summoner's Pact
     invoketext: |
         If I am in play, recall me to: \attack[4]
@@ -154,6 +168,7 @@ cards:
 - Persephone, the Oracle:
     cost: 1
     types: mentor move sequence
+    art: 
     text: |
         \sequence
         [No effect.]
@@ -166,6 +181,7 @@ cards:
 - Tamir, Bionic Fugitive:
     cost: 1
     types: mentor move
+    art: 
     text: |
         \attack[2]
         If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
@@ -176,6 +192,7 @@ cards:
 - Elio, the Storyteller:
     cost: 0
     types: mentor move sequence
+    art: 
     text: |
         \sequence
         [Each player gains \inspiration.]

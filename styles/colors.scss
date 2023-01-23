@@ -31,6 +31,10 @@ $light-beige: color.scale($beige, $lightness: 40%);
 $dark-beige: color.scale($beige, $lightness: -40%, $saturation: -40%);
 
 
+$warm-gray: hsl(30, 5%, 25%);
+$warm-gray-light: hsl(30, 15%, 50%);
+
+
 $transparent-white: rgba(255, 255, 255, 0.5);
 
 
@@ -52,6 +56,7 @@ $transparent-white: rgba(255, 255, 255, 0.5);
     --color-footer-text: #fff;
 
 
-    --color-upgrade-inc: hsl(45, 75%, 50%);
+    // --color-upgrade-inc: hsl(45, 75%, 50%);
+    --color-upgrade-inc: hsl(15, 75%, 50%);
     --color-upgrade-dec: hsl(225, 75%, 50%);
 }

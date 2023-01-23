@@ -49,7 +49,8 @@ schema = Map({
             Str(), Map({
                 Optional('cost'): Int(), 
                 'text': Str(), 
-                Optional('types'): Regex(r'\s*((move|starter|advanced|ascension|inspiration|ruined|permanent|item|augment|conjured|sequence|signature|mentor)\s*)*'),
+                Optional('art'): Str(), 
+                Optional('types'): Regex(r'\s*((move|starter|advanced|ascension|inspiration|ruined|permanent|item|augment|conjured|sequence|signature|mentor|rules)\s*)*'),
 
                 Optional('invoke'): Str(), 
                 Optional('invoketext'): Str(), 
@@ -75,6 +76,13 @@ class Card(object):
             # self.types.append('sequence')
         self.invoke_name = d['invoke']
         self.invoke_text = d['invoketext']
+        self._art = d['art']
+
+    @property
+    def art_filename(self):
+        base = self._art or self.name_clean
+        return f'../../assets/art/cards/{base}.png'
+        # return f'../../assets/invalid'
 
     @property
     def name(self):
@@ -125,11 +133,17 @@ class Card(object):
         text += '\\augment\n\n' if 'augment' in self.types else ''
 
         # text += '\\signature\n\n' if 'signature' in self.types else ''
+        text += '\\ruined\n\n' if 'ruined' in self.types else ''
+
+        text += '\\item\n\n' if 'item' in self.types else ''
 
         text += self.text
 
+        text += '\n\n\\permanent' if 'permanent' in self.types else ''
+
         if self.invoke_name:
-            text += f'\n\n\\invoke_ability[{self.invoke_name}][{self.invoke_text}]'
+            # print((self.invoke_name, self.invoke_text))
+            text += f'\n\n\\invoke_ability[{self.invoke_name}][{self.invoke_text.strip()}]'
 
         return text.strip() 
 
@@ -142,8 +156,8 @@ class Card(object):
         expanded = expanded.strip()
         # print('---', expanded)
         html = '<div class="p">' + str.join('</div><div class="p">', filter(None, split_on_empty_lines(expanded))) + '</div>'
-        print(split_on_empty_lines(expanded))
-        print(html)
+        # print(split_on_empty_lines(expanded))
+        # print(html)
         return html
 
     @property
@@ -154,6 +168,14 @@ class Card(object):
     def conjured(self):
         return 'conjured' in self.types
 
+    @property
+    def inspiration(self):
+        return 'inspiration' in self.types
+
+    @property
+    def inspiration_art(self):
+        return f'../../assets/art/inspiration/{self.group.name_clean}.png'
+
 
 class Group(object):
     def __init__(self, kind, cards, subname=None, extras=None):
@@ -161,6 +183,10 @@ class Group(object):
         self.subname = subname
         self.cards = cards
         self.extras = extras
+
+        # put a reference to the group in the cards
+        for card in self.cards:
+            card.group = self
 
     @property
     def name(self):
@@ -210,6 +236,7 @@ def apply_macro(name: str, arguments: List[str]) -> str:
     if not func:
         raise Exception(f"couldn't find macro: {name}")
 
+    # print((name, arguments))
     return str(func(*arguments))
 
 def read_block(text: str) -> Tuple[str, str]:
@@ -256,7 +283,8 @@ def expand_once(text: str) -> Tuple[str, str]:
     arguments = []
     while (block := read_block(remainder)) is not None:
         contents, remainder = block
-        arguments.append(contents)
+        contents = insert_paragraphs(contents)
+        arguments.append(contents.strip())
 
     # run the macro code on the arguments
     expanded = apply_macro(macro_name, arguments)
@@ -284,6 +312,13 @@ def split_on_empty_lines(s):
     # greedily match 2 or more new-lines
     blank_line_regex = r"(?:\r?\n *){2,}"
     return re.split(blank_line_regex, s.strip())
+
+def insert_paragraphs(text):
+    text = text.strip()
+    split = list(filter(None, split_on_empty_lines(text)))
+    if len(split) > 1:
+        return '<div class="p">' + str.join('</div><div class="p">', split) + '</div>'
+    return text
 
 
 # ==== card rendering ====
@@ -393,8 +428,8 @@ if __name__ == '__main__':
                 card_name = cleanup(card.name)
                 html_file = os.path.abspath(f'./build/cards/{card_name}.html')
                 out_file = os.path.abspath(f'./build/images/{cleanup(group.name)}/{card_name}.png')
-                print(out_file)
-                print(html_file)
+                # print(out_file)
+                # print(html_file)
                 render_image(html_file, out_file, resolution_x, resolution_y)
 
         
@@ -414,4 +449,4 @@ if __name__ == '__main__':
         
         asyncio.get_event_loop().run_until_complete(asyncio.gather(*tasks))
 
-        subprocess.run(f"pdftk Archetype* cat output Archetypes.pdf", shell=True)
+        subprocess.run(f"pdftk ./build/pdfs/Archetype* cat output ./build/pdfs/Archetypes.pdf", shell=True)

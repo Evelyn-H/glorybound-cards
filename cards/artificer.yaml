@@ -5,13 +5,14 @@ cards:
 - Explosive Iteration:
     cost: 1
     types: starter move sequence
+    art: Clockwork Ballista
     text: |
         \sequence[\attack[1]][\attack[2]]
-        asdfg
 
 - Clay Guardian:
     cost: 0
     types: starter move sequence
+    art: Mechanized Snare
     text: |
         \sequence
         [\block]
@@ -21,17 +22,20 @@ cards:
 - Crafter's Focus:
     cost: 0
     types: starter move
+    art: Concentrate
     text: |
         \Invoke
         \endstep[If you weren't hit by an attack this turn, gain \inspiration[2].]
 
 - Precise Concepts, Precise Tools:
     types: starter inspiration
+    art: 
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
 
 - Temporal Filament:
     types: item
+    art: Out of Time
     text: |
         \equip[\Charge me.]
         When you play a sequence, remove a charge from me to attach a Chronotech Augment to that sequence.
@@ -39,12 +43,14 @@ cards:
 - Infuse with Power:
     cost: 0
     types: move ruined
+    art: Prayer Rod
     text: |
         Choose up to two items. \Charge each item chosen this way.
         
 - Runic Detonation:
     cost: 1
     types: move
+    art: Explosive Decoy
     text: |
         As an additional cost to play me, ruin a sequence you have in play. \reminder[Ruined cards are banished when they leave play.]
         Your opponent's attacks get -1 power this turn.
@@ -52,8 +58,9 @@ cards:
         
 - The Artificer:
     types: signature move
+    art: The Sun-Slayer
     text: |
-        You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.
+        \reminder[You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
         \li[Explosive Iteration][I get +1 attack power.]
         \li[Clay Guardian][I lose my \b[end step] effect.]
@@ -62,6 +69,7 @@ cards:
 - Artificer Ascension:
     cost: 1
     types: conjured move ascension sequence
+    art: Innovator_s Triumph
     text: |
         Your opponent's attacks get -2 attack power while I am in play.
         \sequence

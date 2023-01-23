@@ -4,12 +4,14 @@ cards:
 - Alter Fate:
     cost: 0
     types: advanced move ruined
+    art: Alter Fate
     text: |
-        \onreveal[Name a card your opponent revealed this turn. Restart the turn, except that they can't play the named card this turn, and Alter Fate is banished.]
+        \onreveal[Name a card your opponent revealed this turn. Restart the turn, except that they can't play the named card this turn, and I begin the turn banished.]
 
 - Aegis of Courage:
     cost: 0
     types: advanced move ruined
+    art: Unyielding Protection
     text: |
         \block
         Conjure a Glimmer of Hope into play.
@@ -17,6 +19,7 @@ cards:
 - Blinding Flare:
     cost: 2
     types: advanced move
+    art: Echoing Thunder
     text: |
         Your attacks this turn can't be blocked.
         \attack[2]
@@ -24,12 +27,14 @@ cards:
 - Celestial Starfire:
     cost: 3
     types: advanced move
+    art: Myths That Guide
     text: |
         \attack[6]
 
 - Devouring Frost:
     cost: 0
     types: advanced move
+    art: Trawling Net
     text: |
         \block all attacks for the rest of the turn.
         When I block a move card, banish that card.
@@ -37,6 +42,7 @@ cards:
 - Humiliate:
     cost: 0
     types: advanced move
+    art: Stage-Prop Mockery
     text: |
         \attack[0]
         If your opponent is blocking, they must block my attack if able. When they do, score two points.
@@ -44,6 +50,7 @@ cards:
 - Lightning Daggers:
     cost: 0
     types: advanced move sequence
+    art: Always More Knives
     text: |
         \sequence
         [\attack[1]]
@@ -52,25 +59,29 @@ cards:
 - Mask of the Mimic:
     cost: 0
     types: advanced move
+    art: Mask of the Mimic
     text: |
         \onreveal[Name a move card your opponent played last turn. I become a copy of that card until I leave play.]
 
 - Morbid Experiment:
     cost: 1
     types: advanced move
+    art: Raid the Mausoleum
     text: |
         Conjure a Skeletal Minion into play.
-        Conjure a Chronotech Augment attached to one of your sequences.
+        Choose a sequence and attach a Chronotech Augment to it.
 
 - Pact of the Blade:
     cost: 0
     types: advanced move
+    art: Tome of Madness
     text: |
         Banish a move card from your hand. If you do: \attack[3]
 
 - Portal Mischief:
     cost: 1
     types: advanced move ruined
+    art: All-Consuming Void
     text: |
         Conjure an Assassin's Focus into play.
         The match lasts one turn longer.
@@ -79,28 +90,31 @@ cards:
 - Recurring Nightmares:
     cost: 0
     types: advanced move ruined
+    art: The Risen One
     text: |
-        \attack[0]
-        \attack[0]
+        \attack[0]; \attack[0]
         If at least one of my attacks hit, name a card. Your opponent can't play that card next turn.
         If both attacks hit, they can't play that card for the rest of the match.
 
 - Runic Attunement:
     cost: 0
     types: advanced move
+    art: Library of Legends
     text: |
         \Charge one of your items.
         Gain \inspiration.
 
 - Sleep Song:
-    cost: 1
+    cost: 0
     types: advanced move ruined
+    art: Sleep Song
     text: |
-        \onreveal[Choose a card your opponent is revealing. Banish that card. They do not play it.]
+        \onreveal[Pay \inspiration. If you do, choose a card your opponent is revealing. Banish that card. They do not play it.]
 
 - Unbound Potential:
     cost: 0
     types: advanced move ruined
+    art: Navigate the Sands
     text: |
         \Invoke
         \Invoke
@@ -108,5 +122,6 @@ cards:
 - Wreath of Crows:
     cost: 0
     types: advanced move permanent
+    art: Abyssal Offering
     text: |
         Your moves cost \inspiration[1] less to play.
