@@ -1,0 +1,73 @@
+kind: Archetype
+subname: Navigator
+
+cards:
+- Storm Spike:
+    cost: 1
+    types: starter move
+    text: |
+        \onreveal[If either player has one or fewer cards in hand, I cost \inspiration less to play.]
+        \attack[2]
+
+- Dimensional Dodge:
+    cost: 0
+    types: starter move sequence
+    text: |
+        \sequence
+        [\block]
+        [The first time I see you attacking this turn, give an attack +2 power.]
+
+- Into the Void:
+    cost: 0
+    types: starter move ruined
+    text: |
+        \Invoke
+        Ruin any one card in play. At end of turn, if it is still in play, banish it.
+
+- Past All Walls And Borders:
+    types: starter inspiration
+    text: |
+        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+
+- Wormhole Compass:
+    types: item
+    text: |
+        Whenever you hit with an attack, your opponent chooses a card in their hand and banishes it. If that attack had four or more power, you look at their hand and choose which card to banish.
+            
+- Seeking Spark:
+    cost: 0
+    types: move
+    text: |
+        I cost \inspiration to block.
+        \attack[1]
+        If my attack hits, gain \inspiration.
+
+- Warp Reality:
+    cost: 0
+    types: move ruined
+    text: |
+        \block
+        Conjure Chronosnap to your hand.
+        The match lasts one turn longer.
+
+- Chronosnap:
+    cost: 1
+    types: conjured move
+    text: |
+        \attack[X], where X is the current turn number minus one.
+        
+- The Stitcher:
+    types: signature move
+    text: |
+        \reminder[You can only claim me if you are on the Path of the Stitcher, and only after losing half your hearts.]
+        \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
+        \li[Ritual Blade][I get +2 attack power.]
+        \li[Ward of Blood][When I am banished, conjure your ascension to your hand.]
+        \li[Carrion Call][When you play me, \invoke.]
+        
+- Navigator Ascension:
+    cost: 1
+    types: conjured move ascension
+    text: |
+        Score one point for each of your opponent's banished cards. 
+        At the end of this turn, end the match. \reminder[The player with more points wins.]
