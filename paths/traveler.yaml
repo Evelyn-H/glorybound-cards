@@ -37,6 +37,8 @@ cards:
 - Alter Fate:
     cost: X
     text: > 
+        Reveal me when the match starts. I don't count for maximum hand size
+
         Name a card your opponent is playing. 
         
         Restart the turn, except your opponent can't play the named card this turn, and I am banished.

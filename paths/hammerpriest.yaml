@@ -48,7 +48,8 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        \onplay{Gain \mana{S}.}
-
         As long as your opponent has more points than you, they can't block an attack unless they pay \mana{S}.
     purchase: 4
+    upgrade cost: 4
+    upgrade: >
+        \onplay{Gain \mana{S}.}

@@ -8,7 +8,7 @@ cards:
     text: >
       \attack{2}
 
-      When I am blocked, you may pay \mana{X} to score points equal to my attack power.
+      When I am blocked, you may pay \mana{X} to score points equal to half my attack power (rounded up).
     upgrade cost: 3
     upgrade: >
       I cost \mana{S} less to play.

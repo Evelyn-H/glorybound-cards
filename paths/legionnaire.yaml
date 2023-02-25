@@ -25,12 +25,14 @@ cards:
 - Arrow Volley:
     cost: S
     text: > 
-        Repeat the following \upgrade{twice}{three times}:
+        Repeat the following twice:
         \thinparbreak
         \attack{1}
         
         \textit{(One block can only stop one attack.)}
     upgrade cost: 4
+    upgrade:
+        I get +1 attack power.
 
 
 - Decisive Strike:

@@ -62,13 +62,13 @@ cards:
 
 - Putrid Cauldron:
     cost: 
-    types: permanent
+    types: innate, permanent
     text: >       
-        You can pay costs with \mana{S} instead of \mana{X} or \mana{X} instead of \mana{S}. \textit{(\mana{X} can only be paid once per card.)}
+        You can pay \mana{X} costs for your cards with \mana{S} instead.
     purchase: 3
     upgrade cost: 5
     upgrade: >
-        \innatebanner
+        You can pay \mana{S} or \mana{X} costs for your cards with \mana{H} instead.
     
 
 - Disperse into Rotflies:

@@ -8,7 +8,7 @@ cards:
 - Backstab:
     cost: 
     text: > 
-        I cost \mana{SS} more to play if your opponent is attacking or playing an attack card.
+        I cost \mana{SS} more to play if your opponent is attacking.
 
         \attack{3}
 
@@ -83,7 +83,7 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        After the first turn of the match, but before the second, there is a secret turn. Your opponent and their cards do not participate in this turn. \textit{(You can't hit them with attacks.)}
+        Before the first turn of the match there is a secret turn. Your opponent and their cards do not participate in this turn. You can't score points during the secret turn.
 
         Banish me at the end of the secret turn.
     purchase: 4

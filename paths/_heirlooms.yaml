@@ -33,18 +33,6 @@ cards:
         Reveal a card from your hand at random and play it. It costs no \mana{S} to play.
 
 
-- Dr. Doppel's Formula:
-    cost:
-    types: heirloom, innate, permanent
-    text: >
-        If you've been \textbf{cloned}, you get an additional action during odd-numbered turns.
-
-        You can't upgrade your other cards.
-    upgrade cost: 3
-    upgrade: > 
-        \textbf{Clone} yourself.
-
-
 - Hand of Greed:
     cost:
     types: heirloom, support
@@ -60,7 +48,7 @@ cards:
     text: >
         \onplay{Name one of your attack cards.}
         
-        The named card costs \mana{H} more to play and its attacks get +2 attack power.
+        The named card costs \mana{S} more to play and its attacks get +2 attack power.
 
 
 - Brawling Gauntlet:
@@ -155,15 +143,6 @@ cards:
         \attack{2}
 
 
-- Mask of the Mimic:
-    cost:
-    types: heirloom
-    text: >
-        Reveal me when the match starts. I don't count for maximum hand size.
-
-        When you reveal me, name a card your opponent played last turn. I am a copy of that card until I leave play.
-
-
 - Prayer Rod:
     cost:
     types: heirloom, innate, permanent
@@ -205,15 +184,6 @@ cards:
         On the final turn of the match:
         \thinparbreak
         \attack{1}
-
-
-- Bag of Infinite Rats:
-    cost:
-    types: heirloom, innate, permanent
-    text: >
-        Your cards can't block.
-        
-        At the end of each turn, banish all your opponent's non-innate cards from play.
 
 
 - Explorer's Pack:
@@ -300,27 +270,98 @@ cards:
     designer: Tabitha F.
 
 
-- Dreamer's Seed:
+- Weighted Scale:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you conjure one or more cards, reveal one of those cards. I become a copy of that conjured card for the rest of the match. Recall me, then you may play me immediately.
-    designer: Lixing
+        At the end of the match, if the game is tied at 1 or more point you win the game instead of tying.
 
-
-- Cricket the Cat:
+- Crowd's Favor:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you attack for the second, fourth, or sixth time this match, roll a six-sided die. \textit{(Not counting my attacks.)}
+        If you would be eliminated from the tournament, discard this heirloom and set your current lives to 1.
 
-        \textit{Odd} -- Give an attack +1 attack power.
+- Broken Metronome:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        Actions cost each player \mana{S} more to play if they played the same action last turn.
 
-        \textit{Even} -- If your opponent is blocking, they must block this attack if able: 
-        \thinparbreak
-        \attack{0}
+- False Idol:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        Reveal this before the match starts, if you do, neither player can play heirlooms this match.
 
-    designer: Kaci T.
+- Rejuvenating Song:
+    cost:
+    types: heirloom, innate
+    text: >
+        Each player gains \mana{S}.
+
+- Illusory Shield:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        All attacks get -1 attack power. \textit{(All attacks includes yours and your opponents)}
+        
+        When you are hit by an attack, banish me unless you pay \mana{S}.
+
+- Flask of Moonlight:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        At the start of any turn, before actions are chosen, banish me. If you do, whenever you score points this turn, gain that much \mana{S}.
+
+- Demonic Axe:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        If you would recall a card from play, banish it instead.
+        
+        Your attacks get +2 power. 
+
+- Villager's Slingstones:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        Your attacks that have power 1 or less can't be blocked unless your opponent pays \mana{S}.
+
+- Old Fishing Pole:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        At the start of each turn, you may name one of your opponent's cards. The named card costs \mana{S} more to play this turn. You can't name the same card more than once each match. 
+
+
+- Obsidian Monolith:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When you reveal a permanent or sequence card as your action, banish me. Choose an additional permanent or sequence card from your hand to reveal and play alongside it.
+
+
+- Top Hat of Deception:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When the match starts, secretly choose a card from your hand and hide it under me.
+        
+        When you reveal actions on the third turn, your opponent guesses the hidden card. If they guessed wrong, play it alongside your action without paying \mana{S}. Otherwise, return it to your hand. 
+
+- Illicit Replica:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        As the match starts, choose one of your opponent's heirlooms. I am a copy of that card until the match ends, except that I also have "Your maximum hand size is increased by one." 
+
+- Bloodthirsty Scroll:
+    cost:
+    types: heirloom, innate, permanent
+    text: >
+        When the total points scored this match by both players is five or more, banish me and name one of your cards. That card is upgraded for the rest of the match.
+
 
 
 - Rest:

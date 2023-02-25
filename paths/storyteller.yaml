@@ -14,15 +14,10 @@ cards:
         
         When I hit, gain \mana{S}.
 
-- Inspire:
+- Legends Retold:
     cost:
     text: >
-        \sequence
-        [No effect.]
-        [You may play an additional action this turn.]
-    upgrade cost: 4
-    upgrade: >
-        The first time you hit with an attack this match, play me if able.
+        When you reveal me, name a card your opponent played last turn. I am a copy of that card until I leave play.
 
 - Sleep Song:
     cost: X

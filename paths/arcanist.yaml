@@ -3,17 +3,6 @@ colors: E100FF - 5300EF
 
 
 cards:
-- Arcane Research:
-    cost: 
-    text: > 
-        Recall two random advanced cards you have not yet learned. If you recall an innate card, play it immediately.
-
-        \textit{(You can't research cards you've already researched this match.)}
-    upgrade cost: 4
-    upgrade: >
-        Also conjure a random Forbidden Magic card that hasn't been conjured this match.
-    
-
 - Forcefield:
     cost: S
     types: permanent
@@ -29,11 +18,20 @@ cards:
         \sequence
         [No effect.]
         [\attack{4}]
-    purchase: 2
     upgrade cost: 3
     upgrade: >
         I get +2 attack power.
 
+
+- Arcane Research:
+    cost: 
+    text: > 
+        \sequence
+        [\upgrade{No effect.}{Conjure a random Forbidden Magic card that hasn't been conjured this match.}]
+        [You may play an additional action this turn.]
+    purchase: 2
+    upgrade cost: 4
+    
 
 - Shrinking Ray:
     cost: 
