@@ -1,202 +1,383 @@
 kind: Mentor
 
 cards:
-- Kaya Obsidian-Shield:
+- Kaya, the Molten Barricade:
+    mentormove: Volcanic Rebuke
+    types: mentor
+    text: 
+    invoke: Obsidian Oath
+    invoketext: |
+        \block
+
+- Volcanic Rebuke:
     cost: 1
     types: mentor move
-    art: 
     text: |
         \block
         When I block an attack: \attack[3]
-    invoke: Unbreakable
-    invoketext: |
-        \block
+
         
 - Milo, the Arsonist:
-    cost: 1
-    types: mentor move
+    mentormove: Phoenix Fire
+    types: mentor
     art: 
-    text: |
-        \attack[3]
+    text: 
     invoke: Find Strength In Rage
     invoketext: |
         \endstep[If you were hit by an attack this turn, score one point.]
-        
-- Vernon, the Gardener:
-    cost: 2
+
+- Phoenix Fire:
+    cost: 1
     types: mentor move
-    art: 
     text: |
         \attack[3]
-        I cost \inspiration[2] to block.
+
+        
+- Vernon, the Gardener:
+    mentormove: Elderwood Guardian
+    types: mentor
+    text: 
     invoke: Summer Bloom
     invoketext: |
         Gain \inspiration.
+
+- Elderwood Guardian:
+    cost: 2
+    types: mentor move
+    text: |
+        \attack[3]
+        I cost \inspiration[2] to block.
+
         
 - Maren, Sower of Spores:
-    cost: 0
-    types: mentor move
-    art: 
-    text: |
-        Gain \inspiration for each point you've scored this match.
+    mentormove: Putrid Harvest
+    types: mentor
+    text: 
     invoke: Mycelial Tendrils
     invoketext: |
         \attack[0]
         When I hit, your attacks get +2 power next turn.
 
-- Sashka, Bone Collector:
-    cost: 1
-    types: mentor move permanent
-    art: 
-    text: |
-        \endstep[If either player scored points this turn, conjure a Skeletal Minion into play.]
-    invoke: Reanimation
-    invoketext: |
-        Conjure a Skeletal Minion into play.
-
-- Zophi, Muse of Ghosts:
+- Putrid Harvest:
     cost: 0
     types: mentor move
-    art: 
     text: |
-        \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
+        Gain \inspiration for each point you've scored this match.
+
+
+- Sashka, Bone Collector:
+    mentormove: Skeletal Menagerie
+    types: mentor
+    text: 
+    invoke: Reanimation
+    invoketext: |
+        Conjure a Skeletal Minion into play. \reminder[It makes a one-power attack next turn.]
+
+- Skeletal Menagerie:
+    cost: 1
+    types: mentor move permanent
+    text: |
+        \endstep[If either player scored points this turn, conjure a Skeletal Minion into play.]
+
+
+- Zophi, Liason of Ghosts:
+    mentormove: Whispers of the Lost
+    types: mentor
+    text: 
     invoke: Haunting Melody
     invoketext: |
         Your opponent reveals a card from their hand. Banish that card.
 
+- Whispers of the Lost:
+    cost: 0
+    types: mentor move
+    text: |
+        \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
+
+
 - Gil Ninefingers:
+    mentormove: Double Daggers
+    types: mentor
+    text: 
+    invoke: Careful Preparation
+    invoketext: |
+        Conjure an Assassin's Focus into play. \reminder[It gives your next attack +2 power.]
+
+- Double Daggers:
     cost: 2
     types: mentor move
-    art: 
     text: |
         I cost \inspiration[1] less to play for each Assassin's Focus you have.
         \attack[1]; \attack[1]
         \reminder[One block can only stop one attack.]
-    invoke: Careful Preparation
-    invoketext: |
-        Conjure an Assassin's Focus into play.
+
 
 - Mouse, the Blackmailer:
+    mentormove: Collect Secrets
+    types: mentor
+    text: 
+    invoke: Masked Extortion
+    invoketext: |
+        Your opponent pays \inspiration[1]. If they can't, they equip a card from their hand face-down as inspiration first.
+
+- Collect Secrets:
     cost: 0
     types: mentor move
-    art: 
     text: |
         Look at your opponent's hand.
         \block
-    invoke: Masked Extortion
-    invoketext: |
-        Your opponent pays \inspiration[1]. If they can't, you score one point.
+
 
 - Jax, Renowned Swordsmith:
-    cost: 1
-    types: mentor move permanent
-    art: 
-    text: |
-        Your attacks get +1 power.
+    mentormove: Tempered in Aether
+    types: mentor 
+    text: 
     invoke: Steel Shards
     invoketext: |
         \attack[1]
 
-- Chiara, the Inventor:
+- Tempered in Aether:
+    cost: 1
+    types: mentor move permanent
+    text: |
+        Your attacks get +1 power.
+
+
+- Lenora, the Inventor:
+    mentormove: Mechanized Workshop
+    types: mentor 
+    text: 
+    invoke: Chronotech Upgrade
+    invoketext: |
+        You may choose a sequence and attach a Chronotech Augment to it. \reminder[It extends a sequence by one turn, repeating its final effect.]
+
+- Mechanized Workshop:
     cost: 0
     types: mentor move sequence
-    art: 
     text: |
         \sequence
         [Gain \inspiration.]
-        [This turn, your attacks cost \inspiration[1] to block.]
-    invoke: Chronotech Upgrade
-    invoketext: |
-        You may choose a sequence and attach a Chronotech Augment to it.
+        [Block an attack.]
+
 
 - Vanya, Shield of the Dawn:
-    cost: 1
-    types: mentor move
-    art: 
-    text: |
-        One of your opponent's attacks gets -1 power this turn.
-        \attack[1]
+    mentormove: Circle of Protection
+    types: mentor 
+    text: 
     invoke: Daybreak
     invoketext: |
-        Conjure a Glimmer of Hope into play.
+        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you]
+
+- Circle of Protection:
+    cost: 1
+    types: mentor move ruined
+    text: |
+        You cannot be hit by attacks this turn.
+
 
 - Ammon, the Frostguard:
+    mentormove: Encroaching Frost
+    types: mentor 
+    text: 
+    invoke: Winter's Grasp
+    invoketext: |
+        Encroaching Frost can't be recalled or banished this turn. If it's in your hand, play it.
+
+- Encroaching Frost:
     cost: 0
     types: mentor move permanent
-    art: 
     text: |
         Your opponent's attacks get -1 power.
         \endstep[If you were hit by an attack this turn, recall me.]
-    invoke: Winter's Grasp
-    invoketext: |
-        I can't be recalled or banished this turn. If I'm in your hand, play me.
+
 
 - Niomi of the Four Winds:
-    cost: 0
-    types: mentor move
-    art: 
-    text: |
-        Gain \inspiration. Your attacks get +1 power this turn.
+    mentormove: Storm Surge
+    types: mentor 
+    text: 
     invoke: Move Like Air
     invoketext: |
         You get an additional action next turn.
 
-- Kuzai, the Gambler:
+- Storm Surge:
     cost: 0
     types: mentor move
-    art: 
     text: |
-        \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
-    invoke: Embrace Chaos
+        Gain \inspiration. Your attacks get +1 power this turn.
+
+
+- Kuzai, the Gambler:
+    mentormove: Embrace Chaos
+    types: mentor
+    text: 
+    invoke: Lucky Dice
     invoketext: |
         Roll a d6.
         1-2: Banish a card from your hand.
         2-5: \attack[1]
-        6: Play me.
+        6: Play Embrace Chaos.
 
-- Rashaad, Demon-Binder:
+- Embrace Chaos:
+    cost: 0
+    types: mentor move
+    text: |
+        \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
+
+
+- Cassius, Warden of Fiends:
+    mentormove: Pact-Bound Demon
+    types: mentor 
+    text: 
+    invoke: Pact of the Chain
+    invoketext: |
+        Either play Pact-Bound Demon from your hand or return it to your hand from play.
+
+- Pact-Bound Demon:
     cost: 0
     types: mentor move permanent
-    art: 
     text: |
-        \reminder[Playing me sets me up to be invoked.]
-    invoke: Summoner's Pact
-    invoketext: |
-        If I am in play, recall me to: \attack[4]
-        Otherwise, play me.
+        When you return me to your hand from play: \attack[4]
 
+        
 - Persephone, the Oracle:
+    mentormove: Calamitous Visions
+    types: mentor 
+    text: 
+    invoke: Speak Prophecy
+    invoketext: |
+        Next turn, if you would score points, score twice that many points.
+
+- Calamitous Visions:
     cost: 1
     types: mentor move sequence
-    art: 
     text: |
         \sequence
         [No effect.]
         [No effect.]
         [\attack[4]]
-    invoke: Prophetic Visions
-    invoketext: |
-        Next turn, if you would score points, score twice that many points.
+
 
 - Tamir, Bionic Fugitive:
-    cost: 1
-    types: mentor move
-    art: 
-    text: |
-        \attack[2]
-        If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
+    mentormove: Cybernetic Blade
+    types: mentor 
+    text: 
     invoke: Overclock
     invoketext: |
         The match ends one turn sooner.
+
+- Cybernetic Blade:
+    cost: 1
+    types: mentor move
+    text: |
+        \attack[2]
+        If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
+
         
-- Elio, the Storyteller:
+- Elio, Harmonic Muse:
+    mentormove: Rousing Melody
+    types: mentor 
+    text: 
+    invoke: Perfect Chord
+    invoketext: |
+        You may pay \inspiration[1]. If you do, score one point.
+
+- Rousing Melody:
     cost: 0
     types: mentor move sequence
-    art: 
     text: |
         \sequence
         [Each player gains \inspiration.]
         [This turn, you get an additional action.]
-    invoke: Legends Reenacted
+
+
+- Bastien, the Scout:
+    mentormove: Ready to React
+    types: mentor 
+    text: 
+    invoke: See the Opportunity
     invoketext: |
-        You may pay \inspiration[2]. If you do, score one point.
+        Next turn, your moves cost \inspiration[2] less to play.
+
+- Ready to React:
+    cost: 1
+    types: mentor move ruined
+    text: |
+        \onreveal[Choose another move to play alongside me.]
+
+        
+- Chip, Defector AI:
+    mentormove: Stolen Software
+    types: mentor 
+    text: 
+    invoketext: |
+        \Charge an item.
+
+- Stolen Software:
+    cost: 0
+    types: mentor item
+    text: |
+        \equip[You may equip an additional item.]
+        On the fifth turn of the match, \orange[\attack[1]].
+    invoke: Circuit Hack
+
+        
+- Iris, the Prodigy:
+    mentormove: Ascend
+    types: mentor 
+    text: 
+    invoke: Ambitious Pursuit
+    invoketext: |
+        For the rest of the match, Ascend costs no \inspiration[1] to play.
+
+- Ascend:
+    cost: 3
+    types: mentor move
+    text: |
+        Conjure your ascension to your hand.
+
+        
+- Zev, Alchemic Researcher:
+    mentormove: Noxious Prototype
+    types: mentor 
+    text: 
+    invoke: Gather the Components
+    invoketext: |
+        Discover a new advanced move or item. \reminder[You claim one discovered card before each round.]
+
+- Noxious Prototype:
+    cost: 0
+    types: mentor move
+    text: |
+        \attack[2]
+        After your third match, you claim an additional card and lose Noxious Prototype for the rest of the tournament.
+
+        
+- Cicero, Grinning Prankster:
+    mentormove: Firecracker Trick
+    types: mentor
+    text: 
+    invoke: Mirror Mischief
+    invoketext: |
+        Pay \inspiration[1] to \invoke your opponent's mentor twice.
+
+- Firecracker Trick:
+    cost: 0
+    types: mentor move ruined
+    text: |
+        \onreveal[Swap me with a card your opponent is revealing. They claim me until I leave play, and you claim that card until it leaves play, and it costs \inspiration[2] less to play.]
+        \attack[2]
+
+        
+- Dessa, the Steel Grudge:
+    mentormove: Pridebreaker
+    types: mentor 
+    text: 
+    invoke: Intimidate
+    invoketext: |
+        Next turn, your attacks cost an additional \inspiration[1] to block.
+
+- Pridebreaker:
+    cost: 0
+    types: mentor move
+    text: |
+        \block. If your opponent has more points than you, \attack[2].

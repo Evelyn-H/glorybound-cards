@@ -2,13 +2,13 @@ kind: Archetype
 subname: Sentinel
 
 cards:
-- Moment of Heroism:
-    cost: 2
+- Shattering Strike:
+    cost: 1
     types: starter move
     art: Smiting Hammer
     text: |
-        \Invoke
-        \attack[3]
+        If your opponent is attacking, you may pay \inspiration[1] to ruin that attack.
+        \attack[2]
 
 - Vigilant Guard:
     cost: 0
@@ -16,14 +16,15 @@ cards:
     art: Defend the Young
     text: |
         \block
-        \endstep[If I blocked, gain \inspiration.]
+        When I block an attack, /invoke.
 
 - Safe From Harm:
     cost: 0
     types: starter move
     art: Elegant Reversal
     text: |
-        Conjure a Glimmer of Hope into play.
+        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you]
+        Gain \inspiration[1].
 
 - A Bastion Against Darkness:
     types: starter inspiration
@@ -59,7 +60,7 @@ cards:
     text: |
         \reminder[You can only claim me if you are on the Path of the Disciple, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
-        \li[Moment of Heroism][I get +1 attack power and I invoke an additional time.]
+        \li[Shattering Strike][I cost \inspiration[1] less.]
         \li[Vigilant Guard][I block any number of attacks this turn.]
         \li[Safe From Harm][The second time you play me this match, conjure your ascension to hand.]
         

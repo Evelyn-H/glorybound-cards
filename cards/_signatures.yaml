@@ -52,3 +52,20 @@ cards:
     text: |
         \reminder[You can only claim one signature, and only after losing half your hearts.]
         \equip[Banish me from your hand to \charge one of your equipped items.]
+
+- Bionic Fusion:
+    types: signature move
+    art: Rite of Scars
+    text: |
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
+        \onreveal[If it is the final turn of the match, conjure and play a copy of me alongside me.]
+        
+- Arcane Overload:
+    types: signature move
+    art: Ruby Scabbard
+    text: |
+        \reminder[You can only claim one signature, and only after losing half your hearts.]
+        \equip[Equip one of your other moves. I become an upgraded copy of that card.]
+        I cost an additional \inspiration[1] to play.
+        I get +2 power.

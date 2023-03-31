@@ -2,6 +2,117 @@
 
 .card {
 
+    &.landscape {
+        --width: 88mm;
+        --height: 63mm;
+
+        footer {
+            transform: rotate(-90deg);
+            transform-origin: left top;
+            left: calc(var(--width) - 6.5mm);
+            top: calc(var(--height) - 4.5mm);
+        }
+
+        main {
+            width: calc(var(--width) - 11mm);
+            height: calc(var(--height) - 9mm);
+
+            /* heights: title divider type spacer art spacer text */
+            // grid-template-rows: 6mm 0.5mm 4mm 2mm 30mm 0.5mm 34mm;
+            grid-template-rows: 6mm 0.5mm 4mm 2mm 41.5mm;
+            /* widths: left-column spacer center spacer right-column */
+            // grid-template-columns: 7mm 2mm 36mm 2mm 7mm;
+            grid-template-columns: 36mm 1mm 2mm 36mm 2mm;
+
+            .title {
+                grid-column: 4 / 5;
+                grid-row: 1 / 2;
+            }
+            
+            .divider {
+                grid-column: 4 / 5;
+                grid-row: 2 / 3;
+            }
+            
+            .types {
+                grid-column: 4 / 5;
+                grid-row: 3 / 4;
+            }
+    
+            .cost {
+                grid-column: 1 / 2;
+                grid-row: 1 / 6;
+            }
+            
+            .art {
+                grid-column: 1 / 2;
+                grid-row: 1 / 6;
+
+                & > img {
+                    border-radius: 1mm 0mm 0mm 1mm;
+                }
+            }
+            
+            .text {
+                grid-column: 3 / 6;
+                grid-row: 5 / 6;
+
+                .mini-card {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 4mm;
+
+                    main {
+                        width: auto;
+                        height: auto;
+                        grid-template-rows: 4mm 0.5mm 2.5mm 0.5mm 1fr;
+                        grid-template-columns: 5mm 1mm 24mm 1mm 5mm;
+                        position: relative;
+                        top: 0mm;
+                        left: 0mm;
+
+                        .title {
+                            grid-column: 3/4;
+                            font-size: 10pt;
+                            height: 3.5mm;
+                            padding-top: 0.25mm;
+                        }
+
+                        .divider {
+                            grid-column: 3/4;
+
+                            .divider-inner {
+                                width: 22mm;
+                            }
+                        }
+
+                        .types {
+                            grid-column: 3/4;
+                            font-size: 7pt;
+                        }
+
+                        .cost .inspiration {
+                            width: 3mm;
+                            height: 3mm;
+                        }
+
+                        .text {
+                            grid-column: 1/6;
+                            font-size: inherit;
+
+                            .sequence {
+                                margin-top: 0em;
+                                margin-bottom: 0em;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+
     &.conjured {
         --color-text: #fff;
         --color-textbox-bg: #{$dark-gray};

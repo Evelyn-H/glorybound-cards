@@ -33,7 +33,7 @@ def flatten(l):
     return [item for sublist in l for item in sublist]
 
 def cleanup(p: str):
-    return p.replace(' ', '_').replace('\'', '_').replace(':', '_')
+    return p.replace(' ', '_').replace('\'', '_').replace(':', '_').replace(',', '_')
 
 
 # ==== card definition schema ====
@@ -54,6 +54,7 @@ schema = Map({
 
                 Optional('invoke'): Str(), 
                 Optional('invoketext'): Str(), 
+                Optional('mentormove'): Str(),
             })
         )
     ),
@@ -74,8 +75,12 @@ class Card(object):
         self.types = [t.strip() for t in (d['types'].split(' ') or [])]
         # if '\\sequence' in self.text:
             # self.types.append('sequence')
+        if self.landscape:
+            self.types.append('landscape')
         self.invoke_name = d['invoke']
         self.invoke_text = d['invoketext']
+        self.mentor_move = d['mentormove']
+        self.mentor_move_card = None
         self._art = d['art']
 
     @property
@@ -158,6 +163,10 @@ class Card(object):
         html = '<div class="p">' + str.join('</div><div class="p">', filter(None, split_on_empty_lines(expanded))) + '</div>'
         # print(split_on_empty_lines(expanded))
         # print(html)
+
+        if self.is_mentor:
+            html += f'\n\n{render_mini_card(self.mentor_move_card)}\n\n'
+
         return html
 
     @property
@@ -167,6 +176,7 @@ class Card(object):
     @property
     def conjured(self):
         return 'conjured' in self.types
+        
 
     @property
     def inspiration(self):
@@ -175,6 +185,14 @@ class Card(object):
     @property
     def inspiration_art(self):
         return f'../../assets/art/inspiration/{self.group.name_clean}.png'
+
+    @property
+    def is_mentor(self):
+        return 'mentor' in self.types and not 'move' in self.types
+
+    @property
+    def landscape(self):
+        return self.is_mentor
 
 
 class Group(object):
@@ -201,22 +219,30 @@ class Group(object):
 
     @staticmethod
     def from_string(text):
-            # eprint(text)
-            config = yaml.load(text, schema)
-            data = config.data
-            # data = yaml.load(text)
-            # print(repr(data))
+        # eprint(text)
+        config = yaml.load(text, schema)
+        data = config.data
+        # data = yaml.load(text)
+        # print(repr(data))
 
-            data = MyDict(data)
+        data = MyDict(data)
 
-            kind = data['kind']
-            subname = data['subname']
-            # colors = tuple([c.strip() for c in data.get('colors', '000000 - 000000').split('-')])
-            cards = [Card(card) for card in data['cards']]
-            extras = data.get('extras', None)
+        kind = data['kind']
+        subname = data['subname']
+        # colors = tuple([c.strip() for c in data.get('colors', '000000 - 000000').split('-')])
+        cards = [Card(card) for card in data['cards']]
+        extras = data.get('extras', None)
 
-            # print(*cards, sep='\n')
-            return Group(kind, cards, subname, extras)
+        # link mentor move cards
+        for card in cards:
+            if card.mentor_move:
+                try:
+                    card.mentor_move_card = next(c for c in cards if c.name == card.mentor_move)
+                except StopIteration:
+                    raise Exception(f"couldn't find mentor move: {card.mentor_move} for {card.name}")
+
+        # print(*cards, sep='\n')
+        return Group(kind, cards, subname, extras)
 
     @staticmethod
     def from_file(filename):
@@ -345,6 +371,10 @@ def render_and_save_html(template_name, out_path, filename, **template_vars):
     with open(dir + cleanup(filename), 'w') as file:
         file.write(out)
 
+def render_mini_card(card) -> str:
+    template = card_jinja_env.get_template('mini_card.html')
+    return template.render(card=card)
+
 
 
 import asyncio
@@ -430,7 +460,11 @@ if __name__ == '__main__':
                 out_file = os.path.abspath(f'./build/images/{cleanup(group.name)}/{card_name}.png')
                 # print(out_file)
                 # print(html_file)
-                render_image(html_file, out_file, resolution_x, resolution_y)
+                if card.landscape:
+                    x, y = resolution_y, resolution_x
+                else:
+                    x, y = resolution_x, resolution_y
+                render_image(html_file, out_file, x, y)
 
         
         # wait for all the images to be rendered

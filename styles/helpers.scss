@@ -28,14 +28,14 @@
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
 
-    height: 88mm * 3;
-    width: 63mm * 3;
+    height: calc(var(--height) * 3);
+    width: calc(var(--width) * 3);
 
     margin: auto;
     
-    .card {
-        height: 88mm * 3;
-        width: 63mm * 3;
+    .single-card {
+        height: calc(var(--height) * 3);
+        width: calc(var(--width) * 3);
 
         scroll-snap-align: start;
         border: none;

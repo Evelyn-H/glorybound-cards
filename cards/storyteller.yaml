@@ -5,82 +5,88 @@ cards:
 - Hold in Suspense:
     cost: 0
     types: starter move
+    art: Hold in Suspense
     text: |
         \block
         Conjure a random Tale to your hand that you have not yet conjured this match.
-
 - "Tale: Killing the Emperor":
     cost: 2
     types: conjured move
+    art: Backstab
     text: |
         \attack[5]
-
 - "Tale: The Prisoner's Escape":
     cost: 0
     types: conjured move
+    art: Shadowstep
     text: |
         \attack[1]
         I can't be blocked.
-
 - "Tale: The Forest Rises":
     cost: 1
     types: conjured move
+    art: Fierce Seedling
     text: |
         \attack[2]
         Conjure a Glimmer of Hope.
         
-
 - Inspire:
     cost: 0
     types: starter move sequence
+    art: Inspire
     text: |
         \sequence
         [No effect.]
         [You get an extra action this turn.]
-
 - Challenge the Notion:
     cost: 0
     types: starter move
+    art: Spellweaving
     text: |
         Gain \inspiration.
         \attack[0]
         When my attack hits, gain an additional \inspiration and \invoke.
-
+        
 - Shared Lessons, Shared Dreams:
     types: starter inspiration
     text: |
         \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
-
+        
 - Songwriter's Lute:
     types: item
+    art: Broken Violin
     text: |
         When you spend a face-down inspiration, return that card to your hand.
             
 - Sleep Song:
     cost: 0
     types: move
+    art: Sleep Song
     text: |
         \onreveal[On reveal: Pay \inspiration. If you do, choose a card your opponent is revealing. They banish that card without playing it.]
-
+        
 - Scathing Satire:
     cost: 2
     types: move
+    art: Stage-Prop Satire
     text: |
         \onreveal[Name a card your opponent played last turn. Conjure a copy of the named card and play it alongside me if able. \reminder[You still pay costs.]]
         \attack[2]
         
-- The Stitcher:
+- The Storyteller:
     types: signature move
+    art: Library of Legends
     text: |
-        \reminder[You can only claim me if you are on the Path of the Stitcher, and only after losing half your hearts.]
+        \reminder[You can only claim me if you are on the Path of the Aspirant, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
-        \li[Ritual Blade][I get +2 attack power.]
-        \li[Ward of Blood][When I am banished, conjure your ascension to your hand.]
-        \li[Carrion Call][When you play me, \invoke.]
+        \li[Hold in Suspense][I block any number of attacks this turn.]
+        \li[Inspire][The second time you play me this match, conjure your ascension to your hand.]
+        \li[Challenge the Notion][I get +2 power.]
         
 - Storyteller's Ascension:
     cost: 1
     types: conjured move ascension
+    art: Myths that Guide
     text: |
         When you conjure me to your hand, play me immediately if able.
         \sequence

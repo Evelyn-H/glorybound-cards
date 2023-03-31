@@ -5,6 +5,7 @@ cards:
 - Storm Spike:
     cost: 1
     types: starter move
+    art: Bring the Lightning
     text: |
         \onreveal[If either player has one or fewer cards in hand, I cost \inspiration less to play.]
         \attack[2]
@@ -12,6 +13,7 @@ cards:
 - Dimensional Dodge:
     cost: 0
     types: starter move sequence
+    art: Leap Skyward
     text: |
         \sequence
         [\block]
@@ -20,6 +22,7 @@ cards:
 - Into the Void:
     cost: 0
     types: starter move ruined
+    art: All-Consuming Void
     text: |
         \Invoke
         Ruin any one card in play. At end of turn, if it is still in play, banish it.
@@ -31,12 +34,14 @@ cards:
 
 - Wormhole Compass:
     types: item
+    art: Salt-Captain's Compass
     text: |
         Whenever you hit with an attack, your opponent chooses a card in their hand and banishes it. If that attack had four or more power, you look at their hand and choose which card to banish.
             
 - Seeking Spark:
     cost: 0
     types: move
+    art: Insatiable Flame
     text: |
         I cost \inspiration to block.
         \attack[1]
@@ -45,6 +50,7 @@ cards:
 - Warp Reality:
     cost: 0
     types: move ruined
+    art: Alter Fate
     text: |
         \block
         Conjure Chronosnap to your hand.
@@ -53,21 +59,24 @@ cards:
 - Chronosnap:
     cost: 1
     types: conjured move
+    art: Echoing Thunder
     text: |
         \attack[X], where X is the current turn number minus one.
         
-- The Stitcher:
+- The Navigator:
     types: signature move
+    art: Navigate the Sands
     text: |
-        \reminder[You can only claim me if you are on the Path of the Stitcher, and only after losing half your hearts.]
+        \reminder[You can only claim me if you are on the Path of the Aspirant, and only after losing half your hearts.]
         \equip[Equip one of your starter moves. I become an upgraded copy of that card.]
-        \li[Ritual Blade][I get +2 attack power.]
-        \li[Ward of Blood][When I am banished, conjure your ascension to your hand.]
-        \li[Carrion Call][When you play me, \invoke.]
+        \li[Storm Spike][I get +2 power.]
+        \li[Dimensional Dodge][When you play me, \invoke.]
+        \li[Into the Void][When you banish me, conjure your Ascension to your hand.]
         
 - Navigator Ascension:
     cost: 1
     types: conjured move ascension
+    art: Out of Time
     text: |
         Score one point for each of your opponent's banished cards. 
         At the end of this turn, end the match. \reminder[The player with more points wins.]
