@@ -116,6 +116,10 @@
     &.conjured {
         --color-text: #fff;
         --color-textbox-bg: #{$dark-gray};
+
+        .art > img {
+            filter: #{"invert()"};
+        }
     }
 
 

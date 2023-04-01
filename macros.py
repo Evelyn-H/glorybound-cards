@@ -64,6 +64,11 @@ def permanent():
 def item():
     return reminder('Equip two items before the first turn.')
 
+@register
+def mentormove(mentor):
+    # return reminder(f'Claim me if {b(mentor)} is your mentor')
+    return reminder(f'Claim me if {mentor} is your mentor.')
+
 # @register
 # def signature():
 #     return 'You can only claim one signature, and only after losing half your hearts.'

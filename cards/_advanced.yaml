@@ -14,7 +14,7 @@ cards:
     art: Unyielding Protection
     text: |
         \block
-        Conjure a Glimmer of Hope into play.
+        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you.]
 
 - Blinding Flare:
     cost: 2
@@ -32,12 +32,12 @@ cards:
         \attack[6]
 
 - Devouring Frost:
-    cost: 0
+    cost: 1
     types: advanced move
     art: Trawling Net
     text: |
         \block all attacks for the rest of the turn.
-        When I block a move card, banish that card.
+        \endstep[Banish every move card that I blocked this turn.]
 
 - Humiliate:
     cost: 0
@@ -56,20 +56,13 @@ cards:
         [\attack[1]]
         [You get an additional action this turn.]
 
-- Mask of the Mimic:
-    cost: 0
-    types: advanced move
-    art: Mask of the Mimic
-    text: |
-        \onreveal[Name a move card your opponent played last turn. I become a copy of that card until I leave play.]
-
 - Morbid Experiment:
     cost: 1
     types: advanced move
     art: Raid the Mausoleum
     text: |
-        Conjure a Skeletal Minion into play.
-        Choose a sequence and attach a Chronotech Augment to it.
+        Conjure a Skeletal Minion into play. \reminder[It makes a one-power attack next turn.]
+        Choose a sequence and attach a Chronotech Augment to it. \reminder[It extends a sequence by one turn, repeating its final effect.]
 
 - Pact of the Blade:
     cost: 0
@@ -77,15 +70,6 @@ cards:
     art: Tome of Madness
     text: |
         Banish a move card from your hand. If you do: \attack[3]
-
-- Portal Mischief:
-    cost: 1
-    types: advanced move ruined
-    art: All-Consuming Void
-    text: |
-        Conjure an Assassin's Focus into play.
-        The match lasts one turn longer.
-        \block
 
 - Recurring Nightmares:
     cost: 0
@@ -104,13 +88,6 @@ cards:
         \Charge one of your items.
         Gain \inspiration.
 
-- Sleep Song:
-    cost: 0
-    types: advanced move ruined
-    art: Sleep Song
-    text: |
-        \onreveal[Pay \inspiration. If you do, choose a card your opponent is revealing. Banish that card. They do not play it.]
-
 - Unbound Potential:
     cost: 0
     types: advanced move ruined
@@ -122,6 +99,58 @@ cards:
 - Wreath of Crows:
     cost: 0
     types: advanced move permanent
-    art: Abyssal Offering
+    art: Shadow Dragon
     text: |
         Your moves cost \inspiration[1] less to play.
+        
+- Reversal of Fortunes:
+    cost: 4
+    types: advanced move ruined
+    art: Mirror of Hubris
+    text: |
+        I cost \inspiration[4] less to play if you have no other cards in your hand.
+        If either player would score points this turn, the other player scores those points instead.
+        
+- Stone Carapace:
+    cost: 0
+    types: advanced move
+    art: Brawling Gauntlet
+    text: |
+        \block
+        If you gained inspiration last turn, ruin me to get an additional action next turn. \reminder[Ruined cards are banished when they leave play.]
+        
+- Channel the Dragon:
+    cost: 2
+    types: advanced move
+    art: Inferno Dragon
+    text: |
+        If you scored three or more points last turn, I cost \inspiration[2] less to play.    
+        \block
+        \attack[2]
+        
+- Lurkers in the Deep:
+    cost: 0
+    types: advanced move
+    art: Abyssal Offering
+    text: |
+        If you banished or ruined one of your opponent's card last turn: \attack[2] and gain \inspiration[2].
+        Otherwise, ruin a card your opponent played this turn. \reminder[Ruined cards are banished when they leave play.] 
+        
+- Unnatural Silence:
+    cost: 0
+    types: advanced move
+    art: Elegant Reversal
+    text: |
+        \onreveal[Choose a move your opponent is revealing. It loses all noncombat abilities until it leaves play.] \reminder[Only \b[attack] and \b[block] are combat abilities.]
+        Conjure an Assassin's Focus into play. \reminder[It gives your next attack +2 power.]
+        
+- Lodestone Staff:
+    cost: 1
+    types: advanced move sequence
+    art: Aeon-Worn Staff
+    text: |
+        \sequence
+        [Choose one:
+        \li[The match lasts one turn longer.]
+        \li[The match ends one turn sooner.]]
+        [\attack[2]]

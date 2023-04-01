@@ -12,6 +12,7 @@ cards:
 - Volcanic Rebuke:
     cost: 1
     types: mentor move
+    art: Kaya
     text: |
         \block
         When I block an attack: \attack[3]
@@ -29,6 +30,7 @@ cards:
 - Phoenix Fire:
     cost: 1
     types: mentor move
+    art: Milo
     text: |
         I get +1 power for every two points you've scored this match.
         \attack[2]
@@ -45,6 +47,7 @@ cards:
 - Elderwood Guardian:
     cost: 2
     types: mentor move
+    art: Vernon
     text: |
         \attack[3]
         I cost \inspiration[2] to block.
@@ -62,6 +65,7 @@ cards:
 - Putrid Harvest:
     cost: 0
     types: mentor move
+    art: Maren
     text: |
         Gain \inspiration for each point you've scored this match.
 
@@ -77,6 +81,7 @@ cards:
 - Skeletal Menagerie:
     cost: 1
     types: mentor move permanent
+    art: Sashka
     text: |
         \endstep[If either player scored points this turn, conjure a Skeletal Minion into play.]
 
@@ -92,6 +97,7 @@ cards:
 - Whispers of the Lost:
     cost: 0
     types: mentor move
+    art: Zophi
     text: |
         \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
 
@@ -107,6 +113,7 @@ cards:
 - Double Daggers:
     cost: 2
     types: mentor move
+    art: Gil
     text: |
         I cost \inspiration[1] less to play for each Assassin's Focus you have.
         \attack[1]; \attack[1]
@@ -124,6 +131,7 @@ cards:
 - Collect Secrets:
     cost: 0
     types: mentor move
+    art: Mouse
     text: |
         Look at your opponent's hand.
         \block
@@ -140,6 +148,7 @@ cards:
 - Tempered in Aether:
     cost: 1
     types: mentor move permanent
+    art: Jax
     text: |
         Your attacks get +1 power.
 
@@ -155,6 +164,7 @@ cards:
 - Mechanized Workshop:
     cost: 0
     types: mentor move sequence
+    art: Lenora
     text: |
         \sequence
         [Gain \inspiration.]
@@ -172,6 +182,7 @@ cards:
 - Circle of Protection:
     cost: 1
     types: mentor move ruined
+    art: Vanya
     text: |
         You cannot be hit by attacks this turn.
 
@@ -187,6 +198,7 @@ cards:
 - Encroaching Frost:
     cost: 0
     types: mentor move permanent
+    art: Ammon
     text: |
         Your opponent's attacks get -1 power.
         \endstep[If you were hit by an attack this turn, recall me.]
@@ -203,6 +215,7 @@ cards:
 - Storm Surge:
     cost: 0
     types: mentor move
+    art: Niomi
     text: |
         Gain \inspiration. Your attacks get +1 power this turn.
 
@@ -221,6 +234,7 @@ cards:
 - Embrace Chaos:
     cost: 0
     types: mentor move
+    art: Kuzai
     text: |
         \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
 
@@ -236,6 +250,7 @@ cards:
 - Pact-Bound Demon:
     cost: 0
     types: mentor move permanent
+    art: Cassius
     text: |
         When you return me to your hand from play: \attack[4]
 
@@ -251,6 +266,7 @@ cards:
 - Calamitous Visions:
     cost: 1
     types: mentor move sequence
+    art: Persephone
     text: |
         \sequence
         [No effect.]
@@ -269,6 +285,7 @@ cards:
 - Cybernetic Blade:
     cost: 1
     types: mentor move
+    art: Tamir
     text: |
         \attack[2]
         If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
@@ -285,6 +302,7 @@ cards:
 - Rousing Melody:
     cost: 0
     types: mentor move sequence
+    art: Elio
     text: |
         \sequence
         [Each player gains \inspiration.]
@@ -302,6 +320,7 @@ cards:
 - Ready to React:
     cost: 1
     types: mentor move ruined
+    art: Bastien
     text: |
         \onreveal[Choose another move to play alongside me.]
 
@@ -317,6 +336,7 @@ cards:
 - Stolen Software:
     cost: 0
     types: mentor item
+    art: Chip
     text: |
         \equip[You may equip an additional item.]
         On the fifth turn of the match, \orange[\attack[1]].
@@ -333,6 +353,7 @@ cards:
 - Ascend:
     cost: 3
     types: mentor move
+    art: Iris
     text: |
         Conjure your ascension to your hand.
 
@@ -348,6 +369,7 @@ cards:
 - Noxious Prototype:
     cost: 0
     types: mentor move
+    art: Zev
     text: |
         \attack[2]
         After your third match, you claim an additional card and lose Noxious Prototype for the rest of the tournament.
@@ -364,6 +386,7 @@ cards:
 - Firecracker Trick:
     cost: 0
     types: mentor move ruined
+    art: Cicero
     text: |
         \onreveal[Swap me with a card your opponent is revealing. They claim me until I leave play, and you claim that card until it leaves play, and it costs \inspiration[2] less to play.]
         \attack[2]
@@ -380,5 +403,6 @@ cards:
 - Pridebreaker:
     cost: 0
     types: mentor move
+    art: Dessa
     text: |
         \block. If your opponent has more points than you, \attack[2].

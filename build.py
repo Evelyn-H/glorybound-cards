@@ -81,6 +81,7 @@ class Card(object):
         self.invoke_text = d['invoketext']
         self.mentor_move = d['mentormove']
         self.mentor_move_card = None
+        self.parent_mentor = None
         self._art = d['art']
 
     @property
@@ -99,6 +100,13 @@ class Card(object):
     @property
     def name_clean(self):
         return cleanup(self.name)
+
+    @property
+    def name_short(self):
+        if ',' in self.name:
+            return self.name.split(',')[0]
+        else:
+            return self.name.split(' ')[0]
 
     @property
     def type_line(self):
@@ -120,6 +128,9 @@ class Card(object):
         line += maybe_add('augment')
         line += maybe_add('inspiration')
 
+        if self.is_mentor_move:
+            line += f'({self.parent_mentor.name_short}) '
+
         subtypes = ''
         # subtypes += maybe_add('ruined')
         subtypes += maybe_add('ascension')
@@ -133,14 +144,25 @@ class Card(object):
 
     @property 
     def full_text(self):
+        return self._full_text()
+
+    @property 
+    def full_text_mini(self):
+        return self._full_text(mini=True)
+
+    def _full_text(self, mini=False):
         text = ''
         text += '\\conjured\n\n' if 'conjured' in self.types and not 'augment' in self.types else ''
         text += '\\augment\n\n' if 'augment' in self.types else ''
+
+        text += f'\\mentormove[{self.parent_mentor.name_short}]\n\n' if self.is_mentor_move and not mini else ''
 
         # text += '\\signature\n\n' if 'signature' in self.types else ''
         text += '\\ruined\n\n' if 'ruined' in self.types else ''
 
         text += '\\item\n\n' if 'item' in self.types else ''
+
+        
 
         text += self.text
 
@@ -154,7 +176,14 @@ class Card(object):
 
     @property
     def rendered_text(self):
-        expanded, remainder = expand(self.full_text)
+        return self._rendered_text()
+
+    @property
+    def rendered_text_mini(self):
+        return self._rendered_text(mini=True)
+
+    def _rendered_text(self, mini=False):
+        expanded, remainder = expand(self._full_text(mini))
         if len(remainder) > 0:
             raise Exception(f'unexpected text: {remainder}')
 
@@ -168,6 +197,7 @@ class Card(object):
             html += f'\n\n{render_mini_card(self.mentor_move_card)}\n\n'
 
         return html
+
 
     @property
     def ruined(self):
@@ -189,6 +219,10 @@ class Card(object):
     @property
     def is_mentor(self):
         return 'mentor' in self.types and not ('move' in self.types or 'item' in self.types)
+
+    @property
+    def is_mentor_move(self):
+        return 'mentor' in self.types and ('move' in self.types or 'item' in self.types)
 
     @property
     def landscape(self):
@@ -238,6 +272,7 @@ class Group(object):
             if card.mentor_move:
                 try:
                     card.mentor_move_card = next(c for c in cards if c.name == card.mentor_move)
+                    card.mentor_move_card.parent_mentor = card
                 except StopIteration:
                     raise Exception(f"couldn't find mentor move: {card.mentor_move} for {card.name}")
 
