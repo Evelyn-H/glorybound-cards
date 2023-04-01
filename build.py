@@ -188,7 +188,7 @@ class Card(object):
 
     @property
     def is_mentor(self):
-        return 'mentor' in self.types and not 'move' in self.types
+        return 'mentor' in self.types and not ('move' in self.types or 'item' in self.types)
 
     @property
     def landscape(self):

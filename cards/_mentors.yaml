@@ -309,6 +309,7 @@ cards:
     mentormove: Stolen Software
     types: mentor 
     text: 
+    invoke: Circuit Hack
     invoketext: |
         \Charge an item.
 
@@ -318,7 +319,6 @@ cards:
     text: |
         \equip[You may equip an additional item.]
         On the fifth turn of the match, \orange[\attack[1]].
-    invoke: Circuit Hack
 
         
 - Iris, the Prodigy:
