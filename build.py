@@ -452,7 +452,10 @@ def make_pdf(group):
 @background
 def add_bleed(group, card):
     os.makedirs(f'./build/print/{cleanup(group.name)}/', exist_ok=True) 
-    subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
+    if card.landscape:
+        subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 1125x825 ./assets/bleed-overlay-landscape.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
+    else:
+        subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
 
 
 # ==== main ====
