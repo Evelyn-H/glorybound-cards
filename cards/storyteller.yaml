@@ -28,7 +28,7 @@ cards:
     art: Fierce Seedling
     text: |
         \attack[2]
-        Conjure a Glimmer of Hope.
+        Conjure a Glimmer of Hope. \reminder[It is worth one point, but is lost if your opponent hits you.]
         
 - Inspire:
     cost: 0

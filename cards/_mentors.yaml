@@ -22,15 +22,16 @@ cards:
     types: mentor
     art: 
     text: 
-    invoke: Find Strength In Rage
+    invoke: Kindled Fury
     invoketext: |
-        \endstep[If you were hit by an attack this turn, score one point.]
+        \endstep[Score one point for each attack that hit you this turn.]
 
 - Phoenix Fire:
     cost: 1
     types: mentor move
     text: |
-        \attack[3]
+        I get +1 power for every two points you've scored this match.
+        \attack[2]
 
         
 - Vernon, the Gardener:
@@ -166,7 +167,7 @@ cards:
     text: 
     invoke: Daybreak
     invoketext: |
-        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you]
+        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you.]
 
 - Circle of Protection:
     cost: 1

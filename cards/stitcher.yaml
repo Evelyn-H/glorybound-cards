@@ -16,14 +16,14 @@ cards:
     art: Rite of Scars
     text: |
         \block
-        If you have no \inspiration, ruin me to gain \inspiration.
+        If you have no \inspiration, ruin me to gain \inspiration. \reminder[When a ruined card leaves play, banish it.]
 
 - Carrion Call:
     cost: 0
     types: starter move ruined
     art: Shambling Ranks
     text: |
-        Conjure two Skeletal Minions into play.
+        Conjure two Skeletal Minions into play. \reminder[They each make a one-power attack next turn.]
 
 - Death Will Not Take Another:
     types: starter inspiration
@@ -35,8 +35,7 @@ cards:
     types: item
     art: Putrid Cauldron
     text: |
-        Whenever one of your cards is banished, put it under me in the cauldron.
-        At the start of each turn, you may remove a card from the cauldron to choose \orange[one]:
+        At the start of each turn, if one of your cards was banished last turn, choose \orange[one]:
         - Your attacks get +1 power this turn.
         - Gain \inspiration.
             

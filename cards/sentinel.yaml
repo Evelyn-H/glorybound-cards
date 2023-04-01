@@ -7,7 +7,7 @@ cards:
     types: starter move
     art: Smiting Hammer
     text: |
-        If your opponent is attacking, you may pay \inspiration[1] to ruin that attack.
+        If your opponent is attacking, you may pay \inspiration[1] to ruin that attack. \reminder[When a ruined card leaves play, banish it.]
         \attack[2]
 
 - Vigilant Guard:
@@ -16,14 +16,14 @@ cards:
     art: Defend the Young
     text: |
         \block
-        When I block an attack, /invoke.
+        When I block an attack, \invoke.
 
 - Safe From Harm:
     cost: 0
     types: starter move
     art: Elegant Reversal
     text: |
-        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you]
+        Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you.]
         Gain \inspiration[1].
 
 - A Bastion Against Darkness:

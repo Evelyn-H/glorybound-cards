@@ -25,7 +25,7 @@ cards:
     art: All-Consuming Void
     text: |
         \Invoke
-        Ruin any one card in play. At end of turn, if it is still in play, banish it.
+        Ruin any one card in play. At end of turn, if it is still in play, banish it. \reminder[When a ruined card leaves play, banish it.]
 
 - Past All Walls And Borders:
     types: starter inspiration
@@ -36,7 +36,7 @@ cards:
     types: item
     art: Salt-Captain's Compass
     text: |
-        Whenever you hit with an attack, your opponent chooses a card in their hand and banishes it. If that attack had four or more power, you look at their hand and choose which card to banish.
+        Whenever you hit with an attack, your opponent chooses a card in their hand and banishes it. If that attack had \blue[four] or more power, you look at their hand and choose which card to banish.
             
 - Seeking Spark:
     cost: 0

@@ -192,7 +192,7 @@ cards:
     art: Wistful Memories
     text: |
         At the end of the first turn of the match, note a move card you played this turn. When that card leaves play, banish it under me.
-        On the final turn of the match, reveal and play the banished card as an additional action alongside your other actions.
+        On the final turn of the match, reveal and play the banished card as an additional action alongside your other actions. It costs \inspiration[2] less to play.
 
 - Cricket the Cat:
     types: item
@@ -244,7 +244,7 @@ cards:
     art: Salt-Captain_s Compass
     text: |
         All your cards are ruined. \reminder[Ruined cards are banished when they leave play.]
-        When you play a sequence, conjure \orange[one] Chronotech Augment into play attached to it.
+        When you play a sequence, conjure \orange[one] Chronotech Augment into play attached to it. \reminder[It extends the sequence by one turn, repeating its final effect.]
 
 - Book of Names:
     types: item
@@ -256,14 +256,14 @@ cards:
     types: item
     art: Hold in Suspense
     text: |
-        At the end of each turn, if you didn't attack this turn, conjure \orange[one] Assassin's Focus into play.
+        At the end of each turn, if you didn't attack this turn, conjure \orange[one] Assassin's Focus into play. \reminder[It gives your next attack +2 power.]
 
 - Strings of the Puppeteer:
     types: item
     art: Sunken Temple
     text: |
         \equip[\Charge me.]
-        At the start of each turn, remove a charge from me. If you do, conjure a Skeletal Minion into play.
+        At the start of each turn, remove a charge from me. If you do, conjure a Skeletal Minion into play. \reminder[It makes a one-power attack next turn.]
         When you conjure a Skeletal Minion, you may conjure it in guard stance (sideways). If you do, its final stage attack is replaced with a block.
 
 - Caged Songbird:
@@ -271,4 +271,4 @@ cards:
     art: Frost Dragon
     text: |
         \equip[\Charge me three times.]
-        At the start of each turn, remove a charge from me to conjure a Glimmer of Hope into play.
+        At the start of each turn, remove a charge from me to conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you.]

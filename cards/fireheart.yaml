@@ -44,7 +44,7 @@ cards:
     types: move ruined
     art: Just Out of Reach
     text: |
-        Your opponent conjures Immolation into play. You gain \inspiration[2] and get an additional action next turn.
+        Your opponent conjures Immolation into play. You gain \inspiration[2] and get an additional action next turn. \reminder[Immolation will attack you this turn.]
         
 - Immolation:
     types: conjured move
@@ -79,3 +79,4 @@ cards:
     text: |
         \attack[3]
         \attack[3]
+        \reminder[One block can only stop one attack.]

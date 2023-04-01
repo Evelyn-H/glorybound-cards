@@ -38,7 +38,7 @@ cards:
     art: Out of Time
     text: |
         \equip[\Charge me.]
-        When you play a sequence, remove a charge from me to attach a Chronotech Augment to that sequence.
+        When you play a sequence, remove a charge from me to attach a Chronotech Augment to that sequence. \reminder[It extends the sequence by one turn, repeating its final effect.]
         
 - Infuse with Power:
     cost: 0
