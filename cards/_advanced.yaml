@@ -48,12 +48,12 @@ cards:
         If your opponent is blocking, they must block my attack if able. When they do, score two points.
 
 - Lightning Daggers:
-    cost: 0
+    cost: 1
     types: advanced move sequence
     art: Always More Knives
     text: |
         \sequence
-        [\attack[1]]
+        [\attack[2]]
         [You get an additional action this turn.]
 
 - Morbid Experiment:
@@ -97,10 +97,11 @@ cards:
         \Invoke
 
 - Wreath of Crows:
-    cost: 0
+    cost: 1
     types: advanced move permanent
     art: Shadow Dragon
     text: |
+        When you play me, \invoke.
         Your moves cost \inspiration[1] less to play.
         
 - Reversal of Fortunes:

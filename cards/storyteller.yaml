@@ -9,6 +9,8 @@ cards:
     text: |
         \block
         Conjure a random Tale to your hand that you have not yet conjured this match.
+        \reminder[Conceal the other Tales so your opponent doesn't know which one was conjured.]
+
 - "Tale: Killing the Emperor":
     cost: 2
     types: conjured move

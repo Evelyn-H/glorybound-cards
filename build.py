@@ -228,6 +228,18 @@ class Card(object):
     def landscape(self):
         return self.is_mentor
 
+    @property
+    def symbols(self):
+        symbols = []
+
+        if self.group.kind == 'Archetype':
+            symbols.append(('archetype', self.group.subname))
+
+        if 'starter' in self.types:
+            symbols.append(('starter', 'starter'))
+
+        return symbols
+
 
 class Group(object):
     def __init__(self, kind, cards, subname=None, extras=None):

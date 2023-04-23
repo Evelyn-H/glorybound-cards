@@ -35,7 +35,7 @@ cards:
     types: item
     art: Putrid Cauldron
     text: |
-        At the start of each turn, if one of your cards was banished last turn, choose \orange[one]:
+        At the start of each turn, if one or more of your cards were banished last turn, choose \orange[one]:
         - Your attacks get +1 power this turn.
         - Gain \inspiration.
             
@@ -51,7 +51,7 @@ cards:
     types: move ruined
     art: Call from the Grave
     text: |
-        \onreveal[You may play one of your banished cards. \reminder[You still pay costs.]]
+        \onreveal[Choose one of your banished cards. I am a copy of that card until I leave play, but I am still ruined.]
         
 - The Stitcher:
     types: signature move

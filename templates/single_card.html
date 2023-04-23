@@ -20,6 +20,12 @@
             {% endfor %}
         </div>
 
+        <div class="symbols">
+            {% for symbol in card.symbols %}
+                <img class="symbol {{ symbol.0 }}" src="../../assets/icons/{{ symbol.1 }}.png" />
+            {% endfor %}
+        </div>
+
         <div class="art"><img src="{{ card.art_filename }}" /></div>
 
         <div class="text"><div class="autofit">{{ card.rendered_text | safe }}</div></div>

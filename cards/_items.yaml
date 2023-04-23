@@ -91,7 +91,7 @@ cards:
     art: Scrying Orb
     text: |
         At the start of the first turn of the match, your opponent reveals two cards from their hand. Choose one and banish it.
-        Whenever you banish one of your opponent's cards, score \orange[one] point.
+        Whenever you banish or ruin one of your opponent's cards, score \orange[one] point.
 
 - Crooked Sundial:
     types: item
