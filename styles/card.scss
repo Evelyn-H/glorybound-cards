@@ -71,7 +71,7 @@ body {
     main {
         position: absolute;
         width: calc(var(--width) - 9mm);
-        height: calc(var(--height) - 11mm);
+        height: calc(var(--height) - 14mm);
         left: 4.5mm;
         top: 4.5mm;
     
@@ -82,7 +82,7 @@ body {
         /*  grids!! */
         display: grid;
         /* heights: title divider type spacer art spacer text */
-        grid-template-rows: 6mm 0.5mm 4mm 2mm 30mm 0.5mm 34mm;
+        grid-template-rows: 6mm 0.5mm 4mm 2mm 27mm 0.5mm 34mm;
         /* widths: left-column spacer center spacer right-column */
         grid-template-columns: 7mm 2mm 36mm 2mm 7mm;
 
@@ -218,31 +218,47 @@ body {
     footer {
         position: absolute;
         width: 54mm;
-        height: 4mm;
+        height: 7mm;
         left: 4.5mm;
-        top: calc(var(--height) - 6.5mm);
+        top: calc(var(--height) - 9.5mm);
         
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr 1fr;
         align-items: center;
         column-gap: 1mm;
-
-        padding: 0.5mm 0mm;
         
         font-family: "Grenze";
         font-size: 6pt;
         font-weight: 600;
         color: var(--color-footer-text);
 
-        .left {
+        .icons {
             grid-column: 1 / 2;
-            justify-self: start;
+            grid-row: 1 / 3;
+
+            & > * {
+                width: 5mm;
+                height: 5mm;
+                margin: 1mm;
+                margin-left: 0mm;
+
+                opacity: 0.9;
+            }
+        }
+
+        .left {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            justify-self: end;
             @include helpers.vcenter;
+
+            padding-top: 0.5mm;
         }
         
         .right {
             grid-column: 2 / 3;
+            grid-row: 2 / 3;
             justify-self: end;
             @include helpers.vcenter;
         }

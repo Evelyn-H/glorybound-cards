@@ -9,12 +9,12 @@
         footer {
             transform: rotate(-90deg);
             transform-origin: left top;
-            left: calc(var(--width) - 6.5mm);
+            left: calc(var(--width) - 9.5mm);
             top: calc(var(--height) - 4.5mm);
         }
 
         main {
-            width: calc(var(--width) - 11mm);
+            width: calc(var(--width) - 14mm);
             height: calc(var(--height) - 9mm);
 
             /* heights: title divider type spacer art spacer text */
@@ -22,7 +22,7 @@
             grid-template-rows: 6mm 0.5mm 4mm 0mm 43.5mm;
             /* widths: left-column spacer center spacer right-column */
             // grid-template-columns: 7mm 2mm 36mm 2mm 7mm;
-            grid-template-columns: 36mm 1mm 2mm 36mm 2mm;
+            grid-template-columns: 33mm 1mm 2mm 36mm 2mm;
 
             .title {
                 grid-column: 4 / 5;
@@ -50,6 +50,9 @@
 
                 & > img {
                     border-radius: 1mm 0mm 0mm 1mm;
+                    /* to make the image fit despite the slightly wrong aspect ratio */
+                    object-fit: cover;
+                    margin: 0;
                 }
             }
             
