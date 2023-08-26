@@ -1,4 +1,5 @@
 kind: Extra
+count: 5
 
 cards:
 - Skeletal Minion:
@@ -29,12 +30,14 @@ cards:
         If the augmented sequence would leave play because all stages are complete, instead remove me to repeat the final stage next turn.
         
 - Charge:
+    count: 10
     types: conjured augment
     art: Two-Breath Meditation
     text: |
         \orange[Orange] numbers on the augmented item get +1. \blue[Blue] numbers on the augmented item get -1.
         
 - Inspiration:
+    count: 10
     types: conjured inspiration
     art: 
     text: |

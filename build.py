@@ -43,6 +43,7 @@ schema = Map({
     Optional('subname'): Str(),
     # Optional('colors'): Regex(r'[0-9a-fA-F]{6}\s*-\s*[0-9a-fA-F]{6}'),
     Optional('extras'): Str(),
+    Optional('count'): Int(),
 
     'cards': Seq(
         MapPattern(
@@ -55,6 +56,7 @@ schema = Map({
                 Optional('invoke'): Str(), 
                 Optional('invoketext'): Str(), 
                 Optional('mentormove'): Str(),
+                Optional('count'): Int(),
             })
         )
     ),
@@ -83,6 +85,7 @@ class Card(object):
         self.mentor_move_card = None
         self.parent_mentor = None
         self._art = d['art']
+        self._count = d['count']
 
     @property
     def art_filename(self):
@@ -240,13 +243,18 @@ class Card(object):
 
         return symbols
 
+    @property
+    def count(self):
+        return self._count or self.group.count or 1
+
 
 class Group(object):
-    def __init__(self, kind, cards, subname=None, extras=None):
+    def __init__(self, kind, cards, subname=None, extras=None, count=1):
         self.kind = kind
         self.subname = subname
         self.cards = cards
         self.extras = extras
+        self.count = count
 
         # put a reference to the group in the cards
         for card in self.cards:
@@ -278,6 +286,7 @@ class Group(object):
         # colors = tuple([c.strip() for c in data.get('colors', '000000 - 000000').split('-')])
         cards = [Card(card) for card in data['cards']]
         extras = data.get('extras', None)
+        count = data.get('count', None)
 
         # link mentor move cards
         for card in cards:
@@ -289,7 +298,7 @@ class Group(object):
                     raise Exception(f"couldn't find mentor move: {card.mentor_move} for {card.name}")
 
         # print(*cards, sep='\n')
-        return Group(kind, cards, subname, extras)
+        return Group(kind, cards, subname, extras, count)
 
     @staticmethod
     def from_file(filename):
@@ -451,7 +460,9 @@ def render_image(html_file, out_file, resolution_x, resolution_y):
     profile_num = q.get()
     profile_path = f'./.profiles/prof{profile_num}'
     os.makedirs(profile_path, exist_ok=True) 
-    subprocess.run(f"firefox --no-remote --profile {profile_path} --screenshot '{out_file}' --window-size={resolution_x},{resolution_y} file://'{html_file}'", shell=True)
+    command = f"firefox --no-remote --profile {profile_path} --screenshot '{out_file}' --window-size={resolution_x},{resolution_y} file://'{html_file}'"
+    # print(command)
+    subprocess.run(command, shell=True)
     q.put(profile_num)
 
 @background
@@ -463,11 +474,13 @@ def make_pdf(group):
 
 @background
 def add_bleed(group, card):
+    card_name = cleanup(card.name)+ f'[face,{card.count}]'
     os.makedirs(f'./build/print/{cleanup(group.name)}/', exist_ok=True) 
-    if card.landscape:
-        subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 1125x825 ./assets/bleed-overlay-landscape.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
-    else:
-        subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{cleanup(card.name)}.png", shell=True)
+    # if card.landscape:
+    #     # subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 1125x825 ./assets/bleed-overlay-landscape.png -composite ./build/print/{cleanup(group.name)}/{card_name}.png", shell=True)
+    #     subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -rotate 90 -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{card_name}.png", shell=True)
+    # else:
+    subprocess.run(f"convert ./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png -resize 50% -gravity center -extent 825x1125 ./assets/bleed-overlay.png -composite ./build/print/{cleanup(group.name)}/{card_name}.png", shell=True)
 
 
 # ==== main ====
@@ -507,6 +520,7 @@ if __name__ == '__main__':
             for card in group.cards:
                 card_name = cleanup(card.name)
                 html_file = os.path.abspath(f'./build/cards/{card_name}.html')
+                # card_name = cleanup(card.name) + f'[face,{card.count}]'
                 out_file = os.path.abspath(f'./build/images/{cleanup(group.name)}/{card_name}.png')
                 # print(out_file)
                 # print(html_file)
@@ -515,10 +529,16 @@ if __name__ == '__main__':
                 else:
                     x, y = resolution_x, resolution_y
                 render_image(html_file, out_file, x, y)
-
         
         # wait for all the images to be rendered
         asyncio.get_event_loop().run_until_complete(asyncio.gather(*tasks))
+
+        # turn all the landscape ones
+        for group in groups:
+            for card in group.cards:
+                if card.landscape:
+                    out_file = os.path.abspath(f'./build/images/{cleanup(group.name)}/{cleanup(card.name)}.png')
+                    subprocess.run(f"convert {out_file} -rotate 90 {out_file}", shell=True)
 
         # make images with bleed for printing
         for group in groups:
@@ -529,8 +549,22 @@ if __name__ == '__main__':
         # make pdfs per group
         for group in groups:
             make_pdf(group)
-        
-        
+
         asyncio.get_event_loop().run_until_complete(asyncio.gather(*tasks))
 
+        # make print-n-play pdfs
+        print('building print-n-play pdf')
+        cards = []
+        for group in groups:
+            for card in group.cards:
+                name = cleanup(card.name) #+ f'[face,{card.count}]'
+                filename = f'./build/images/{cleanup(group.name)}/{name}.png'
+                cards += [filename] * card.count
+
+        print(cards)
+        subprocess.run(f"convert {' '.join(cards)} ./build/pdfs/print-n-play.pdf", shell=True)
+        subprocess.run(f"pdfjam ./build/pdfs/print-n-play.pdf -o ./build/pdfs/print-n-play_3x3.pdf --nup 3x3 --scale {10.5/11}", shell=True)
+        
+
+        # combined file with all archetypes
         subprocess.run(f"pdftk ./build/pdfs/Archetype* cat output ./build/pdfs/Archetypes.pdf", shell=True)
