@@ -149,6 +149,22 @@
             --color-bg-left: #{$bold-purple}; 
             --color-bg-right: #{$gold}; 
         }
+
+        main {
+            .content-bg {
+                margin-top: 1.5mm;
+                grid-column: 1/6;
+                grid-row: 7/8;
+            }
+
+            .title, .types {
+                color: #fff;
+            }
+
+            .art > img {
+                filter: #{"invert()"};
+            }
+        }
     }
 
     &.mentor {
@@ -216,11 +232,14 @@
         
 
         main {
-            background: none;
             color: #fff;
-
+            
             --color-bg-left: #fff;
             --color-bg-right: #fff; 
+            
+            .content-bg {
+                background: none;
+            }
 
             .art, .text {
                 display: none

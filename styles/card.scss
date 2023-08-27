@@ -75,9 +75,8 @@ body {
         left: 4.5mm;
         top: 4.5mm;
     
-        border-radius: 1mm;
-    
-        background-color: var(--color-textbox-bg);
+        // border-radius: 1mm;
+        // background-color: var(--color-textbox-bg);
     
         /*  grids!! */
         display: grid;
@@ -211,6 +210,14 @@ body {
         
             font-family: "Crimson Pro";
             font-size: 10pt;
+        }
+
+        .content-bg {
+            grid-column: 1/6;
+            grid-row: 1/8;
+            background-color: var(--color-textbox-bg);
+            border-radius: 1mm;
+            border-radius: 1mm;
         }
     }
 
