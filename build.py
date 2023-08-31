@@ -235,11 +235,20 @@ class Card(object):
     def symbols(self):
         symbols = []
 
-        if self.group.kind == 'Archetype':
-            symbols.append(('archetype', self.group.subname))
-
         if 'starter' in self.types:
-            symbols.append(('starter', 'starter'))
+            symbols.append(('rarity', 'star'))
+
+        elif 'signature' in self.types:
+            symbols.append(('rarity', 'star'))
+            symbols.append(('rarity', 'star'))
+            symbols.append(('rarity', 'star'))
+
+        elif not 'mentor' in self.types and not 'rules' in self.types and not 'conjured' in self.types:
+            symbols.append(('rarity', 'star'))
+            symbols.append(('rarity', 'star'))
+
+        if 'conjured' in self.types:
+            symbols.append(('rarity', 'cross'))
 
         return symbols
 

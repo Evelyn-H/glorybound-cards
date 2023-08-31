@@ -170,6 +170,11 @@ body {
                 margin-bottom: 0mm;
 
                 opacity: 0.9;
+                filter: #{"invert()"};
+
+                // &.rarity {
+                //     height: auto;
+                // }
             }
         }
         

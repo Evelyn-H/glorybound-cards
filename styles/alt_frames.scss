@@ -186,6 +186,10 @@
         --color-bg-right: #{$warm-gray-light}; 
 
         --color-textbox-bg: #{$transparent-white};
+
+        .symbols > .rarity {
+            filter: none;
+        }
     }
 
     &.augment {

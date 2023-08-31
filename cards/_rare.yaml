@@ -4,14 +4,14 @@ count: 2
 cards:
 - Alter Fate:
     cost: 0
-    types: advanced move ruined
+    types: move ruined
     art: Alter Fate
     text: |
         \onreveal[Name a card your opponent revealed this turn. Restart the turn, except that they can't play the named card this turn, and I begin the turn banished.]
 
 - Aegis of Courage:
     cost: 0
-    types: advanced move ruined
+    types: move ruined
     art: Unyielding Protection
     text: |
         \block
@@ -19,7 +19,7 @@ cards:
 
 - Blinding Flare:
     cost: 2
-    types: advanced move
+    types: move
     art: Echoing Thunder
     text: |
         Your attacks this turn can't be blocked.
@@ -27,14 +27,14 @@ cards:
 
 - Celestial Starfire:
     cost: 3
-    types: advanced move
+    types: move
     art: Myths That Guide
     text: |
         \attack[6]
 
 - Devouring Frost:
     cost: 1
-    types: advanced move
+    types: move
     art: Trawling Net
     text: |
         \block all attacks for the rest of the turn.
@@ -42,7 +42,7 @@ cards:
 
 - Humiliate:
     cost: 0
-    types: advanced move
+    types: move
     art: Stage-Prop Mockery
     text: |
         \attack[0]
@@ -50,7 +50,7 @@ cards:
 
 - Lightning Daggers:
     cost: 1
-    types: advanced move sequence
+    types: move sequence
     art: Always More Knives
     text: |
         \sequence
@@ -59,7 +59,7 @@ cards:
 
 - Morbid Experiment:
     cost: 1
-    types: advanced move
+    types: move
     art: Raid the Mausoleum
     text: |
         Conjure a Skeletal Minion into play. \reminder[It makes a one-power attack next turn.]
@@ -67,14 +67,14 @@ cards:
 
 - Pact of the Blade:
     cost: 0
-    types: advanced move
+    types: move
     art: Tome of Madness
     text: |
         Banish a move card from your hand. If you do: \attack[3]
 
 - Recurring Nightmares:
     cost: 0
-    types: advanced move ruined
+    types: move ruined
     art: The Risen One
     text: |
         \attack[0]; \attack[0]
@@ -83,7 +83,7 @@ cards:
 
 - Runic Attunement:
     cost: 0
-    types: advanced move
+    types: move
     art: Library of Legends
     text: |
         \Charge one of your items.
@@ -91,7 +91,7 @@ cards:
 
 - Unbound Potential:
     cost: 0
-    types: advanced move ruined
+    types: move ruined
     art: Navigate the Sands
     text: |
         \Invoke
@@ -99,7 +99,7 @@ cards:
 
 - Wreath of Crows:
     cost: 1
-    types: advanced move permanent
+    types: move permanent
     art: Shadow Dragon
     text: |
         When you play me, \invoke.
@@ -107,7 +107,7 @@ cards:
         
 - Reversal of Fortunes:
     cost: 4
-    types: advanced move ruined
+    types: move ruined
     art: Mirror of Hubris
     text: |
         I cost \inspiration[4] less to play if you have no other cards in your hand.
@@ -115,7 +115,7 @@ cards:
         
 - Stone Carapace:
     cost: 0
-    types: advanced move
+    types: move
     art: Brawling Gauntlet
     text: |
         \block
@@ -123,7 +123,7 @@ cards:
         
 - Channel the Dragon:
     cost: 2
-    types: advanced move
+    types: move
     art: Inferno Dragon
     text: |
         If you scored three or more points last turn, I cost \inspiration[2] less to play.    
@@ -132,7 +132,7 @@ cards:
         
 - Lurkers in the Deep:
     cost: 0
-    types: advanced move
+    types: move
     art: Abyssal Offering
     text: |
         If you banished or ruined one of your opponent's card last turn: \attack[2] and gain \inspiration[2].
@@ -140,7 +140,7 @@ cards:
         
 - Unnatural Silence:
     cost: 0
-    types: advanced move
+    types: move
     art: Elegant Reversal
     text: |
         \onreveal[Choose a move your opponent is revealing. It loses all noncombat abilities until it leaves play.] \reminder[Only \b[attack] and \b[block] are combat abilities.]
@@ -148,7 +148,7 @@ cards:
         
 - Lodestone Staff:
     cost: 1
-    types: advanced move sequence
+    types: move sequence
     art: Aeon-Worn Staff
     text: |
         \sequence
