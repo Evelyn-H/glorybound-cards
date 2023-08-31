@@ -244,6 +244,16 @@ class Card(object):
         return symbols
 
     @property
+    def sorting_icons(self):
+        # symbols = [('kind', cleanup(self.group.kind))]
+        # if self.group.kind == 'Archetype':
+        #     symbols.append(('archetype', self.group.name_clean))
+
+        symbols = [('kind', self.group.name_clean)]
+
+        return symbols
+
+    @property
     def count(self):
         return self._count or self.group.count or 1
 

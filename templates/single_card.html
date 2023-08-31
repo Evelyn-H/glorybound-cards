@@ -34,7 +34,9 @@
 
     <footer>
         <div class="icons">
-            <img class="symbol inspiration" src="../../assets/icons/inspiration.png" />
+            {% for icon in card.sorting_icons %}
+                <img class="{{ icon.0 }}" src="../../assets/icons/{{ icon.1 }}.png" />
+            {% endfor %}
         </div>
         <div class="left">{{ group.name }}</div>
         <div class="right">{{ date }}&nbsp;&nbsp;&ndash;&nbsp;&nbsp;GLORYBOUND</div>

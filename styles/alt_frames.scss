@@ -151,8 +151,11 @@
         }
 
         main {
+            /* make the art smaller so the padding with the different frame still looks good */
+            grid-template-rows: 6mm 0.5mm 4mm 2mm 25mm 2.5mm 34mm;
+
             .content-bg {
-                margin-top: 1.5mm;
+                // margin-top: 1.5mm;
                 grid-column: 1/6;
                 grid-row: 7/8;
             }

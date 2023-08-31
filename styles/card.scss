@@ -249,8 +249,16 @@ body {
                 height: 5mm;
                 margin: 1mm;
                 margin-left: 0mm;
+                object-fit: contain;
 
                 opacity: 0.9;
+
+                // background: var(--color-textbox-bg);
+                // background: #fff;
+                // border-radius: 1mm;
+                // padding: 0.5mm;
+
+                filter: #{"invert()"};
             }
         }
 
