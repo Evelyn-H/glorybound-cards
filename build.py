@@ -228,6 +228,11 @@ class Card(object):
         return 'mentor' in self.types and ('move' in self.types or 'item' in self.types)
 
     @property
+    def is_equip(self):
+        # might be able to somehow check if the text contains an equip command, but this'll do for now
+        return 'item' in self.types or 'signature' in self.types
+
+    @property
     def landscape(self):
         return self.is_mentor
 
@@ -572,18 +577,19 @@ if __name__ == '__main__':
         asyncio.get_event_loop().run_until_complete(asyncio.gather(*tasks))
 
         # make print-n-play pdfs
-        print('building print-n-play pdf')
-        cards = []
-        for group in groups:
-            for card in group.cards:
-                name = cleanup(card.name) #+ f'[face,{card.count}]'
-                filename = f'./build/images/{cleanup(group.name)}/{name}.png'
-                cards += [filename] * card.count
+        if sys.argv.count('--print-n-play') > 0:
+            print('building print-n-play pdf')
+            cards = []
+            for group in groups:
+                for card in group.cards:
+                    name = cleanup(card.name) #+ f'[face,{card.count}]'
+                    filename = f'./build/images/{cleanup(group.name)}/{name}.png'
+                    cards += [filename] * card.count
 
-        print(cards)
-        subprocess.run(f"convert {' '.join(cards)} ./build/pdfs/print-n-play.pdf", shell=True)
-        subprocess.run(f"pdfjam ./build/pdfs/print-n-play.pdf -o ./build/pdfs/print-n-play_3x3.pdf --nup 3x3 --scale {10.5/11}", shell=True)
-        
+            print(cards)
+            subprocess.run(f"convert {' '.join(cards)} ./build/pdfs/print-n-play.pdf", shell=True)
+            subprocess.run(f"pdfjam ./build/pdfs/print-n-play.pdf -o ./build/pdfs/print-n-play_3x3.pdf --nup 3x3 --scale {10.5/11}", shell=True)
+            
 
-        # combined file with all archetypes
-        subprocess.run(f"pdftk ./build/pdfs/Archetype* cat output ./build/pdfs/Archetypes.pdf", shell=True)
+            # combined file with all archetypes
+            subprocess.run(f"pdftk ./build/pdfs/Archetype* cat output ./build/pdfs/Archetypes.pdf", shell=True)

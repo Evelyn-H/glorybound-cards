@@ -18,5 +18,8 @@ build: clean sass
 render: clean sass
 	pipenv run python build.py --render
 
+print-n-play: clean sass
+	pipenv run python build.py --render --print-n-play
+
 zip: build
 	zip -r build/cards build js assets/icons assets/art

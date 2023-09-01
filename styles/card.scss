@@ -140,11 +140,11 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-content: center;
+            align-items: center;
 
-            .inspiration {
-                width: 5mm;
+            & > * {
                 height: 5mm;
+                max-width: 5mm;
 
                 margin: 1mm;
                 margin-bottom: 0mm;
@@ -281,6 +281,13 @@ body {
             grid-row: 2 / 3;
             justify-self: end;
             @include helpers.vcenter;
+        }
+
+        .center {
+            grid-column: 1/3;
+            grid-row: 1/3;
+            justify-self: center;
+            font-size: 8pt;
         }
     }
 }

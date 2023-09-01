@@ -16,6 +16,9 @@
 
         <!-- <div class="cost">{{ card.cost }}</div> -->
         <div class="cost">
+            {% if card.is_equip %}
+                <img class="equip" src="../../assets/icons/equip.png" />
+            {% endif %}
             {% for n in range(card.cost) %}
                 <img class="inspiration" src="../../assets/icons/inspiration.png" />
             {% endfor %}
@@ -40,5 +43,6 @@
         </div>
         <div class="left">{{ group.name }}</div>
         <div class="right">{{ date }}&nbsp;&nbsp;&ndash;&nbsp;&nbsp;GLORYBOUND</div>
+        <div class="center"></div>
     </footer>
 </div>
