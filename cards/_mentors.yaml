@@ -13,6 +13,7 @@ cards:
     cost: 1
     types: mentor move
     art: Kaya
+    summary: It costs \inspiration and blocks, then attacks 3 if it blocked an attack.
     text: |
         \block
         When I block an attack: \attack[3]
@@ -31,6 +32,7 @@ cards:
     cost: 1
     types: mentor move
     art: Milo
+    summary: It costs \inspiration and attacks, with more power for every two points you've scored.
     text: |
         I get +1 power for every two points you've scored this match.
         \attack[2]
@@ -48,6 +50,7 @@ cards:
     cost: 2
     types: mentor move
     art: Vernon
+    summary: It costs \inspiration[2] and attack 3, and costs \inspiration[2] to block
     text: |
         \attack[3]
         I cost \inspiration[2] to block.
@@ -66,6 +69,7 @@ cards:
     cost: 0
     types: mentor move
     art: Maren
+    summary: It makes you gain \inspiration for each point you've scored this match.
     text: |
         Gain \inspiration for each point you've scored this match.
 
@@ -82,6 +86,7 @@ cards:
     cost: 1
     types: mentor move permanent
     art: Sashka
+    summary: It is a permanent that costs \inspiration and conjures skeletons each turn any player scores.
     text: |
         \endstep[If either player scored points this turn, conjure a Skeletal Minion into play.]
 
@@ -98,8 +103,10 @@ cards:
     cost: 0
     types: mentor move
     art: Zophi
+    summary: It can be played as a copy of any of your opponent's banished cards.
     text: |
         \onreveal[Choose one of your opponent's banished cards. I am a copy of that card until I leave play.]
+        \reminder[If I copy a ruined card, I am ruined.]
 
 
 - Gil Ninefingers:
@@ -114,6 +121,7 @@ cards:
     cost: 2
     types: mentor move
     art: Gil
+    summary: It costs \inspiration[2] and attacks 1 twice, and costs less if you have Assassin's Focus.
     text: |
         I cost \inspiration[1] less to play for each Assassin's Focus you have.
         \attack[1]; \attack[1]
@@ -132,6 +140,7 @@ cards:
     cost: 0
     types: mentor move
     art: Mouse
+    summary: It blocks and lets you look at your opponent's hand.
     text: |
         Look at your opponent's hand.
         \block
@@ -149,6 +158,7 @@ cards:
     cost: 1
     types: mentor move permanent
     art: Jax
+    summary: It is a permanent that costs \inspiration and gives all your attacks +1 power.
     text: |
         Your attacks get +1 power.
 
@@ -165,6 +175,7 @@ cards:
     cost: 0
     types: mentor move sequence
     art: Lenora
+    summary: It is a sequence that makes you gain \inspiration and then blocks an attack.
     text: |
         \sequence
         [Gain \inspiration.]
@@ -183,6 +194,7 @@ cards:
     cost: 1
     types: mentor move ruined
     art: Vanya
+    summary: It costs \inspiration and prevents any attacks from hitting you this turn.
     text: |
         You cannot be hit by attacks this turn.
 
@@ -199,6 +211,7 @@ cards:
     cost: 0
     types: mentor move permanent
     art: Ammon
+    summary: It gives attacks against you -1 power until you get hit by an attack.
     text: |
         Your opponent's attacks get -1 power.
         \endstep[If you were hit by an attack this turn, recall me.]
@@ -216,6 +229,7 @@ cards:
     cost: 0
     types: mentor move
     art: Niomi
+    summary: It makes you gain \inspiration and gives your attacks this turn +1 power.
     text: |
         Gain \inspiration. Your attacks get +1 power this turn.
 
@@ -235,6 +249,7 @@ cards:
     cost: 0
     types: mentor move
     art: Kuzai
+    summary: It lets you play a random move from your hand for free.
     text: |
         \onreveal[Reveal a card from your hand at random and play it alongside me. It costs no \inspiration to play.]
 
@@ -251,6 +266,7 @@ cards:
     cost: 0
     types: mentor move permanent
     art: Cassius
+    summary: It is a permanent that attacks 4 when you use Pact of the Chain while it is in play.
     text: |
         When you return me to your hand from play: \attack[4]
 
@@ -267,6 +283,7 @@ cards:
     cost: 1
     types: mentor move sequence
     art: Persephone
+    summary: It is a sequence that costs \inspiration and attacks 4 in two turns.
     text: |
         \sequence
         [No effect.]
@@ -286,6 +303,7 @@ cards:
     cost: 1
     types: mentor move
     art: Tamir
+    summary: It costs \inspiration and attacks 2, doubled if you play it on the final turn.
     text: |
         \attack[2]
         If it's the final turn of the match, I attack twice. \reminder[One block can only stop one attack.]
@@ -303,6 +321,7 @@ cards:
     cost: 0
     types: mentor move sequence
     art: Elio
+    summary: It is a sequence that makes you gain \inspiration and then get +1 action.
     text: |
         \sequence
         [Each player gains \inspiration.]
@@ -321,6 +340,7 @@ cards:
     cost: 1
     types: mentor move ruined
     art: Bastien
+    summary: It costs \inspiration and lets you choose your move after seeing your opponent's.
     text: |
         \onreveal[Choose another move to play alongside me.]
 
@@ -337,6 +357,7 @@ cards:
     cost: 0
     types: mentor item
     art: Chip
+    summary: It is an item that attacks on the final turn and doesn't count toward your two-item limit.
     text: |
         \equip[You may equip an additional item.]
         On the fifth turn of the match, \orange[\attack[1]].
@@ -352,8 +373,9 @@ cards:
 
 - Ascend:
     cost: 3
-    types: mentor move
+    types: mentor move ruined
     art: Iris
+    summary: It costs \inspiration[3] and conjures your ascension to your hand.
     text: |
         Conjure your ascension to your hand.
 
@@ -370,6 +392,7 @@ cards:
     cost: 0
     types: mentor move
     art: Zev
+    summary: It attacks 2, and in three matches you swap it for another card you've discovered.
     text: |
         \attack[2]
         After your third match, you claim an additional card and lose Noxious Prototype for the rest of the tournament.
@@ -387,6 +410,7 @@ cards:
     cost: 0
     types: mentor move ruined
     art: Cicero
+    summary: It swaps with your opponent's move, making them attack 2 while you use their card.
     text: |
         \onreveal[Swap me with a card your opponent is revealing. They claim me until I leave play, and you claim that card until it leaves play, and it costs \inspiration[2] less to play.]
         \attack[2]
@@ -404,5 +428,6 @@ cards:
     cost: 0
     types: mentor move
     art: Dessa
+    summary: It blocks, and also attacks 2 if your opponent has more points than you.
     text: |
         \block. If your opponent has more points than you, \attack[2].

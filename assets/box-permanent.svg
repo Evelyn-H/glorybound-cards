@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.582677 249.448819">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        fill: none;
+        stroke-width: 1.417323px;
+      }
+
+      .cls-4 {
+        font-size: 8px;
+      }
+
+      .cls-5, .cls-6 {
+        font-family: CrimsonPro-SemiBold, 'Crimson Pro';
+        font-weight: 600;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 1.162514px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.019531em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.004883em;
+      }
+
+      .cls-7, .cls-8, .cls-9 {
+        font-family: CrimsonPro-Medium, 'Crimson Pro';
+        font-weight: 500;
+      }
+
+      .cls-8 {
+        letter-spacing: -.007812em;
+      }
+    </style>
+  </defs>
+  <path d="m162.992126,127.559055c.781509,0,1.417328.635818,1.417328,1.41732v90.708664c0,.781494-.635818,1.417313-1.417328,1.417313H15.590541c-.7815,0-1.417318-.635818-1.417318-1.417313v-90.708664c0-.781502.635818-1.41732,1.417318-1.41732h147.401586m0-1.41732H15.590541c-1.565523,0-2.834637,1.269119-2.834637,2.834641v90.708664c0,1.565536,1.269114,2.834625,2.834637,2.834625h147.401586c1.565521,0,2.834641-1.269089,2.834641-2.834625v-90.708664c0-1.565521-1.269119-2.834641-2.834641-2.834641h0Z"/>
+  <g>
+    <line class="cls-3" x1="14.173228" y1="216.141732" x2="164.409449" y2="216.141732"/>
+    <line class="cls-1" x1="14.173228" y1="132.519685" x2="164.409449" y2="132.519685"/>
+    <polygon class="cls-2" points="134.207153 124.015748 128.976379 124.015748 127.660828 124.015748 50.921875 124.015748 49.606323 124.015748 44.375549 124.015748 41.102356 129.684999 44.375549 135.35431 49.606323 135.35431 50.921875 135.35431 127.660828 135.35431 128.976379 135.35431 134.207153 135.35431 137.480286 129.684999 134.207153 124.015748"/>
+    <text class="cls-4" transform="translate(48.904675 131.714155)"><tspan class="cls-6" x="0" y="0">P</tspan><tspan class="cls-5" x="4.109375" y="0">ermanent:</tspan><tspan class="cls-9" x="38.78125" y="0" xml:space="preserve"> S</tspan><tspan class="cls-7" x="44.09375" y="0">ta</tspan><tspan class="cls-8" x="50.484375" y="0">y</tspan><tspan class="cls-9" x="54.171875" y="0">s in pl</tspan><tspan class="cls-7" x="73.3125" y="0">a</tspan><tspan class="cls-9" x="77.023438" y="0">y</tspan></text>
+  </g>
+</svg>

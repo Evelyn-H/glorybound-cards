@@ -58,6 +58,20 @@ body {
         
         background: linear-gradient(45deg, var(--color-bg-left), var(--color-bg-right));
     }
+
+    .box-frame {
+        position: absolute;
+        width: var(--width);
+        height: var(--height);
+
+        & > img {
+            /* yay pixel alignment issues*/
+            height: 88.2mm;
+            position: relative;
+            top: -0.1mm;
+            left: -0.1mm;
+        }
+    }
     
     .reference-image {
         position: absolute;
@@ -81,7 +95,8 @@ body {
         /*  grids!! */
         display: grid;
         /* heights: title divider type spacer art spacer text */
-        grid-template-rows: 6mm 0.5mm 4mm 2mm 27mm 0.5mm 34mm;
+        grid-template-rows: 6mm 0.5mm 4mm 2mm 27mm 0.5mm 34mm; /* with typeline */
+        grid-template-rows: 6mm 0.5mm 0mm 2.5mm 30.5mm 0.5mm 34mm; /* no typeline */
         /* widths: left-column spacer center spacer right-column */
         grid-template-columns: 7mm 2mm 36mm 2mm 7mm;
 

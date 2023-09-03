@@ -56,6 +56,7 @@ schema = Map({
                 Optional('invoke'): Str(), 
                 Optional('invoketext'): Str(), 
                 Optional('mentormove'): Str(),
+                Optional('summary'): Str(),
                 Optional('count'): Int(),
             })
         )
@@ -84,6 +85,7 @@ class Card(object):
         self.mentor_move = d['mentormove']
         self.mentor_move_card = None
         self.parent_mentor = None
+        self.summary = d['summary']
         self._art = d['art']
         self._count = d['count']
 
@@ -169,11 +171,22 @@ class Card(object):
 
         text += self.text
 
-        text += '\n\n\\permanent' if 'permanent' in self.types else ''
+        # text += '\n\n\\permanent' if 'permanent' in self.types else ''
 
         if self.invoke_name:
             # print((self.invoke_name, self.invoke_text))
             text += f'\n\n\\invoke_ability[{self.invoke_name}][{self.invoke_text.strip()}]'
+
+        if self.is_mentor:
+            type = 'Item' if 'item' in self.mentor_move_card.types else 'Move'
+            # text += f'\n\n<div class="move-summary">{type}: {self.mentor_move_card.name}</div>\n'
+            # text += self.mentor_move_card.summary
+            # text += f'\n\n\\reminder[This is just a summary, claim the {type} card before you play.]'
+            text += f'\n\n<div class="divider"></div>'
+            text += f'When you claim me, also claim \\b[{self.mentor_move_card.name}] from the Mentor Moves pile. '
+            text += self.mentor_move_card.summary
+            return text
+            
 
         return text.strip() 
 
@@ -183,7 +196,8 @@ class Card(object):
 
     @property
     def rendered_text_mini(self):
-        return self._rendered_text(mini=True)
+        # return self._rendered_text(mini=True)
+        return self.summary
 
     def _rendered_text(self, mini=False):
         expanded, remainder = expand(self._full_text(mini))
@@ -196,8 +210,8 @@ class Card(object):
         # print(split_on_empty_lines(expanded))
         # print(html)
 
-        if self.is_mentor:
-            html += f'\n\n{render_mini_card(self.mentor_move_card)}\n\n'
+        # if self.is_mentor:
+        #     html += f'\n\n{render_mini_card(self.mentor_move_card)}\n\n'
 
         return html
 
@@ -240,7 +254,7 @@ class Card(object):
     def symbols(self):
         symbols = []
 
-        if 'starter' in self.types:
+        if 'starter' in self.types or ('mentor' in self.types and 'move' in self.types):
             symbols.append(('rarity', 'star'))
 
         elif 'signature' in self.types:
@@ -271,6 +285,14 @@ class Card(object):
     def count(self):
         return self._count or self.group.count or 1
 
+    @property
+    def box_frame(self):
+        if 'permanent' in self.types:
+            return 'box-permanent.svg' 
+        elif 'sequence' in self.types:
+            return 'box-sequence.svg' 
+        elif 'move' in self.types:
+            return 'box-move.svg' 
 
 class Group(object):
     def __init__(self, kind, cards, subname=None, extras=None, count=1):

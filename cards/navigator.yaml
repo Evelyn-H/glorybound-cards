@@ -5,7 +5,6 @@ cards:
 - Storm Spike:
     cost: 1
     types: starter move
-    art: Bring the Lightning
     text: |
         \onreveal[If either player has one or fewer cards in hand, I cost \inspiration less to play.]
         \attack[2]
@@ -13,7 +12,6 @@ cards:
 - Dimensional Dodge:
     cost: 0
     types: starter move sequence
-    art: Leap Skyward
     text: |
         \sequence
         [\block]
@@ -34,7 +32,7 @@ cards:
 
 - Wormhole Compass:
     types: item
-    art: Salt-Captain's Compass
+    art: Salt-Captain_s Compass
     text: |
         Whenever you hit with an attack, your opponent chooses a card in their hand and banishes it. If that attack had \blue[four] or more power, you look at their hand and choose which card to banish.
             

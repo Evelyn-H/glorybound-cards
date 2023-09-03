@@ -21,7 +21,6 @@ cards:
 - Safe From Harm:
     cost: 0
     types: starter move
-    art: Elegant Reversal
     text: |
         Conjure a Glimmer of Hope into play. \reminder[It is worth one point, but is lost if your opponent hits you.]
         Gain \inspiration[1].

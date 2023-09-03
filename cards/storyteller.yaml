@@ -70,7 +70,7 @@ cards:
 - Scathing Satire:
     cost: 2
     types: move
-    art: Stage-Prop Satire
+    art: Stage-Prop Mockery
     text: |
         \onreveal[Name a card your opponent played last turn. Conjure a copy of the named card and play it alongside me if able. \reminder[You still pay costs.]]
         \attack[2]
@@ -88,7 +88,7 @@ cards:
 - Storyteller's Ascension:
     cost: 1
     types: conjured move ascension
-    art: Myths that Guide
+    art: Myths That Guide
     text: |
         When you conjure me to your hand, play me immediately if able.
         \sequence

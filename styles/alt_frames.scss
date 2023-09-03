@@ -19,7 +19,8 @@
 
             /* heights: title divider type spacer art spacer text */
             // grid-template-rows: 6mm 0.5mm 4mm 2mm 30mm 0.5mm 34mm;
-            grid-template-rows: 6mm 0.5mm 4mm 0mm 43.5mm;
+            grid-template-rows: 6mm 0.5mm 4mm 0mm 43.5mm; /* with typeline */
+            grid-template-rows: 6mm 0.5mm 2.5mm 0mm 45mm; /* no typeline */
             /* widths: left-column spacer center spacer right-column */
             // grid-template-columns: 7mm 2mm 36mm 2mm 7mm;
             grid-template-columns: 33mm 1mm 2mm 36mm 2mm;
@@ -127,10 +128,12 @@
         .symbols > .archetype {
             filter: #{"invert()"};
         }
+
+        .box-frame > img {
+            filter: #{"invert()"};
+        }
     }
 
-
-    // == background colors ==
 
     &.move {
         --color-bg-left: #{$purple};
@@ -150,9 +153,25 @@
             --color-bg-right: #{$gold}; 
         }
 
+        &.permanent {
+            main > .text > .autofit {
+                /* to account for the textbox frame */
+                padding-top: 4mm;
+                padding-bottom: 4mm;
+            }
+        }
+
+        &.sequence {
+            main > .text > .autofit {
+                /* to account for the textbox frame */
+                padding-top: 4mm;
+            }
+        }
+
         main {
             /* make the art smaller so the padding with the different frame still looks good */
-            grid-template-rows: 6mm 0.5mm 4mm 2mm 25mm 2.5mm 34mm;
+            grid-template-rows: 6mm 0.5mm 4mm 2mm 25mm 2.5mm 34mm; /* with typeline */
+            grid-template-rows: 6mm 0.5mm 0mm 2.5mm 28.5mm 2.5mm 34mm; /* no typeline */
 
             .content-bg {
                 // margin-top: 1.5mm;
@@ -162,6 +181,10 @@
 
             .title, .types {
                 color: #fff;
+            }
+
+            .divider-inner {
+                background: #fff;
             }
 
             .cost > .equip {
@@ -179,6 +202,15 @@
         --color-bg-right: #{$red}; 
 
         --color-textbox-bg: #{$transparent-white};
+
+        main > .art > img {
+            /* undo the inverted art on moves */
+            filter: none;
+        }
+
+        &.move {
+            --color-textbox-bg: #fff;
+        }
     }
 
     &.item {

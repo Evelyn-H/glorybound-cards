@@ -9,6 +9,14 @@
 
     & > .autofit > :last-child {
         margin-bottom: 0;
+
+        & > .sequence {
+            margin-bottom: 0;
+
+            & > :last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
     .inspiration {
@@ -111,14 +119,31 @@
             font-style: italic;
             font-weight: 600;
 
-            text-align: center;
+            // text-align: center;
 
-            &::before {
-                content: '—  ';
-            }
-            &::after {
-                content: '  —';
-            }
+            // &::before {
+            //     content: '—  ';
+            // }
+            // &::after {
+            //     content: '  —';
+            // }
+
+            // text-decoration: underline;
+            // text-decoration-skip-ink: none;
+        }
+
+        .divider {
+            width: 24mm;
+            height: 0.5mm;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+            margin-left: auto;
+            margin-right: auto;
+
+            border-radius: 0.25mm;
+            background-color: #000;
+            background: linear-gradient(45deg, var(--color-bg-left), var(--color-bg-right));
+            background-size: var(--width) var(--height);
         }
     // }
 }

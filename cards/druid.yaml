@@ -21,7 +21,7 @@ cards:
 - Commune with Nature:
     cost: 0
     types: starter move
-    art: 
+    art: Lifebloom
     text: |
         Gain \inspiration.
         \Invoke

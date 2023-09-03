@@ -21,7 +21,6 @@ cards:
 - Pyre Meditation:
     cost: 0
     types: starter move sequence
-    art: Rest
     text: |
         \sequence
         [Gain \inspiration.]

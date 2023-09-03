@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154.488189 103.39207">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-width: 1.417323px;
+      }
+
+      .cls-5 {
+        font-size: 8px;
+      }
+
+      .cls-2 {
+        stroke-width: 1.419973px;
+      }
+
+      .cls-6, .cls-7 {
+        font-family: CrimsonPro-SemiBold, 'Crimson Pro';
+        font-weight: 600;
+      }
+
+      .cls-7 {
+        letter-spacing: -.019531em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.004883em;
+      }
+
+      .cls-8, .cls-9, .cls-10, .cls-11 {
+        font-family: CrimsonPro-Medium, 'Crimson Pro';
+        font-weight: 500;
+      }
+
+      .cls-9 {
+        letter-spacing: -.007812em;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-linecap: round;
+      }
+
+      .cls-11 {
+        letter-spacing: -.037109em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        stroke-width: 1.162514px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x=".708661" y="6.305456" width="153.070866" height="96.377953" rx="2.834646" ry="2.834646"/>
+  <g>
+    <line class="cls-2" x1=".708661" y1="97.014118" x2="153.779528" y2="97.014118"/>
+    <line class="cls-3" x1="20.551181" y1="3.470811" x2="133.937008" y2="3.470811"/>
+    <line class="cls-3" x1="20.551181" y1="9.140102" x2="133.937008" y2="9.140102"/>
+    <polygon class="cls-4" points="122.159909 .636162 116.929135 .636162 115.613584 .636162 38.874631 .636162 37.559079 .636162 32.328305 .636162 29.055112 6.305413 32.328305 11.974725 37.559079 11.974725 38.874631 11.974725 115.613584 11.974725 116.929135 11.974725 122.159909 11.974725 125.433042 6.305413 122.159909 .636162"/>
+    <text class="cls-5" transform="translate(36.029305 8.334571)"><tspan class="cls-7" x="0" y="0">P</tspan><tspan class="cls-6" x="4.109375" y="0">ermanent:</tspan><tspan class="cls-10" x="38.78125" y="0" xml:space="preserve"> S</tspan><tspan class="cls-8" x="44.09375" y="0">ta</tspan><tspan class="cls-9" x="50.484375" y="0">y</tspan><tspan class="cls-10" x="54.171875" y="0">s in pl</tspan><tspan class="cls-8" x="73.3125" y="0">a</tspan><tspan class="cls-11" x="77.023438" y="0">y</tspan><tspan class="cls-10" x="80.476562" y="0">.</tspan></text>
+  </g>
+</svg>

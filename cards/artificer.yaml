@@ -5,14 +5,12 @@ cards:
 - Explosive Iteration:
     cost: 1
     types: starter move sequence
-    art: Clockwork Ballista
     text: |
         \sequence[\attack[1]][\attack[2]]
 
 - Clay Guardian:
     cost: 0
     types: starter move sequence
-    art: Mechanized Snare
     text: |
         \sequence
         [\block]
