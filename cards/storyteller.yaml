@@ -65,7 +65,7 @@ cards:
     types: move
     art: Sleep Song
     text: |
-        \onreveal[On reveal: Pay \inspiration. If you do, choose a card your opponent is revealing. They banish that card without playing it.]
+        \onreveal[Pay \inspiration. If you do, choose a card your opponent is revealing. They banish that card without playing it.]
         
 - Scathing Satire:
     cost: 2
