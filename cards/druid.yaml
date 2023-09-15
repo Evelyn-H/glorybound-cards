@@ -30,7 +30,8 @@ cards:
     types: starter inspiration
     art: The Woods Offer Refuge
     text: |
-        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+        \b[Inspiration]
+        Begin the match with me (face up) and any number of other cards from your hand (face down) equipped as Inspiration.
         
 - Leaf-Crowned Ancient:
     cost: 3

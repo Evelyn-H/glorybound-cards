@@ -386,7 +386,7 @@ cards:
     text: 
     invoke: Gather the Components
     invoketext: |
-        Discover a new advanced move or item. \reminder[You claim one discovered card before each round.]
+        Discover a new rare move or item. \reminder[You claim one discovered card before each round.]
 
 - Noxious Prototype:
     cost: 0

@@ -272,8 +272,6 @@
             filter: #{"brightness(0) invert(1)"};
         }
 
-        
-
         main {
             color: #fff;
             
@@ -284,8 +282,24 @@
                 background: none;
             }
 
-            .art, .text {
-                display: none
+            .art {
+                display: none;
+            }
+
+            .text {
+                display: none;
+            }
+        }
+
+        &.starter {
+            .border {
+                background: linear-gradient(0deg, #000 0 0, #0000 30%);
+            }
+            main > .text {
+                display: block;
+                font-size: 7pt;
+                align-self: end;
+                text-align: center;
             }
         }
     }

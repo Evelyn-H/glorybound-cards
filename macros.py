@@ -49,6 +49,10 @@ def conjured():
     return keyword('Conjured', 'I appear when another card conjures me and disappear when I leave play.')
 
 @register
+def conjuredascension():
+    return keyword('Conjured&nbsp;&ndash;&nbsp;Ascension', 'I appear when a card conjures your Ascension, and disappear when I leave play.')
+
+@register
 def augment():
     return keyword('Augment', 'I appear when I am attached to a card in play, and disappear if I am not.')
 

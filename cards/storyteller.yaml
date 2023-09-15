@@ -52,7 +52,8 @@ cards:
 - Shared Lessons, Shared Dreams:
     types: starter inspiration
     text: |
-        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+        \b[Inspiration]
+        Begin the match with me (face up) and any number of other cards from your hand (face down) equipped as Inspiration.
         
 - Songwriter's Lute:
     types: item
@@ -62,7 +63,7 @@ cards:
             
 - Sleep Song:
     cost: 0
-    types: move
+    types: move ruined
     art: Sleep Song
     text: |
         \onreveal[Pay \inspiration. If you do, choose a card your opponent is revealing. They banish that card without playing it.]

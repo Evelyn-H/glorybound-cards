@@ -157,7 +157,8 @@ class Card(object):
 
     def _full_text(self, mini=False):
         text = ''
-        text += '\\conjured\n\n' if 'conjured' in self.types and not 'augment' in self.types else ''
+        text += '\\conjured\n\n' if 'conjured' in self.types and not ('augment' in self.types or 'ascension' in self.types) else ''
+        text += '\\conjuredascension\n\n' if 'conjured' in self.types and 'ascension' in self.types else ''
         text += '\\augment\n\n' if 'augment' in self.types else ''
 
         text += f'\\mentormove[{self.parent_mentor.name_short}]\n\n' if self.is_mentor_move and not mini else ''

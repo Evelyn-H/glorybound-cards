@@ -120,7 +120,7 @@ cards:
     types: item
     art: Hand of Greed
     text: |
-        When you claim me, you lose two hearts, discover an item card, and claim an additional item.
+        When you claim me, you lose two hearts, discover a rare item card, and claim an additional item.
         \equip[Equip up to two additional items.]
 
 - Demonforged Scythe:
@@ -176,7 +176,7 @@ cards:
     types: item
     art: Elvish Cookbook
     text: |
-        When you claim me, you discover two advanced moves, then note two non-signature moves you've discovered but not yet claimed.
+        When you claim me, you discover two rare moves, then note two non-signature moves you've discovered but not yet claimed.
         \equip[Add the noted cards to your hand.]
 
 - Ensnaring Vines:
@@ -228,7 +228,7 @@ cards:
     types: item
     art: Knife-Juggling Mishap
     text: |
-        \equip[Gain an \inspiration.]
+        \equip[Gain \inspiration.]
         At the start of the first turn, choose one of your opponent's items. I become a copy of that card for the rest of the match. If it is charged, put the same number of charges on me.
 
 - Driftwood Shield:

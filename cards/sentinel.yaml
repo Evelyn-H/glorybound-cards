@@ -29,7 +29,8 @@ cards:
     types: starter inspiration
     art: 
     text: |
-        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+        \b[Inspiration]
+        Begin the match with me (face up) and any number of other cards from your hand (face down) equipped as Inspiration.
             
 - Truesilver Chains:
     types: item

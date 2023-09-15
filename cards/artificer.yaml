@@ -29,7 +29,8 @@ cards:
     types: starter inspiration
     art: 
     text: |
-        \equip[Equip me and any number of other cards from your hand face-down as inspiration.]
+        \b[Inspiration]
+        Begin the match with me (face up) and any number of other cards from your hand (face down) equipped as Inspiration.
 
 - Temporal Filament:
     types: item
@@ -50,7 +51,7 @@ cards:
     types: move
     art: Explosive Decoy
     text: |
-        As an additional cost to play me, ruin a sequence you have in play. \reminder[Ruined cards are banished when they leave play.]
+        To play me, you must ruin a sequence you have in play. \reminder[Ruined cards are banished when they leave play.]
         Your opponent's attacks get -1 power this turn.
         \attack[3]
         
