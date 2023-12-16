@@ -4,25 +4,26 @@ colors: 820000 - 88ADDB
 
 cards:
 - Culling Scythe:
-    cost: H
+    cost: S
     text: >
         \attack{2}
 
         When I hit, conjure and play \upgrade{a Skeletal Minion}{two Skeletal Minions}.
-    upgrade cost: 3
+    upgrade cost: 2
 
 - Skeletal Minion:
     cost: X
     linked: >
         {Culling Scythe}
     linked short: true
-    path card name: Skeletal Minion\ \ (3 copies)
+    path card name: Skeletal Minion\ \ (∞)
     text: >
         \sequence
         [No effect.]
         [\attack{1}]
 
-        \textit{If Shambling Ranks is upgraded, I get +1 attack power.}
+    upgrade: >
+        I get +1 attack power.
 
 - Soulless Steel:
     cost: 
@@ -39,7 +40,7 @@ cards:
     purchase: 2
     upgrade cost: 4
     upgrade: >
-        All Skeletal Minions get +1 attack power.
+        When you purchase this upgrade, upgrade all Skeletal Minions.
 
 - Call from the Grave: 
     cost: X
@@ -50,6 +51,10 @@ cards:
         \ -- Recall and play a banished card you've played this match.
 
         \ -- Conjure and play a Skeletal Minion.
+    upgrade cost: 3
+    upgrade: >
+        Then, Conjure and play a Skeletal Minion.
+
 
 - Throne of Fallen Souls:
     cost: 
@@ -60,4 +65,4 @@ cards:
         
         Claim up to two cards throughout the tournament with total level 5 or less. 
         
-        When you claim a card, you learn it
+        When you claim a card, you learn it.

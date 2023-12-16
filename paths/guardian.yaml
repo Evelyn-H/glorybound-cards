@@ -7,9 +7,11 @@ cards:
     cost: 
     types: innate, permanent
     text: > 
-        \onplay{Choose \upgrade{two different Dragons}{three different Dragons} and reveal and conjure them. They are \textbf{Eggs} for the first three turns of the match, \textbf{Hatchlings} on the fourth turn and \textbf{Adolescents} on the fifth and beyond.}
+        \onplay{Place \upgrade{two Dragons}{three Dragons} face up under Rasing Dragons.}
         
-        At the end of each turn, if your opponent scored points this turn, banish one of your Dragons.
+        At the end of each turn, if your opponent scored points this turn, remove a Dragon from under Rasing Dragons.
+
+        At the start of the fifth turn of the match, conjure all Dragon cards under Rasing Dragons.
     upgrade cost: 4
 
 
@@ -18,13 +20,7 @@ cards:
     linked: Raising Dragons
     linked type: Dragon
     text: >
-      If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-      \thinparbreak
-      \attack{2}
-
-      If I'm an \textbf{Adolescent}:
-
-      I get +3 attack power.
+      \attack{5}
 
 
 - Frost Dragon:
@@ -32,13 +28,9 @@ cards:
     linked: Raising Dragons
     linked type: Dragon
     text: >
-      If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-      \thinparbreak
-      \attack{2}
+      \attack{3}
 
-      If I'm an \textbf{Adolescent}:
-
-      I get +1 attack power and your opponent's attacks get -3 attack power.
+      Your opponent's attacks get -3 attack power.
 
 
 - Shadow Dragon:
@@ -46,13 +38,9 @@ cards:
     linked: Raising Dragons
     linked type: Dragon
     text: >
-      If I am a \textbf{Hatchling} or \textbf{Adolescent}:
-      \thinparbreak
-      \attack{2}
+      \attack{3}
 
-      If I'm an \textbf{Adolescent}:
-
-      I get +1 attack power and I can't be blocked.
+      I can't be blocked.
 
 
 - Defend the Young:
@@ -67,9 +55,9 @@ cards:
 - Unyielding Protection:
     cost: SX
     text: >
-      Your opponent can't score points this turn.
+      Neither player can score points this turn.
     purchase: 2
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: >
       I only cost \mana{X}.
 
@@ -77,7 +65,7 @@ cards:
 - Furious Charge:
     cost: SS
     text: >
-      I cost \mana{S} less for each Dragon that has been banished during the match.
+      I cost \mana{S} less for each Dragon removed from under Rasing Dragons during this match.
       
       \attack{2}
 

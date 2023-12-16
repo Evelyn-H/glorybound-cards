@@ -18,15 +18,16 @@ cards:
     cost:
     text: >
         When you reveal me, name a card your opponent played last turn. I am a copy of that card until I leave play.
+    upgrade cost: 2
+    upgrade: >
+        Reveal me when the match starts. I don’t count towards maximum hand size.
 
 - Sleep Song:
     cost: X
     purchase: 2
     text: >
-        When you reveal me as your action, choose a card your opponent is revealing. They must rest instead of playing that card.
+        \textbf{On Flip:} Choose a card your opponent is revealing. Your opponent \upgrade{recalls}{banishes} it without paying its cost.
     upgrade cost: 3
-    upgrade: >
-        Banish that card.
 
 - Myths That Guide:
     cost: SX
@@ -43,9 +44,10 @@ cards:
 - Library of Legends:
     cost: X
     purchase: 3
-    types: innate
+    types: support
     text: >
-        If there is not a \library{library}, six random unclaimed heirlooms become the \library{library} for the rest of the tournament.
+        Look at three unclaimed heirlooms at random, claim one of them.
 
-        Recall \upgrade{one heirloom}{two heirlooms} from the \library{library}. Claim each card you recall for the rest of the match, and play any that are innate.
     upgrade cost: 5
+    upgrade: >
+        Repeat this process.

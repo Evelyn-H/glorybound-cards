@@ -1,4 +1,4 @@
-path: Mariner
+path: Undrowned
 colors: 000257 - 4FB1A8
 extras: >
   \newcommand{\drown}[1]{\textcolor[HTML]{3B8594}{\textbf{#1}}}
@@ -10,21 +10,11 @@ cards:
     text: > 
         \attack{1}
 
-        When I hit, banish one of your opponent's non-innate cards from play.
+        When I hit, Corrupt one of your opponent's non-innate cards in play.
     upgrade cost: 3
     upgrade: >
         I get +1 attack power.
 
-
-- Curse of the Depths:
-    cost:
-    types: innate, permanent
-    text: > 
-        When any of your opponent's non-conjured, non-innate cards are banished, place it under this card. 
-        
-        Conjure Siren's Song to your hand.
-        
-        At the end of the game score points equal to the number of cards banished under this card minus 2. \textit{(You cannot score negative points.)}
 
 - Siren's Song:
     cost:
@@ -32,7 +22,19 @@ cards:
     text: > 
         \sequence
         [You may recall one of your opponent's cards banished under Curse of the Depths]
-        [Your opponent chooses one of their non-innate cards from hand or play and banishes it.]
+        [Your opponent banishes one of their non-Innate, non-Corrupted cards from hand or play.]
+
+
+- Curse of the Depths:
+    cost:
+    types: innate, permanent
+    purchase: 2
+    text: > 
+        \onplay{Conjure Siren's Song.}        
+
+        When any of your opponent's non-innate cards are banished, place it under this card. 
+        
+        At the end of the game score points equal to the number of cards banished under this card minus 2. \textit{(You cannot score negative points.)}
 
 
 - Trawling Net:
@@ -40,11 +42,10 @@ cards:
     text: > 
         \block
 
-        When I block a card, banish that card.
-    purchase: 2
-    upgrade cost: 3
+        When I block a card, Corrupt that card.
+    upgrade cost: 2
     upgrade: >
-        When I block, I can block any number of attacks.
+        I can block an additional attack.
 
 
 
@@ -60,5 +61,5 @@ cards:
 - Abyssal Offering:
     cost: X
     text: > 
-        Your opponent chooses one of their non-innate cards from hand or play and chooses an additional card for each two points you've scored this match. Banish those cards.
+        Your opponent chooses one of their non-innate, non-Corrupted cards from hand or play and chooses an additional card for each two points you've scored this match. Banish those cards.
     purchase: 3

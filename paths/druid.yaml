@@ -5,7 +5,7 @@ colors: F49B0C - 34BC0F
 
 cards:    
 - Bind in Thorns:
-    cost: H
+    cost: S
     text: > 
         \attack{1}
 
@@ -19,32 +19,28 @@ cards:
     cost: 
     text: > 
         \sequence
+        [\upgrade{Gain \mana{S}}{Gain \mana{SS}}.]
         [Gain \mana{S}.]
-        [Gain \mana{S}.]
-    upgrade cost: 4
-    upgrade: >
-        Gain \mana{SS} each turn instead.
+    upgrade cost: 2
+
 
 
 - Wildshape:
-    cost: 
+    cost: X
     text: > 
         \sequence
         [Conjure Tooth and Claw.\par \vspace{0.5mm} Your opponent's attacks get -1 attack power.]
         [Your opponent's attacks get -1 attack power.]
 
         When I leave play, banish Tooth and Claw.
-    purchase: 2
-    upgrade cost: 4
-    upgrade: >
-        I stay in play for an additional turn; same effect as the final turn.
+    purchase: 3
 
 
 - Tooth and Claw:
     cost: SS
     linked: Wildshape
     text: > 
-        \attack{2}
+        \attack{3}
 
         \attack{2}
 
@@ -60,7 +56,10 @@ cards:
         Each turn after that:
         \thinparbreak
         \attack{1}
-    purchase: 3
+    purchase: 2
+    upgrade cost: 5
+    upgrade: >
+        I get +1 attack power.
 
 
 - Sheltering Ancient:

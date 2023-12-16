@@ -14,37 +14,33 @@ cards:
     cost: 
     types: permanent
     text: >
-        When you attack, recall me to give an attack +3 attack power.
-    upgrade cost: 3
+        When you attack, recall me to give an attack +2 attack power.
+    upgrade cost: 2
     upgrade: >
-        \onplay{Gain \mana{S}.}
+        If I'm blocked, Corrupt the block.
 
-- Shield-Piercing Bolt:
-    cost: H
+- Snipe:
+    cost: SX
     purchase: 2
     text: >
-        \attack{2}
-    
-        If your opponent is using a block, they must block me if able. When they do, banish that block card.
+        \attack{4}
     upgrade cost: 3
-    upgrade: I get +1 attack power
+    upgrade: I cost \mana{X} less to play.
 
 - Keep At Range:
     cost: S
-    types: permanent
-    purchase: 2
-    text: >
-        When you reveal me to play me, and at the start of each turn if I'm in play, your opponent's attack cards cost \mana{S} more to play this turn. \textit{(If this leaves them unable to pay for the card they reveal, they can't play it.)}
-        
-        When you are hit by an attack, recall me.
-    upgrade cost: 4
-    upgrade: >
-        \innatebanner
-
-- Survey From Cover:
-    cost: X
     purchase: 4
     text: >
-        If your opponent isn't attacking you, you may play another card.
-        
+        \sequence
+        [Players cannot attack this turn.]
+        [You may play an additional permanent or sequence action this turn.]
+
+
+- Find Cover:
+    cost:
+    purchase: 2
+    text: >
         \block
+        
+        If you are not being attacked, gain \upgrade{\mana{S}}{\mana{SS}}.
+    upgrade cost: 3

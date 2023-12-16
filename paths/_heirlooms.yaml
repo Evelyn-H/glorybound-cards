@@ -8,7 +8,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you play another card, sacrifice it if you haven't yet.
+        When you play another card, Corrupt it if you haven't yet.
         
         When you have no cards in hand, recall me to:
         \thinparbreak\attack{3}
@@ -28,9 +28,9 @@ cards:
 
 - Gambler's Dice:
     cost:
-    types: heirloom
+    types: heirloom, innate
     text: >
-        Reveal a card from your hand at random and play it. It costs no \mana{S} to play.
+        You must choose your cards at random each turn. They costs no \mana{S} or \mana{X} to play.
 
 
 - Hand of Greed:
@@ -92,7 +92,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        If you would complete a sequence card, instead banish me to keep that card in play for an additional turn, with the same effect as the final printed turn.
+        The first time you would complete a sequence card, instead banish me to keep that card in play for an additional turn, with the same effect as the final printed turn.
 
 
 - Librarian's Ladder:
@@ -115,16 +115,16 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When your opponent scores their fourth point of the match, banish me to score one point.
+        When your opponent scores their fourth point of the match, you score one point.
 
 
-- Sequined Mask:
+- Seer's Orb:
     cost: 
     types: heirloom, innate, permanent
     text: >
         \onplay{Choose a turn number.}
 
-        On the chosen turn, if you would choose and reveal a card as your action, instead your opponent reveals their card first, then you choose and reveal a card. Then banish me.
+        On the chosen turn, your opponent must choose and reveal their cards before you do.
 
 
 - Longstep Boots:
@@ -147,26 +147,25 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you score your fourth point of the match, name a non-innate card. At the end of the turn, banish me to banish all cards with that name from your opponent's hand and from play.
+        When you score your fourth point of the match, name a non-innate card. Your opponent must banish all cards with that name from their hand and play.
 
 
-- Circlet of Obsession:
+- Circlet of Mastery:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When the tournament begins, announce one of your paths as your obsession. This tournament, you can only learn and upgrade cards from that path. 
+        If this heirloom is claimed, you must discard all but one Path. You can only learn and upgrade cards from that Path this tournament.
 
-        \onplay{Gain \mana{S}.}
-
-        The first time one of your other cards would be banished during the match, banish me instead.
+        \onplay{Name a card. That card cannot be banished this game. Gain \mana{S}.}
 
 
 - Morpheus Clay:
     cost: 
     types: heirloom, innate
     text: >
-        When you play me, choose another innate card you are playing. I become a copy of that card until I leave play, except that I cost \mana{S} instead of that card's cost.
+        When you play me, choose another innate card you are playing. I become a copy of that card until I leave play.
 
+        \textit{(This also copies the cost of the copied card.)}
 
 - Inflatable Armor:
     cost:
@@ -280,7 +279,7 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        If you would be eliminated from the tournament, discard this heirloom and set your current lives to 1.
+        If you would be eliminated from the tournament, discard this heirloom and set your current lives to 1. Begin each match with one point for the rest of the tournament.
 
 - Broken Metronome:
     cost:
@@ -314,7 +313,7 @@ cards:
     text: >
         At the start of any turn, before actions are chosen, banish me. If you do, whenever you score points this turn, gain that much \mana{S}.
 
-- Demonic Axe:
+- Infernal Contract:
     cost:
     types: heirloom, innate, permanent
     text: >
@@ -328,7 +327,7 @@ cards:
     text: >
         Your attacks that have power 1 or less can't be blocked unless your opponent pays \mana{S}.
 
-- Old Fishing Pole:
+- List of Truenames:
     cost:
     types: heirloom, innate, permanent
     text: >
@@ -339,16 +338,16 @@ cards:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When you reveal a permanent or sequence card as your action, banish me. Choose an additional permanent or sequence card from your hand to reveal and play alongside it.
+        The first time you reveal a permanent or sequence card as your action, banish me. Choose an additional permanent or sequence card from your hand to reveal and play alongside it.
 
 
 - Top Hat of Deception:
     cost:
     types: heirloom, innate, permanent
     text: >
-        When the match starts, secretly choose a card from your hand and hide it under me.
+        When the match starts, secretly choose a card from your hand and place it facedown under me.
         
-        When you reveal actions on the third turn, your opponent guesses the hidden card. If they guessed wrong, play it alongside your action without paying \mana{S}. Otherwise, return it to your hand. 
+        When you reveal actions on the third turn, your opponent guesses the name of the hidden card. If they guessed wrong, play it alongside your action without paying \mana{S}. Otherwise, return it to your hand. 
 
 - Illicit Replica:
     cost:

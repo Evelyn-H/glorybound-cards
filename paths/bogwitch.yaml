@@ -9,18 +9,18 @@ cards:
         \block
 
         Conjure The Risen One.
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: >
-        The Risen One gets +2 attack power.
+        Upgrade The Risen One.
 
 
 - The Risen One:
-    cost: SX
+    cost: X
     linked: Unburial Rite
     text: >
-      \attack{4}
-
-      \textit{If Unburial Rite is upgraded, I get +2 attack power.}
+      \attack{3}
+    upgrade: >
+        I get +2 attack power.
     
 
 - Lantern's Touch:

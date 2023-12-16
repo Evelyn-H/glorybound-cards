@@ -9,9 +9,9 @@ cards:
       \attack{2}
 
       When I am blocked, you may pay \mana{X} to score points equal to half my attack power (rounded up).
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: >
-      I cost \mana{S} less to play.
+      I get +1 attack power.
 
 
 - Leap Skyward:
@@ -23,9 +23,9 @@ cards:
 
 
 - Storm Surge:
-    cost: 
+    cost: X
     text: >
-        At the end of this turn, gain \mana{S} until you have more \mana{S} than your opponent.
+        Gain \mana{S} equal to your points.
     purchase: 2
     big art: true
 
@@ -36,6 +36,9 @@ cards:
     text: >
         Your attacks get +1 attack power.
     purchase: 3
+    upgrade cost: 3
+    upgrade: >
+        I cost \mana{S} less to play.
 
 
 - Bring the Lightning:

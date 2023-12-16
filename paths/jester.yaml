@@ -8,8 +8,8 @@ cards:
     text: >
       \attack{0}
 
-      If your opponent is using a block, they must block me if able. When they do, you \upgrade{score two points}{score three points}.
-    upgrade cost: 3
+      Your opponent must block me if able. When they do, you \upgrade{score one points}{score two points}.
+    upgrade cost: 2
 
 
 - Explosive Decoy:
@@ -17,12 +17,13 @@ cards:
     text: >
       \block
 
-      When I block, sacrifice me to:
+      If you are being attacked sacrifice me to:
       \thinparbreak
       \attack{3}
     upgrade cost: 3
     upgrade: >
-      You don't need to sacrifice me to attack.
+      No longer need to sacrifice me.
+
 
 
 - Carnival Mallet:
@@ -30,39 +31,43 @@ cards:
     text: >
       \attack{2}
 
-      When I hit, banish a card at random from your hand face down. Next turn, play that card as an additional action. It costs no \mana{S}.
+      When I hit, place a card \upgrade{at random}{of your choice} from your hand face down in front of you. Next turn, play that card as an additional action. It costs no \mana{S}.
 
 
     purchase: 2
     upgrade cost: 4
-    upgrade: >
-      Choose the card you banish instead of picking it at random.
 
 
 - Knife-Juggling Mishap:
     cost: X
     text: >
-      When you reveal me to play me, choose a card your opponent is revealing. Claim that card until it leaves play, and it costs no \mana{S} to play. Your opponent claims me until I leave play.
+      On Flip: Choose a card your opponent is playing. I become a Corrupted copy of that card until I leave play, excluding its cost. Your opponent recalls that card without paying its cost.
 
-      \attack{2}
+      Your opponent conjures and plays Errant Knife.
+
     purchase: 3
 
+- Errant Knife:
+    cost: X
+    linked: Knife-Juggling Mishap
+    text: >
+      \attack{2}
 
 - Immersive Theater:
     cost: 
     types: innate, permanent
     purchase: 3
     text: >
-      \onplay{Secretly choose Comedy or Tragedy and hide it under me.}
+      \onplay{Secretly choose Comedy or Tragedy and place it facedown it under me.}
 
-      On the fourth turn of the match, banish me and reveal the hidden card. Conjure and play that card.
+      On the fourth turn of the match, conjure and play the facedown card as an additional action.
 
 
 - Comedy:
     cost: X
     linked: Immersive Theater
     text: >
-      As you play me, if your opponent has fewer points than you, they claim me and play me instead.
+      On Flip: If your opponent has fewer points than you, they conjure and play me instead of you.
 
       \attack{2}
 
@@ -71,6 +76,6 @@ cards:
     cost: X
     linked: Immersive Theater
     text: >
-      As you play me, if your opponent has more points than you, they claim me and play me instead.
+      On Flip: If your opponent has more points than you, they conjure and play me instead of you.
 
       \attack{2}

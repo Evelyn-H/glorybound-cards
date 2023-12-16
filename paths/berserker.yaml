@@ -6,9 +6,10 @@ cards:
 - Bloodthirsty Axe:
     cost: H
     text: >
-      I get +2 attack power if you are being attacked.
-
       \attack{2}
+
+      I get \upgrade{+2}{+3} attack power if you are being attacked.
+    upgrade cost: 2
 
 
 - Battle Rage:
@@ -26,24 +27,31 @@ cards:
     text: >
       Gain \mana{SS}.
 
-      Attack yourself with an attack power of 1.
-    
-      \textit{(You are both attacking and being attacked. If you don't block, your opponent scores the point.)}
+      Your opponent conjures and plays Scarring Blade.
     purchase: 2
     upgrade cost: 3
     upgrade: >
-      I get +1 attack power and \linebreak you gain an additional \mana{S}.
-      \vspace{0.5mm}
-
-
-- Pillage:
-    cost: X
+      Gain an additional \mana{S}. Scarring Blade is upgraded.
+ 
+- Scarring Blade:
+    cost: 
+    linked: Rite of Scars
     text: >
-      Banish a card your opponent played this turn.
+      \attack{1}
       
-      Banish one of your opponent's non-innate cards of their choice from hand or play.
-    purchase: 3
+    upgrade: >
+      I get +1 attack power.
 
+- Shield Breaker:
+    cost: 
+    text: >
+      \attack{1}
+      
+      I must be blocked if able. Corrupt any cards which block me.
+    purchase: 2
+    upgrade cost: 4
+    upgrade: >
+      I get +1 attack power.
 
 - Retribution:
     cost: S

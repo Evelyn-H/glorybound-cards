@@ -21,7 +21,7 @@ cards:
         [All points you score are doubled.]
     upgrade cost: 3
     upgrade: >
-        When I block, I can block any number of attacks.
+        I can block an additional attack.
 
 
 - Divine Intervention:

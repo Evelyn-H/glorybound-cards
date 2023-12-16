@@ -10,7 +10,7 @@ cards:
         \attack{2}
 
         Conjure Parry.
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: >
         I cost \mana{H} less to play.
 
@@ -57,7 +57,7 @@ cards:
 
             \textit{Ambush} -- When you attack, banish me to give an attack \upgrade{+2}{+4} attack power.
 
-            \textit{Besiege} -- Your opponent pays \upgrade{\mana{S}}{\mana{SS}}.
+            \textit{Besiege} -- The first time your opponent attacks, I block it unless they pay \upgrade{\mana{S}}{\mana{SS}}.
         }
 
     purchase: 3

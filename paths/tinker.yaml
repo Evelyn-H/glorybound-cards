@@ -9,7 +9,7 @@ cards:
         \sequence
         [\attack{1}]
         [\attack{1}]
-    upgrade cost: 4
+    upgrade cost: 3
     upgrade: >
         I get +1 attack power.
 
@@ -21,7 +21,7 @@ cards:
         [\block]
         
         When I block an attack, \upgrade{recall me}{recall me unless you pay \mana{S}}.
-    upgrade cost: 3
+    upgrade cost: 2
 
 - Concentrate:
     cost: 
@@ -37,9 +37,18 @@ cards:
     text: >
         Your sequence cards stay in play for an additional turn, with the same effect as the final printed turn.
     purchase: 3
+    upgrade cost: 5
+    upgrade: >
+        I cost \mana{S} less to play.
 
-- Innovator's Triumph:
-    cost: X
-    purchase: 4
+- Universal Augmentation:
+    cost: S
+    types: permanent
+    purchase: 5
     text: >
-        Learn and upgrade all your cards until the end of the match. Recall all your cards that are banished or outside the match. This does not affect conjured or support cards.
+        Your attack get +1 attack power.
+
+        Your blocks can block an additional attack.
+
+        Your cards cost \mana{S} less to play.
+

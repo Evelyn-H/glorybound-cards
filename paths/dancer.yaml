@@ -6,22 +6,21 @@ cards:
 - Elegant Reversal:
     cost: S
     text: > 
+        \attack{0}
         \block
 
-        When I block:
-        \thinparbreak
-        \attack{X}
-        \thinparbreak
-        X is the attack power of the attack I blocked.
-    
+        I gain +X attack where X is the attack power of the attack I'm blocking.
+    upgrade cost: 3
+    upgrade: >
+        I cost \mana{H}.
 
 - Mesmerize:
     cost: 
     text: > 
         \sequence
-        [\upgrade{No effect}{Gain \mana{S}.}]
-        [Your opponent can't spend \mana{S}. \textit{(\mana{H} must be paid with \mana{X}.)}]
-    upgrade cost: 4
+        [\upgrade{No effect}{Banish a card your opponent played this turn. When I am recalled, your opponent recalls the banished card.}]
+        [Your opponent can't spend \mana{S} this turn. You may banish me to gain \mana{S}.]
+    upgrade cost: 2
     
 
 - Dizzying Spin:
@@ -29,9 +28,11 @@ cards:
     text: > 
         \attack{1}
         
-        \upgrade{When I hit}{Whether or not I hit}, name a card. Your opponent can't play that card next turn.
+        If I hit, name a card. Your opponent can't play that card next turn.
     purchase: 2
     upgrade cost: 3
+    upgrade: >
+        Always name a card, even if you didn't hit
     
 
 - Just Out of Reach:

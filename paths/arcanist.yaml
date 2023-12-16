@@ -4,12 +4,16 @@ colors: E100FF - 5300EF
 
 cards:
 - Forcefield:
-    cost: S
+    cost: H
     types: permanent
     text: > 
         When you are being attacked, recall me to:
         \thinparbreak
         \block
+    upgrade cost: 3
+    upgrade: >
+        I cost \mana{H} less to play.
+
     
 
 - Meteor Invocation:
@@ -17,8 +21,8 @@ cards:
     text: > 
         \sequence
         [No effect.]
-        [\attack{4}]
-    upgrade cost: 3
+        [\attack{3}]
+    upgrade cost: 2
     upgrade: >
         I get +2 attack power.
 
@@ -36,8 +40,10 @@ cards:
 - Shrinking Ray:
     cost: 
     text: > 
-        When you reveal me, your opponent pays \mana{S} if able. \textit{(If this leaves them unable to pay for the card they reveal, they can't play it.)}
-    purchase: 3
+        \attack{1}
+        
+        At the end of turn, if this attack hit, your opponent must pay \mana{S}.
+    purchase: 2
 
 
 - Spellweaving:

@@ -8,9 +8,11 @@ cards:
     text: > 
         \attack{1}
 
-        If both players scored points last turn, I get +1 attack power.
+        If both players scored points last turn, I get \upgrade{+1}{+2} attack power.
         
-        If neither player scored points last turn, gain \mana{S}.
+        If neither player scored points last turn, gain \upgrade{\mana{S}}{\mana{SS}}.
+    upgrade cost: 2
+
 
 
 - Shelter at the Crossroads:
@@ -18,7 +20,7 @@ cards:
     text: > 
         \sequence
         [\block]
-        [Instead of a normal action this turn, choose two cards from your hand. Decide which one to reveal after seeing what your opponent reveals.]
+        [This turn, your opponent must choose and reveal their cards before you do.]
 
 
 - Out of Time:
@@ -39,9 +41,8 @@ cards:
     text: > 
         Reveal me when the match starts. I don't count for maximum hand size
 
-        Name a card your opponent is playing. 
+        \textbf{On Flip:} Choose a card your opponent is playing. Restart the turn. Your opponent can’t play the chosen card and I am banished. 
         
-        Restart the turn, except your opponent can't play the named card this turn, and I am banished.
     purchase: 3
 
 

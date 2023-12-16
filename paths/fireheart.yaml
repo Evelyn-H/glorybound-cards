@@ -6,59 +6,52 @@ extras: >
 
 
 cards:    
-- Insatiable Flame:
-    cost: 
+- Burning Impulse:
+    cost: X
     text: > 
-        \attack{1}
-
-        I \burn{burn} your opponent when I hit. \textit{(This can help you set them ablaze.)}
-    upgrade cost: 3
-    upgrade: >
-        I can't be blocked unless your opponent pays \mana{S}.
+        \sequence
+        [\block]
+        [You may play an additional action this turn.]
     
 
-- Set Ablaze:
+- Consumed by Flame:
     cost: SSX
     text: > 
-        If your opponent has been \burn{burned} at least twice, I cost \mana{S} less to play and I get +2 attack power.
+        \attack{2}
+
+        I get +X attack power where X is the number of banished cards you own.
         
         I can't be blocked.
-
-        \attack{3}
+    upgrade cost: 5
+    upgrade: I cost \mana{S} less to play.
 
 
 - Inferno Circle:
-    cost: 
+    cost: S
     text: > 
-        \sequence
-        [If your opponent is attacking you, I \burn{burn} them.]
-        [If your opponent is attacking you, I \burn{burn} them.]
-        [If your opponent is attacking you, I \burn{burn} them.]
-    purchase: 2
+        \attack{0}
+        \block
 
-
-- Kindled Flame:
-    cost: 
-    types: innate, permanent
-    text: > 
-        When your opponent is \burn{burned} for the \upgrade{third time}{third time or fourth time}, recall and play Set Ablaze if able.
+        I get +X attack power where X is the number of banished cards you own.
     purchase: 3
-    upgrade cost: 4
+    upgrade cost: 3
+    upgrade: I cost \mana{H} to play.
+
+- Use for Tinder:
+    cost: 
+    text: > 
+        Banish \upgrade{a card played this turn by either player}{all cards played this turn}.
+
+        Next turn your actions cost \mana{S} less to play.
+    purchase: 2
+    upgrade cost: 2
     
 
-- Pyre Offering:
-    cost: X
+- Rise from Ashes:
+    cost:
+    types: innate, permanent
     text: > 
-        Reveal me when the match starts. I don't count for maximum hand size.
+        If one of your non-innate cards would be banished, you may instead banish two other non-innate cards from your hand.
 
-        \sequence
-        [Gain \mana{S}. Banish a non-Fireheart card from your hand to conjure Consumed by Flame.]
-        [You get an additional action this turn.]
+        \textit{(If the card was Corrupted, it would then be recalled as normal.)}
     purchase: 4
-
-
-- Consumed by Flame:
-    cost: 
-    linked: Pyre Offering
-    text: > 
-        I am a copy of the card that was banished by Pyre Offering, except that I also \burn{burn} your opponent when I hit them or block an attack.

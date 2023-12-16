@@ -1,35 +1,35 @@
 path: Assassin
 colors: 590050 - F700AD
 extras: >
-  \newcommand{\trap}{\textit{\textsb{Trap} (Play me any time after the turn I'm conjured, no action required.)}}
+  \newcommand{\trap}{\textit{\textsb{Trap} (Reveal me any time after the turn I'm conjured if my Requirement is met.)}}
 
 
 cards:
 - Backstab:
     cost: 
     text: > 
-        I cost \mana{SS} more to play if your opponent is attacking.
+        I cost \mana{S} more to play if your opponent is attacking.
 
-        \attack{3}
+        \attack{2}
 
         \textit{(If you can't pay for me you can't play me.)}
-    upgrade cost: 3
+    upgrade cost: 2
     upgrade: >
         I get +2 attack power.
 
 - Shadowstep:
     cost: 
     text: > 
-        \block    
+        \sequence
+        [\block]
+        [Your attacks can't be blocked this turn unless your opponnent pays \mana{S}.]   
 
-        You may sacrifice me to gain \mana{S}.
 
 - Trap Setting:
     cost: 
     text: > 
-        Secretly choose a Trap you haven't chosen yet this match and conjure it. After this turn ends, you can play that card at any time.
+        Secretly choose, conjure, and play a Trap facedown. After this turn ends, you may reveal the Trap at anytime if its Requirement is met.
         
-        \textit{(Playing the trap does not require an action. Conceal the other two traps to avoid giving away your choice.)}
     purchase: 2
 
 
@@ -40,7 +40,7 @@ cards:
     text: > 
         \trap
 
-        You can't play me unless you hit with an attack this turn.
+        Requirement: You hit with an attack this turn.
 
         At the start of each turn, score one point.
 
@@ -51,7 +51,7 @@ cards:
     text: > 
         \trap
 
-        You can't play me unless your opponent didn't attack on their last turn.
+        Requirement: Your opponent didn't attack last turn.
 
         Your opponent can't score points this turn.
 
@@ -63,9 +63,9 @@ cards:
     text: > 
         \trap
         
-        You can't play me unless your opponent has more points than you.
+        Requirment: Your opponent has more points than you.
         
-        Your opponent can't block this turn.
+        Your attacks can't be blocked this turn.
 
 
 - Always More Knives:
@@ -85,5 +85,4 @@ cards:
     text: > 
         Before the first turn of the match there is a secret turn. Your opponent and their cards do not participate in this turn. You can't score points during the secret turn.
 
-        Banish me at the end of the secret turn.
     purchase: 4
